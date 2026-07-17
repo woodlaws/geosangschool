@@ -122,8 +122,9 @@
     .hero-split { display:grid; grid-template-columns:1fr 420px; gap:60px; align-items:center; }
     @media (max-width:900px) { .hero-split{grid-template-columns:1fr;} .hero-visual{display:none!important;} }
 
-    .inst-split { display:grid; grid-template-columns:240px 1fr; gap:48px; align-items:start; }
-    @media (max-width:767px) { .inst-split{grid-template-columns:1fr;} }
+    .inst-split { display:grid; grid-template-columns:300px 1fr; gap:56px; align-items:start; }
+    @media (max-width:900px) { .inst-split{grid-template-columns:1fr;} }
+    @media (max-width:599px) { .book-grid-inner{grid-template-columns:repeat(3,1fr)!important;} }
 
     .card-h { transition:transform .22s,box-shadow .22s; }
     .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
@@ -349,60 +350,173 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- ══════════════════════════════════ -->
 <!-- 4. 대표 소개 -->
 <!-- ══════════════════════════════════ -->
-<section style="background:#fff; padding:88px 0;">
+<section style="background:#f4f8ff; padding:96px 0;">
   <div class="wrap">
-    <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:48px;">대표 소개</div>
-    <div class="inst-split">
-      <!-- 사진 + 기본 정보 -->
-      <div style="text-align:center;">
-        <div style="width:180px; height:180px; background:linear-gradient(135deg,#dbeafe,#bfdbfe); border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:52px; color:#2563eb; border:4px solid #93c5fd;">임</div>
-        <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:6px;">임헌수 대표</h3>
-        <p style="font-size:13px; color:#64748b; line-height:1.8; margin-bottom:16px;">거상스쿨(주) 대표<br>거상마케팅센터 대표</p>
-        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px 16px;">
-          <p style="font-size:12.5px; color:#1d4ed8; font-weight:600; line-height:1.6;">AI 마케팅 실전 교육가<br>사업가 · 콘텐츠 기획자</p>
+    <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:52px;">대표 소개</div>
+
+    <!-- 좌우 2단 -->
+    <div class="inst-split" style="margin-bottom:64px;">
+
+      <!-- 왼쪽: 사진 + 이름 카드 -->
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <!-- 프로필 사진 -->
+        <div style="border-radius:20px; overflow:hidden; box-shadow:0 8px 32px rgba(37,99,235,.13); background:#e8f0fe; aspect-ratio:3/4; max-width:300px;">
+          <img src="/uploads/2209026378.jpg" alt="임헌수 거상스쿨 대표" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
         </div>
-        <div style="margin-top:16px; background:#f8fafc; border-radius:10px; padding:14px 16px; text-align:left;">
-          <p style="font-size:11.5px; color:#64748b; margin-bottom:6px; font-weight:600;">관련 브랜드</p>
-          <p style="font-size:12px; color:#334155; line-height:1.8;">거상스쿨(주)<br>거상마케팅센터<br>AI마케팅스쿨</p>
+        <!-- 이름 카드 -->
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:20px 22px; box-shadow:0 2px 8px rgba(0,0,0,.05);">
+          <div style="font-size:20px; font-weight:900; color:#0f172a; margin-bottom:4px;">임헌수 대표</div>
+          <div style="font-size:14px; color:#64748b; line-height:1.75; margin-bottom:14px;">거상스쿨(주) 대표<br>거상마케팅센터 대표</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <span style="background:#eff6ff; border:1px solid #bfdbfe; color:#1d4ed8; font-size:12px; font-weight:600; padding:4px 10px; border-radius:20px; word-break:keep-all;">AI 마케팅 실전 교육가</span>
+            <span style="background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; font-size:12px; font-weight:600; padding:4px 10px; border-radius:20px; word-break:keep-all;">사업가</span>
+            <span style="background:#fdf4ff; border:1px solid #e9d5ff; color:#7c3aed; font-size:12px; font-weight:600; padding:4px 10px; border-radius:20px; word-break:keep-all;">콘텐츠 기획자</span>
+          </div>
+        </div>
+        <!-- 관련 브랜드 -->
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:18px 22px; box-shadow:0 2px 8px rgba(0,0,0,.05);">
+          <div style="font-size:12px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:10px;">관련 브랜드</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="width:6px; height:6px; background:#2563eb; border-radius:50%;"></div><span style="font-size:14px; color:#334155; font-weight:600;">거상스쿨(주)</span></div>
+            <div style="display:flex; align-items:center; gap:8px;"><div style="width:6px; height:6px; background:#0891b2; border-radius:50%;"></div><span style="font-size:14px; color:#334155; font-weight:600;">거상마케팅센터</span></div>
+            <div style="display:flex; align-items:center; gap:8px;"><div style="width:6px; height:6px; background:#7c3aed; border-radius:50%;"></div><span style="font-size:14px; color:#334155; font-weight:600;">AI마케팅스쿨</span></div>
+          </div>
         </div>
       </div>
-      <!-- 상세 내용 -->
-      <div>
-        <h2 style="font-size:clamp(20px,2.5vw,32px); font-weight:900; color:#0f172a; line-height:1.4; margin-bottom:20px; word-break:keep-all;">
-          현장에서 직접 써본 사람이<br>가르칩니다
-        </h2>
-        <p style="font-size:15px; color:#64748b; line-height:1.85; margin-bottom:32px; word-break:keep-all;">
-          임헌수 대표는 AI를 단순히 '도구'로 가르치지 않습니다.<br>
-          AI를 활용해 콘텐츠를 만들고, 리드를 모으고, 신뢰를 쌓고, 판매와 재구매로 이어지는 구조를 설계하는 방법을 교육합니다.<br><br>
-          강의, 컨설팅, 마케팅 실무 경험을 바탕으로 누구나 따라 할 수 있도록 복잡한 흐름을 실전형 구조로 단순화해 전달합니다.
-        </p>
-        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px;">
-          <div style="display:flex; align-items:center; gap:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px;">
-            <div style="width:8px; height:8px; background:#2563eb; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">AI 마케팅 실전 교육</span>
+
+      <!-- 오른쪽: 소개 콘텐츠 -->
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <!-- 제목 -->
+        <div>
+          <p style="font-size:13px; color:#2563eb; font-weight:700; margin-bottom:10px; letter-spacing:.04em;">마케팅 분야 베스트셀러 7권 저자 · 큐레이션 2권 감수 · 13년간 현장 교육 경력</p>
+          <h2 style="font-size:clamp(22px,2.8vw,36px); font-weight:900; color:#0f172a; line-height:1.35; word-break:keep-all; margin-bottom:20px;">
+            현장에서 직접 써본 사람이 가르칩니다
+          </h2>
+          <p style="font-size:16px; color:#475569; line-height:1.9; word-break:keep-all;">
+            임헌수 대표는 AI를 단순히 '도구'로 가르치지 않습니다.<br>
+            AI를 활용해 콘텐츠를 만들고, 리드를 모으고, 신뢰를 쌓고,<br>
+            판매와 재구매로 이어지는 <strong style="color:#0f172a;">구조를 설계하는 방법</strong>을 교육합니다.
+          </p>
+          <p style="font-size:16px; color:#475569; line-height:1.9; margin-top:14px; word-break:keep-all;">
+            강의, 컨설팅, 마케팅 실무 경험을 바탕으로<br>
+            누구나 따라 할 수 있도록 복잡한 흐름을 실전형 구조로 단순화해 전달합니다.
+          </p>
+        </div>
+
+        <!-- 전문 분야 + 강의 방식 -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:20px 22px; box-shadow:0 2px 8px rgba(0,0,0,.04);">
+            <div style="font-size:12px; color:#94a3b8; font-weight:700; letter-spacing:.05em; margin-bottom:10px;">전문 분야</div>
+            <div style="font-size:15px; font-weight:700; color:#0f172a; line-height:1.7; word-break:keep-all;">AI 마케팅 · 콘텐츠 수익화<br>랜딩페이지 · GEO · AEO</div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:20px 22px; box-shadow:0 2px 8px rgba(0,0,0,.04);">
+            <div style="font-size:12px; color:#94a3b8; font-weight:700; letter-spacing:.05em; margin-bottom:10px;">강의 방식</div>
+            <div style="font-size:15px; font-weight:700; color:#0f172a; line-height:1.7; word-break:keep-all;">실습 중심 · 결과물 중심<br>사업 적용 중심</div>
+          </div>
+        </div>
+
+        <!-- 핵심 키워드 카드 -->
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
+            <div style="width:8px; height:8px; background:#2563eb; border-radius:50%; flex-shrink:0;"></div>
+            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">AI 마케팅 실전 교육</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
             <div style="width:8px; height:8px; background:#06b6d4; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">콘텐츠 수익화</span>
+            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">콘텐츠 수익화</span>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
             <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">시스템화/자동화</span>
+            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">시스템화/자동화</span>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
             <div style="width:8px; height:8px; background:#059669; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">1인기업/소상공인 맞춤 전략</span>
+            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">1인기업/소상공인 맞춤 전략</span>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
             <div style="width:8px; height:8px; background:#d97706; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">실전형 커리큘럼 설계</span>
+            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">실전형 커리큘럼 설계</span>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:13px 16px;">
             <div style="width:8px; height:8px; background:#2563eb; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:13.5px; font-weight:600; color:#1d4ed8; word-break:keep-all;">거상마케팅센터 현장 경험</span>
+            <span style="font-size:14px; font-weight:600; color:#1d4ed8; word-break:keep-all;">거상마케팅센터 현장 경험</span>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- 책 코너 — 전체 폭 -->
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:20px; padding:36px 40px; box-shadow:0 2px 16px rgba(37,99,235,.07);">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
+        <div style="width:4px; height:24px; background:linear-gradient(180deg,#2563eb,#06b6d4); border-radius:2px;"></div>
+        <h3 style="font-size:20px; font-weight:800; color:#0f172a;">13년간 집필한 책과 감수한 책</h3>
+      </div>
+      <div class="book-grid-inner" style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px;">
+        <!-- book-01 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/1.카카오스토리채널마케팅.jpg" alt="카카오스토리 채널마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#2563eb; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2014.10.08</span>
+        </div>
+        <!-- book-02 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/2.인스타그램마케팅.jpg" alt="인스타그램 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#7c3aed; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2016.07.04</span>
+        </div>
+        <!-- book-03 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/3.스마트스토어마케팅.jpg" alt="스마트스토어 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#059669; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2018.04.12</span>
+        </div>
+        <!-- book-04 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/4.페이스북인스타그램통합마케팅.png" alt="페이스북 인스타그램 통합 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#0891b2; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2018.11.15</span>
+        </div>
+        <!-- book-05 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/5.틱톡마케팅.jpg" alt="TikTok Marketing 틱톡 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#e11d48; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2021.03.10</span>
+        </div>
+        <!-- book-06 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/6.잘팔리는상세페이지기획과디자인.png" alt="상세페이지 기획과 디자인" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#d97706; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2023.07.12</span>
+        </div>
+        <!-- book-07 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/7.ChatGPT마케팅.jpg" alt="ChatGPT 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#0f172a; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2025.01.15</span>
+        </div>
+        <!-- book-08 감수 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/8.큐레이션1.jpg" alt="큐레이션" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#64748b; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2019.09.16 감수</span>
+        </div>
+        <!-- book-09 감수 -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
+            <img src="/uploads/9.큐레이션2.jpg" alt="큐레이션 실전편" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <span style="background:#64748b; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2021.04.25 감수</span>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#94a3b8; margin-top:20px; text-align:right;">* 큐레이션 2종은 감수</p>
     </div>
   </div>
 </section>
