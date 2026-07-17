@@ -28,9 +28,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --c-primary: #2563eb;
+      --c-navy: #0b1b3f;
+      --c-hero-navy: #0b1f5e;
+      --c-hero-blue: #1d4ed8;
+      --c-cyan: #22d3ee;
+      --c-section: #f4f8ff;
+      --c-card-border: #c8d9ee;
+      --c-text: #10203d;
+      --c-muted: #64748b;
+      --c-footer: #06152e;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #1e293b; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; color: inherit; }
     a:hover { opacity: 0.85; }
 
@@ -38,32 +50,59 @@
     @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(37,99,235,.45); } 70% { box-shadow: 0 0 0 10px rgba(37,99,235,0); } 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); } }
     @keyframes gradShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
 
-    .nav-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #0a1628; transition: box-shadow .3s; }
-    .nav-wrap.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.35); }
+    .nav-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #e8edf4; transition: box-shadow .3s; }
+    .nav-wrap.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.09); }
     .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; gap: 0; }
     .nav-logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; margin-right: 28px; }
     .nav-logo-icon { width: 34px; height: 34px; background: #2563eb; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 17px; color: #fff; }
     .nav-logo-text { font-size: 16px; font-weight: 700; color: #fff; white-space: nowrap; }
     .nav-logo-text span { color: #60a5fa; }
     .nav-links { display: flex; align-items: center; gap: 2px; flex: 1; }
-    .nav-link { padding: 6px 9px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.8); border-radius: 6px; transition: all .18s; white-space: nowrap; }
-    .nav-link:hover { color: #fff; background: rgba(255,255,255,.1); opacity: 1; }
+    .nav-link { padding: 6px 10px; font-size: 15px; font-weight: 500; color: #374151; border-radius: 6px; transition: all .18s; white-space: nowrap; }
+    .nav-link:hover { color: #2563eb; background: #eff6ff; opacity: 1; }
     .nav-cta-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: 16px; }
-    .btn-nav-main { padding: 8px 15px; background: #2563eb; color: #fff; font-size: 12.5px; font-weight: 700; border-radius: 7px; white-space: nowrap; transition: all .2s; animation: pulseRing 2.8s ease infinite; }
+    .btn-nav-main { padding: 9px 17px; background: #2563eb; color: #fff; font-size: 14.5px; font-weight: 700; border-radius: 7px; white-space: nowrap; transition: all .2s; animation: pulseRing 2.8s ease infinite; }
     .btn-nav-main:hover { background: #1d4ed8; opacity: 1; }
-    .btn-nav-sub { padding: 7px 13px; border: 1.5px solid rgba(255,255,255,.28); color: rgba(255,255,255,.82); font-size: 12.5px; border-radius: 7px; white-space: nowrap; transition: all .2s; }
-    .btn-nav-sub:hover { border-color: #fff; color: #fff; opacity: 1; }
+    .btn-nav-sub { padding: 8px 14px; border: 1.5px solid #d1d5db; color: #374151; font-size: 14.5px; border-radius: 7px; white-space: nowrap; transition: all .2s; }
+    .btn-nav-sub:hover { border-color: #2563eb; color: #2563eb; opacity: 1; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; margin-left: auto; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
-    .mobile-nav { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: #0a1628; padding: 16px 20px 32px; gap: 2px; z-index: 999; overflow-y: auto; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #1e293b; border-radius: 2px; }
+    .mobile-nav { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: #fff; border-top: 1px solid #e8edf4; padding: 16px 20px 32px; gap: 2px; z-index: 999; overflow-y: auto; }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a { padding: 13px 14px; font-size: 15px; font-weight: 500; color: rgba(255,255,255,.85); border-bottom: 1px solid rgba(255,255,255,.07); display: block; }
-    .mobile-nav a:hover { background: rgba(255,255,255,.07); border-radius: 8px; opacity: 1; }
+    .mobile-nav a { padding: 14px 16px; font-size: 17px; font-weight: 500; color: #374151; border-bottom: 1px solid #f1f5f9; display: block; }
+    .mobile-nav a:hover { background: #eff6ff; color: #2563eb; border-radius: 8px; opacity: 1; }
     .mobile-nav .mob-cta { margin-top: 16px; background: #2563eb; color: #fff; font-weight: 700; border-radius: 10px; border: none; text-align: center; }
     .mobile-nav .mob-login { margin-top: 8px; border: 1.5px solid rgba(255,255,255,.28); border-radius: 10px; text-align: center; }
 
-    @media (max-width: 1060px) { .nav-link { font-size: 12px; padding: 6px 7px; } }
+    @media (max-width: 1060px) { .nav-link { font-size: 13px; padding: 6px 7px; } }
     @media (max-width: 880px) { .nav-links { display: none; } .nav-cta-group { display: none; } .hamburger { display: flex; } }
+
+    /* ── 전체 타이포그래피 업스케일 (40~60대 가독성) ── */
+    /* 인라인 12~13px 범위 → 14~15px */
+    [style*="font-size:12px"],[style*="font-size:12.5px"] { font-size: 14px !important; }
+    [style*="font-size:13px"],[style*="font-size:13.5px"] { font-size: 15px !important; }
+    /* 일반 본문 14~15px → 16~17px */
+    [style*="font-size:14px"],[style*="font-size:14.5px"] { font-size: 16px !important; }
+    [style*="font-size:15px"],[style*="font-size:15.5px"] { font-size: 17px !important; }
+    /* 카드 본문 16~17px → 18px */
+    [style*="font-size:16px"],[style*="font-size:16.5px"] { font-size: 18px !important; }
+    [style*="font-size:17px"] { font-size: 19px !important; }
+    /* 카드 제목·서브 18~20px → 20~22px */
+    [style*="font-size:18px"] { font-size: 20px !important; }
+    [style*="font-size:19px"] { font-size: 21px !important; }
+    [style*="font-size:20px"] { font-size: 22px !important; }
+    /* 섹션 소제목 11~11.5px → 13px (배지/라벨) */
+    [style*="font-size:11px"],[style*="font-size:11.5px"] { font-size: 13px !important; }
+    [style*="font-size:10px"],[style*="font-size:10.5px"] { font-size: 12px !important; }
+    /* 모바일에서 폰트 제한 */
+    @media (max-width: 599px) {
+      [style*="font-size:12px"],[style*="font-size:12.5px"] { font-size: 13px !important; }
+      [style*="font-size:13px"],[style*="font-size:13.5px"] { font-size: 14px !important; }
+      [style*="font-size:14px"],[style*="font-size:14.5px"] { font-size: 15px !important; }
+      [style*="font-size:15px"],[style*="font-size:15.5px"] { font-size: 16px !important; }
+      [style*="font-size:16px"],[style*="font-size:16.5px"] { font-size: 17px !important; }
+      [style*="font-size:17px"],[style*="font-size:18px"] { font-size: 17px !important; }
+    }
 
     .wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
@@ -110,6 +149,7 @@
 
     .hero-split { display: flex; align-items: center; gap: 40px; }
     @media (max-width: 900px) { .hero-split { flex-direction: column; } .hero-vis { display: none !important; } }
+    @media (max-width: 599px) { .stats-bar-grid { grid-template-columns: repeat(2,1fr) !important; } .stats-bar-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.12); } .stats-bar-grid > div:last-child { border-bottom: none; } }
 
     .inst-row { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
     @media (max-width: 767px) { .inst-row { grid-template-columns: 1fr; } }
@@ -130,31 +170,57 @@
     .thumb { width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 10px 10px 0 0; position: relative; overflow: hidden; }
     .thumb-letter { font-family: Montserrat, sans-serif; font-weight: 800; font-size: 36px; color: rgba(255,255,255,.92); }
 
-    .card-h { transition: transform .22s, box-shadow .22s; }
-    .card-h:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.12) !important; }
+    .card-h { transition: transform .22s, box-shadow .22s; box-shadow: 0 3px 12px rgba(15,40,90,.09); border-color: #a8c4e0 !important; }
+    .card-h:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(15,40,90,.16) !important; border-color: #7aaac8 !important; }
 
     .faq-answer { overflow: hidden; transition: max-height .35s ease, padding .3s ease; max-height: 0; padding: 0 20px; }
     .faq-answer.open { max-height: 260px; padding: 0 20px 18px; }
     .faq-icon { transition: transform .3s; display: inline-block; }
     .faq-icon.open { transform: rotate(45deg); }
+
+    /* ── 카드 구분감 강화 ── */
+    /* #f8fafc 배경 카드: 배경을 약간 더 블루계열로, 보더 강화 */
+    [style*="background:#f8fafc"][style*="border:1px solid #e2e8f0"] {
+      background: #e6effa !important;
+      border-color: #a8c4e0 !important;
+      box-shadow: 0 3px 12px rgba(15,40,90,.10) !important;
+    }
+    /* 솔루션/단기클래스 흰색 카드 기본 그림자 */
+    [style*="background:#fff"][style*="border:1px solid #e2e8f0"] {
+      border-color: #a8c4e0 !important;
+      box-shadow: 0 4px 16px rgba(15,40,90,.11) !important;
+    }
+    /* 출력물 갤러리 카드 */
+    [style*="border-radius:12px"][style*="overflow:hidden"][style*="text-align:center"] {
+      border-color: #a8c4e0 !important;
+      box-shadow: 0 3px 12px rgba(15,40,90,.10) !important;
+    }
   </style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1668C7">
+<meta name="msapplication-TileColor" content="#1668C7">
 </helmet>
 
 <!-- FIXED NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="uploads/e-1_투명.png" alt="거상스쿨" style="height:38px; width:auto; display:block;">
+      <img src="uploads/a-3_투명.png" alt="거상스쿨 로고" style="height:36px; width:auto; display:block;">
+      <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
       <a href="/about" class="nav-link">거상스쿨 소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
-      <a href="/courses/ai-marketing-school" class="nav-link" style="color:#60a5fa; font-weight:600;">AI마케팅스쿨</a>
+      <a href="/courses/ai-marketing-school" class="nav-link" style="color:#2563eb; font-weight:600;">AI마케팅스쿨</a>
       <a href="/courses/short-courses" class="nav-link">단기 클래스</a>
-      <a href="/reviews" class="nav-link">수강후기</a>
       <a href="/resources" class="nav-link">학습자료</a>
-      <a href="/support" class="nav-link">학습지원</a>
+      <a href="/reviews" class="nav-link">수강후기</a>
       <a href="/contact" class="nav-link">상담문의</a>
+      <a href="/support" class="nav-link">학습지원</a>
     </div>
     <div class="nav-cta-group">
       <a href="/contact" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
@@ -170,12 +236,12 @@
 <div class="{{ mobileNavClass }}">
   <a href="/about" onClick="{{ toggleMenu }}">거상스쿨 소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
-  <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">AI마케팅스쿨</a>
+  <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}" style="color:#2563eb;font-weight:600;">AI마케팅스쿨</a>
   <a href="/courses/short-courses" onClick="{{ toggleMenu }}">단기 클래스</a>
-  <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
   <a href="/resources" onClick="{{ toggleMenu }}">학습자료</a>
-  <a href="/support" onClick="{{ toggleMenu }}">학습지원</a>
+  <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
   <a href="/contact" onClick="{{ toggleMenu }}">상담문의</a>
+  <a href="/support" onClick="{{ toggleMenu }}">학습지원</a>
   <a href="/contact" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
   <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>
 </div>
@@ -185,7 +251,11 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [1] HERO -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background: linear-gradient(145deg, #06101f 0%, #0a1a3a 55%, #0b2050 100%); padding: 80px 0 88px;">
+<section style="background: linear-gradient(125deg, #071440 0%, #0b1f5e 35%, #1440b8 70%, #1e4ed8 100%); padding: 80px 0 88px; position:relative; overflow:hidden;">
+  <!-- Grid pattern overlay -->
+  <div style="position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size:48px 48px; pointer-events:none;"></div>
+  <!-- Radial glow -->
+  <div style="position:absolute; top:-20%; right:15%; width:600px; height:600px; background:radial-gradient(circle, rgba(56,130,246,.18) 0%, transparent 70%); pointer-events:none;"></div>
   <div class="wrap">
     <div class="hero-split">
       <!-- LEFT -->
@@ -217,53 +287,49 @@
       </div>
       <!-- RIGHT DASHBOARD -->
       <div class="hero-vis" style="flex-shrink:0; width:480px; animation: fadeUp .9s ease .2s both;">
-        <div style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:24px;">
-          <div style="font-size:13px; font-weight:700; color:#60a5fa; margin-bottom:16px; letter-spacing:.04em;">AI마케팅스쿨 3개월 과정</div>
-          <div style="display:flex; gap:8px; margin-bottom:20px;">
-            <div style="flex:1; background:rgba(37,99,235,.25); border:1px solid rgba(37,99,235,.4); border-radius:10px; padding:12px; text-align:center;">
-              <div style="font-size:11px; color:rgba(255,255,255,.55); margin-bottom:5px;">1개월차</div>
-              <div style="font-size:12px; font-weight:700; color:#fff;">업무 생산성</div>
+        <div style="background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.22); border-radius:20px; padding:24px; backdrop-filter:blur(4px);">
+          <div style="font-size:14px; font-weight:700; color:#60a5fa; margin-bottom:16px; letter-spacing:.04em;">AI마케팅스쿨 3개월 과정</div>
+
+          <!-- 1개월차 -->
+          <div style="background:rgba(37,99,235,.18); border:1px solid rgba(37,99,235,.4); border-radius:12px; padding:14px 16px; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+              <span style="background:rgba(37,99,235,.5); color:#93c5fd; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px;">1개월차</span>
+              <span style="font-size:13px; font-weight:700; color:#fff;">업무 생산성</span>
             </div>
-            <div style="flex:1; background:rgba(8,145,178,.22); border:1px solid rgba(8,145,178,.4); border-radius:10px; padding:12px; text-align:center;">
-              <div style="font-size:11px; color:rgba(255,255,255,.55); margin-bottom:5px;">2개월차</div>
-              <div style="font-size:12px; font-weight:700; color:#fff;">SNS 마케팅</div>
-            </div>
-            <div style="flex:1; background:rgba(124,58,237,.22); border:1px solid rgba(124,58,237,.4); border-radius:10px; padding:12px; text-align:center;">
-              <div style="font-size:11px; color:rgba(255,255,255,.55); margin-bottom:5px;">3개월차</div>
-              <div style="font-size:12px; font-weight:700; color:#fff;">자동화·시스템화</div>
-            </div>
-          </div>
-          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px;">
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:10px 12px; display:flex; align-items:center; gap:8px;">
-              <div style="width:28px; height:28px; background:#000; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff; flex-shrink:0;">N</div>
-              <span style="font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85);">Notion</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:10px 12px; display:flex; align-items:center; gap:8px;">
-              <div style="width:28px; height:28px; background:linear-gradient(135deg,#4285f4,#34a853); border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff; flex-shrink:0;">G</div>
-              <span style="font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85);">Gemini</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:10px 12px; display:flex; align-items:center; gap:8px;">
-              <div style="width:28px; height:28px; background:#10a37f; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff; flex-shrink:0;">C</div>
-              <span style="font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85);">ChatGPT</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:10px 12px; display:flex; align-items:center; gap:8px;">
-              <div style="width:28px; height:28px; background:#cc785c; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff; flex-shrink:0;">A</div>
-              <span style="font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85);">Claude</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:10px 12px; display:flex; align-items:center; gap:8px;">
-              <div style="width:28px; height:28px; background:#ff0000; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; flex-shrink:0;">YT</div>
-              <span style="font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85);">YouTube</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:9px; padding:10px 12px; display:flex; align-items:center; gap:8px;">
-              <div style="width:28px; height:28px; background:#0d9488; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; flex-shrink:0;">&lt;/&gt;</div>
-              <span style="font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85);">Codex</span>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">📝 Notion 마스터</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🔍 Gemini 마스터</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">💬 ChatGPT 마스터</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🤖 Claude 마스터</div>
             </div>
           </div>
-          <div style="display:flex; flex-wrap:wrap; gap:6px;">
-            <span style="background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.13); color:rgba(255,255,255,.65); padding:4px 11px; border-radius:20px; font-size:11px; font-weight:500;">콘텐츠 제작</span>
-            <span style="background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.13); color:rgba(255,255,255,.65); padding:4px 11px; border-radius:20px; font-size:11px; font-weight:500;">마케팅 성장</span>
-            <span style="background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.13); color:rgba(255,255,255,.65); padding:4px 11px; border-radius:20px; font-size:11px; font-weight:500;">홈페이지 제작</span>
-            <span style="background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.13); color:rgba(255,255,255,.65); padding:4px 11px; border-radius:20px; font-size:11px; font-weight:500;">자동화 시스템</span>
+
+          <!-- 2개월차 -->
+          <div style="background:rgba(8,145,178,.18); border:1px solid rgba(8,145,178,.4); border-radius:12px; padding:14px 16px; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+              <span style="background:rgba(8,145,178,.5); color:#67e8f9; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px;">2개월차</span>
+              <span style="font-size:13px; font-weight:700; color:#fff;">SNS 마케팅</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">✍️ 블로그·스레드 마케팅</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🖼️ AI 이미지 마스터</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🎬 AI 동영상 마스터</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">📱 숏폼·유튜브 마케팅</div>
+            </div>
+          </div>
+
+          <!-- 3개월차 -->
+          <div style="background:rgba(124,58,237,.18); border:1px solid rgba(124,58,237,.4); border-radius:12px; padding:14px 16px;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+              <span style="background:rgba(124,58,237,.5); color:#c4b5fd; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px;">3개월차</span>
+              <span style="font-size:13px; font-weight:700; color:#fff;">자동화·시스템화</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">⚙️ Codex 마스터</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🤝 Cowork AI 직원화</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🚀 마케팅 자동화</div>
+              <div style="background:rgba(255,255,255,.08); border-radius:7px; padding:7px 10px; font-size:12px; font-weight:600; color:rgba(255,255,255,.9);">🌐 랜딩페이지 제작·배포</div>
+            </div>
           </div>
         </div>
       </div>
@@ -272,9 +338,35 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════ -->
+<!-- [STATS BAR] -->
+<!-- ══════════════════════════════════════════════════ -->
+<section style="background:linear-gradient(90deg,#06152e 0%,#0b2558 50%,#06152e 100%); padding:40px 0; border-top:1px solid rgba(255,255,255,.08);">
+  <div class="wrap">
+    <div class="stats-bar-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0;">
+      <div style="text-align:center; padding:12px 20px; border-right:1px solid rgba(255,255,255,.12);">
+        <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:42px; color:#fff; line-height:1; margin-bottom:8px;">16<span style="font-size:28px; color:#60a5fa;">기</span></div>
+        <div style="font-size:13px; color:rgba(255,255,255,.65); font-weight:500; line-height:1.4;">AI마케팅스쿨<br>진행중</div>
+      </div>
+      <div style="text-align:center; padding:12px 20px; border-right:1px solid rgba(255,255,255,.12);">
+        <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:42px; color:#fff; line-height:1; margin-bottom:8px;">3<span style="font-size:28px; color:#60a5fa;">년+</span></div>
+        <div style="font-size:13px; color:rgba(255,255,255,.65); font-weight:500; line-height:1.4;">실전 AI 교육<br>운영</div>
+      </div>
+      <div style="text-align:center; padding:12px 20px; border-right:1px solid rgba(255,255,255,.12);">
+        <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:42px; color:#fff; line-height:1; margin-bottom:8px;">50<span style="font-size:28px; color:#60a5fa;">명</span></div>
+        <div style="font-size:13px; color:rgba(255,255,255,.65); font-weight:500; line-height:1.4;">정원제<br>과정</div>
+      </div>
+      <div style="text-align:center; padding:12px 20px;">
+        <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:42px; color:#fff; line-height:1; margin-bottom:8px;">12<span style="font-size:28px; color:#60a5fa;">주</span></div>
+        <div style="font-size:13px; color:rgba(255,255,255,.65); font-weight:500; line-height:1.4;">결과물 중심<br>커리큘럼</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ -->
 <!-- [2] 문제 제기 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#fff; padding:88px 0 80px;">
+<section style="background:#f4f8ff; padding:88px 0 80px;">
   <div class="wrap">
     <div style="max-width:680px; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; line-height:1.35; text-wrap:pretty;">
@@ -319,7 +411,7 @@
         <p style="font-size:14.5px; font-weight:600; color:#1e293b; line-height:1.5;">혼자 공부하다가<br>결국 흐지부지된다</p>
       </div>
     </div>
-    <div style="margin-top:52px; background:linear-gradient(135deg,#0a1628,#1e3a8a); border-radius:16px; padding:32px 36px; text-align:center;">
+    <div style="margin-top:52px; background:linear-gradient(135deg,#0b1b3f,#1d4ed8); border-radius:16px; padding:32px 36px; text-align:center;">
       <p style="font-size:clamp(16px,2vw,22px); font-weight:700; color:#fff; line-height:1.6; text-wrap:pretty;">
         이제 필요한 것은 AI 도구 목록이 아니라,<br>
         <span style="color:#67e8f9;">내 일에 적용되는 AI 실행 시스템</span>입니다.
@@ -336,7 +428,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [3] 해결책 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#f0f4f8; padding:88px 0;">
+<section style="background:#fff; padding:88px 0;">
   <div class="wrap">
     <div style="max-width:620px; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; line-height:1.35; text-wrap:pretty;">
@@ -384,7 +476,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [4] AI마케팅스쿨 소개 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#fff; padding:88px 0;">
+<section style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div class="ams-intro">
       <div>
@@ -409,19 +501,19 @@
       </div>
       <div>
         <div class="sum-grid">
-          <div style="background:#f0f4f8; border:1px solid #e2e8f0; border-radius:12px; padding:18px 14px; text-align:center;">
+          <div style="background:#f4f8ff; border:1px solid #dce8f7; border-radius:12px; padding:18px 14px; text-align:center;">
             <div style="font-size:11px; font-weight:600; color:#64748b; margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em;">기간</div>
             <div style="font-size:16px; font-weight:800; color:#0f172a;">3개월<br><span style="font-size:13px; color:#2563eb;">/ 12주</span></div>
           </div>
-          <div style="background:#f0f4f8; border:1px solid #e2e8f0; border-radius:12px; padding:18px 14px; text-align:center;">
+          <div style="background:#f4f8ff; border:1px solid #dce8f7; border-radius:12px; padding:18px 14px; text-align:center;">
             <div style="font-size:11px; font-weight:600; color:#64748b; margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em;">방식</div>
             <div style="font-size:13px; font-weight:700; color:#0f172a; line-height:1.5;">Zoom 실시간<br>+ 녹화 + 과제</div>
           </div>
-          <div style="background:#f0f4f8; border:1px solid #e2e8f0; border-radius:12px; padding:18px 14px; text-align:center;">
+          <div style="background:#f4f8ff; border:1px solid #dce8f7; border-radius:12px; padding:18px 14px; text-align:center;">
             <div style="font-size:11px; font-weight:600; color:#64748b; margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em;">대상</div>
             <div style="font-size:12.5px; font-weight:700; color:#0f172a; line-height:1.5;">1인기업<br>소상공인<br>강사·마케터</div>
           </div>
-          <div style="background:#f0f4f8; border:1px solid #e2e8f0; border-radius:12px; padding:18px 14px; text-align:center;">
+          <div style="background:#f4f8ff; border:1px solid #dce8f7; border-radius:12px; padding:18px 14px; text-align:center;">
             <div style="font-size:11px; font-weight:600; color:#64748b; margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em;">목표</div>
             <div style="font-size:12.5px; font-weight:700; color:#0f172a; line-height:1.5;">결과물<br>중심 실전<br>과정</div>
           </div>
@@ -438,7 +530,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [5] 12주 커리큘럼 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section id="curriculum" style="background:#f0f4f8; padding:88px 0;">
+<section id="curriculum" style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(24px,3vw,40px); font-weight:900; color:#0f172a; margin-bottom:16px;">AI마케팅스쿨 3개월 · 12주 커리큘럼</h2>
@@ -675,7 +767,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [6] 수강생 결과물 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#fff; padding:88px 0;">
+<section style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:14px; text-wrap:pretty;">
@@ -746,7 +838,7 @@
         <div style="padding:14px 12px; font-size:12.5px; font-weight:600; color:#334155;">자동화<br>시스템</div>
       </div>
     </div>
-    <div style="background:#f0f4f8; border-radius:12px; padding:20px 28px; margin-top:32px; text-align:center;">
+    <div style="background:#f4f8ff; border-radius:12px; padding:20px 28px; margin-top:32px; text-align:center;">
       <p style="font-size:13.5px; color:#64748b;">실제 수강생 결과물 이미지는 순차적으로 업데이트됩니다.</p>
     </div>
     <div style="text-align:center; margin-top:36px;">
@@ -760,7 +852,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [7] 단기 클래스 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#f0f4f8; padding:88px 0;">
+<section style="background:#fff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:12px; text-wrap:pretty;">
@@ -808,7 +900,8 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [8] 왜 거상스쿨인가 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:linear-gradient(145deg,#06101f,#0a1a3a,#0d2050); padding:88px 0;">
+<section style="background:linear-gradient(125deg,#071440 0%,#0b1f5e 35%,#1440b8 70%,#1e4ed8 100%); padding:88px 0; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#fff; margin-bottom:14px; text-wrap:pretty;">
@@ -849,7 +942,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [9] 이런 분께 추천 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#fff; padding:88px 0;">
+<section style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:12px;">이런 분께 거상스쿨이 필요합니다</h2>
@@ -898,7 +991,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [10] 수강후기 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#f0f4f8; padding:88px 0;">
+<section style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:14px; text-wrap:pretty;">
@@ -931,7 +1024,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [11] 운영 방식 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#fff; padding:88px 0;">
+<section style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:14px;">혼자 듣고 끝나는 강의가 아닙니다</h2>
@@ -998,7 +1091,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [12] 강사 / 운영진 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#f0f4f8; padding:88px 0;">
+<section style="background:#fff; padding:88px 0;">
   <div class="wrap">
     <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:48px; text-wrap:pretty;">현장에서 직접 써본 사람이 가르칩니다</h2>
     <div class="inst-row">
@@ -1018,19 +1111,19 @@
         <div style="font-size:14px; font-weight:700; color:#64748b; margin-bottom:20px; letter-spacing:.04em; text-transform:uppercase;">운영진 소개</div>
         <div class="ops-grid" style="grid-template-columns:repeat(4,1fr);">
           <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#f0f4f8; border-radius:50%; margin:0 auto 12px; border:2px solid #e2e8f0;"></div>
+            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
             <p style="font-size:12.5px; font-weight:700; color:#334155;">교육 운영팀</p>
           </div>
           <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#f0f4f8; border-radius:50%; margin:0 auto 12px; border:2px solid #e2e8f0;"></div>
+            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
             <p style="font-size:12.5px; font-weight:700; color:#334155;">과제 관리</p>
           </div>
           <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#f0f4f8; border-radius:50%; margin:0 auto 12px; border:2px solid #e2e8f0;"></div>
+            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
             <p style="font-size:12.5px; font-weight:700; color:#334155;">수강생 안내</p>
           </div>
           <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#f0f4f8; border-radius:50%; margin:0 auto 12px; border:2px solid #e2e8f0;"></div>
+            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
             <p style="font-size:12.5px; font-weight:700; color:#334155;">커뮤니티 운영</p>
           </div>
         </div>
@@ -1055,7 +1148,8 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [13] 모집 안내 -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:linear-gradient(145deg,#06101f,#0a1a3a,#0d2050); padding:88px 0;">
+<section style="background:linear-gradient(125deg,#071440 0%,#0b1f5e 35%,#1440b8 70%,#1e4ed8 100%); padding:88px 0; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
   <div class="wrap">
     <div style="text-align:center; margin-bottom:48px;">
       <h2 style="font-size:clamp(22px,3vw,38px); font-weight:900; color:#fff; margin-bottom:12px;">AI마케팅스쿨 3개월 과정 모집 안내</h2>
@@ -1125,7 +1219,7 @@
           </a>
         </div>
       </div>
-      <div class="login-vis" style="width:220px; background:linear-gradient(145deg,#0a1628,#1e3a8a); border-radius:20px; padding:32px 24px; text-align:center; flex-shrink:0;">
+      <div class="login-vis" style="width:220px; background:linear-gradient(135deg,#0b1b3f,#1d4ed8); border-radius:20px; padding:32px 24px; text-align:center; flex-shrink:0;">
         <div style="width:72px; height:72px; background:rgba(255,255,255,.1); border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border:2px solid rgba(255,255,255,.2);">
           <div style="width:36px; height:36px; border:3px solid rgba(255,255,255,.7); border-radius:8px;"></div>
         </div>
@@ -1139,7 +1233,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [15] FAQ -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:#f0f4f8; padding:88px 0;">
+<section style="background:#f4f8ff; padding:88px 0;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:48px;">
       <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:14px;">자주 묻는 질문</h2>
@@ -1166,7 +1260,8 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- [16] 최종 CTA -->
 <!-- ══════════════════════════════════════════════════ -->
-<section style="background:linear-gradient(145deg,#06101f,#0a1a3a,#0d2050); padding:100px 0;">
+<section style="background:linear-gradient(125deg,#071440 0%,#0b1f5e 35%,#1440b8 70%,#1e4ed8 100%); padding:100px 0; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;"></div>
   <div class="wrap" style="text-align:center;">
     <div style="max-width:680px; margin:0 auto; animation:fadeUp .7s ease both;">
       <h2 style="font-size:clamp(24px,3.5vw,46px); font-weight:900; color:#fff; line-height:1.3; margin-bottom:20px; text-wrap:pretty;">
@@ -1191,12 +1286,15 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- FOOTER -->
 <!-- ══════════════════════════════════════════════════ -->
-<footer style="background:#040c1a; padding:52px 0 32px;">
+<footer style="background:#06152e; padding:52px 0 32px;">
   <div class="wrap">
     <div class="footer-grid">
       <div>
         <div style="margin-bottom:16px;">
-          <img src="uploads/e-1_투명.png" alt="거상스쿨" style="height:40px; width:auto; display:block; filter:brightness(1.4);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+            <img src="uploads/a-3_투명.png" alt="거상스쿨 로고" style="height:36px; width:auto; display:block; filter:brightness(0) invert(1);">
+            <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:18px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
+          </div>
         </div>
         <p style="font-size:13px; color:rgba(255,255,255,.45); line-height:1.8; margin-bottom:16px;">
           AI 시대에 1인기업, 소상공인, 강사, 마케터가<br>AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을<br>직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼
@@ -1219,8 +1317,8 @@
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="/about" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">거상스쿨 소개</a>
           <a href="/reviews" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">수강후기</a>
-          <a href="/support" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">학습지원</a>
           <a href="/contact" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">상담문의</a>
+          <a href="/support" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">학습지원</a>
         </div>
       </div>
       <div>
