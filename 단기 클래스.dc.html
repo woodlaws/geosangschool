@@ -59,15 +59,15 @@
     .mobile-nav .mob-cta { margin-top:16px; background:#2563eb; color:#fff; font-weight:700; border-radius:10px; text-align:center; }
     .mobile-nav .mob-login { margin-top:8px; border:1.5px solid rgba(255,255,255,.28); border-radius:10px; text-align:center; }
     @media (max-width:880px) { .nav-links{display:none;} .nav-cta-group{display:none;} .hamburger{display:flex;} }
-    [style*="font-size:10px"],[style*="font-size:10.5px"]{font-size:14px!important;}
-    [style*="font-size:11px"],[style*="font-size:11.5px"]{font-size:15px!important;}
-    [style*="font-size:12px"],[style*="font-size:12.5px"]{font-size:16px!important;}
-    [style*="font-size:13px"],[style*="font-size:13.5px"]{font-size:16px!important;}
-    [style*="font-size:14px"],[style*="font-size:14.5px"]{font-size:17px!important;}
-    [style*="font-size:15px"],[style*="font-size:15.5px"]{font-size:18px!important;}
-    [style*="font-size:16px"],[style*="font-size:16.5px"]{font-size:19px!important;}
-    [style*="font-size:17px"]{font-size:20px!important;}
-    [style*="font-size:18px"]{font-size:21px!important;}
+    [style*="font-size:10px"],[style*="font-size:10.5px"]{font-size:18px!important;}
+    [style*="font-size:11px"],[style*="font-size:11.5px"]{font-size:18px!important;}
+    [style*="font-size:12px"],[style*="font-size:12.5px"]{font-size:18px!important;}
+    [style*="font-size:13px"],[style*="font-size:13.5px"]{font-size:18px!important;}
+    [style*="font-size:14px"],[style*="font-size:14.5px"]{font-size:19px!important;}
+    [style*="font-size:15px"],[style*="font-size:15.5px"]{font-size:20px!important;}
+    [style*="font-size:16px"],[style*="font-size:16.5px"]{font-size:21px!important;}
+    [style*="font-size:17px"]{font-size:22px!important;}
+    [style*="font-size:18px"]{font-size:23px!important;}
     @media(max-width:599px){
       [style*="font-size:12px"],[style*="font-size:12.5px"]{font-size:13px!important;}
       [style*="font-size:13px"],[style*="font-size:13.5px"]{font-size:14px!important;}
@@ -114,16 +114,27 @@
     .faq-icon.open { transform:rotate(45deg); }
   </style>
 <style>
-/* ── 가독성 폰트 강제 적용 (40~60대 기준) ── */
-body{font-size:17px;line-height:1.72;}
-.nav-link{font-size:16px!important;}
-.mob-menu a{font-size:18px!important;}
-.wrap p{font-size:17px!important;line-height:1.75!important;}
-.wrap li{font-size:16px!important;line-height:1.72!important;}
+/* ================================
+   Typography Override — 40-60대
+   ================================ */
+:root{--font-xs:18px;--font-sm:19px;--font-base:22px;--font-lg:24px;}
+body{font-size:22px;line-height:1.7;}
+.nav-link{font-size:20px!important;font-weight:600!important;}
+.mob-menu a,.mobile-nav a{font-size:20px!important;}
+.btn-nav-main{font-size:18px!important;}
+.btn-nav-sub{font-size:17px!important;}
+.wrap p{font-size:20px!important;line-height:1.72!important;}
+.wrap li{font-size:19px!important;line-height:1.72!important;}
+footer p,footer a,footer span,footer div{font-size:17px!important;line-height:1.65!important;}
+footer{font-size:17px!important;}
+input,textarea,select,label{font-size:19px!important;}
 @media(max-width:768px){
-  body{font-size:16px;}
-  .wrap p{font-size:16px!important;}
-  .wrap li{font-size:15px!important;}
+  :root{--font-xs:16px;--font-sm:17px;--font-base:18px;}
+  body{font-size:18px;}
+  .nav-link{font-size:17px!important;}
+  .mobile-nav a{font-size:19px!important;}
+  .wrap p{font-size:17px!important;}
+  .wrap li{font-size:16px!important;}
 }
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -143,7 +154,7 @@ body{font-size:17px;line-height:1.72;}
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
-      <a href="/about" class="nav-link">거상스쿨 소개</a>
+      <a href="/about" class="nav-link">소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
       <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
       <a href="/courses/short-courses" class="nav-link active">단기 클래스</a>
@@ -160,7 +171,7 @@ body{font-size:17px;line-height:1.72;}
   </div>
 </nav>
 <div class="{{ mobileNavClass }}">
-  <a href="/about" onClick="{{ toggleMenu }}">거상스쿨 소개</a>
+  <a href="/about" onClick="{{ toggleMenu }}">소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
   <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
   <a href="/courses/short-courses" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">단기 클래스</a>
