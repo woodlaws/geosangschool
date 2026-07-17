@@ -1,6 +1,8 @@
 {
+  "redirects": [
+    { "source": "/", "destination": "/about", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/", "destination": "/거상스쿨 홈.dc.html" },
     { "source": "/about", "destination": "/거상스쿨 소개.dc.html" },
     { "source": "/courses", "destination": "/전체 교육과정.dc.html" },
     { "source": "/courses/ai-marketing-school", "destination": "/AI마케팅스쿨.dc.html" },

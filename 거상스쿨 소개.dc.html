@@ -37,7 +37,7 @@
 
     .nav-wrap { position:fixed; top:0; left:0; right:0; z-index:1000; background:#fff; border-bottom:1px solid #e8edf4; transition:box-shadow .3s; }
     .nav-wrap.scrolled { box-shadow:0 2px 20px rgba(0,0,0,.09); }
-    .nav-inner { max-width:1400px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; }
+    .nav-inner { max-width:1400px; margin:0 auto; padding:0 24px; height:78px; display:flex; align-items:center; }
     .nav-logo { display:flex; align-items:center; gap:9px; flex-shrink:0; margin-right:28px; }
     .nav-logo-icon { width:34px; height:34px; background:#2563eb; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:17px; color:#fff; }
     .nav-logo-text { font-size:16px; font-weight:700; color:#fff; white-space:nowrap; }
@@ -163,8 +163,8 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:36px; width:auto; display:block;">
+    <a href="/about" class="nav-logo">
+      <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:42px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
@@ -178,7 +178,7 @@ input,textarea,select,label{font-size:19px!important;}
       <a href="/support" class="nav-link">학습지원</a>
     </div>
     <div class="nav-cta-group">
-      <a href="/contact" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
+      <a href="https://www.aimarketing.school/" target="_blank" rel="noopener" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
       <a href="/login" class="btn-nav-sub">수강생 로그인</a>
     </div>
     <div class="hamburger" onClick="{{ toggleMenu }}">
@@ -196,11 +196,11 @@ input,textarea,select,label{font-size:19px!important;}
   <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
   <a href="/contact" onClick="{{ toggleMenu }}">상담문의</a>
   <a href="/support" onClick="{{ toggleMenu }}">학습지원</a>
-  <a href="/contact" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
+  <a href="https://www.aimarketing.school/" target="_blank" rel="noopener" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
   <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>
 </div>
 
-<div style="height:64px;"></div>
+<div style="height:78px;"></div>
 
 <!-- ══════════════════════════════════ -->
 <!-- 1. HERO -->
@@ -671,10 +671,10 @@ input,textarea,select,label{font-size:19px!important;}
 <footer style="background:#040c1a; padding:52px 0 32px;">
   <div class="wrap">
     <div style="margin-bottom:16px;">
-      <div style="display:flex; align-items:center; gap:10px;">
+      <a href="/about" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
         <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:34px; width:auto; display:block; filter:brightness(10);">
         <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
-      </div>
+      </a>
     </div>
     <p style="font-size:12.5px; color:rgba(255,255,255,.35); line-height:1.8; margin-bottom:24px; max-width:480px;">
       AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼
