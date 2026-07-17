@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -122,15 +122,23 @@
     .hero-split { display:grid; grid-template-columns:1fr 420px; gap:60px; align-items:center; }
     @media (max-width:900px) { .hero-split{grid-template-columns:1fr;} .hero-visual{display:none!important;} }
 
-    .inst-split { display:grid; grid-template-columns:300px 1fr; gap:56px; align-items:start; }
+    .inst-split { display:grid; grid-template-columns:300px 1fr; gap:56px; align-items:stretch; }
     @media (max-width:900px) { .inst-split{grid-template-columns:1fr;} }
     @media (max-width:599px) { .book-grid-inner{grid-template-columns:repeat(3,1fr)!important;} }
+    .book-grid-inner > div > div:first-child { aspect-ratio:unset!important; height:68px!important; display:flex!important; align-items:center!important; justify-content:center!important; }
+    .book-grid-inner > div > div:first-child img { width:auto!important; max-width:100%!important; height:100%!important; object-fit:contain!important; }
 
     .card-h { transition:transform .22s,box-shadow .22s; }
     .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
   </style>
 <style>
 .hero-vis [style],.hero-visual [style]{font-size:16px!important;line-height:1.45!important;}
+.hero-vis [style*="font-size:7px"],.hero-vis [style*="font-size: 7px"],
+.hero-vis [style*="font-size:6px"],.hero-vis [style*="font-size: 6px"],
+.hero-visual [style*="font-size:7px"],.hero-visual [style*="font-size: 7px"],
+.hero-visual [style*="font-size:6px"],.hero-visual [style*="font-size: 6px"],
+.hero-visual [style*="font-size:8px"],.hero-visual [style*="font-size: 8px"]
+{ font-size: 7px !important; line-height:1.1 !important; }
 .hero-vis,.hero-visual,.hero-vis *,.hero-visual *{word-break:keep-all;}
 :root{--font-xs:18px;--font-sm:19px;--font-base:22px;--font-lg:24px;}
 body{font-size:22px;line-height:1.7;}
@@ -216,8 +224,11 @@ input,textarea,select,label{font-size:19px!important;}
           거상스쿨은<br>AI를 배우는 곳이 아니라,<br>
           <span style="background:linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">AI로 돈 버는 구조를<br>만드는 곳입니다</span>
         </h1>
-        <p style="font-size:clamp(14px,1.5vw,17px); color:rgba(255,255,255,.7); line-height:1.85; margin-bottom:40px; max-width:520px; word-break:keep-all; text-wrap:pretty;">
-          거상스쿨은 AI 도구 사용법만 알려주는 교육기관이 아닙니다.<br>콘텐츠, 마케팅, 자동화, 수익화까지 연결되는 실전형 교육을 통해<br>1인기업, 소상공인, 강사, 마케터가 바로 실행할 수 있는 구조를 설계합니다.
+        <p style="font-size:clamp(14px,1.5vw,17px); color:rgba(255,255,255,.7); line-height:1.85; margin-bottom:40px; max-width:500px; word-break:keep-all; text-wrap:pretty;">
+          거상스쿨은 AI 도구 사용법만 알려주는 교육기관이 아닙니다.<br>
+          콘텐츠, 마케팅, 자동화, 수익화까지 연결되는 실전형 교육을 통해<br>
+          1인기업, 소상공인, 강사, 마케터가<br>
+          바로 실행할 수 있는 구조를 설계합니다.
         </p>
         <div style="display:flex; gap:14px; flex-wrap:wrap;">
           <a href="/courses" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">전체 교육과정 보기 →</a>
@@ -225,24 +236,67 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
       </div>
       <!-- 우측 비주얼 -->
-      <div class="hero-visual" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:28px 24px; animation:fadeUp .9s ease .2s both;">
-        <div style="font-size:12px; font-weight:700; color:#60a5fa; margin-bottom:20px; letter-spacing:.04em;">거상스쿨이 만드는 결과</div>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div style="display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.07); border-radius:12px; padding:14px 16px;">
-            <div style="width:36px; height:36px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:12px; color:#fff;">AI</span></div>
-            <div><div style="font-size:13px; font-weight:700; color:#fff;">AI 업무 생산성 향상</div><div style="font-size:11px; color:rgba(255,255,255,.5); margin-top:2px;">Notion · Gemini · ChatGPT · Claude</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.07); border-radius:12px; padding:14px 16px;">
-            <div style="width:36px; height:36px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; text-align:center; line-height:1.2;">콘텐<br>츠</span></div>
-            <div><div style="font-size:13px; font-weight:700; color:#fff;">콘텐츠 제작 시스템화</div><div style="font-size:11px; color:rgba(255,255,255,.5); margin-top:2px;">블로그 · 스레드 · 숏폼 · 유튜브</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.07); border-radius:12px; padding:14px 16px;">
-            <div style="width:36px; height:36px; background:linear-gradient(135deg,#059669,#10b981); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff;">SNS</span></div>
-            <div><div style="font-size:13px; font-weight:700; color:#fff;">마케팅 실전 적용</div><div style="font-size:11px; color:rgba(255,255,255,.5); margin-top:2px;">SNS · 랜딩페이지 · AEO/GEO</div></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.07); border-radius:12px; padding:14px 16px;">
-            <div style="width:36px; height:36px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff;">&lt;/&gt;</span></div>
-            <div><div style="font-size:13px; font-weight:700; color:#fff;">자동화 · 수익화 구조</div><div style="font-size:11px; color:rgba(255,255,255,.5); margin-top:2px;">시스템화 · 강의 · 대행 · 컨설팅</div></div>
+      <div class="hero-visual" style="animation:fadeUp .9s ease .2s both;">
+        <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15); border-radius:20px; padding:20px 18px; backdrop-filter:blur(4px);">
+          <div style="font-size:12px; font-weight:700; color:#60a5fa; margin-bottom:14px; letter-spacing:.04em;">거상스쿨에서 배우는 AI</div>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+
+            <!-- 1 AI 업무 생산성 -->
+            <div style="background:rgba(37,99,235,.18); border:1px solid rgba(37,99,235,.35); border-radius:12px; padding:11px 13px;">
+              <div style="display:flex; align-items:center; gap:7px; margin-bottom:9px;">
+                <div style="width:22px; height:22px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:7px; color:#fff;">AI</span></div>
+                <div><div style="font-size:12px; font-weight:700; color:#fff;">AI 업무 생산성 향상</div><div style="font-size:10px; color:rgba(255,255,255,.5); margin-top:1px;">자료정리·초안·기획·업무 효율</div></div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px;">
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/notion.png" alt="Notion" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Notion</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/chatgpt_logo_transparent-d2ae7ad7.png" alt="ChatGPT" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">ChatGPT</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/클로드_배경제거.png" alt="Claude" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Claude</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/gemini-color.png" alt="Gemini" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Gemini</div></div>
+              </div>
+            </div>
+
+            <!-- 2 콘텐츠 제작 -->
+            <div style="background:rgba(8,145,178,.15); border:1px solid rgba(8,145,178,.35); border-radius:12px; padding:11px 13px;">
+              <div style="display:flex; align-items:center; gap:7px; margin-bottom:9px;">
+                <div style="width:22px; height:22px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:6px; color:#fff; line-height:1.1;">콘텐<br>츠</span></div>
+                <div><div style="font-size:12px; font-weight:700; color:#fff;">콘텐츠 제작·확장</div><div style="font-size:10px; color:rgba(255,255,255,.5); margin-top:1px;">이미지·카드뉴스·영상·숏폼</div></div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px;">
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/03c41c8b-b1eb-47fb-a79c-8c99393c5e41.png" alt="ChatGPT Images" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">ChatGPT</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/캔바로고.png" alt="Canva" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Canva</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/플로우로고.png" alt="Flow" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Flow</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/캡컷로고.png" alt="CapCut" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">CapCut</div></div>
+              </div>
+            </div>
+
+            <!-- 3 마케팅 -->
+            <div style="background:rgba(5,150,105,.15); border:1px solid rgba(5,150,105,.35); border-radius:12px; padding:11px 13px;">
+              <div style="display:flex; align-items:center; gap:7px; margin-bottom:9px;">
+                <div style="width:22px; height:22px; background:linear-gradient(135deg,#059669,#10b981); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:7px; color:#fff;">MKT</span></div>
+                <div><div style="font-size:12px; font-weight:700; color:#fff;">마케팅 실전 적용</div><div style="font-size:10px; color:rgba(255,255,255,.5); margin-top:1px;">블로그·SNS·리서치·마케팅 실행</div></div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px;">
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/블로그1.png" alt="Blog" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Blog</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/Instagram_icon.png" alt="Instagram" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Instagram</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/틱톡로고2.png" alt="TikTok" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">TikTok</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/유튜브로고-removebg-preview.png" alt="YouTube" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">YouTube</div></div>
+              </div>
+            </div>
+
+            <!-- 4 자동화 -->
+            <div style="background:rgba(124,58,237,.15); border:1px solid rgba(124,58,237,.35); border-radius:12px; padding:11px 13px;">
+              <div style="display:flex; align-items:center; gap:7px; margin-bottom:9px;">
+                <div style="width:22px; height:22px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:7px; color:#fff;">&lt;/&gt;</span></div>
+                <div><div style="font-size:12px; font-weight:700; color:#fff;">자동화·시스템화</div><div style="font-size:10px; color:rgba(255,255,255,.5); margin-top:1px;">반복 업무 자동화·구조 확장</div></div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px;">
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Codex</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Cowork" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Cowork</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/github.png" alt="GitHub" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">GitHub</div></div>
+                <div style="background:rgba(0,0,0,.3); border-radius:7px; padding:6px 4px; text-align:center;"><img src="/uploads/Vercel.png" alt="Vercel" style="width:20px; height:20px; object-fit:contain; display:block; margin:0 auto 3px;"><div style="font-size:9px; color:rgba(255,255,255,.7); font-weight:600;">Vercel</div></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -705,9 +759,14 @@ input,textarea,select,label{font-size:19px!important;}
 <footer style="background:#040c1a; padding:52px 0 32px;">
   <div class="wrap">
     <div style="margin-bottom:16px;">
-      <a href="/about" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
-        <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:34px; width:auto; display:block; filter:brightness(10);">
-        <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
+      <a href="/about" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; background:#fff; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.2); flex-shrink:0; padding:5px;">
+          <img src="/logo.png" alt="거상스쿨 로고" style="width:42px; height:42px; object-fit:contain; display:block;">
+        </span>
+        <span style="display:flex; flex-direction:column; gap:2px;">
+          <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
+          <span style="font-size:11px; color:rgba(255,255,255,.45);">AI로 돈 버는 실전 교육 플랫폼</span>
+        </span>
       </a>
     </div>
     <p style="font-size:12.5px; color:rgba(255,255,255,.35); line-height:1.8; margin-bottom:24px; max-width:480px;">
