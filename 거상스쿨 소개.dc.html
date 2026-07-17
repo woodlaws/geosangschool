@@ -360,8 +360,8 @@ input,textarea,select,label{font-size:19px!important;}
       <!-- 왼쪽: 사진 + 이름 카드 -->
       <div style="display:flex; flex-direction:column; gap:16px;">
         <!-- 프로필 사진 -->
-        <div style="border-radius:20px; overflow:hidden; box-shadow:0 8px 32px rgba(37,99,235,.13); background:#e8f0fe; aspect-ratio:3/4; max-width:300px;">
-          <img src="/uploads/2209026378.jpg" alt="임헌수 거상스쿨 대표" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+        <div style="border-radius:20px; overflow:hidden; box-shadow:0 8px 32px rgba(37,99,235,.13); background:#e8f0fe; aspect-ratio:2/3; max-width:300px;">
+          <img src="/uploads/2209026378.jpg" alt="임헌수 거상스쿨 대표" style="width:100%; height:100%; object-fit:contain; object-position:center top; display:block;">
         </div>
         <!-- 이름 카드 -->
         <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:20px 22px; box-shadow:0 2px 8px rgba(0,0,0,.05);">
@@ -377,9 +377,11 @@ input,textarea,select,label{font-size:19px!important;}
         <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:18px 22px; box-shadow:0 2px 8px rgba(0,0,0,.05);">
           <div style="font-size:12px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:10px;">관련 브랜드</div>
           <div style="display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:6px; height:6px; background:#2563eb; border-radius:50%;"></div><span style="font-size:14px; color:#334155; font-weight:600;">거상스쿨(주)</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:6px; height:6px; background:#0891b2; border-radius:50%;"></div><span style="font-size:14px; color:#334155; font-weight:600;">거상마케팅센터</span></div>
-            <div style="display:flex; align-items:center; gap:8px;"><div style="width:6px; height:6px; background:#7c3aed; border-radius:50%;"></div><span style="font-size:14px; color:#334155; font-weight:600;">AI마케팅스쿨</span></div>
+            <a href="/about" style="display:flex; align-items:center; gap:8px; text-decoration:none;"><div style="width:6px; height:6px; background:#2563eb; border-radius:50%; flex-shrink:0;"></div><span style="font-size:14px; color:#2563eb; font-weight:600;">거상스쿨(주)</span></a>
+            <a href="https://geosangmarketing.com/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none;"><div style="width:6px; height:6px; background:#0891b2; border-radius:50%; flex-shrink:0;"></div><span style="font-size:14px; color:#0891b2; font-weight:600;">거상마케팅센터</span></a>
+            <a href="https://www.aimarketing.school/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none;"><div style="width:6px; height:6px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div><span style="font-size:14px; color:#7c3aed; font-weight:600;">AI마케팅스쿨</span></a>
+            <a href="https://ai-bookclub.vercel.app/home.dc.html" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none;"><div style="width:6px; height:6px; background:#059669; border-radius:50%; flex-shrink:0;"></div><span style="font-size:14px; color:#059669; font-weight:600;">AI독서클럽</span></a>
+            <a href="https://aihomepage-indol.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:8px; text-decoration:none;"><div style="width:6px; height:6px; background:#d97706; border-radius:50%; flex-shrink:0;"></div><span style="font-size:14px; color:#d97706; font-weight:600;">AI홈페이지스쿨</span></a>
           </div>
         </div>
       </div>
@@ -415,111 +417,29 @@ input,textarea,select,label{font-size:19px!important;}
           </div>
         </div>
 
-        <!-- 핵심 키워드 카드 -->
-        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
-          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
-            <div style="width:8px; height:8px; background:#2563eb; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">AI 마케팅 실전 교육</span>
+        <!-- 책 코너 (오른쪽 하단) -->
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:24px 28px; box-shadow:0 2px 12px rgba(37,99,235,.06);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+            <div style="width:4px; height:20px; background:linear-gradient(180deg,#2563eb,#06b6d4); border-radius:2px;"></div>
+            <h3 style="font-size:17px; font-weight:800; color:#0f172a;">13년간 집필한 책과 감수한 책</h3>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
-            <div style="width:8px; height:8px; background:#06b6d4; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">콘텐츠 수익화</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
-            <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">시스템화/자동화</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
-            <div style="width:8px; height:8px; background:#059669; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">1인기업/소상공인 맞춤 전략</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:13px 16px;">
-            <div style="width:8px; height:8px; background:#d97706; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:14px; font-weight:600; color:#1e293b; word-break:keep-all;">실전형 커리큘럼 설계</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:13px 16px;">
-            <div style="width:8px; height:8px; background:#2563eb; border-radius:50%; flex-shrink:0;"></div>
-            <span style="font-size:14px; font-weight:600; color:#1d4ed8; word-break:keep-all;">거상마케팅센터 현장 경험</span>
+          <div class="book-grid-inner" style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/1.카카오스토리채널마케팅.jpg" alt="카카오스토리 채널마케팅" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#2563eb; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2014.10</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/2.인스타그램마케팅.jpg" alt="인스타그램 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#7c3aed; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2016.07</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/3.스마트스토어마케팅.jpg" alt="스마트스토어 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#059669; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2018.04</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/4.페이스북인스타그램통합마케팅.png" alt="페이스북 인스타그램 통합 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#0891b2; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2018.11</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/5.틱톡마케팅.jpg" alt="TikTok Marketing" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#e11d48; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2021.03</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/6.잘팔리는상세페이지기획과디자인.png" alt="상세페이지 기획과 디자인" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#d97706; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2023.07</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/7.ChatGPT마케팅.jpg" alt="ChatGPT 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#0f172a; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2025.01</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/8.큐레이션1.jpg" alt="큐레이션" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#64748b; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2019 감수</span></div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:6px;"><div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:6px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,.1);"><img src="/uploads/9.큐레이션2.jpg" alt="큐레이션 실전편" style="width:100%; height:100%; object-fit:cover; display:block;"></div><span style="background:#64748b; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; white-space:nowrap;">2021 감수</span></div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- 책 코너 — 전체 폭 -->
-    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:20px; padding:36px 40px; box-shadow:0 2px 16px rgba(37,99,235,.07);">
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
-        <div style="width:4px; height:24px; background:linear-gradient(180deg,#2563eb,#06b6d4); border-radius:2px;"></div>
-        <h3 style="font-size:20px; font-weight:800; color:#0f172a;">13년간 집필한 책과 감수한 책</h3>
-      </div>
-      <div class="book-grid-inner" style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px;">
-        <!-- book-01 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/1.카카오스토리채널마케팅.jpg" alt="카카오스토리 채널마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#2563eb; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2014.10.08</span>
-        </div>
-        <!-- book-02 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/2.인스타그램마케팅.jpg" alt="인스타그램 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#7c3aed; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2016.07.04</span>
-        </div>
-        <!-- book-03 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/3.스마트스토어마케팅.jpg" alt="스마트스토어 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#059669; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2018.04.12</span>
-        </div>
-        <!-- book-04 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/4.페이스북인스타그램통합마케팅.png" alt="페이스북 인스타그램 통합 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#0891b2; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2018.11.15</span>
-        </div>
-        <!-- book-05 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/5.틱톡마케팅.jpg" alt="TikTok Marketing 틱톡 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#e11d48; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2021.03.10</span>
-        </div>
-        <!-- book-06 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/6.잘팔리는상세페이지기획과디자인.png" alt="상세페이지 기획과 디자인" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#d97706; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2023.07.12</span>
-        </div>
-        <!-- book-07 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/7.ChatGPT마케팅.jpg" alt="ChatGPT 마케팅" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#0f172a; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2025.01.15</span>
-        </div>
-        <!-- book-08 감수 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/8.큐레이션1.jpg" alt="큐레이션" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#64748b; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2019.09.16 감수</span>
-        </div>
-        <!-- book-09 감수 -->
-        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-          <div style="width:100%; aspect-ratio:3/4; background:#f1f5f9; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,.12);">
-            <img src="/uploads/9.큐레이션2.jpg" alt="큐레이션 실전편" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <span style="background:#64748b; color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;">2021.04.25 감수</span>
-        </div>
-      </div>
-      <p style="font-size:13px; color:#94a3b8; margin-top:20px; text-align:right;">* 큐레이션 2종은 감수</p>
     </div>
   </div>
 </section>
+
 
 <!-- ══════════════════════════════════ -->
 <!-- 5. 교육 철학 -->
