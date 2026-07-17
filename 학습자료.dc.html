@@ -109,6 +109,19 @@
     .card-h { transition:transform .22s,box-shadow .22s; }
     .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
   </style>
+<style>
+/* ── 가독성 폰트 강제 적용 (40~60대 기준) ── */
+body{font-size:17px;line-height:1.72;}
+.nav-link{font-size:16px!important;}
+.mob-menu a{font-size:18px!important;}
+.wrap p{font-size:17px!important;line-height:1.75!important;}
+.wrap li{font-size:16px!important;line-height:1.72!important;}
+@media(max-width:768px){
+  body{font-size:16px;}
+  .wrap p{font-size:16px!important;}
+  .wrap li{font-size:15px!important;}
+}
+</style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -122,7 +135,7 @@
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="uploads/a-3_투명.png" alt="거상스쿨 로고" style="height:36px; width:auto; display:block;">
+      <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:36px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
@@ -157,7 +170,8 @@
 <div style="height:64px;"></div>
 
 <!-- ═══ 1. HERO ═══ -->
-<section style="background:linear-gradient(145deg,#06101f 0%,#0a1a3a 55%,#0b2050 100%); padding:88px 0 96px;">
+<section style="background:linear-gradient(125deg,#071440 0%,#0b1f5e 35%,#1440b8 70%,#1e4ed8 100%); padding:88px 0 96px; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px); background-size:48px 48px; pointer-events:none;"></div>
   <div class="wrap">
     <div class="hero-split">
       <div style="animation:fadeUp .7s ease both;">
