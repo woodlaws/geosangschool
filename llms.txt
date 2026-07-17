@@ -1,0 +1,48 @@
+# 거상스쿨 (Geosang School)
+
+Site: 거상스쿨
+Domain: https://geosangschool.com/
+
+## Core Description
+
+거상스쿨은 AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼입니다.
+
+## Main Program
+
+AI마케팅스쿨은 거상스쿨의 대표 3개월 정규과정으로, 12주 동안 업무 생산성, SNS 마케팅, 콘텐츠 제작, 홈페이지 제작, 자동화 시스템까지 연결하는 실전형 과정입니다.
+
+## Programs
+
+- AI마케팅스쿨 3개월 과정: 정원 50명, 실시간 Zoom + 과제 + 피드백
+- 1day 클래스: 특정 도구를 하루 만에 익히는 입문형 과정
+- 2주 완성 과정: 하나의 결과물을 완성하는 집중 과정
+- 4주 집중 과정: 한 주제를 깊게 익히는 실전 과정
+
+## Target Audience
+
+1인기업, 소상공인, 강사, 마케터, 자영업자
+
+## Tools Covered
+
+Notion, Gemini, Google Drive, NotebookLM, ChatGPT, Claude, Claude Cowork, ChatGPT Codex, GitHub, Vercel
+
+## Site Pages
+
+- / : 홈 — 메인 랜딩페이지 및 AI마케팅스쿨 모집 안내
+- /about : 거상스쿨 소개 — 브랜드 철학 및 교육 방향
+- /courses : 전체 교육과정 — 모든 과정 한눈에 비교
+- /courses/ai-marketing-school : AI마케팅스쿨 — 3개월 과정 상세 안내
+- /courses/short-courses : 단기 클래스 — 1day, 2주, 4주 과정 소개
+- /reviews : 수강후기 — 수강생 결과물 및 변화 사례
+- /resources : 학습자료 — AI 마케팅 인사이트 및 예습 자료
+- /support : 학습지원 — 기존 수강생 로그인 및 강의 이용 안내
+- /contact : 상담문의 — 수강 상담 신청
+- /login : 수강생 로그인 — 기존 VOD 강의실 연결 안내
+
+## Important Notes
+
+- 새 홈페이지는 과정 안내와 상담 신청을 위한 공식 홈페이지입니다.
+- 기존 VOD 강의실(geosangschool.com)은 기존 수강생의 강의 시청과 수강 관리를 담당합니다.
+- 6개월 멤버십은 현재 운영하지 않습니다.
+- 운영사: 거상스쿨(주) | 대표: 임헌수
+- 관련 브랜드: 거상마케팅센터

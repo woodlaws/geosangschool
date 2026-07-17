@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>전체 교육과정 | 거상스쿨</title>
+  <meta name="description" content="거상스쿨의 AI마케팅스쿨 3개월 과정, 1day 클래스, 2주 완성 과정, 4주 집중 과정을 한눈에 비교하고 내게 맞는 AI 교육과정을 선택해 보세요.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geosangschool.com/courses">
+  <meta property="og:title" content="전체 교육과정 | 거상스쿨">
+  <meta property="og:description" content="거상스쿨의 AI마케팅스쿨 3개월 과정, 1day 클래스, 2주 완성 과정, 4주 집중 과정을 한눈에 비교하고 내게 맞는 AI 교육과정을 선택해 보세요.">
+  <meta property="og:image" content="https://geosangschool.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="전체 교육과정 | 거상스쿨">
+  <meta name="twitter:description" content="거상스쿨의 AI마케팅스쿨 3개월 과정, 1day 클래스, 2주 완성 과정, 4주 집중 과정을 한눈에 비교하고 내게 맞는 AI 교육과정을 선택해 보세요.">
+  <meta name="twitter:image" content="https://geosangschool.com/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    a:hover { opacity: .85; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulseRing { 0%{box-shadow:0 0 0 0 rgba(37,99,235,.45);} 70%{box-shadow:0 0 0 10px rgba(37,99,235,0);} 100%{box-shadow:0 0 0 0 rgba(37,99,235,0);} }
+
+    .nav-wrap { position:fixed; top:0; left:0; right:0; z-index:1000; background:#0a1628; transition:box-shadow .3s; }
+    .nav-wrap.scrolled { box-shadow:0 4px 24px rgba(0,0,0,.35); }
+    .nav-inner { max-width:1400px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; }
+    .nav-logo { display:flex; align-items:center; gap:9px; flex-shrink:0; margin-right:28px; }
+    .nav-logo-icon { width:34px; height:34px; background:#2563eb; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:17px; color:#fff; }
+    .nav-logo-text { font-size:16px; font-weight:700; color:#fff; white-space:nowrap; }
+    .nav-logo-text span { color:#60a5fa; }
+    .nav-links { display:flex; align-items:center; gap:2px; flex:1; }
+    .nav-link { padding:6px 9px; font-size:13px; font-weight:500; color:rgba(255,255,255,.8); border-radius:6px; transition:all .18s; white-space:nowrap; }
+    .nav-link:hover { color:#fff; background:rgba(255,255,255,.1); opacity:1; }
+    .nav-link.active { color:#60a5fa; font-weight:600; }
+    .nav-cta-group { display:flex; align-items:center; gap:8px; flex-shrink:0; margin-left:16px; }
+    .btn-nav-main { padding:8px 15px; background:#2563eb; color:#fff; font-size:12.5px; font-weight:700; border-radius:7px; white-space:nowrap; animation:pulseRing 2.8s ease infinite; }
+    .btn-nav-main:hover { background:#1d4ed8; opacity:1; }
+    .btn-nav-sub { padding:7px 13px; border:1.5px solid rgba(255,255,255,.28); color:rgba(255,255,255,.82); font-size:12.5px; border-radius:7px; white-space:nowrap; }
+    .btn-nav-sub:hover { border-color:#fff; color:#fff; opacity:1; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; margin-left:auto; }
+    .hamburger span { display:block; width:22px; height:2px; background:#fff; border-radius:2px; }
+    .mobile-nav { display:none; flex-direction:column; position:fixed; top:64px; left:0; right:0; bottom:0; background:#0a1628; padding:16px 20px 32px; gap:2px; z-index:999; overflow-y:auto; }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:13px 14px; font-size:15px; font-weight:500; color:rgba(255,255,255,.85); border-bottom:1px solid rgba(255,255,255,.07); display:block; }
+    .mobile-nav a:hover { background:rgba(255,255,255,.07); border-radius:8px; opacity:1; }
+    .mobile-nav .mob-cta { margin-top:16px; background:#2563eb; color:#fff; font-weight:700; border-radius:10px; text-align:center; }
+    .mobile-nav .mob-login { margin-top:8px; border:1.5px solid rgba(255,255,255,.28); border-radius:10px; text-align:center; }
+    @media (max-width:880px) { .nav-links{display:none;} .nav-cta-group{display:none;} .hamburger{display:flex;} }
+
+    .wrap { max-width:1280px; margin:0 auto; padding:0 24px; }
+
+    .guide-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    @media (max-width:1023px) { .guide-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:499px) { .guide-grid{grid-template-columns:1fr;} }
+
+    .month-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    @media (max-width:767px) { .month-grid{grid-template-columns:1fr;} }
+
+    .info-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+    @media (max-width:1023px) { .info-grid{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:499px) { .info-grid{grid-template-columns:repeat(2,1fr);} }
+
+    .short-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    @media (max-width:767px) { .short-grid{grid-template-columns:1fr;} }
+
+    /* 비교표: 카드형 4열 */
+    .compare-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    @media (max-width:1023px) { .compare-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:499px) { .compare-grid{grid-template-columns:1fr;} }
+
+    .path-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    @media (max-width:767px) { .path-grid{grid-template-columns:1fr;} }
+
+    .link-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    @media (max-width:1023px) { .link-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:499px) { .link-grid{grid-template-columns:1fr;} }
+
+    .hero-split { display:grid; grid-template-columns:1fr 340px; gap:56px; align-items:center; }
+    @media (max-width:900px) { .hero-split{grid-template-columns:1fr;} .hero-vis{display:none!important;} }
+
+    .ams-layout { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+    @media (max-width:900px) { .ams-layout{grid-template-columns:1fr;} }
+
+    .card-h { transition:transform .22s, box-shadow .22s; }
+    .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
+  </style>
+</helmet>
+
+<!-- NAV -->
+<nav id="gs-nav" class="nav-wrap">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="uploads/e-1_투명.png" alt="거상스쿨" style="height:38px; width:auto; display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="/about" class="nav-link">거상스쿨 소개</a>
+      <a href="/courses" class="nav-link active">전체 교육과정</a>
+      <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
+      <a href="/courses/short-courses" class="nav-link">단기 클래스</a>
+      <a href="/reviews" class="nav-link">수강후기</a>
+      <a href="/resources" class="nav-link">학습자료</a>
+      <a href="/support" class="nav-link">학습지원</a>
+      <a href="/contact" class="nav-link">상담문의</a>
+    </div>
+    <div class="nav-cta-group">
+      <a href="/contact" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
+      <a href="/login" class="btn-nav-sub">수강생 로그인</a>
+    </div>
+    <div class="hamburger" onClick="{{ toggleMenu }}"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="{{ mobileNavClass }}">
+  <a href="/about" onClick="{{ toggleMenu }}">거상스쿨 소개</a>
+  <a href="/courses" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">전체 교육과정</a>
+  <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
+  <a href="/courses/short-courses" onClick="{{ toggleMenu }}">단기 클래스</a>
+  <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
+  <a href="/resources" onClick="{{ toggleMenu }}">학습자료</a>
+  <a href="/support" onClick="{{ toggleMenu }}">학습지원</a>
+  <a href="/contact" onClick="{{ toggleMenu }}">상담문의</a>
+  <a href="/contact" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
+  <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>
+</div>
+
+<div style="height:64px;"></div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 1. HERO -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:linear-gradient(145deg,#06101f 0%,#0a1a3a 55%,#0b2050 100%); padding:88px 0 96px;">
+  <div class="wrap">
+    <div class="hero-split">
+      <div style="animation:fadeUp .7s ease both;">
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:20px; padding:6px 16px; font-size:11.5px; font-weight:700; color:rgba(255,255,255,.7); letter-spacing:.12em; margin-bottom:28px;">COURSES</div>
+        <h1 style="font-size:clamp(28px,4vw,50px); font-weight:900; color:#fff; line-height:1.25; letter-spacing:-.02em; word-break:keep-all; margin-bottom:22px; text-wrap:pretty;">
+          내 상황에 맞는<br>AI 교육과정을<br>
+          <span style="background:linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">한눈에 선택하세요</span>
+        </h1>
+        <p style="font-size:clamp(14px,1.5vw,17px); color:rgba(255,255,255,.7); line-height:1.85; margin-bottom:40px; max-width:500px; word-break:keep-all;">
+          거상스쿨은 3개월 AI마케팅스쿨을 중심으로,<br>1day 클래스, 2주 완성 과정, 4주 집중 과정까지<br>목적과 수준에 맞는 실전형 AI 교육과정을 운영합니다.
+        </p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="/courses/ai-marketing-school" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">AI마케팅스쿨 보기 →</a>
+          <a href="/contact" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border:2px solid rgba(255,255,255,.3); color:rgba(255,255,255,.88); font-size:15px; font-weight:600; border-radius:10px; white-space:nowrap;">상담 문의하기</a>
+        </div>
+      </div>
+      <!-- 우측 과정 미니맵 -->
+      <div class="hero-vis" style="animation:fadeUp .9s ease .2s both;">
+        <div style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:24px 20px;">
+          <div style="font-size:12px; font-weight:700; color:#60a5fa; margin-bottom:18px; letter-spacing:.04em;">거상스쿨 교육과정</div>
+          <!-- 대표 과정 -->
+          <div style="background:rgba(37,99,235,.25); border:1px solid rgba(37,99,235,.5); border-radius:14px; padding:18px 16px; margin-bottom:12px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+              <span style="font-size:11px; font-weight:700; color:#93c5fd; letter-spacing:.04em;">대표 과정</span>
+              <span style="background:#2563eb; color:#fff; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; white-space:nowrap;">정원 50명</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:#fff; margin-bottom:4px;">AI마케팅스쿨</div>
+            <div style="font-size:12px; color:rgba(255,255,255,.6);">3개월 / 12주 · Zoom + 과제</div>
+          </div>
+          <!-- 단기 과정들 -->
+          <div style="font-size:11px; font-weight:600; color:rgba(255,255,255,.45); margin-bottom:10px; letter-spacing:.04em;">단기 클래스</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; flex-shrink:0;">1D</div>
+              <div><div style="font-size:12.5px; font-weight:700; color:#fff;">1day 클래스</div><div style="font-size:10.5px; color:rgba(255,255,255,.5); margin-top:1px;">하루 핵심 실습</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:linear-gradient(135deg,#059669,#10b981); border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; flex-shrink:0;">2W</div>
+              <div><div style="font-size:12.5px; font-weight:700; color:#fff;">2주 완성 과정</div><div style="font-size:10.5px; color:rgba(255,255,255,.5); margin-top:1px;">결과물 완성 집중</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; flex-shrink:0;">4W</div>
+              <div><div style="font-size:12.5px; font-weight:700; color:#fff;">4주 집중 과정</div><div style="font-size:10.5px; color:rgba(255,255,255,.5); margin-top:1px;">실전 심화 적용</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 2. 과정 선택 가이드 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#fff; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">과정 선택 가이드</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:14px; word-break:keep-all;">어떤 과정이 나에게 맞을까요?</h2>
+      <p style="font-size:15px; color:#64748b; line-height:1.8; max-width:520px; margin:0 auto; word-break:keep-all;">처음부터 긴 과정을 선택하기 어렵다면, 현재 목표와 상황에 맞는 과정부터 시작할 수 있습니다.</p>
+    </div>
+    <div class="guide-grid">
+      <!-- AI마케팅스쿨 -->
+      <div class="card-h" style="background:#fff; border:2px solid #2563eb; border-radius:18px; padding:30px 24px; box-shadow:0 4px 20px rgba(37,99,235,.12); position:relative;">
+        <div style="position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:#2563eb; color:#fff; font-size:10.5px; font-weight:700; padding:4px 14px; border-radius:0 0 10px 10px; white-space:nowrap;">대표 과정</div>
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:13px; display:flex; align-items:center; justify-content:center; margin:14px 0 18px;">
+          <span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; text-align:center; line-height:1.2;">3M</span>
+        </div>
+        <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:3px 10px; font-size:10px; font-weight:700; color:#2563eb; margin-bottom:12px;">12주 정규과정</div>
+        <h3 style="font-size:17px; font-weight:800; color:#1d4ed8; margin-bottom:10px; word-break:keep-all;">AI마케팅스쿨<br>3개월 과정</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:14px; word-break:keep-all;">AI를 업무, 콘텐츠, 마케팅, 홈페이지, 자동화까지 종합적으로 배우고 싶은 분</p>
+        <p style="font-size:12.5px; font-weight:600; color:#1d4ed8; margin-bottom:20px; line-height:1.6; word-break:keep-all;">12주 동안 AI를 내 사업에 적용하는 대표 정규과정입니다.</p>
+        <a href="/courses/ai-marketing-school" style="display:block; text-align:center; padding:12px; background:#2563eb; color:#fff; font-size:13.5px; font-weight:700; border-radius:9px;">AI마케팅스쿨 자세히 보기 →</a>
+      </div>
+      <!-- 1day -->
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
+          <span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff;">1D</span>
+        </div>
+        <div style="display:inline-flex; background:#ecfeff; border:1px solid #a5f3fc; border-radius:20px; padding:3px 10px; font-size:10px; font-weight:700; color:#0891b2; margin-bottom:12px;">입문</div>
+        <h3 style="font-size:17px; font-weight:800; color:#0f172a; margin-bottom:10px;">1day 클래스</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:14px; word-break:keep-all;">특정 도구나 주제를 하루 만에 빠르게 익히고 싶은 분</p>
+        <p style="font-size:12.5px; font-weight:600; color:#0891b2; margin-bottom:20px; line-height:1.6; word-break:keep-all;">노션, Gemini, ChatGPT, Claude 등 핵심 주제를 하루 만에 실습합니다.</p>
+        <a href="/courses/short-courses" style="display:block; text-align:center; padding:11px; border:1.5px solid #0891b2; color:#0891b2; font-size:13px; font-weight:700; border-radius:9px; background:#fff;">1day 클래스 보기 →</a>
+      </div>
+      <!-- 2주 -->
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#059669,#10b981); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
+          <span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff;">2W</span>
+        </div>
+        <div style="display:inline-flex; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:20px; padding:3px 10px; font-size:10px; font-weight:700; color:#059669; margin-bottom:12px;">집중 완성</div>
+        <h3 style="font-size:17px; font-weight:800; color:#0f172a; margin-bottom:10px;">2주 완성 과정</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:14px; word-break:keep-all;">짧은 기간 안에 하나의 결과물을 만들고 싶은 분</p>
+        <p style="font-size:12.5px; font-weight:600; color:#059669; margin-bottom:20px; line-height:1.6; word-break:keep-all;">AI 홈페이지, 노션 업무 시스템, 콘텐츠 제작 등 결과물 중심 과정입니다.</p>
+        <a href="/courses/short-courses" style="display:block; text-align:center; padding:11px; border:1.5px solid #059669; color:#059669; font-size:13px; font-weight:700; border-radius:9px; background:#fff;">2주 과정 보기 →</a>
+      </div>
+      <!-- 4주 -->
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
+          <span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff;">4W</span>
+        </div>
+        <div style="display:inline-flex; background:#f5f3ff; border:1px solid #ddd6fe; border-radius:20px; padding:3px 10px; font-size:10px; font-weight:700; color:#7c3aed; margin-bottom:12px;">실전 심화</div>
+        <h3 style="font-size:17px; font-weight:800; color:#0f172a; margin-bottom:10px;">4주 집중 과정</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:14px; word-break:keep-all;">한 가지 주제를 조금 더 깊게 배우고 실전에 적용하고 싶은 분</p>
+        <p style="font-size:12.5px; font-weight:600; color:#7c3aed; margin-bottom:20px; line-height:1.6; word-break:keep-all;">콘텐츠 마케팅, 자동화, 홈페이지 제작, AEO/GEO 등 실전 적용형 과정입니다.</p>
+        <a href="/courses/short-courses" style="display:block; text-align:center; padding:11px; border:1.5px solid #7c3aed; color:#7c3aed; font-size:13px; font-weight:700; border-radius:9px; background:#fff;">4주 과정 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 3. 대표 과정 AI마케팅스쿨 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#f0f4f8; padding:88px 0;">
+  <div class="wrap">
+    <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">대표 과정</div>
+    <div class="ams-layout">
+      <div>
+        <h2 style="font-size:clamp(24px,3.5vw,44px); font-weight:900; color:#0f172a; line-height:1.3; margin-bottom:18px; word-break:keep-all;">
+          3개월<br><span style="color:#2563eb;">AI마케팅스쿨</span>
+        </h2>
+        <p style="font-size:15px; color:#64748b; line-height:1.85; margin-bottom:32px; word-break:keep-all;">
+          3년 넘게 운영해온 거상스쿨의 핵심 브랜드입니다.<br>
+          AI 도구 사용법을 넘어, 콘텐츠·마케팅·홈페이지·자동화 시스템까지<br>
+          12주 동안 직접 만들고 적용하는 실전 과정입니다.
+        </p>
+        <!-- 과정 정보 -->
+        <div class="info-grid" style="margin-bottom:32px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;">
+            <div style="font-size:10.5px; font-weight:600; color:#94a3b8; margin-bottom:6px; letter-spacing:.06em;">기간</div>
+            <div style="font-size:15px; font-weight:800; color:#0f172a; line-height:1.3;">3개월<br><span style="font-size:12px; color:#2563eb;">/ 12주</span></div>
+          </div>
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;">
+            <div style="font-size:10.5px; font-weight:600; color:#94a3b8; margin-bottom:6px; letter-spacing:.06em;">방식</div>
+            <div style="font-size:12px; font-weight:700; color:#0f172a; line-height:1.5;">Zoom 실시간<br>+ 녹화 + 과제</div>
+          </div>
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;">
+            <div style="font-size:10.5px; font-weight:600; color:#94a3b8; margin-bottom:6px; letter-spacing:.06em;">대상</div>
+            <div style="font-size:12px; font-weight:700; color:#0f172a; line-height:1.5;">1인기업<br>소상공인·강사</div>
+          </div>
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;">
+            <div style="font-size:10.5px; font-weight:600; color:#94a3b8; margin-bottom:6px; letter-spacing:.06em;">목표</div>
+            <div style="font-size:12px; font-weight:700; color:#0f172a; line-height:1.5;">결과물 중심<br>실전 과정</div>
+          </div>
+          <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:16px 14px; text-align:center;">
+            <div style="font-size:10.5px; font-weight:600; color:#60a5fa; margin-bottom:6px; letter-spacing:.06em;">정원</div>
+            <div style="font-size:22px; font-weight:900; color:#1d4ed8;">50명<br><span style="font-size:11px; color:#60a5fa;">내외</span></div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/courses/ai-marketing-school" style="display:inline-flex; align-items:center; gap:8px; padding:14px 26px; background:#2563eb; color:#fff; font-size:14px; font-weight:700; border-radius:10px; animation:pulseRing 2.8s ease infinite;">AI마케팅스쿨 상세 보기 →</a>
+          <a href="/contact" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border:2px solid #2563eb; color:#2563eb; font-size:14px; font-weight:600; border-radius:10px; background:#fff;">수강 상담 신청</a>
+        </div>
+      </div>
+      <!-- 3개월 구조 -->
+      <div>
+        <div style="font-size:13px; font-weight:700; color:#64748b; margin-bottom:18px; letter-spacing:.04em;">3개월 학습 구조</div>
+        <div class="month-grid">
+          <div style="background:linear-gradient(135deg,#1e40af,#2563eb); border-radius:16px; padding:24px 20px;">
+            <div style="display:inline-flex; background:rgba(255,255,255,.2); border-radius:8px; padding:4px 10px; font-size:10.5px; font-weight:700; color:#fff; margin-bottom:14px;">1개월차</div>
+            <h4 style="font-size:14px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.4; word-break:keep-all;">AI 기반 업무 생산성<br>10배 늘리기</h4>
+            <p style="font-size:11.5px; color:rgba(255,255,255,.7);">&lt;기본기와 응용과정&gt;</p>
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:5px;">
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· 노션 마스터하기</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· Gemini &amp; 구글 생태계</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· ChatGPT 마스터</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· Claude 마스터</div>
+            </div>
+          </div>
+          <div style="background:linear-gradient(135deg,#0e7490,#0891b2); border-radius:16px; padding:24px 20px;">
+            <div style="display:inline-flex; background:rgba(255,255,255,.2); border-radius:8px; padding:4px 10px; font-size:10.5px; font-weight:700; color:#fff; margin-bottom:14px;">2개월차</div>
+            <h4 style="font-size:14px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.4; word-break:keep-all;">AI 기반 실전<br>SNS 마케팅</h4>
+            <p style="font-size:11.5px; color:rgba(255,255,255,.7);">&lt;실전 적용&gt;</p>
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:5px;">
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· 스레드 &amp; 블로그</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· AI 이미지 만들기</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· AI 동영상</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· 숏폼 &amp; 유튜브</div>
+            </div>
+          </div>
+          <div style="background:linear-gradient(135deg,#5b21b6,#7c3aed); border-radius:16px; padding:24px 20px;">
+            <div style="display:inline-flex; background:rgba(255,255,255,.2); border-radius:8px; padding:4px 10px; font-size:10.5px; font-weight:700; color:#fff; margin-bottom:14px;">3개월차</div>
+            <h4 style="font-size:14px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.4; word-break:keep-all;">AI 업무자동화<br>시스템화 실전</h4>
+            <p style="font-size:11.5px; color:rgba(255,255,255,.7);">&lt;고급 응용&gt;</p>
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:5px;">
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· ChatGPT Codex</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· Claude Cowork</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· 마케팅 자동화</div>
+              <div style="font-size:11.5px; color:rgba(255,255,255,.8);">· 바이브코딩 & 배포</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 4. 단기 클래스 섹션 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#fff; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">단기 클래스</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:14px; word-break:keep-all;">짧게 배우고 바로 써먹는 단기 클래스</h2>
+      <p style="font-size:15px; color:#64748b; line-height:1.8; max-width:480px; margin:0 auto; word-break:keep-all;">3개월 과정이 부담스럽다면, 1day·2주·4주 과정으로 필요한 주제부터 시작할 수 있습니다.</p>
+    </div>
+    <div class="short-grid">
+      <!-- 1day -->
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,.05);">
+        <div style="background:linear-gradient(135deg,#0891b2,#06b6d4); padding:28px 24px;">
+          <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:28px; color:#fff; margin-bottom:4px;">1DAY</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75);">마스터 클래스</div>
+        </div>
+        <div style="padding:28px 24px;">
+          <p style="font-size:13.5px; color:#64748b; line-height:1.75; margin-bottom:18px; word-break:keep-all;">하루 만에 핵심 도구와 실습 흐름을 익히는 입문형 과정입니다.</p>
+          <div style="font-size:12px; font-weight:600; color:#64748b; margin-bottom:10px;">예시 과정</div>
+          <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
+            <div style="font-size:12.5px; color:#334155;">· 노션 마스터</div>
+            <div style="font-size:12.5px; color:#334155;">· Gemini 실전 활용</div>
+            <div style="font-size:12.5px; color:#334155;">· ChatGPT 업무 활용</div>
+            <div style="font-size:12.5px; color:#334155;">· Claude 문서/기획 활용</div>
+            <div style="font-size:12.5px; color:#334155;">· AI 이미지 만들기</div>
+          </div>
+          <div style="background:#ecfeff; border-radius:8px; padding:10px 14px; margin-bottom:20px;">
+            <p style="font-size:12px; color:#0891b2; font-weight:600; word-break:keep-all;">빠르게 시작하고 싶은 초보자, 특정 도구를 먼저 익히고 싶은 분</p>
+          </div>
+          <a href="/courses/short-courses" style="display:block; text-align:center; padding:12px; border:1.5px solid #0891b2; color:#0891b2; font-size:13.5px; font-weight:700; border-radius:9px; background:#fff;">자세히 보기 →</a>
+        </div>
+      </div>
+      <!-- 2주 -->
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,.05);">
+        <div style="background:linear-gradient(135deg,#059669,#10b981); padding:28px 24px;">
+          <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:28px; color:#fff; margin-bottom:4px;">2WEEK</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75);">완성 과정</div>
+        </div>
+        <div style="padding:28px 24px;">
+          <p style="font-size:13.5px; color:#64748b; line-height:1.75; margin-bottom:18px; word-break:keep-all;">짧은 기간 안에 하나의 결과물을 만드는 집중 과정입니다.</p>
+          <div style="font-size:12px; font-weight:600; color:#64748b; margin-bottom:10px;">예시 과정</div>
+          <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
+            <div style="font-size:12.5px; color:#334155;">· AI 홈페이지 제작 2주</div>
+            <div style="font-size:12.5px; color:#334155;">· 노션 업무 시스템 2주</div>
+            <div style="font-size:12.5px; color:#334155;">· 구글 드라이브/Gemini 정리</div>
+            <div style="font-size:12.5px; color:#334155;">· 카드뉴스·콘텐츠 제작 2주</div>
+          </div>
+          <div style="background:#ecfdf5; border-radius:8px; padding:10px 14px; margin-bottom:20px;">
+            <p style="font-size:12px; color:#059669; font-weight:600; word-break:keep-all;">명확한 결과물을 만들고 싶은 분</p>
+          </div>
+          <a href="/courses/short-courses" style="display:block; text-align:center; padding:12px; border:1.5px solid #059669; color:#059669; font-size:13.5px; font-weight:700; border-radius:9px; background:#fff;">자세히 보기 →</a>
+        </div>
+      </div>
+      <!-- 4주 -->
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,.05);">
+        <div style="background:linear-gradient(135deg,#7c3aed,#a855f7); padding:28px 24px;">
+          <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:28px; color:#fff; margin-bottom:4px;">4WEEK</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75);">집중 과정</div>
+        </div>
+        <div style="padding:28px 24px;">
+          <p style="font-size:13.5px; color:#64748b; line-height:1.75; margin-bottom:18px; word-break:keep-all;">한 가지 주제를 깊게 배우고 실제 사업에 적용하는 과정입니다.</p>
+          <div style="font-size:12px; font-weight:600; color:#64748b; margin-bottom:10px;">예시 과정</div>
+          <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
+            <div style="font-size:12.5px; color:#334155;">· AI 콘텐츠 마케팅 4주</div>
+            <div style="font-size:12.5px; color:#334155;">· AEO/GEO 콘텐츠 전략 4주</div>
+            <div style="font-size:12.5px; color:#334155;">· Claude/Codex 실전 4주</div>
+            <div style="font-size:12.5px; color:#334155;">· 숏폼 콘텐츠 시스템 4주</div>
+          </div>
+          <div style="background:#f5f3ff; border-radius:8px; padding:10px 14px; margin-bottom:20px;">
+            <p style="font-size:12px; color:#7c3aed; font-weight:600; word-break:keep-all;">기초를 넘어 실전 적용까지 하고 싶은 분</p>
+          </div>
+          <a href="/courses/short-courses" style="display:block; text-align:center; padding:12px; border:1.5px solid #7c3aed; color:#7c3aed; font-size:13.5px; font-weight:700; border-radius:9px; background:#fff;">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 5. 과정 비교 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#f0f4f8; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">과정 비교</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">과정별 차이를 비교해 보세요</h2>
+    </div>
+    <div class="compare-grid">
+      <!-- AI마케팅스쿨 -->
+      <div style="background:#fff; border:2px solid #2563eb; border-radius:18px; padding:28px 22px; box-shadow:0 4px 20px rgba(37,99,235,.1);">
+        <div style="background:#2563eb; color:#fff; font-size:10.5px; font-weight:700; padding:4px 12px; border-radius:20px; display:inline-block; margin-bottom:16px;">대표 과정</div>
+        <h3 style="font-size:16px; font-weight:800; color:#1d4ed8; margin-bottom:18px; word-break:keep-all;">AI마케팅스쿨<br>3개월</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">기간</div><div style="font-size:13px; font-weight:700; color:#0f172a;">12주</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">추천 대상</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">AI를 사업 전반에 적용하고 싶은 분</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">핵심 목표</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">업무·콘텐츠·마케팅·자동화 구축</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">결과물</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">노션 대시보드, 콘텐츠, 랜딩페이지, 자동화</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">운영</div><div style="font-size:12.5px; color:#334155;">Zoom + 과제 + 피드백</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">난이도</div><div style="font-size:12.5px; color:#334155;">입문~실전</div></div>
+        </div>
+        <a href="/courses/ai-marketing-school" style="display:block; text-align:center; padding:11px; background:#2563eb; color:#fff; font-size:13px; font-weight:700; border-radius:9px; margin-top:20px;">AI마케팅스쿨 보기 →</a>
+      </div>
+      <!-- 1day -->
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:4px 12px; border-radius:20px; display:inline-block; margin-bottom:16px;">입문</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:18px;">1day 클래스</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">기간</div><div style="font-size:13px; font-weight:700; color:#0f172a;">하루</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">추천 대상</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">특정 도구를 빠르게 익히고 싶은 분</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">핵심 목표</div><div style="font-size:12.5px; color:#334155; line-height:1.5;">핵심 기능 실습</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">결과물</div><div style="font-size:12.5px; color:#334155; line-height:1.5;">미니 실습 결과물</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">운영</div><div style="font-size:12.5px; color:#334155;">특강/실습</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">난이도</div><div style="font-size:12.5px; color:#334155;">입문</div></div>
+        </div>
+        <a href="/courses/short-courses" style="display:block; text-align:center; padding:11px; border:1.5px solid #0891b2; color:#0891b2; font-size:13px; font-weight:700; border-radius:9px; margin-top:20px; background:#fff;">단기 클래스 보기 →</a>
+      </div>
+      <!-- 2주 -->
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="background:#ecfdf5; color:#059669; font-size:10.5px; font-weight:700; padding:4px 12px; border-radius:20px; display:inline-block; margin-bottom:16px;">집중 완성</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:18px;">2주 완성 과정</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">기간</div><div style="font-size:13px; font-weight:700; color:#0f172a;">2주</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">추천 대상</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">하나의 결과물을 만들고 싶은 분</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">핵심 목표</div><div style="font-size:12.5px; color:#334155; line-height:1.5;">결과물 완성</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">결과물</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">홈페이지, 대시보드, 콘텐츠 세트 등</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">운영</div><div style="font-size:12.5px; color:#334155;">집중 실습</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">난이도</div><div style="font-size:12.5px; color:#334155;">입문~중급</div></div>
+        </div>
+        <a href="/courses/short-courses" style="display:block; text-align:center; padding:11px; border:1.5px solid #059669; color:#059669; font-size:13px; font-weight:700; border-radius:9px; margin-top:20px; background:#fff;">단기 클래스 보기 →</a>
+      </div>
+      <!-- 4주 -->
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:4px 12px; border-radius:20px; display:inline-block; margin-bottom:16px;">실전 심화</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:18px;">4주 집중 과정</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">기간</div><div style="font-size:13px; font-weight:700; color:#0f172a;">4주</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">추천 대상</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">특정 주제를 깊게 적용하고 싶은 분</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">핵심 목표</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">실전 적용과 반복 실행</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">결과물</div><div style="font-size:12.5px; color:#334155; line-height:1.5; word-break:keep-all;">운영 시스템 또는 마케팅 실행안</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">운영</div><div style="font-size:12.5px; color:#334155;">강의 + 실습 + 피드백</div></div>
+          <div><div style="font-size:10px; font-weight:700; color:#94a3b8; letter-spacing:.06em; margin-bottom:3px;">난이도</div><div style="font-size:12.5px; color:#334155;">실전</div></div>
+        </div>
+        <a href="/courses/short-courses" style="display:block; text-align:center; padding:11px; border:1.5px solid #7c3aed; color:#7c3aed; font-size:13px; font-weight:700; border-radius:9px; margin-top:20px; background:#fff;">단기 클래스 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 6. 추천 학습 경로 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#fff; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">추천 학습 경로</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">처음이라면 이렇게 시작하세요</h2>
+    </div>
+    <div class="path-grid">
+      <!-- 초보자 경로 -->
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px;">
+        <div style="display:inline-flex; background:#ecfeff; border:1px solid #a5f3fc; border-radius:20px; padding:4px 12px; font-size:11px; font-weight:700; color:#0891b2; margin-bottom:16px;">AI 초보자</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:20px; word-break:keep-all;">AI 초보자 경로</h3>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">1D</div>
+            <span style="font-size:13px; font-weight:600; color:#334155;">1day 클래스</span>
+          </div>
+          <div style="text-align:center; font-size:18px; color:#cbd5e1;">↓</div>
+          <div style="display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#059669,#10b981); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">2W</div>
+            <span style="font-size:13px; font-weight:600; color:#334155;">2주 완성 과정</span>
+          </div>
+          <div style="text-align:center; font-size:18px; color:#cbd5e1;">↓</div>
+          <div style="display:flex; align-items:center; gap:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">3M</div>
+            <span style="font-size:13px; font-weight:600; color:#1d4ed8;">AI마케팅스쿨</span>
+          </div>
+        </div>
+      </div>
+      <!-- 사업자 경로 -->
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px;">
+        <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:4px 12px; font-size:11px; font-weight:700; color:#2563eb; margin-bottom:16px;">사업자 실전</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:20px; word-break:keep-all;">사업자 실전 경로</h3>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">3M</div>
+            <span style="font-size:13px; font-weight:600; color:#1d4ed8;">AI마케팅스쿨</span>
+          </div>
+          <div style="text-align:center; font-size:18px; color:#cbd5e1;">↓</div>
+          <div style="display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">4W</div>
+            <span style="font-size:13px; font-weight:600; color:#334155;">4주 집중 과정</span>
+          </div>
+          <div style="text-align:center; font-size:18px; color:#cbd5e1;">↓</div>
+          <div style="display:flex; align-items:center; gap:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#d97706,#f59e0b); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">₩</div>
+            <span style="font-size:13px; font-weight:600; color:#334155;">직접 실행/대행/컨설팅</span>
+          </div>
+        </div>
+      </div>
+      <!-- 결과물 경로 -->
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px;">
+        <div style="display:inline-flex; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:20px; padding:4px 12px; font-size:11px; font-weight:700; color:#059669; margin-bottom:16px;">결과물 제작</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:20px; word-break:keep-all;">결과물 제작 경로</h3>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#059669,#10b981); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">2W</div>
+            <span style="font-size:13px; font-weight:600; color:#334155;">2주 완성 과정</span>
+          </div>
+          <div style="text-align:center; font-size:18px; color:#cbd5e1;">↓</div>
+          <div style="display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">HP</div>
+            <span style="font-size:13px; font-weight:600; color:#334155;">AI 홈페이지/콘텐츠 제작</span>
+          </div>
+          <div style="text-align:center; font-size:18px; color:#cbd5e1;">↓</div>
+          <div style="display:flex; align-items:center; gap:12px; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:10px; padding:12px 14px;">
+            <div style="width:28px; height:28px; background:linear-gradient(135deg,#059669,#10b981); border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; flex-shrink:0;">→</div>
+            <span style="font-size:13px; font-weight:600; color:#059669;">상담/판매 페이지 운영</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 7. 기존 VOD 안내 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#f0f4f8; padding:64px 0;">
+  <div class="wrap">
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:40px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; box-shadow:0 1px 6px rgba(0,0,0,.05);">
+      <div>
+        <div style="display:inline-flex; background:#f8fafc; border:1px solid #e2e8f0; border-radius:20px; padding:4px 12px; font-size:11px; font-weight:600; color:#64748b; margin-bottom:14px;">기존 수강생 안내</div>
+        <h3 style="font-size:clamp(18px,2.5vw,24px); font-weight:800; color:#0f172a; margin-bottom:12px; word-break:keep-all;">기존 수강생은 기존 강의실을 이용해 주세요</h3>
+        <p style="font-size:14px; color:#64748b; line-height:1.8; margin-bottom:24px; word-break:keep-all;">
+          기존 거상스쿨 수강생은 기존 VOD 강의실에서 로그인 후 강의를 시청하실 수 있습니다.<br>
+          새 홈페이지는 과정 안내와 상담 신청을 위한 공식 홈페이지이며, 강의 시청과 수강 관리는 기존 시스템을 통해 진행됩니다.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/login" style="display:inline-flex; align-items:center; gap:8px; padding:12px 22px; background:#0f172a; color:#fff; font-size:14px; font-weight:700; border-radius:9px;">수강생 로그인 →</a>
+          <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1.5px solid #cbd5e1; color:#64748b; font-size:14px; font-weight:600; border-radius:9px; background:#fff;">기존 강의실 바로가기 ↗</a>
+        </div>
+      </div>
+      <div style="width:120px; height:120px; background:linear-gradient(135deg,#dbeafe,#eff6ff); border-radius:50%; display:flex; align-items:center; justify-content:center; border:3px solid #bfdbfe; flex-shrink:0;">
+        <div style="text-align:center;">
+          <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:22px; color:#2563eb;">VOD</div>
+          <div style="font-size:10px; color:#60a5fa; margin-top:2px;">강의실</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 8. 상담 유도 CTA -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:linear-gradient(145deg,#06101f,#0a1a3a,#0d2050); padding:96px 0;">
+  <div class="wrap" style="text-align:center;">
+    <div style="max-width:620px; margin:0 auto; animation:fadeUp .7s ease both;">
+      <h2 style="font-size:clamp(22px,3.5vw,42px); font-weight:900; color:#fff; line-height:1.35; margin-bottom:18px; word-break:keep-all; text-wrap:pretty;">
+        어떤 과정을 들어야 할지<br>모르겠다면,<br>
+        <span style="background:linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">먼저 상담을 신청하세요</span>
+      </h2>
+      <p style="font-size:clamp(14px,1.8vw,17px); color:rgba(255,255,255,.7); line-height:1.85; margin-bottom:44px; word-break:keep-all;">
+        현재 상황과 목표를 알려주시면,<br>AI마케팅스쿨, 1day, 2주, 4주 과정 중<br>가장 적합한 학습 경로를 안내해 드립니다.
+      </p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="/contact" style="display:inline-flex; align-items:center; gap:8px; padding:15px 32px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">상담 문의하기 →</a>
+        <a href="/courses/ai-marketing-school" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border:2px solid rgba(255,255,255,.3); color:rgba(255,255,255,.88); font-size:15px; font-weight:600; border-radius:10px; white-space:nowrap;">AI마케팅스쿨 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 9. 하단 연결 카드 -->
+<!-- ═══════════════════════════════════ -->
+<section style="background:#fff; padding:72px 0;">
+  <div class="wrap">
+    <h2 style="font-size:17px; font-weight:700; color:#64748b; text-align:center; margin-bottom:32px; letter-spacing:.02em;">다른 페이지로 이동하기</h2>
+    <div class="link-grid">
+      <a href="/courses/ai-marketing-school" class="card-h" style="display:block; background:#eff6ff; border:1px solid #bfdbfe; border-radius:16px; padding:26px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; text-align:center; line-height:1.2;">AI<br>3M</span></div>
+        <h3 style="font-size:14.5px; font-weight:700; color:#1d4ed8; margin-bottom:6px;">AI마케팅스쿨 상세 보기</h3>
+        <p style="font-size:12px; color:#3b82f6;">3개월 정규 과정 커리큘럼 확인</p>
+        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
+      </a>
+      <a href="/courses/short-courses" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:26px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff;">1D·4W</span></div>
+        <h3 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">단기 클래스 보기</h3>
+        <p style="font-size:12px; color:#64748b;">1day, 2주, 4주 과정 한눈에</p>
+        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
+      </a>
+      <a href="/reviews" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:26px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:14px; color:#fff;">★</span></div>
+        <h3 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">수강후기 보기</h3>
+        <p style="font-size:12px; color:#64748b;">실제 수강생 변화 사례</p>
+        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
+      </a>
+      <a href="/contact" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:26px 22px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff;">?</span></div>
+        <h3 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">상담문의 하기</h3>
+        <p style="font-size:12px; color:#64748b;">나에게 맞는 과정 상담 신청</p>
+        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">신청하기 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#040c1a; padding:52px 0 32px;">
+  <div class="wrap">
+    <div style="margin-bottom:16px;">
+      <img src="uploads/e-1_투명.png" alt="거상스쿨" style="height:40px; width:auto; display:block; filter:brightness(1.4);">
+    </div>
+    <p style="font-size:12.5px; color:rgba(255,255,255,.35); line-height:1.8; margin-bottom:24px; max-width:480px; word-break:keep-all;">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p>
+    <div style="border-top:1px solid rgba(255,255,255,.07); padding-top:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <p style="font-size:12px; color:rgba(255,255,255,.25);">© 2024 거상스쿨(주). All rights reserved.</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="/" style="font-size:12px; color:rgba(255,255,255,.35);">홈</a>
+        <a href="/about" style="font-size:12px; color:rgba(255,255,255,.35);">소개</a>
+        <a href="/contact" style="font-size:12px; color:rgba(255,255,255,.35);">상담문의</a>
+        <a href="/resources" style="font-size:12px; color:rgba(255,255,255,.35);">학습자료</a>
+        <a href="/login" style="font-size:12px; color:rgba(255,255,255,.35);">수강생 로그인</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileMenuOpen: false };
+
+  componentDidMount() {
+    const nav = document.getElementById('gs-nav');
+    const onScroll = () => {
+      if (window.scrollY > 20) nav?.classList.add('scrolled');
+      else nav?.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._cleanup = () => window.removeEventListener('scroll', onScroll);
+  }
+
+  componentWillUnmount() { this._cleanup?.(); }
+
+  renderVals() {
+    const { mobileMenuOpen } = this.state;
+    return {
+      mobileNavClass: 'mobile-nav' + (mobileMenuOpen ? ' open' : ''),
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+    };
+  }
+}
+</script>
+</body>
+</html>

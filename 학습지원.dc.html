@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>학습지원 | 거상스쿨</title>
+  <meta name="description" content="거상스쿨 학습지원 페이지에서는 기존 수강생 로그인, VOD 강의실 바로가기, PC·모바일 강의 시청 방법, 강의자료 다운로드, 비밀번호 찾기 등 수강생 이용 안내를 제공합니다.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geosangschool.com/support">
+  <meta property="og:title" content="학습지원 | 거상스쿨">
+  <meta property="og:description" content="거상스쿨 학습지원 페이지에서는 기존 수강생 로그인, VOD 강의실 바로가기, PC·모바일 강의 시청 방법, 강의자료 다운로드, 비밀번호 찾기 등 수강생 이용 안내를 제공합니다.">
+  <meta property="og:image" content="https://geosangschool.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="학습지원 | 거상스쿨">
+  <meta name="twitter:description" content="기존 수강생 로그인, VOD 강의실 바로가기, PC·모바일 강의 시청 방법, 강의자료 다운로드 안내를 확인하세요.">
+  <meta name="twitter:image" content="https://geosangschool.com/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    a:hover { opacity: .85; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes pulseRing { 0%{box-shadow:0 0 0 0 rgba(37,99,235,.45);}70%{box-shadow:0 0 0 10px rgba(37,99,235,0);}100%{box-shadow:0 0 0 0 rgba(37,99,235,0);} }
+
+    .nav-wrap { position:fixed; top:0; left:0; right:0; z-index:1000; background:#0a1628; transition:box-shadow .3s; }
+    .nav-wrap.scrolled { box-shadow:0 4px 24px rgba(0,0,0,.35); }
+    .nav-inner { max-width:1400px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; }
+    .nav-logo { display:flex; align-items:center; gap:9px; flex-shrink:0; margin-right:28px; }
+    .nav-logo-icon { width:34px; height:34px; background:#2563eb; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:17px; color:#fff; }
+    .nav-logo-text { font-size:16px; font-weight:700; color:#fff; white-space:nowrap; }
+    .nav-logo-text span { color:#60a5fa; }
+    .nav-links { display:flex; align-items:center; gap:2px; flex:1; }
+    .nav-link { padding:6px 9px; font-size:13px; font-weight:500; color:rgba(255,255,255,.8); border-radius:6px; transition:all .18s; white-space:nowrap; }
+    .nav-link:hover { color:#fff; background:rgba(255,255,255,.1); opacity:1; }
+    .nav-link.active { color:#60a5fa; font-weight:600; }
+    .nav-cta-group { display:flex; align-items:center; gap:8px; flex-shrink:0; margin-left:16px; }
+    .btn-nav-main { padding:8px 15px; background:#2563eb; color:#fff; font-size:12.5px; font-weight:700; border-radius:7px; white-space:nowrap; animation:pulseRing 2.8s ease infinite; }
+    .btn-nav-main:hover { background:#1d4ed8; opacity:1; }
+    .btn-nav-sub { padding:7px 13px; border:1.5px solid rgba(255,255,255,.28); color:rgba(255,255,255,.82); font-size:12.5px; border-radius:7px; white-space:nowrap; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; margin-left:auto; }
+    .hamburger span { display:block; width:22px; height:2px; background:#fff; border-radius:2px; }
+    .mobile-nav { display:none; flex-direction:column; position:fixed; top:64px; left:0; right:0; bottom:0; background:#0a1628; padding:16px 20px 32px; gap:2px; z-index:999; overflow-y:auto; }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:13px 14px; font-size:15px; font-weight:500; color:rgba(255,255,255,.85); border-bottom:1px solid rgba(255,255,255,.07); display:block; }
+    .mobile-nav a:hover { background:rgba(255,255,255,.07); border-radius:8px; opacity:1; }
+    .mobile-nav .mob-cta { margin-top:16px; background:#2563eb; color:#fff; font-weight:700; border-radius:10px; text-align:center; }
+    .mobile-nav .mob-login { margin-top:8px; border:1.5px solid rgba(255,255,255,.28); border-radius:10px; text-align:center; }
+    @media (max-width:880px) { .nav-links{display:none;} .nav-cta-group{display:none;} .hamburger{display:flex;} }
+
+    .wrap { max-width:1280px; margin:0 auto; padding:0 24px; }
+
+    .hero-split { display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:center; }
+    @media (max-width:900px) { .hero-split{grid-template-columns:1fr;} .hero-vis{display:none!important;} }
+
+    .quick-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    @media (max-width:1023px) { .quick-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:499px) { .quick-grid{grid-template-columns:1fr;} }
+
+    .step-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+    @media (max-width:1023px) { .step-grid{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:599px) { .step-grid{grid-template-columns:1fr;} }
+
+    .help-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media (max-width:1023px) { .help-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:499px) { .help-grid{grid-template-columns:1fr;} }
+
+    .prep-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    @media (max-width:1023px) { .prep-grid{grid-template-columns:repeat(2,1fr);} }
+
+    .faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    @media (max-width:767px) { .faq-grid{grid-template-columns:1fr;} }
+
+    .link-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    @media (max-width:1023px) { .link-grid{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:499px) { .link-grid{grid-template-columns:1fr;} }
+
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+    @media (max-width:767px) { .two-col{grid-template-columns:1fr;} }
+    .two-col-top { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+    @media (max-width:767px) { .two-col-top{grid-template-columns:1fr;} }
+    .card-h { transition:transform .22s,box-shadow .22s; }
+    .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
+
+    .faq-answer { overflow:hidden; transition:max-height .35s ease,padding .3s ease; max-height:0; padding:0 20px; }
+    .faq-answer.open { max-height:240px; padding:0 20px 18px; }
+    .faq-icon { transition:transform .3s; display:inline-block; }
+    .faq-icon.open { transform:rotate(45deg); }
+  </style>
+</helmet>
+
+<!-- NAV -->
+<nav id="gs-nav" class="nav-wrap">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="uploads/e-1_투명.png" alt="거상스쿨" style="height:38px; width:auto; display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="/about" class="nav-link">거상스쿨 소개</a>
+      <a href="/courses" class="nav-link">전체 교육과정</a>
+      <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
+      <a href="/courses/short-courses" class="nav-link">단기 클래스</a>
+      <a href="/reviews" class="nav-link">수강후기</a>
+      <a href="/resources" class="nav-link">학습자료</a>
+      <a href="/support" class="nav-link active">학습지원</a>
+      <a href="/contact" class="nav-link">상담문의</a>
+    </div>
+    <div class="nav-cta-group">
+      <a href="/contact" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
+      <a href="/login" class="btn-nav-sub">수강생 로그인</a>
+    </div>
+    <div class="hamburger" onClick="{{ toggleMenu }}"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="{{ mobileNavClass }}">
+  <a href="/about" onClick="{{ toggleMenu }}">거상스쿨 소개</a>
+  <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
+  <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
+  <a href="/courses/short-courses" onClick="{{ toggleMenu }}">단기 클래스</a>
+  <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
+  <a href="/resources" onClick="{{ toggleMenu }}">학습자료</a>
+  <a href="/support" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">학습지원</a>
+  <a href="/contact" onClick="{{ toggleMenu }}">상담문의</a>
+  <a href="/contact" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
+  <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>
+</div>
+<div style="height:64px;"></div>
+
+<!-- ═══ 1. HERO ═══ -->
+<section style="background:linear-gradient(145deg,#06101f 0%,#0a1a3a 55%,#0b2050 100%); padding:88px 0 96px;">
+  <div class="wrap">
+    <div class="hero-split">
+      <div style="animation:fadeUp .7s ease both;">
+        <div style="display:inline-flex; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:20px; padding:6px 16px; font-size:11.5px; font-weight:700; color:rgba(255,255,255,.7); letter-spacing:.12em; margin-bottom:24px;">LEARNING SUPPORT</div>
+        <h1 style="font-size:clamp(26px,3.8vw,48px); font-weight:900; color:#fff; line-height:1.25; letter-spacing:-.02em; word-break:keep-all; margin-bottom:20px; text-wrap:pretty;">
+          수강 중이신가요?<br>
+          <span style="background:linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">강의실과 학습 방법을<br>안내해 드립니다</span>
+        </h1>
+        <p style="font-size:clamp(13px,1.4vw,16px); color:rgba(255,255,255,.7); line-height:1.85; margin-bottom:28px; max-width:500px; word-break:keep-all;">거상스쿨 기존 수강생은 기존 VOD 강의실에서 로그인 후 강의를 시청할 수 있습니다. 새 홈페이지는 과정 안내와 상담 신청을 위한 공식 홈페이지이며, 강의 시청과 수강 관리는 기존 시스템을 통해 진행됩니다.</p>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:36px;">
+          <span style="background:rgba(37,99,235,.2); border:1px solid rgba(37,99,235,.45); color:#93c5fd; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">기존 강의실 안내</span>
+          <span style="background:rgba(37,99,235,.2); border:1px solid rgba(37,99,235,.45); color:#93c5fd; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">PC 수강 방법</span>
+          <span style="background:rgba(6,182,212,.15); border:1px solid rgba(6,182,212,.35); color:#67e8f9; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">모바일 수강 방법</span>
+          <span style="background:rgba(6,182,212,.15); border:1px solid rgba(6,182,212,.35); color:#67e8f9; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">강의자료 다운로드</span>
+          <span style="background:rgba(124,58,237,.2); border:1px solid rgba(124,58,237,.4); color:#c4b5fd; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">자주 묻는 질문</span>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="/login" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">수강생 로그인 →</a>
+          <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border:2px solid rgba(255,255,255,.3); color:rgba(255,255,255,.88); font-size:14px; font-weight:600; border-radius:10px; white-space:nowrap;">기존 강의실 바로가기 ↗</a>
+        </div>
+      </div>
+      <!-- 우측 비주얼 -->
+      <div class="hero-vis" style="animation:fadeUp .9s ease .2s both;">
+        <div style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px 18px;">
+          <div style="font-size:11px; font-weight:700; color:#60a5fa; margin-bottom:16px; letter-spacing:.04em;">학습지원 빠른 안내</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="background:rgba(37,99,235,.2); border:1px solid rgba(37,99,235,.4); border-radius:12px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:#2563eb; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><div style="width:14px; height:14px; border-radius:50%; border:2px solid rgba(255,255,255,.8);"></div></div>
+              <div><div style="font-size:13px; font-weight:700; color:#fff;">수강생 로그인</div><div style="font-size:10px; color:rgba(255,255,255,.55); margin-top:2px;">/login</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:rgba(255,255,255,.15); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><div style="width:16px; height:12px; border:2px solid rgba(255,255,255,.7); border-radius:3px;"></div></div>
+              <div><div style="font-size:13px; font-weight:700; color:#fff;">PC 강의 시청</div><div style="font-size:10px; color:rgba(255,255,255,.55); margin-top:2px;">브라우저에서 접속</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:rgba(255,255,255,.15); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><div style="width:10px; height:16px; border:2px solid rgba(255,255,255,.7); border-radius:3px;"></div></div>
+              <div><div style="font-size:13px; font-weight:700; color:#fff;">모바일 수강</div><div style="font-size:10px; color:rgba(255,255,255,.55); margin-top:2px;">모바일 브라우저 이용</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <div style="width:32px; height:32px; background:rgba(255,255,255,.15); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><div style="width:14px; height:16px; border:2px solid rgba(255,255,255,.7); border-radius:3px;"></div></div>
+              <div><div style="font-size:13px; font-weight:700; color:#fff;">강의자료</div><div style="font-size:10px; color:rgba(255,255,255,.55); margin-top:2px;">강의실 내 자료실 확인</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. 빠른 지원 카드 ═══ -->
+<section style="background:#fff; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">빠른 학습지원</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">무엇이 필요하신가요?</h2>
+    </div>
+    <div class="quick-grid">
+      <a href="/login" class="card-h" style="display:block; background:#eff6ff; border:2px solid #2563eb; border-radius:18px; padding:28px 24px; box-shadow:0 4px 16px rgba(37,99,235,.12);">
+        <div style="width:52px; height:52px; background:#2563eb; border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;"><div style="width:24px; height:24px; border-radius:50%; border:3px solid rgba(255,255,255,.8);"></div></div>
+        <div style="display:inline-flex; background:#2563eb; color:#fff; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;">바로가기</div>
+        <h3 style="font-size:16px; font-weight:800; color:#1d4ed8; margin-bottom:8px;">수강생 로그인</h3>
+        <p style="font-size:13px; color:#3b82f6; line-height:1.7; word-break:keep-all;">기존 거상스쿨 강의실에 로그인해 수강 중인 강좌를 확인합니다.</p>
+        <div style="margin-top:16px; font-size:13px; font-weight:700; color:#2563eb;">로그인 바로가기 →</div>
+      </a>
+      <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#0a1628,#1e3a8a); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;"><div style="width:24px; height:18px; border:2.5px solid rgba(255,255,255,.8); border-radius:3px;"></div></div>
+        <div style="display:inline-flex; background:#f1f5f9; color:#475569; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;">외부 연결</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:8px;">기존 강의실 바로가기</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">기존 VOD 강의실로 이동해 강의를 시청합니다.</p>
+        <div style="margin-top:16px; font-size:13px; font-weight:700; color:#2563eb;">강의실 바로가기 ↗</div>
+      </a>
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;"><div style="width:24px; height:18px; border:2.5px solid rgba(255,255,255,.8); border-radius:3px;"></div></div>
+        <div style="display:inline-flex; background:#ecfeff; color:#0891b2; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;">PC 안내</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:8px;">PC 강의 시청 방법</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">PC에서 로그인 후 강의실에 접속해 강의를 보는 방법을 안내합니다.</p>
+        <a href="#pc-guide" style="display:block; margin-top:16px; font-size:13px; font-weight:700; color:#2563eb;">안내 보기 ↓</a>
+      </div>
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#059669,#10b981); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;"><div style="width:14px; height:22px; border:2.5px solid rgba(255,255,255,.8); border-radius:4px;"></div></div>
+        <div style="display:inline-flex; background:#ecfdf5; color:#059669; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;">모바일 안내</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:8px;">모바일 강의 시청 방법</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">모바일 웹을 통해 강의를 시청하는 방법을 안내합니다.</p>
+        <a href="#mobile-guide" style="display:block; margin-top:16px; font-size:13px; font-weight:700; color:#2563eb;">안내 보기 ↓</a>
+      </div>
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;"><div style="width:20px; height:24px; border:2.5px solid rgba(255,255,255,.8); border-radius:3px;"></div></div>
+        <div style="display:inline-flex; background:#f5f3ff; color:#7c3aed; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;">자료 안내</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:8px;">강의자료 다운로드</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">수업 자료, 교재, 실습 파일을 확인하고 다운로드하는 방법을 안내합니다.</p>
+        <a href="#materials" style="display:block; margin-top:16px; font-size:13px; font-weight:700; color:#2563eb;">안내 보기 ↓</a>
+      </div>
+      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:52px; height:52px; background:linear-gradient(135deg,#d97706,#f59e0b); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;"><div style="width:22px; height:18px; border:2.5px solid rgba(255,255,255,.8); border-radius:3px; position:relative;"><div style="position:absolute; bottom:-5px; left:50%; transform:translateX(-50%); width:6px; height:5px; border-right:2.5px solid rgba(255,255,255,.8); border-bottom:2.5px solid rgba(255,255,255,.8); rotate:45deg;"></div></div></div>
+        <div style="display:inline-flex; background:#fffbeb; color:#d97706; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;">도움말</div>
+        <h3 style="font-size:16px; font-weight:800; color:#0f172a; margin-bottom:8px;">ID/비밀번호 찾기</h3>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">로그인이 되지 않을 때 아이디와 비밀번호를 찾는 방법을 안내합니다.</p>
+        <a href="#login-help" style="display:block; margin-top:16px; font-size:13px; font-weight:700; color:#2563eb;">도움말 보기 ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. 기존 VOD 안내 ═══ -->
+<section style="background:#f0f4f8; padding:88px 0;">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">기존 강의실 안내</div>
+        <h2 style="font-size:clamp(22px,3vw,34px); font-weight:900; color:#0f172a; margin-bottom:18px; line-height:1.4; word-break:keep-all;">기존 강의실은 그대로 이용하실 수 있습니다</h2>
+        <p style="font-size:14.5px; color:#64748b; line-height:1.85; margin-bottom:24px; word-break:keep-all;">거상스쿨은 기존 VOD 강의실을 통해 로그인, 강의 시청, 수강 관리 기능을 제공해 왔습니다. 새 홈페이지는 거상스쿨의 교육과정 안내와 상담 신청을 위한 공식 홈페이지이며, 기존 수강생의 강의 시청은 기존 강의실에서 계속 진행됩니다.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:13px 24px; background:#0f172a; color:#fff; font-size:14px; font-weight:700; border-radius:9px;">기존 강의실 바로가기 ↗</a>
+          <a href="/login" style="display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border:2px solid #0f172a; color:#0f172a; font-size:14px; font-weight:600; border-radius:9px; background:#fff;">수강생 로그인 →</a>
+        </div>
+      </div>
+      <div style="background:#fff7ed; border:2px solid #fed7aa; border-radius:18px; padding:28px 26px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <div style="width:8px; height:8px; background:#d97706; border-radius:50%; flex-shrink:0;"></div>
+          <p style="font-size:13px; font-weight:700; color:#92400e;">중요 안내</p>
+        </div>
+        <p style="font-size:14px; color:#92400e; line-height:1.8; word-break:keep-all;">새 홈페이지에서는 VOD 기능을 새로 구현하지 않습니다.</p>
+        <p style="font-size:13.5px; color:#b45309; line-height:1.75; margin-top:10px; word-break:keep-all;">강의 시청, 결제 내역, 수강 권한, 기존 강좌 관리는 기존 VOD 시스템에서 확인해 주세요.</p>
+        <div style="margin-top:16px; background:#fff; border-radius:10px; padding:14px 16px; border:1px solid #fed7aa;">
+          <p style="font-size:12.5px; color:#64748b; line-height:1.7; word-break:keep-all;">기존 강의실: <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="color:#2563eb; font-weight:600;">geosangschool.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. PC 강의 시청 ═══ -->
+<section id="pc-guide" style="background:#fff; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#ecfeff; border:1px solid #a5f3fc; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#0891b2; margin-bottom:16px;">PC 수강 안내</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">PC에서 강의를 보는 방법</h2>
+    </div>
+    <div class="step-grid">
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">1</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">기존 강의실 로그인 페이지에 접속합니다</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">2</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">아이디와 비밀번호를 입력합니다</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">3</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">마이페이지 또는 수강 중인 강좌를 확인합니다</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">4</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">강의실 바로가기 버튼을 클릭합니다</p>
+      </div>
+      <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#2563eb,#3b82f6); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">5</div>
+        <p style="font-size:13px; font-weight:600; color:#1d4ed8; line-height:1.6; word-break:keep-all;">학습목차에서 강의를 선택하고 시청합니다</p>
+      </div>
+    </div>
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px 24px; margin-top:24px; text-align:center;">
+      <p style="font-size:13px; color:#64748b; word-break:keep-all;">브라우저 환경이나 기존 VOD 시스템 업데이트에 따라 화면 구성은 달라질 수 있습니다.</p>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; background:#0f172a; color:#fff; font-size:14px; font-weight:700; border-radius:9px;">PC 강의실 바로가기 ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. 모바일 강의 시청 ═══ -->
+<section id="mobile-guide" style="background:#f0f4f8; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="display:inline-flex; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#059669; margin-bottom:16px;">모바일 수강 안내</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">모바일에서 강의를 보는 방법</h2>
+    </div>
+    <div class="step-grid">
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">1</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">모바일 브라우저에서 기존 강의실에 접속합니다</p>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">2</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">아이디와 비밀번호로 로그인합니다</p>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">3</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">수강 중인 강좌 또는 마이페이지를 확인합니다</p>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">4</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; line-height:1.6; word-break:keep-all;">원하는 강의를 선택해 시청합니다</p>
+      </div>
+      <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:16px; padding:24px 20px; text-align:center;">
+        <div style="width:44px; height:44px; background:linear-gradient(135deg,#047857,#059669); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">5</div>
+        <p style="font-size:13px; font-weight:600; color:#047857; line-height:1.6; word-break:keep-all;">필요 시 모바일 앱 또는 안내된 수강 방법을 확인합니다</p>
+      </div>
+    </div>
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:18px 24px; margin-top:24px; text-align:center;">
+      <p style="font-size:13px; color:#64748b; word-break:keep-all;">모바일 수강 방식은 기존 VOD 시스템의 정책과 환경에 따라 달라질 수 있습니다. 정확한 이용 방법은 기존 강의실 안내를 기준으로 확인해 주세요.</p>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; background:#059669; color:#fff; font-size:14px; font-weight:700; border-radius:9px;">모바일 강의실 바로가기 ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. 강의자료 안내 ═══ -->
+<section id="materials" style="background:#fff; padding:72px 0;">
+  <div class="wrap">
+    <div class="two-col-top">
+      <div>
+        <div style="display:inline-flex; background:#f5f3ff; border:1px solid #ddd6fe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#7c3aed; margin-bottom:16px;">강의자료 안내</div>
+        <h2 style="font-size:clamp(20px,2.8vw,32px); font-weight:900; color:#0f172a; margin-bottom:16px; word-break:keep-all;">강의자료는 어디서 확인하나요?</h2>
+        <p style="font-size:14.5px; color:#64748b; line-height:1.85; word-break:keep-all;">수업 자료, 교재, 실습 파일은 과정별 안내 방식에 따라 제공됩니다. 기존 VOD 강좌의 자료는 기존 강의실 또는 수업 공지에서 확인할 수 있습니다.</p>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 20px; margin-top:16px;">
+          <p style="font-size:12.5px; color:#94a3b8; word-break:keep-all;">자료 제공 방식은 과정별로 다를 수 있습니다.</p>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; gap:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px;">
+          <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
+          <p style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">강의실 내 자료실 확인</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px;">
+          <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
+          <p style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">수업 공지 확인</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px;">
+          <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
+          <p style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">네이버 카페 또는 별도 공유 링크 확인</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px;">
+          <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
+          <p style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">Google Drive 자료 공유 링크 확인</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px;">
+          <div style="width:8px; height:8px; background:#7c3aed; border-radius:50%; flex-shrink:0;"></div>
+          <p style="font-size:13.5px; font-weight:600; color:#1e293b; word-break:keep-all;">과정별 안내문 확인</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. 로그인 문제 ═══ -->
+<section id="login-help" style="background:#f0f4f8; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div style="display:inline-flex; background:#fffbeb; border:1px solid #fde68a; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#d97706; margin-bottom:16px;">로그인 문제 해결</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">로그인이 잘 안 되시나요?</h2>
+    </div>
+    <div class="help-grid">
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; background:#fffbeb; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#d97706;">ID</div>
+          <h3 style="font-size:15px; font-weight:700; color:#0f172a;">아이디를 잊어버렸어요</h3>
+        </div>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">기존 로그인 페이지의 ID 찾기 기능을 이용해 주세요.</p>
+        <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; font-weight:700; color:#2563eb;">강의실로 이동 ↗</a>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; background:#fffbeb; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#d97706;">PW</div>
+          <h3 style="font-size:15px; font-weight:700; color:#0f172a;">비밀번호를 잊어버렸어요</h3>
+        </div>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">비밀번호 찾기 또는 재설정 기능을 이용해 주세요.</p>
+        <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; font-weight:700; color:#2563eb;">강의실로 이동 ↗</a>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; background:#eff6ff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; color:#2563eb;">?</div>
+          <h3 style="font-size:15px; font-weight:700; color:#0f172a;">결제했는데 강의가 안 보여요</h3>
+        </div>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">수강 권한 반영 시간이 필요할 수 있습니다. 문제가 계속되면 상담문의로 문의해 주세요.</p>
+        <a href="/contact" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; font-weight:700; color:#2563eb;">상담문의 →</a>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; background:#ecfdf5; border-radius:8px; display:flex; align-items:center; justify-content:center;"><div style="width:10px; height:16px; border:2px solid #059669; border-radius:3px;"></div></div>
+          <h3 style="font-size:15px; font-weight:700; color:#0f172a;">모바일 강의가 재생 안 돼요</h3>
+        </div>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">브라우저 변경, 네트워크 상태 확인 후 다시 시도해 주세요.</p>
+        <a href="/contact" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; font-weight:700; color:#2563eb;">상담문의 →</a>
+      </div>
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; background:#f5f3ff; border-radius:8px; display:flex; align-items:center; justify-content:center;"><div style="width:14px; height:18px; border:2px solid #7c3aed; border-radius:3px;"></div></div>
+          <h3 style="font-size:15px; font-weight:700; color:#0f172a;">강의자료가 안 보여요</h3>
+        </div>
+        <p style="font-size:13px; color:#64748b; line-height:1.7; word-break:keep-all;">과정별 자료 제공 위치를 확인하고, 필요 시 운영진에게 문의해 주세요.</p>
+        <a href="/contact" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; font-weight:700; color:#2563eb;">상담문의 →</a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:#0f172a; color:#fff; font-size:14px; font-weight:700; border-radius:9px;">로그인 페이지로 이동 ↗</a>
+      <a href="/contact" style="display:inline-flex; align-items:center; gap:8px; padding:12px 22px; background:#2563eb; color:#fff; font-size:14px; font-weight:700; border-radius:9px; animation:pulseRing 2.8s ease infinite;">상담문의 하기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. 신규 수강생 준비사항 ═══ -->
+<section style="background:#fff; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">신규 수강생 안내</div>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:12px; word-break:keep-all;">처음 수강 전 준비하면 좋은 것</h2>
+      <p style="font-size:14px; color:#64748b; word-break:keep-all;">과정별 준비물은 모집 안내와 수업 공지에서 다시 안내됩니다.</p>
+    </div>
+    <div class="prep-grid">
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:#eff6ff; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><div style="width:22px; height:16px; border:2px solid #2563eb; border-radius:3px;"></div></div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">Zoom 접속 환경 확인</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:linear-gradient(135deg,#dbeafe,#eff6ff); border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#1a73e8;">G</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">Google 계정 준비</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:#1e1e1e; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">N</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">Notion 계정 준비</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:#10a37f; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:12px; color:#fff;">GPT</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">ChatGPT 계정 준비</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:linear-gradient(135deg,#1a73e8,#34a853); border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff;">G</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">Gemini 사용 환경 확인</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:#cc785c; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">A</div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">Claude 계정 준비</p>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:#eff6ff; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><div style="width:22px; height:16px; border:2px solid #2563eb; border-radius:3px;"></div></div>
+        <p style="font-size:13px; font-weight:600; color:#1e293b; word-break:keep-all;">실습용 노트북 또는 PC 준비</p>
+      </div>
+      <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:20px 16px; text-align:center;">
+        <div style="width:40px; height:40px; background:#2563eb; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><div style="width:20px; height:20px; border:2px solid rgba(255,255,255,.8); border-radius:50%;"></div></div>
+        <p style="font-size:13px; font-weight:600; color:#1d4ed8; word-break:keep-all;">네이버 카페 또는 안내 채널 확인</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9. FAQ ═══ -->
+<section style="background:#f0f4f8; padding:88px 0;">
+  <div class="wrap">
+    <div style="text-align:center; margin-bottom:48px;">
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a;">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-grid">
+      <sc-for list="{{ faqItems }}" as="faq" hint-placeholder-count="7">
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; padding:18px 20px; cursor:pointer; gap:12px;" onClick="{{ faq.toggle }}">
+            <span style="font-size:14px; font-weight:600; color:#1e293b; line-height:1.5; flex:1; word-break:keep-all;">{{ faq.q }}</span>
+            <span class="{{ faq.iconClass }}" style="font-size:20px; color:#2563eb; flex-shrink:0; font-family:Montserrat,sans-serif; font-weight:300; line-height:1; margin-top:2px;">+</span>
+          </div>
+          <div class="{{ faq.answerClass }}" style="font-size:13.5px; color:#64748b; line-height:1.75; word-break:keep-all;">{{ faq.a }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10. 상담 연결 ═══ -->
+<section style="background:linear-gradient(145deg,#06101f,#0a1a3a,#0d2050); padding:88px 0;">
+  <div class="wrap" style="text-align:center;">
+    <div style="max-width:560px; margin:0 auto;">
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#fff; margin-bottom:16px; word-break:keep-all; text-wrap:pretty;">
+        문제가 해결되지 않았다면<br>
+        <span style="background:linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">문의해 주세요</span>
+      </h2>
+      <p style="font-size:14.5px; color:rgba(255,255,255,.7); line-height:1.8; margin-bottom:40px; word-break:keep-all;">로그인, 강의 시청, 자료 확인, 수강 신청 관련 문의는 상담문의 페이지를 통해 남겨 주세요. 확인 후 안내해 드립니다.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="/contact" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">상담문의 하기 →</a>
+        <a href="/courses" style="display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border:2px solid rgba(255,255,255,.3); color:rgba(255,255,255,.88); font-size:14px; font-weight:600; border-radius:10px; white-space:nowrap;">전체 교육과정 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11. 하단 연결 ═══ -->
+<section style="background:#fff; padding:72px 0;">
+  <div class="wrap">
+    <h2 style="font-size:17px; font-weight:700; color:#64748b; text-align:center; margin-bottom:32px; letter-spacing:.02em;">다른 페이지로 이동하기</h2>
+    <div class="link-grid">
+      <a href="/login" class="card-h" style="display:block; background:#0f172a; border-radius:16px; padding:24px 20px;">
+        <div style="width:40px; height:40px; background:rgba(255,255,255,.15); border-radius:9px; margin-bottom:12px; display:flex; align-items:center; justify-content:center;"><div style="width:18px; height:18px; border-radius:50%; border:2px solid rgba(255,255,255,.7);"></div></div>
+        <h3 style="font-size:14px; font-weight:700; color:#fff; margin-bottom:5px;">수강생 로그인</h3>
+        <p style="font-size:11.5px; color:rgba(255,255,255,.5);">기존 강의실 접속</p>
+        <div style="margin-top:12px; font-size:12.5px; font-weight:600; color:#60a5fa;">바로가기 →</div>
+      </a>
+      <a href="/courses" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px;">
+        <div style="width:40px; height:40px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:9px; margin-bottom:12px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; text-align:center; line-height:1.2;">ALL</span></div>
+        <h3 style="font-size:14px; font-weight:700; color:#0f172a; margin-bottom:5px;">전체 교육과정</h3>
+        <p style="font-size:11.5px; color:#64748b;">모든 과정 한눈에</p>
+        <div style="margin-top:12px; font-size:12.5px; font-weight:600; color:#2563eb;">보러가기 →</div>
+      </a>
+      <a href="/courses/ai-marketing-school" class="card-h" style="display:block; background:#eff6ff; border:1px solid #bfdbfe; border-radius:16px; padding:24px 20px;">
+        <div style="width:40px; height:40px; background:linear-gradient(135deg,#2563eb,#3b82f6); border-radius:9px; margin-bottom:12px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:9px; color:#fff; text-align:center; line-height:1.3;">AI<br>3M</span></div>
+        <h3 style="font-size:14px; font-weight:700; color:#1d4ed8; margin-bottom:5px;">AI마케팅스쿨</h3>
+        <p style="font-size:11.5px; color:#3b82f6;">3개월 정규 과정</p>
+        <div style="margin-top:12px; font-size:12.5px; font-weight:600; color:#2563eb;">보러가기 →</div>
+      </a>
+      <a href="/contact" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px;">
+        <div style="width:40px; height:40px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:9px; margin-bottom:12px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff;">?</span></div>
+        <h3 style="font-size:14px; font-weight:700; color:#0f172a; margin-bottom:5px;">상담문의</h3>
+        <p style="font-size:11.5px; color:#64748b;">문의 및 상담 신청</p>
+        <div style="margin-top:12px; font-size:12.5px; font-weight:600; color:#2563eb;">신청하기 →</div>
+      </a>
+      <a href="/resources" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px;">
+        <div style="width:40px; height:40px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:9px; margin-bottom:12px; display:flex; align-items:center; justify-content:center;"><div style="width:18px; height:14px; border:2px solid rgba(255,255,255,.8); border-radius:3px;"></div></div>
+        <h3 style="font-size:14px; font-weight:700; color:#0f172a; margin-bottom:5px;">학습자료</h3>
+        <p style="font-size:11.5px; color:#64748b;">AI 마케팅 인사이트</p>
+        <div style="margin-top:12px; font-size:12.5px; font-weight:600; color:#2563eb;">보러가기 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#040c1a; padding:52px 0 32px;">
+  <div class="wrap">
+    <div style="margin-bottom:16px;">
+      <img src="uploads/e-1_투명.png" alt="거상스쿨" style="height:40px; width:auto; display:block; filter:brightness(1.4);">
+    </div>
+    <p style="font-size:12.5px; color:rgba(255,255,255,.35); line-height:1.8; margin-bottom:24px; max-width:480px; word-break:keep-all;">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p>
+    <div style="border-top:1px solid rgba(255,255,255,.07); padding-top:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <p style="font-size:12px; color:rgba(255,255,255,.25);">© 2024 거상스쿨(주). All rights reserved.</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="/" style="font-size:12px; color:rgba(255,255,255,.35);">홈</a>
+        <a href="/courses" style="font-size:12px; color:rgba(255,255,255,.35);">교육과정</a>
+        <a href="/resources" style="font-size:12px; color:rgba(255,255,255,.35);">학습자료</a>
+        <a href="/contact" style="font-size:12px; color:rgba(255,255,255,.35);">상담문의</a>
+        <a href="/login" style="font-size:12px; color:rgba(255,255,255,.35);">수강생 로그인</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileMenuOpen: false, faqOpen: null };
+
+  componentDidMount() {
+    const nav = document.getElementById('gs-nav');
+    const onScroll = () => {
+      if (window.scrollY > 20) nav?.classList.add('scrolled');
+      else nav?.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._cleanup = () => window.removeEventListener('scroll', onScroll);
+  }
+
+  componentWillUnmount() { this._cleanup?.(); }
+
+  renderVals() {
+    const { mobileMenuOpen, faqOpen } = this.state;
+    const toggleMenu = () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen }));
+
+    const rawFaqs = [
+      { q: '새 홈페이지에서 바로 강의를 볼 수 있나요?', a: '아닙니다. 새 홈페이지는 과정 안내와 상담 신청을 위한 공식 홈페이지입니다. 기존 수강생은 기존 VOD 강의실에서 강의를 시청해 주세요.' },
+      { q: '기존에 듣던 강의는 없어지나요?', a: '기존 강좌와 수강 권한은 기존 VOD 시스템 기준으로 유지됩니다. 자세한 내용은 기존 강의실에서 확인해 주세요.' },
+      { q: '수강생 로그인은 어디서 하나요?', a: '상단 메뉴의 수강생 로그인 또는 /login 페이지를 통해 기존 강의실로 이동할 수 있습니다.' },
+      { q: '모바일에서도 강의를 볼 수 있나요?', a: '기존 VOD 시스템의 모바일 이용 방식에 따라 시청할 수 있습니다. 모바일 브라우저 또는 안내된 앱 이용 방법을 확인해 주세요.' },
+      { q: '강의자료는 어디서 받나요?', a: '과정별 강의실, 공지, Google Drive, 네이버 카페 등에서 제공될 수 있습니다. 과정별 안내를 확인해 주세요.' },
+      { q: '비밀번호를 잊어버렸습니다.', a: '기존 로그인 페이지의 비밀번호 찾기 기능을 이용해 주세요.' },
+      { q: '새로 신청하고 싶으면 어디로 가면 되나요?', a: '상담문의 페이지에서 관심 과정을 선택해 상담을 신청해 주세요.' },
+    ];
+
+    const faqItems = rawFaqs.map((f, i) => ({
+      q: f.q, a: f.a,
+      answerClass: 'faq-answer' + (faqOpen === i ? ' open' : ''),
+      iconClass: 'faq-icon' + (faqOpen === i ? ' open' : ''),
+      toggle: () => this.setState({ faqOpen: faqOpen === i ? null : i }),
+    }));
+
+    return {
+      mobileNavClass: 'mobile-nav' + (mobileMenuOpen ? ' open' : ''),
+      toggleMenu,
+      faqItems,
+    };
+  }
+}
+</script>
+</body>
+</html>
