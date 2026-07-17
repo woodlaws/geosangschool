@@ -86,9 +86,9 @@
       [style*="font-size:16px"],[style*="font-size:16.5px"]{font-size:17px!important;}
     }
 
-    .wrap { max-width:1280px; margin:0 auto; padding:0 24px; }
+    .wrap { max-width:1340px; margin:0 auto; padding:0 24px; }
 
-    .hero-split { display:grid; grid-template-columns:1fr 320px; gap:48px; align-items:center; }
+    .hero-split { display:grid; grid-template-columns:1fr 380px; gap:48px; align-items:center; }
     @media (max-width:900px) { .hero-split{grid-template-columns:1fr;} .hero-vis{display:none!important;} }
 
     .step-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
@@ -117,9 +117,8 @@
     .faq-icon.open { transform:rotate(45deg); }
   </style>
 <style>
-/* ================================
-   Typography Override — 40-60대
-   ================================ */
+.hero-vis [style],.hero-visual [style]{font-size:16px!important;line-height:1.45!important;}
+.hero-vis,.hero-visual,.hero-vis *,.hero-visual *{word-break:keep-all;}
 :root{--font-xs:18px;--font-sm:19px;--font-base:22px;--font-lg:24px;}
 body{font-size:22px;line-height:1.7;}
 .nav-link{font-size:20px!important;font-weight:600!important;}
@@ -495,7 +494,7 @@ input,textarea,select,label{font-size:19px!important;}
   <div class="wrap">
     <div style="margin-bottom:16px;">
       <div style="display:flex; align-items:center; gap:10px;">
-        <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:34px; width:auto; display:block; filter:brightness(0) invert(1);">
+        <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:34px; width:auto; display:block; filter:brightness(10);">
         <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
       </div>
     </div>
