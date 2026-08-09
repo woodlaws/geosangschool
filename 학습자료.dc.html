@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,22 +8,47 @@
 <body>
 <x-dc>
 <helmet>
-  <title>학습자료 · 인사이트 | 거상스쿨</title>
-  <meta name="description" content="거상스쿨 학습자료에서는 AI마케팅, 노션, Gemini, ChatGPT, Claude, Codex, 홈페이지 제작, 콘텐츠 마케팅, AEO/GEO 등 실전 AI 교육과 연결되는 인사이트와 자료를 제공합니다.">
+  <title>학습자료 | 거상스쿨</title>
+  <meta name="description" content="거상스쿨의 AI 마케팅, 홈페이지 제작, 콘텐츠 기획, 자동화 실습에 필요한 체크리스트, 프롬프트, 템플릿 자료를 확인하세요.">
+  <link rel="canonical" href="https://www.geosangschool.co.kr/resources">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://geosangschool.com/resources">
-  <meta property="og:title" content="학습자료 · 인사이트 | 거상스쿨">
-  <meta property="og:description" content="거상스쿨 학습자료에서는 AI마케팅, 노션, Gemini, ChatGPT, Claude, Codex, 홈페이지 제작, 콘텐츠 마케팅, AEO/GEO 등 실전 AI 교육과 연결되는 인사이트와 자료를 제공합니다.">
+  <meta property="og:url" content="https://www.geosangschool.co.kr/resources">
+  <meta property="og:title" content="학습자료 | 거상스쿨">
+  <meta property="og:description" content="AI 마케팅과 홈페이지 제작 실습에 바로 활용할 수 있는 거상스쿨 학습자료를 모았습니다.">
   <meta property="og:image" content="https://geosangschool.vercel.app/og-image.png">
   <meta property="og:image:secure_url" content="https://geosangschool.vercel.app/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="학습자료 · 인사이트 | 거상스쿨">
-  <meta name="twitter:description" content="거상스쿨 학습자료에서는 AI마케팅, 노션, Gemini, ChatGPT, Claude 등 실전 AI 교육 인사이트와 자료를 제공합니다.">
+  <meta name="twitter:title" content="학습자료 | 거상스쿨">
+  <meta name="twitter:description" content="AI 마케팅과 홈페이지 제작 실습에 바로 활용할 수 있는 거상스쿨 학습자료를 모았습니다.">
   <meta name="twitter:image" content="https://geosangschool.vercel.app/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.geosangschool.co.kr/resources#webpage",
+        "url": "https://www.geosangschool.co.kr/resources",
+        "name": "학습자료",
+        "description": "AI 마케팅, 홈페이지 제작, 콘텐츠 기획, 자동화 실습 자료 모음",
+        "inLanguage": "ko-KR",
+        "breadcrumb": { "@id": "https://www.geosangschool.co.kr/resources#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.geosangschool.co.kr/resources#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://www.geosangschool.co.kr/" },
+          { "@type": "ListItem", "position": 2, "name": "학습자료", "item": "https://www.geosangschool.co.kr/resources" }
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -33,6 +58,7 @@
     body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; color: inherit; }
     a:hover { opacity: .85; }
+    a:focus-visible,button:focus-visible { outline:3px solid #fbbf24; outline-offset:3px; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
     @keyframes pulseRing { 0%{box-shadow:0 0 0 0 rgba(37,99,235,.45);}70%{box-shadow:0 0 0 10px rgba(37,99,235,0);}100%{box-shadow:0 0 0 0 rgba(37,99,235,0);} }
 
@@ -52,6 +78,7 @@
     .btn-nav-main:hover { background:#1d4ed8; opacity:1; }
     .btn-nav-sub { padding:7px 13px; border:1.5px solid #cbd5e1; color:#374151; font-size:12.5px; border-radius:7px; white-space:nowrap; }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; margin-left:auto; }
+    button.hamburger { border:0; background:transparent; font-family:inherit; }
     .hamburger span { display:block; width:22px; height:2px; background:#374151; border-radius:2px; }
     .mobile-nav { display:none; flex-direction:column; position:fixed; top:64px; left:0; right:0; bottom:0; background:#0a1628; padding:16px 20px 32px; gap:2px; z-index:999; overflow-y:auto; }
     .mobile-nav.open { display:flex; }
@@ -121,6 +148,224 @@
 
     .card-h { transition:transform .22s,box-shadow .22s; }
     .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
+
+    /* Resources hub — hero and category cards */
+    .resources-hero { background:linear-gradient(135deg,#071734 0%,#0b2b64 52%,#1557b8 100%); padding:92px 0 96px; position:relative; overflow:hidden; }
+    .resources-hero::before { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px); background-size:52px 52px; pointer-events:none; }
+    .resources-hero::after { content:""; position:absolute; width:430px; height:430px; right:-100px; top:-160px; border-radius:50%; background:rgba(56,189,248,.13); filter:blur(6px); pointer-events:none; }
+    .resources-hero .hero-split { grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr); gap:64px; position:relative; z-index:1; }
+    .resources-breadcrumb { position:relative; z-index:2; display:flex; align-items:center; gap:8px; margin-bottom:25px; color:rgba(219,234,254,.72); font-size:13px!important; line-height:1.4!important; }
+    .resources-breadcrumb a { color:#bfdbfe; font-weight:700; }
+    .resources-breadcrumb strong { color:#fff; font-weight:800; }
+    .resources-badge { display:inline-flex; align-items:center; gap:9px; padding:8px 15px; margin-bottom:25px; border:1px solid rgba(147,197,253,.35); border-radius:999px; background:rgba(30,64,175,.34); color:#bfdbfe; font-size:12px!important; line-height:1.2!important; font-weight:800; letter-spacing:.12em; }
+    .resources-badge::before { content:""; width:7px; height:7px; border-radius:50%; background:#38bdf8; box-shadow:0 0 0 5px rgba(56,189,248,.13); }
+    .resources-title { max-width:700px; margin-bottom:24px; color:#fff; font-size:clamp(38px,5vw,64px)!important; line-height:1.16!important; letter-spacing:-.045em; font-weight:900; word-break:keep-all; }
+    .resources-title span { color:#7dd3fc; }
+    .resources-lead { max-width:680px; margin-bottom:14px!important; color:rgba(255,255,255,.82)!important; font-size:19px!important; line-height:1.72!important; font-weight:500; word-break:keep-all; }
+    .resources-note { display:flex; align-items:flex-start; gap:9px; max-width:650px; margin-bottom:32px!important; color:rgba(219,234,254,.7)!important; font-size:15px!important; line-height:1.65!important; word-break:keep-all; }
+    .resources-note::before { content:"i"; display:inline-flex; align-items:center; justify-content:center; width:19px; height:19px; margin-top:2px; border-radius:50%; border:1px solid rgba(147,197,253,.55); color:#93c5fd; font-family:serif; font-size:12px; font-weight:700; flex:0 0 auto; }
+    .resources-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .resources-btn { min-height:52px; display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 24px; border-radius:11px; font-size:16px!important; line-height:1.3!important; font-weight:800; transition:transform .18s,background .18s,border-color .18s; }
+    .resources-btn:hover { opacity:1; transform:translateY(-2px); }
+    .resources-btn-primary { background:#fff; color:#123a78; box-shadow:0 10px 24px rgba(0,0,0,.16); }
+    .resources-btn-secondary { border:1.5px solid rgba(255,255,255,.42); background:rgba(255,255,255,.07); color:#fff; }
+    .resources-preview { position:relative; padding:24px; border:1px solid rgba(255,255,255,.19); border-radius:24px; background:rgba(255,255,255,.1); box-shadow:0 24px 60px rgba(1,10,30,.3); backdrop-filter:blur(12px); }
+    .resources-preview::before { content:""; position:absolute; inset:10px -10px -10px 10px; z-index:-1; border-radius:24px; border:1px solid rgba(125,211,252,.15); }
+    .preview-window-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+    .preview-dots { display:flex; gap:6px; }
+    .preview-dots i { display:block; width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.28); }
+    .preview-kicker { color:#7dd3fc; font-size:11px!important; line-height:1.2!important; font-weight:800; letter-spacing:.1em; }
+    .preview-title { margin-bottom:16px; color:#fff; font-size:20px!important; line-height:1.4!important; font-weight:900; word-break:keep-all; }
+    .preview-list { display:grid; gap:9px; }
+    .preview-item { display:grid; grid-template-columns:34px minmax(0,1fr) auto; align-items:center; gap:10px; min-height:55px; padding:10px 11px; border:1px solid rgba(255,255,255,.1); border-radius:12px; background:rgba(4,18,48,.38); }
+    .preview-icon { width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:9px; background:linear-gradient(135deg,rgba(59,130,246,.95),rgba(14,165,233,.88)); color:#fff; font-size:15px!important; line-height:1!important; font-weight:900; }
+    .preview-name { color:rgba(255,255,255,.9); font-size:13px!important; line-height:1.45!important; font-weight:700; word-break:keep-all; }
+    .preview-status { padding:5px 7px; border-radius:999px; background:rgba(251,191,36,.13); border:1px solid rgba(251,191,36,.24); color:#fde68a; font-size:9px!important; line-height:1.2!important; font-weight:800; white-space:nowrap; }
+    .preview-status.student { background:rgba(167,139,250,.15); border-color:rgba(196,181,253,.25); color:#ddd6fe; }
+    .preview-status.public { background:rgba(45,212,191,.13); border-color:rgba(94,234,212,.24); color:#99f6e4; }
+    .preview-tools { display:grid; grid-template-columns:repeat(6,1fr); gap:7px; margin-top:14px; }
+    .preview-tool { height:36px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.1); border-radius:9px; color:#bfdbfe; background:rgba(255,255,255,.055); font-size:11px!important; line-height:1!important; font-weight:900; }
+    .resources-categories { background:#f7faff; padding:92px 0 100px; }
+    .resources-section-head { max-width:760px; margin:0 auto 48px; text-align:center; }
+    .resources-section-label { display:inline-flex; padding:6px 13px; margin-bottom:15px; border:1px solid #bfdbfe; border-radius:999px; background:#eff6ff; color:#2563eb; font-size:12px!important; line-height:1.3!important; font-weight:800; }
+    .resources-section-title { margin-bottom:13px; color:#0f172a; font-size:clamp(30px,4vw,44px)!important; line-height:1.25!important; letter-spacing:-.035em; font-weight:900; word-break:keep-all; }
+    .resources-section-copy { color:#64748b!important; font-size:18px!important; line-height:1.7!important; word-break:keep-all; }
+    .cat-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .resource-category-card { min-height:320px; display:flex; flex-direction:column; padding:28px; border:1px solid #dbe5f1; border-radius:20px; background:#fff; box-shadow:0 8px 28px rgba(15,23,42,.055); }
+    .resource-category-card:hover { border-color:#93c5fd; }
+    .category-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:21px; }
+    .category-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:14px; color:#fff; font-size:16px!important; line-height:1!important; font-weight:900; box-shadow:0 8px 18px rgba(37,99,235,.16); }
+    .category-icon.ai { background:linear-gradient(135deg,#1d4ed8,#38bdf8); }
+    .category-icon.web { background:linear-gradient(135deg,#0f766e,#2dd4bf); }
+    .category-icon.content { background:linear-gradient(135deg,#7c3aed,#c084fc); }
+    .category-icon.prompt { background:linear-gradient(135deg,#b45309,#fbbf24); }
+    .category-icon.automation { background:linear-gradient(135deg,#0369a1,#22d3ee); }
+    .category-icon.template { background:linear-gradient(135deg,#be123c,#fb7185); }
+    .category-status { padding:6px 9px; border-radius:999px; background:#fff7ed; color:#c2410c; font-size:11px!important; line-height:1.25!important; font-weight:800; white-space:nowrap; }
+    .category-status.student { background:#f5f3ff; color:#7c3aed; }
+    .resource-category-card h3 { margin-bottom:10px; color:#0f172a; font-size:21px!important; line-height:1.4!important; font-weight:900; word-break:keep-all; }
+    .resource-category-card p { margin-bottom:24px!important; color:#64748b!important; font-size:15px!important; line-height:1.72!important; word-break:keep-all; }
+    .category-action { min-height:44px; display:inline-flex; align-items:center; justify-content:center; gap:7px; margin-top:auto; padding:10px 16px; border:1px solid #cbd5e1; border-radius:10px; color:#334155; background:#f8fafc; font-size:14px!important; line-height:1.3!important; font-weight:800; }
+    .category-action:hover { border-color:#60a5fa; background:#eff6ff; color:#1d4ed8; opacity:1; }
+
+    .resource-card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .resource-card { min-height:370px; display:flex; flex-direction:column; overflow:hidden; border:1px solid #dbe5f1; border-radius:18px; background:#fff; box-shadow:0 8px 24px rgba(15,23,42,.055); }
+    .resource-card-accent { height:7px; background:linear-gradient(90deg,#2563eb,#38bdf8); }
+    .resource-card-body { flex:1; display:flex; flex-direction:column; padding:24px; }
+    .resource-card-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:15px; }
+    .resource-type { padding:5px 9px; border-radius:999px; background:#eff6ff; color:#1d4ed8; font-size:11px!important; line-height:1.25!important; font-weight:800; }
+    .resource-status { padding:5px 9px; border-radius:999px; background:#fff7ed; color:#c2410c; font-size:11px!important; line-height:1.25!important; font-weight:800; white-space:nowrap; }
+    .resource-status.student { background:#f5f3ff; color:#7c3aed; }
+    .resource-status.public { background:#ecfdf5; color:#047857; }
+    .resource-category { margin-bottom:8px; color:#64748b; font-size:12px!important; line-height:1.4!important; font-weight:700; }
+    .resource-card h3 { margin-bottom:10px; color:#0f172a; font-size:20px!important; line-height:1.45!important; font-weight:900; word-break:keep-all; }
+    .resource-card-description { margin-bottom:16px!important; color:#64748b!important; font-size:14px!important; line-height:1.72!important; word-break:keep-all; }
+    .resource-course { margin-bottom:14px; color:#334155; font-size:12px!important; line-height:1.4!important; font-weight:700; }
+    .resource-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+    .resource-tag { padding:4px 8px; border-radius:7px; background:#f1f5f9; color:#64748b; font-size:10px!important; line-height:1.25!important; font-weight:700; }
+    .resource-card-action { min-height:45px; display:flex; align-items:center; justify-content:center; margin-top:auto; padding:11px 16px; border-radius:10px; font-size:14px!important; line-height:1.3!important; font-weight:800; }
+    a.resource-card-action { background:#2563eb; color:#fff; }
+    a.resource-card-action:hover { background:#1d4ed8; opacity:1; }
+    button.resource-card-action { width:100%; border:1px solid #e2e8f0; background:#f8fafc; color:#94a3b8; cursor:not-allowed; }
+
+    .course-resource-section { padding:96px 0; background:#fff; }
+    .course-resource-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .course-resource-card { min-height:430px; display:flex; flex-direction:column; position:relative; overflow:hidden; padding:30px; border:1px solid #dbe5f1; border-radius:22px; background:#fff; box-shadow:0 12px 34px rgba(15,23,42,.07); }
+    .course-resource-card::before { content:""; position:absolute; inset:0 0 auto; height:8px; }
+    .course-resource-card.marketing::before { background:linear-gradient(90deg,#2563eb,#7c3aed); }
+    .course-resource-card.homepage::before { background:linear-gradient(90deg,#0f766e,#1e3a8a); }
+    .course-resource-card.workshop::before { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+    .course-resource-status { align-self:flex-start; margin:4px 0 20px; padding:6px 10px; border-radius:999px; font-size:11px!important; line-height:1.25!important; font-weight:800; }
+    .marketing .course-resource-status { background:#eef2ff; color:#4f46e5; }
+    .homepage .course-resource-status { background:#ecfdf5; color:#047857; }
+    .workshop .course-resource-status { background:#fffbeb; color:#b45309; }
+    .course-resource-card h3 { margin-bottom:12px; color:#0f172a; font-size:23px!important; line-height:1.4!important; font-weight:900; word-break:keep-all; }
+    .course-resource-card > p { margin-bottom:20px!important; color:#64748b!important; font-size:14px!important; line-height:1.75!important; word-break:keep-all; }
+    .course-resource-list { display:grid; gap:9px; margin:0 0 25px; list-style:none; }
+    .course-resource-list li { display:flex; align-items:flex-start; gap:8px; color:#334155; font-size:13px!important; line-height:1.55!important; font-weight:600; }
+    .course-resource-list li::before { content:"✓"; color:#2563eb; font-weight:900; }
+    .course-resource-link { min-height:46px; display:flex; align-items:center; justify-content:center; margin-top:auto; padding:12px 16px; border-radius:10px; color:#fff; font-size:14px!important; line-height:1.3!important; font-weight:800; }
+    .marketing .course-resource-link { background:linear-gradient(90deg,#2563eb,#6d28d9); }
+    .homepage .course-resource-link { background:linear-gradient(90deg,#0f766e,#1e3a8a); }
+    .workshop .course-resource-link { background:linear-gradient(90deg,#d97706,#f59e0b); }
+
+    .all-resources-section { padding:96px 0 104px; background:#f7faff; }
+    .resource-filter-bar { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin:0 auto 38px; }
+    .resource-filter-button { min-height:43px; padding:10px 16px; border:1px solid #cbd5e1; border-radius:999px; background:#fff; color:#475569; font-family:inherit; font-size:13px!important; line-height:1.25!important; font-weight:800; cursor:pointer; transition:all .18s; }
+    .resource-filter-button:hover { border-color:#60a5fa; color:#1d4ed8; }
+    .resource-filter-button.active { border-color:#2563eb; background:#2563eb; color:#fff; box-shadow:0 7px 18px rgba(37,99,235,.2); }
+    .resource-empty { padding:60px 24px; border:1px dashed #bfdbfe; border-radius:20px; background:#fff; text-align:center; }
+    .resource-empty h3 { margin-bottom:8px; color:#0f172a; font-size:21px!important; line-height:1.45!important; font-weight:900; }
+    .resource-empty p { margin-bottom:22px!important; color:#64748b!important; font-size:14px!important; }
+    .resource-empty button { min-height:44px; padding:11px 18px; border:0; border-radius:10px; background:#2563eb; color:#fff; font-family:inherit; font-size:14px!important; font-weight:800; cursor:pointer; }
+    .article-grid > :nth-child(n+7) { display:none; }
+
+    .student-resources-section { padding:96px 0; background:linear-gradient(180deg,#eef6ff 0%,#f8fbff 100%); }
+    .student-resource-panel { padding:38px; border:1px solid #bfdbfe; border-radius:26px; background:rgba(255,255,255,.86); box-shadow:0 18px 48px rgba(30,64,175,.08); }
+    .student-resource-intro { max-width:820px; margin:0 auto 38px; text-align:center; }
+    .student-resource-intro h2 { margin-bottom:14px; color:#0f172a; font-size:clamp(30px,4vw,44px)!important; line-height:1.3!important; letter-spacing:-.035em; font-weight:900; word-break:keep-all; }
+    .student-resource-intro p { color:#64748b!important; font-size:17px!important; line-height:1.78!important; word-break:keep-all; }
+    .student-resource-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .student-resource-card { min-height:285px; display:flex; flex-direction:column; padding:26px; border:1px solid #dbeafe; border-radius:18px; background:#fff; }
+    .student-card-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px; }
+    .student-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,#1d4ed8,#60a5fa); color:#fff; font-size:14px!important; line-height:1!important; font-weight:900; }
+    .student-lock-badge { display:inline-flex; align-items:center; gap:7px; padding:6px 9px; border-radius:999px; background:#f5f3ff; color:#6d28d9; font-size:10px!important; line-height:1.25!important; font-weight:800; white-space:nowrap; }
+    .student-lock-shape { width:12px; height:10px; position:relative; border-radius:2px; background:#7c3aed; }
+    .student-lock-shape::before { content:""; position:absolute; width:7px; height:7px; left:2.5px; top:-6px; border:2px solid #7c3aed; border-bottom:0; border-radius:6px 6px 0 0; }
+    .student-resource-card h3 { margin-bottom:10px; color:#0f172a; font-size:20px!important; line-height:1.45!important; font-weight:900; word-break:keep-all; }
+    .student-resource-card p { color:#64748b!important; font-size:14px!important; line-height:1.75!important; word-break:keep-all; }
+    .student-resource-cta { text-align:center; margin-top:30px; }
+    .student-resource-cta a { min-height:50px; display:inline-flex; align-items:center; justify-content:center; padding:13px 24px; border-radius:11px; background:#2563eb; color:#fff; font-size:15px!important; line-height:1.3!important; font-weight:800; }
+
+    .resource-journey-section { padding:100px 0; background:#fff; }
+    .resource-journey { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; position:relative; }
+    .journey-step { min-height:420px; position:relative; display:flex; flex-direction:column; padding:30px; border:1px solid #dbe5f1; border-radius:22px; background:#fff; box-shadow:0 12px 34px rgba(15,23,42,.06); }
+    .journey-step:not(:last-child)::after { content:"→"; position:absolute; z-index:2; top:54px; right:-21px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border:1px solid #bfdbfe; border-radius:50%; background:#eff6ff; color:#2563eb; font-size:18px; font-weight:900; }
+    .journey-number { width:55px; height:55px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; border-radius:17px; background:linear-gradient(135deg,#1d4ed8,#38bdf8); color:#fff; font-family:Montserrat,sans-serif; font-size:20px!important; line-height:1!important; font-weight:900; box-shadow:0 9px 20px rgba(37,99,235,.2); }
+    .journey-step h3 { margin-bottom:12px; color:#0f172a; font-size:21px!important; line-height:1.45!important; font-weight:900; word-break:keep-all; }
+    .journey-step > p { margin-bottom:20px!important; color:#64748b!important; font-size:14px!important; line-height:1.75!important; word-break:keep-all; }
+    .journey-example { margin-top:auto; padding:18px; border-radius:14px; background:#f8fafc; }
+    .journey-example strong { display:block; margin-bottom:9px; color:#1d4ed8; font-size:12px!important; line-height:1.4!important; }
+    .journey-example ul { display:grid; gap:7px; list-style:none; }
+    .journey-example li { display:flex; gap:7px; color:#475569; font-size:12px!important; line-height:1.5!important; }
+    .journey-example li::before { content:"•"; color:#2563eb; font-weight:900; }
+
+    .resources-final-cta { padding:104px 0; position:relative; overflow:hidden; background:linear-gradient(135deg,#06142f 0%,#0b2d63 58%,#1459b9 100%); }
+    .resources-final-cta::before { content:""; position:absolute; width:430px; height:430px; left:-190px; bottom:-270px; border-radius:50%; background:rgba(56,189,248,.15); }
+    .resources-final-cta-inner { max-width:850px; position:relative; z-index:1; margin:0 auto; text-align:center; }
+    .resources-final-cta h2 { margin-bottom:18px; color:#fff; font-size:clamp(34px,5vw,52px)!important; line-height:1.28!important; letter-spacing:-.04em; font-weight:900; word-break:keep-all; }
+    .resources-final-cta p { max-width:700px; margin:0 auto 30px!important; color:rgba(255,255,255,.76)!important; font-size:17px!important; line-height:1.75!important; word-break:keep-all; }
+    .resources-final-actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+    .resources-final-actions a { min-height:52px; display:inline-flex; align-items:center; justify-content:center; padding:14px 24px; border-radius:11px; font-size:15px!important; line-height:1.3!important; font-weight:800; }
+    .resources-final-actions a:first-child { background:#fff; color:#123a78; }
+    .resources-final-actions a:last-child { border:1.5px solid rgba(255,255,255,.45); background:rgba(255,255,255,.08); color:#fff; }
+    .resources-final-note { margin:22px auto 0!important; color:rgba(219,234,254,.62)!important; font-size:13px!important; }
+    .site-footer-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:24px; align-items:start; }
+    .site-footer-company { font-size:11px; color:rgba(255,255,255,.28); line-height:1.9; padding-top:70px; text-align:right; }
+    @media (max-width:1023px) {
+      .resources-hero .hero-split { grid-template-columns:1fr 380px; gap:34px; }
+      .cat-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .resource-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .course-resource-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .student-resource-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .resource-journey { grid-template-columns:1fr; max-width:720px; margin:0 auto; }
+      .journey-step { min-height:0; }
+      .journey-step:not(:last-child)::after { content:"↓"; top:auto; right:50%; bottom:-21px; transform:translateX(50%); }
+    }
+    @media (max-width:900px) {
+      .resources-hero { padding:72px 0 76px; }
+      .resources-hero .hero-split { grid-template-columns:1fr; }
+      .resources-hero .hero-vis { display:block!important; max-width:590px; margin-top:10px; }
+      .resources-title { font-size:clamp(36px,8vw,54px)!important; }
+    }
+    @media (max-width:599px) {
+      .wrap { padding-left:19px; padding-right:19px; }
+      .resources-hero { padding:58px 0 64px; }
+      .resources-badge { font-size:10px!important; letter-spacing:.08em; }
+      .resources-title { font-size:clamp(34px,10.5vw,46px)!important; line-height:1.2!important; }
+      .resources-lead { font-size:17px!important; }
+      .resources-note { font-size:14px!important; }
+      .resources-actions { display:grid; grid-template-columns:1fr; }
+      .resources-btn { width:100%; min-height:54px; }
+      .resources-preview { padding:17px; border-radius:19px; }
+      .preview-item { grid-template-columns:32px minmax(0,1fr); }
+      .preview-status { grid-column:2; justify-self:start; margin-top:-5px; }
+      .preview-tools { grid-template-columns:repeat(3,1fr); }
+      .resources-categories { padding:68px 0 76px; }
+      .resources-section-head { margin-bottom:34px; text-align:left; }
+      .resources-section-title { font-size:31px!important; }
+      .resources-section-copy { font-size:16px!important; }
+      .cat-grid { grid-template-columns:1fr; gap:16px; }
+      .resource-category-card { min-height:0; padding:23px; }
+      .resource-card-grid,.course-resource-grid { grid-template-columns:1fr; gap:16px; }
+      .course-resource-section,.all-resources-section { padding:70px 0 76px; }
+      .course-resource-card { min-height:0; padding:25px; }
+      .resource-filter-bar { flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; margin-left:-19px; margin-right:-19px; padding:0 19px 10px; scrollbar-width:none; }
+      .resource-filter-bar::-webkit-scrollbar { display:none; }
+      .resource-filter-button { flex:0 0 auto; min-height:46px; }
+      .resource-card { min-height:0; }
+      .student-resources-section,.resource-journey-section,.resources-final-cta { padding:72px 0 76px; }
+      .student-resource-panel { padding:26px 20px; border-radius:20px; }
+      .student-resource-intro { text-align:left; margin-bottom:28px; }
+      .student-resource-intro h2 { font-size:30px!important; }
+      .student-resource-intro p { font-size:16px!important; }
+      .student-resource-grid { grid-template-columns:1fr; gap:14px; }
+      .student-resource-card { min-height:0; padding:22px; }
+      .student-resource-cta a { width:100%; min-height:54px; }
+      .journey-step { padding:24px; }
+      .resources-final-cta h2 { font-size:34px!important; }
+      .resources-final-cta p { font-size:16px!important; }
+      .resources-final-actions { display:grid; grid-template-columns:1fr; }
+      .resources-final-actions a { width:100%; min-height:54px; }
+    }
+    @media (max-width:767px) {
+      .site-footer-grid { grid-template-columns:1fr; gap:8px; }
+      .site-footer-company { padding-top:0; text-align:left; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
+    }
   </style>
 <style>
 .hero-vis [style],.hero-visual [style]{font-size:16px!important;line-height:1.45!important;}
@@ -157,11 +402,12 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
-    <a href="/about" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:42px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
       <a href="/about" class="nav-link">소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
       <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
@@ -172,13 +418,14 @@ input,textarea,select,label{font-size:19px!important;}
       <a href="/support" class="nav-link">학습지원</a>
     </div>
     <div class="nav-cta-group">
-      <a href="https://www.aimarketing.school/" target="_blank" rel="noopener" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
+      <a href="https://www.aimarketing.school/" target="_blank" rel="noopener noreferrer" class="btn-nav-main">AI마케팅스쿨 신청하기</a>
       <a href="/login" class="btn-nav-sub">수강생 로그인</a>
     </div>
-    <div class="hamburger" onClick="{{ toggleMenu }}"><span></span><span></span><span></span></div>
+    <button type="button" class="hamburger" aria-label="모바일 메뉴 열기" aria-expanded="{{ menuExpanded }}" onClick="{{ toggleMenu }}"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="{{ mobileNavClass }}">
+  <a href="/" onClick="{{ toggleMenu }}">Home</a>
   <a href="/about" onClick="{{ toggleMenu }}">소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
   <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
@@ -187,59 +434,49 @@ input,textarea,select,label{font-size:19px!important;}
   <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
   <a href="/contact" onClick="{{ toggleMenu }}">상담문의</a>
   <a href="/support" onClick="{{ toggleMenu }}">학습지원</a>
-  <a href="https://www.aimarketing.school/" target="_blank" rel="noopener" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
+  <a href="https://www.aimarketing.school/" target="_blank" rel="noopener noreferrer" class="mob-cta" onClick="{{ toggleMenu }}">AI마케팅스쿨 신청하기</a>
   <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>
 </div>
 <div style="height:78px;"></div>
 
 <!-- ═══ 1. HERO ═══ -->
-<section style="background:linear-gradient(125deg,#071440 0%,#0b1f5e 35%,#1440b8 70%,#1e4ed8 100%); padding:88px 0 96px; position:relative; overflow:hidden;">
-  <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px); background-size:48px 48px; pointer-events:none;"></div>
+<section class="resources-hero">
   <div class="wrap">
+    <nav class="resources-breadcrumb" aria-label="현재 위치"><a href="/">Home</a><span aria-hidden="true">›</span><strong aria-current="page">학습자료</strong></nav>
     <div class="hero-split">
       <div style="animation:fadeUp .7s ease both;">
-        <div style="display:inline-flex; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:20px; padding:6px 16px; font-size:11.5px; font-weight:700; color:rgba(255,255,255,.7); letter-spacing:.12em; margin-bottom:24px;">RESOURCES</div>
-        <h1 style="font-size:clamp(26px,3.8vw,50px); font-weight:900; color:#fff; line-height:1.25; letter-spacing:-.02em; word-break:keep-all; margin-bottom:20px; text-wrap:pretty;">
-          AI 마케팅을 배우기 전,<br>
-          <span style="background:linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">먼저 흐름을 이해하세요</span>
-        </h1>
-        <p style="font-size:clamp(13px,1.4vw,16px); color:rgba(255,255,255,.7); line-height:1.85; margin-bottom:28px; max-width:500px; word-break:keep-all;">거상스쿨 학습자료는 AI 도구 사용법을 넘어 업무 생산성, 콘텐츠 제작, 마케팅 실행, 홈페이지 제작, 자동화 시스템까지 실전에 필요한 흐름을 정리하는 공간입니다.</p>
-        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:36px;">
-          <span style="background:rgba(37,99,235,.2); border:1px solid rgba(37,99,235,.45); color:#93c5fd; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">AI 마케팅 인사이트</span>
-          <span style="background:rgba(37,99,235,.2); border:1px solid rgba(37,99,235,.45); color:#93c5fd; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">노션 · Gemini</span>
-          <span style="background:rgba(6,182,212,.15); border:1px solid rgba(6,182,212,.35); color:#67e8f9; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">ChatGPT · Claude</span>
-          <span style="background:rgba(6,182,212,.15); border:1px solid rgba(6,182,212,.35); color:#67e8f9; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">홈페이지 제작</span>
-          <span style="background:rgba(124,58,237,.2); border:1px solid rgba(124,58,237,.4); color:#c4b5fd; padding:5px 12px; border-radius:20px; font-size:11.5px; font-weight:600; white-space:nowrap;">AEO · GEO</span>
-        </div>
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="/courses/ai-marketing-school" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">AI마케팅스쿨 보기 →</a>
-          <a href="/courses" style="display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border:2px solid rgba(255,255,255,.3); color:rgba(255,255,255,.88); font-size:14px; font-weight:600; border-radius:10px; white-space:nowrap;">전체 교육과정 보기</a>
+        <div class="resources-badge">GEOSANG SCHOOL RESOURCES</div>
+        <h1 class="resources-title">실습에 바로 쓰는<br><span>거상스쿨 학습자료</span></h1>
+        <p class="resources-lead">AI 마케팅, 홈페이지 제작, 콘텐츠 기획, 자동화 실습에 필요한 체크리스트와 프롬프트, 템플릿을 수업 흐름에 맞게 정리했습니다.</p>
+        <p class="resources-note">자료는 순차적으로 업데이트됩니다. 일부 자료는 수강생 전용으로 제공될 수 있습니다.</p>
+        <div class="resources-actions">
+          <a href="/courses" class="resources-btn resources-btn-primary">전체 교육과정 보기 →</a>
+          <a href="/contact" class="resources-btn resources-btn-secondary">상담 문의하기 →</a>
         </div>
       </div>
-      <!-- 우측 비주얼 -->
-      <div class="hero-vis" style="animation:fadeUp .9s ease .2s both;">
-        <div style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px 18px;">
-          <div style="font-size:11px; font-weight:700; color:#60a5fa; margin-bottom:16px; letter-spacing:.04em;">거상스쿨 학습자료</div>
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
-              <div style="width:28px; height:28px; background:#000; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:12px; color:#fff; flex-shrink:0;">N</div>
-              <span style="font-size:12px; font-weight:600; color:rgba(255,255,255,.82);">노션 · 업무 시스템</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
-              <div style="width:28px; height:28px; background:linear-gradient(135deg,#1a73e8,#34a853); border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:12px; color:#fff; flex-shrink:0;">G</div>
-              <span style="font-size:12px; font-weight:600; color:rgba(255,255,255,.82);">Gemini · 구글 워크스페이스</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
-              <div style="width:28px; height:28px; background:#10a37f; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; flex-shrink:0;">GPT</div>
-              <span style="font-size:12px; font-weight:600; color:rgba(255,255,255,.82);">ChatGPT · 프롬프트</span>
-            </div>
-            <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
-              <div style="width:28px; height:28px; background:#1e3a8a; border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; flex-shrink:0;">HP</div>
-              <span style="font-size:12px; font-weight:600; color:rgba(255,255,255,.82);">홈페이지 · 랜딩페이지</span>
-            </div>
-            <div style="background:rgba(37,99,235,.2); border:1px solid rgba(37,99,235,.4); border-radius:10px; padding:10px 14px; text-align:center;">
-              <span style="font-size:11px; color:#93c5fd; font-weight:600;">순차적으로 자료 업데이트 중</span>
-            </div>
+
+      <!-- CSS 카드와 도형으로 구성한 학습자료 미리보기 -->
+      <div class="hero-vis" style="animation:fadeUp .9s ease .15s both;">
+        <div class="resources-preview" aria-label="학습자료 미리보기">
+          <div class="preview-window-bar">
+            <div class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="preview-kicker">RESOURCE DESK</span>
+          </div>
+          <h2 class="preview-title">오늘 바로 활용할 수 있는 자료</h2>
+          <div class="preview-list">
+            <div class="preview-item"><span class="preview-icon">✓</span><span class="preview-name">홈페이지 제작 준비 체크리스트</span><span class="preview-status">준비 중</span></div>
+            <div class="preview-item"><span class="preview-icon">D</span><span class="preview-name">Claude Design 목업 프롬프트</span><span class="preview-status student">수강생 전용</span></div>
+            <div class="preview-item"><span class="preview-icon">&lt;/&gt;</span><span class="preview-name">Codex 홈페이지 제작 프롬프트</span><span class="preview-status">준비 중</span></div>
+            <div class="preview-item"><span class="preview-icon">30</span><span class="preview-name">30일 콘텐츠 스케줄표</span><span class="preview-status">준비 중</span></div>
+            <div class="preview-item"><span class="preview-icon">A+</span><span class="preview-name">AI 수업 과제 제출 체크리스트</span><span class="preview-status student">수강생 전용</span></div>
+          </div>
+          <div class="preview-tools" aria-label="자료 유형">
+            <span class="preview-tool" title="노트북">PC</span>
+            <span class="preview-tool" title="체크리스트">✓</span>
+            <span class="preview-tool" title="프롬프트 카드">AI</span>
+            <span class="preview-tool" title="콘텐츠 캘린더">CAL</span>
+            <span class="preview-tool" title="홈페이지 목업">WEB</span>
+            <span class="preview-tool" title="AI 도구 카드">TOOLS</span>
           </div>
         </div>
       </div>
@@ -248,91 +485,31 @@ input,textarea,select,label{font-size:19px!important;}
 </section>
 
 <!-- ═══ 2. 카테고리 ═══ -->
-<section style="background:#fff; padding:88px 0;">
+<section class="resources-categories" aria-labelledby="resource-category-title">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:52px;">
-      <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">자료 카테고리</div>
-      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">관심 있는 주제부터 살펴보세요</h2>
+    <div class="resources-section-head">
+      <div class="resources-section-label">자료 카테고리</div>
+      <h2 id="resource-category-title" class="resources-section-title">필요한 자료를 주제별로 찾아보세요</h2>
+      <p class="resources-section-copy">수업 전 준비부터 실습, 과제 제출, 복습까지 필요한 자료를 카테고리별로 정리했습니다.</p>
     </div>
     <div class="cat-grid">
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; text-align:center; line-height:1.2;">AI<br>MKT</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">AI 마케팅</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">AI를 콘텐츠, 리드 수집, 판매, 자동화로 연결하는 방법을 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#eff6ff; color:#2563eb; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">AI마케팅</span>
-          <span style="background:#eff6ff; color:#2563eb; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">자동화</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:#000; border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:18px; color:#fff;">N</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">노션 · 업무 시스템</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">노션 대시보드, 데이터베이스, 업무 정리, 콘텐츠 관리 구조를 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#f1f5f9; color:#334155; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">노션</span>
-          <span style="background:#f1f5f9; color:#334155; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">업무시스템</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#1a73e8,#34a853); border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:18px; color:#fff;">G</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Gemini · 구글 워크스페이스</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">Gemini, Google Drive, NotebookLM, Docs, Sheets 활용법을 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#eff6ff; color:#2563eb; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">Gemini</span>
-          <span style="background:#eff6ff; color:#2563eb; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">Google</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:#10a37f; border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff;">GPT</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">ChatGPT · 프롬프트</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">프롬프트 작성, 프로젝트 기능, 콘텐츠 초안, 문서 작성 구조를 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#ecfdf5; color:#059669; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">ChatGPT</span>
-          <span style="background:#ecfdf5; color:#059669; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">프롬프트</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#cc785c,#0d9488); border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff;">&lt;/&gt;</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">Claude · Codex</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">문서 기획, 홈페이지 설계, 코드 작성, 배포 흐름을 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#fff7ed; color:#d97706; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">Claude</span>
-          <span style="background:#ecfdf5; color:#059669; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">Codex</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#1e3a8a,#2563eb); border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; text-align:center; line-height:1.2;">HP</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">홈페이지 · 랜딩페이지</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">다페이지 홈페이지, 랜딩페이지, CTA 구조, Vercel 배포를 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#eff6ff; color:#2563eb; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">홈페이지</span>
-          <span style="background:#eff6ff; color:#2563eb; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">Vercel</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; text-align:center; line-height:1.2;">콘텐<br>츠</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">콘텐츠 마케팅</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">블로그, 스레드, 카드뉴스, 숏폼, 유튜브 콘텐츠 제작 흐름을 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#ecfeff; color:#0891b2; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">블로그</span>
-          <span style="background:#ecfeff; color:#0891b2; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">숏폼</span>
-        </div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px 20px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; text-align:center; line-height:1.2;">AEO<br>GEO</span></div>
-        <h3 style="font-size:15px; font-weight:700; color:#0f172a; margin-bottom:8px;">AEO · GEO</h3>
-        <p style="font-size:12.5px; color:#64748b; line-height:1.7; margin-bottom:12px; word-break:keep-all;">AI 검색 시대에 내 사업이 이해되고 추천되는 정보 구조를 다룹니다.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:4px;">
-          <span style="background:#f5f3ff; color:#7c3aed; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">AEO</span>
-          <span style="background:#f5f3ff; color:#7c3aed; font-size:10px; font-weight:600; padding:2px 7px; border-radius:20px;">GEO</span>
-        </div>
-      </div>
+      <sc-for list="{{ resourceCategories }}" as="category" hint-placeholder-count="6">
+        <article class="resource-category-card card-h" id="{{ category.id }}">
+          <div class="category-card-top">
+            <div class="{{ category.iconClass }}" aria-hidden="true">{{ category.icon }}</div>
+            <span class="{{ category.statusClass }}">{{ category.status }}</span>
+          </div>
+          <h3>{{ category.title }}</h3>
+          <p>{{ category.description }}</p>
+          <a href="#recommended-resources" class="category-action" aria-label="{{ category.title }} 관련 자료 보기">자료 보기 →</a>
+        </article>
+      </sc-for>
     </div>
   </div>
 </section>
 
 <!-- ═══ 3. 추천 학습자료 ═══ -->
-<section style="background:#f0f4f8; padding:88px 0;">
+<section id="recommended-resources" style="background:#f0f4f8; padding:88px 0; scroll-margin-top:90px;">
   <div class="wrap">
     <div style="text-align:center; margin-bottom:52px;">
       <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">추천 학습자료</div>
@@ -443,141 +620,204 @@ input,textarea,select,label{font-size:19px!important;}
   </div>
 </section>
 
-<!-- ═══ 4. AI마케팅스쿨 예습 ═══ -->
-<section style="background:#fff; padding:88px 0;">
+<!-- ═══ 4. 과정별 자료 ═══ -->
+<section class="course-resource-section" aria-labelledby="course-resource-title">
   <div class="wrap">
-    <div class="ams-prereq-layout">
-      <div>
-        <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">AI마케팅스쿨 예습</div>
-        <h2 style="font-size:clamp(20px,2.8vw,32px); font-weight:900; color:#0f172a; margin-bottom:16px; line-height:1.4; word-break:keep-all;">AI마케팅스쿨 수강 전<br>미리 보면 좋은 주제</h2>
-        <p style="font-size:14.5px; color:#64748b; line-height:1.8; margin-bottom:28px; word-break:keep-all;">AI마케팅스쿨은 3개월 동안 업무 생산성, SNS 마케팅, 자동화와 시스템화까지 연결합니다. 아래 주제들을 미리 이해하면 수업을 더 잘 따라갈 수 있습니다.</p>
-        <a href="/courses/ai-marketing-school" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; background:#2563eb; color:#fff; font-size:14px; font-weight:700; border-radius:10px;">AI마케팅스쿨 상세 보기 →</a>
-      </div>
-      <div class="prereq-grid">
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:14px; color:#000; margin-bottom:6px;">N</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">노션 기본 구조</p></div>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:14px; color:#1a73e8; margin-bottom:6px;">G</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">구글 드라이브 정리</p></div>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-size:12px; font-weight:700; color:#1a73e8; margin-bottom:6px;">Gemini</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">Deep Research</p></div>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-size:12px; font-weight:700; color:#10a37f; margin-bottom:6px;">GPT</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">ChatGPT 프롬프트</p></div>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-size:12px; font-weight:700; color:#cc785c; margin-bottom:6px;">Claude</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">문서 기획</p></div>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-size:12px; font-weight:700; color:#0891b2; margin-bottom:6px;">Blog</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">블로그/스레드</p></div>
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-size:12px; font-weight:700; color:#b91c1c; margin-bottom:6px;">AI 영상</div><p style="font-size:12px; font-weight:600; color:#334155; word-break:keep-all;">이미지/영상</p></div>
-        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:16px 14px; text-align:center;"><div style="font-size:12px; font-weight:700; color:#2563eb; margin-bottom:6px;">&lt;/&gt;</div><p style="font-size:12px; font-weight:600; color:#1d4ed8; word-break:keep-all;">Codex 배포 흐름</p></div>
-      </div>
+    <div class="resources-section-head">
+      <div class="resources-section-label">과정별 학습자료</div>
+      <h2 id="course-resource-title" class="resources-section-title">과정별로 자료를 찾아보세요</h2>
+      <p class="resources-section-copy">수강 중인 과정에 맞춰 필요한 자료를 빠르게 확인할 수 있습니다.</p>
+    </div>
+    <div class="course-resource-grid">
+      <article class="course-resource-card marketing">
+        <span class="course-resource-status">운영 중</span>
+        <h3>AI마케팅스쿨</h3>
+        <p>AI 도구 활용, 콘텐츠 마케팅, 블로그·스레드·SNS, 이미지·영상 제작 자료를 확인할 수 있습니다.</p>
+        <ul class="course-resource-list">
+          <li>AI 도구 사용법</li>
+          <li>블로그·SNS 콘텐츠 기획</li>
+          <li>이미지·영상 생성 실습</li>
+          <li>자동화 기초</li>
+        </ul>
+        <a href="https://www.aimarketing.school/" target="_blank" rel="noopener noreferrer" class="course-resource-link">AI마케팅스쿨 보기 ↗</a>
+      </article>
+
+      <article class="course-resource-card homepage">
+        <span class="course-resource-status">업데이트 중</span>
+        <h3>AI홈페이지스쿨</h3>
+        <p>AI로 홈페이지를 기획하고 제작, 배포, 검색 등록까지 완성하는 실습 자료를 확인할 수 있습니다.</p>
+        <ul class="course-resource-list">
+          <li>홈페이지 기획 체크리스트</li>
+          <li>Claude Design 목업 프롬프트</li>
+          <li>Codex 제작 프롬프트</li>
+          <li>GitHub·Vercel 배포 체크리스트</li>
+        </ul>
+        <a href="/courses/ai-homepage-school" class="course-resource-link">홈페이지 과정 보기 →</a>
+      </article>
+
+      <article class="course-resource-card workshop">
+        <span class="course-resource-status">준비 중</span>
+        <h3>단기 특강·워크숍</h3>
+        <p>무료특강, 원데이 클래스, 주제별 특강에서 사용하는 보조 자료를 확인할 수 있습니다.</p>
+        <ul class="course-resource-list">
+          <li>특강 복습 자료</li>
+          <li>실습 링크</li>
+          <li>과제 안내</li>
+          <li>추천 AI 도구</li>
+        </ul>
+        <a href="/courses" class="course-resource-link">전체 교육과정 보기 →</a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ═══ 5. 키워드 태그 ═══ -->
-<section style="background:#f0f4f8; padding:72px 0;">
+<!-- ═══ 5. 전체 학습자료와 유형 필터 ═══ -->
+<section class="all-resources-section" aria-labelledby="all-resources-title">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:36px;">
-      <h2 style="font-size:clamp(20px,2.5vw,30px); font-weight:900; color:#0f172a; word-break:keep-all;">거상스쿨에서 자주 다루는 주제</h2>
+    <div class="resources-section-head">
+      <div class="resources-section-label">RESOURCE LIBRARY</div>
+      <h2 id="all-resources-title" class="resources-section-title">전체 학습자료</h2>
+      <p class="resources-section-copy">체크리스트, 프롬프트, 템플릿, 실습가이드를 유형별로 찾아볼 수 있습니다.</p>
     </div>
-    <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">AI마케팅</span>
-      <span style="background:#eff6ff; border:1px solid #bfdbfe; color:#2563eb; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">AI마케팅스쿨</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">노션 마스터</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">Gemini</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">Google Drive</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">NotebookLM</span>
-      <span style="background:#ecfdf5; border:1px solid #a7f3d0; color:#059669; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">ChatGPT</span>
-      <span style="background:#fff7ed; border:1px solid #fed7aa; color:#d97706; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">Claude</span>
-      <span style="background:#ecfdf5; border:1px solid #a7f3d0; color:#059669; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">Codex</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">Claude Cowork</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">홈페이지 제작</span>
-      <span style="background:#eff6ff; border:1px solid #bfdbfe; color:#2563eb; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">랜딩페이지</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">Vercel</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">GitHub</span>
-      <span style="background:#ecfeff; border:1px solid #a5f3fc; color:#0891b2; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">블로그 마케팅</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">스레드</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">숏폼</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">AI 이미지</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">AI 영상</span>
-      <span style="background:#f5f3ff; border:1px solid #ddd6fe; color:#7c3aed; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">AEO</span>
-      <span style="background:#f5f3ff; border:1px solid #ddd6fe; color:#7c3aed; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">GEO</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">업무자동화</span>
-      <span style="background:#fff; border:1px solid #e2e8f0; color:#334155; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.05);">콘텐츠 시스템</span>
-      <span style="background:#eff6ff; border:1px solid #bfdbfe; color:#2563eb; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">1인기업</span>
-      <span style="background:#eff6ff; border:1px solid #bfdbfe; color:#2563eb; padding:8px 16px; border-radius:20px; font-size:13px; font-weight:600;">소상공인 마케팅</span>
+
+    <div class="resource-filter-bar" role="group" aria-label="자료 유형 필터">
+      <sc-for list="{{ resourceTypeFilters }}" as="filter" hint-placeholder-count="7">
+        <button type="button" class="{{ filter.className }}" onClick="{{ filter.select }}" aria-pressed="{{ filter.isActive }}">{{ filter.label }}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ hasFilteredResources }}">
+      <div class="resource-card-grid" aria-live="polite">
+        <sc-for list="{{ filteredResources }}" as="resource" hint-placeholder-count="12">
+          <article class="resource-card card-h">
+            <div class="resource-card-accent"></div>
+            <div class="resource-card-body">
+              <div class="resource-card-meta">
+                <span class="resource-type">{{ resource.type }}</span>
+                <span class="{{ resource.statusClass }}">{{ resource.status }}</span>
+              </div>
+              <div class="resource-category">{{ resource.category }}</div>
+              <h3>{{ resource.title }}</h3>
+              <p class="resource-card-description">{{ resource.description }}</p>
+              <div class="resource-course">과정 · {{ resource.course }}</div>
+              <div class="resource-tags">
+                <sc-for list="{{ resource.tagItems }}" as="tag" hint-placeholder-count="4">
+                  <span class="resource-tag">{{ tag }}</span>
+                </sc-for>
+              </div>
+              <sc-if value="{{ resource.isClickable }}">
+                <a href="{{ resource.url }}" class="resource-card-action" target="{{ resource.target }}" rel="{{ resource.rel }}">자료 보기 →</a>
+              </sc-if>
+              <sc-if value="{{ resource.isDisabled }}">
+                <button type="button" class="resource-card-action" disabled>{{ resource.buttonText }}</button>
+              </sc-if>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showResourceEmpty }}">
+      <div class="resource-empty" aria-live="polite">
+        <h3>해당 유형의 자료를 준비하고 있습니다.</h3>
+        <p>자료는 수업 진행에 맞춰 순차적으로 업데이트됩니다.</p>
+        <button type="button" onClick="{{ showAllResources }}">전체 자료 보기</button>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- ═══ 6. 수강생 전용 안내 ═══ -->
+<section class="student-resources-section" aria-labelledby="student-resources-title">
+  <div class="wrap">
+    <div class="student-resource-panel">
+      <div class="student-resource-intro">
+        <div class="resources-section-label">수강생 전용 안내</div>
+        <h2 id="student-resources-title">일부 자료는 수강생 전용으로 제공됩니다</h2>
+        <p>거상스쿨의 실습 자료 중 일부는 수강생의 과제, 실습, 복습을 위해 수강생 전용으로 제공됩니다. 공개 자료는 이 페이지에서 순차적으로 업데이트되며, 수강생 전용 자료는 수업 과정 안에서 안내됩니다.</p>
+      </div>
+      <div class="student-resource-grid">
+        <article class="student-resource-card">
+          <div class="student-card-top">
+            <div class="student-icon" aria-hidden="true">BOOK</div>
+            <span class="student-lock-badge"><i class="student-lock-shape" aria-hidden="true"></i>수강생 전용</span>
+          </div>
+          <h3>수업 복습 자료</h3>
+          <p>수업에서 다룬 핵심 개념과 실습 흐름을 다시 확인할 수 있는 복습 자료입니다.</p>
+        </article>
+        <article class="student-resource-card">
+          <div class="student-card-top">
+            <div class="student-icon" aria-hidden="true">✓</div>
+            <span class="student-lock-badge"><i class="student-lock-shape" aria-hidden="true"></i>수강생 전용</span>
+          </div>
+          <h3>과제 제출 가이드</h3>
+          <p>수업 과제를 어떤 형식으로 만들고 제출해야 하는지 정리한 안내 자료입니다.</p>
+        </article>
+        <article class="student-resource-card">
+          <div class="student-card-top">
+            <div class="student-icon" aria-hidden="true">AI</div>
+            <span class="student-lock-badge"><i class="student-lock-shape" aria-hidden="true"></i>수강생 전용</span>
+          </div>
+          <h3>실습용 프롬프트·템플릿</h3>
+          <p>ChatGPT, Claude, Codex, Gemini 등 AI 도구 실습에 바로 사용할 수 있는 프롬프트와 템플릿입니다.</p>
+        </article>
+      </div>
+      <div class="student-resource-cta"><a href="/contact">수강 과정 상담하기 →</a></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 6. 업데이트 안내 ═══ -->
-<section style="background:linear-gradient(145deg,#06101f,#0a1a3a,#0d2050); padding:88px 0;">
+<!-- ═══ 7. 학습자료 활용 순서 ═══ -->
+<section class="resource-journey-section" aria-labelledby="resource-journey-title">
   <div class="wrap">
-    <div style="text-align:center; margin-bottom:48px;">
-      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#fff; margin-bottom:14px; word-break:keep-all;">학습자료는 계속 업데이트됩니다</h2>
-      <p style="font-size:14.5px; color:rgba(255,255,255,.7); max-width:580px; margin:0 auto; line-height:1.8; word-break:keep-all;">거상스쿨은 수업에서 다룬 핵심 개념, 자주 묻는 질문, 실습 자료, AI 도구 활용법을 순차적으로 정리해 나갈 예정입니다. 수강생과 예비 수강생 모두에게 도움이 되는 자료 허브로 확장하겠습니다.</p>
+    <div class="resources-section-head">
+      <div class="resources-section-label">활용 가이드</div>
+      <h2 id="resource-journey-title" class="resources-section-title">처음이라면 이렇게 활용하세요</h2>
+      <p class="resources-section-copy">자료를 많이 보는 것보다 중요한 것은, 내 사업에 맞게 적용해서 결과물로 남기는 것입니다.</p>
     </div>
-    <div class="update-grid">
-      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:22px 18px; text-align:center;">
-        <div style="width:40px; height:40px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><div style="width:18px; height:20px; border:2px solid rgba(255,255,255,.8); border-radius:3px;"></div></div>
-        <p style="font-size:13px; font-weight:600; color:#fff; word-break:keep-all;">수업 요약 자료</p>
-        <p style="font-size:11px; color:rgba(255,255,255,.5); margin-top:4px;">업데이트 예정</p>
-      </div>
-      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:22px 18px; text-align:center;">
-        <div style="width:40px; height:40px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><div style="width:18px; height:18px; border:2px solid rgba(255,255,255,.8); border-radius:3px;"><div style="width:10px; height:2px; background:rgba(255,255,255,.8); margin:3px auto 1px;"></div><div style="width:10px; height:2px; background:rgba(255,255,255,.8); margin:0 auto;"></div></div></div>
-        <p style="font-size:13px; font-weight:600; color:#fff; word-break:keep-all;">실습 체크리스트</p>
-        <p style="font-size:11px; color:rgba(255,255,255,.5); margin-top:4px;">업데이트 예정</p>
-      </div>
-      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:22px 18px; text-align:center;">
-        <div style="width:40px; height:40px; background:linear-gradient(135deg,#10a37f,#059669); border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff;">P·T</span></div>
-        <p style="font-size:13px; font-weight:600; color:#fff; word-break:keep-all;">프롬프트 예시</p>
-        <p style="font-size:11px; color:rgba(255,255,255,.5); margin-top:4px;">업데이트 예정</p>
-      </div>
-      <div style="background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:22px 18px; text-align:center;">
-        <div style="width:40px; height:40px; background:#000; border-radius:10px; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:16px; color:#fff;">N</span></div>
-        <p style="font-size:13px; font-weight:600; color:#fff; word-break:keep-all;">노션 템플릿</p>
-        <p style="font-size:11px; color:rgba(255,255,255,.5); margin-top:4px;">업데이트 예정</p>
-      </div>
+    <div class="resource-journey">
+      <article class="journey-step">
+        <div class="journey-number">1</div>
+        <h3>체크리스트로 현재 상태 점검</h3>
+        <p>홈페이지, 콘텐츠, AI 도구 활용 상태를 체크리스트로 먼저 점검합니다. 무엇이 부족한지 알아야 다음 실행이 쉬워집니다.</p>
+        <div class="journey-example">
+          <strong>예시 자료</strong>
+          <ul><li>홈페이지 제작 준비 체크리스트</li><li>AI 마케팅 입문 체크리스트</li><li>과제 제출 체크리스트</li></ul>
+        </div>
+      </article>
+      <article class="journey-step">
+        <div class="journey-number">2</div>
+        <h3>프롬프트와 템플릿으로 바로 실습</h3>
+        <p>수업에서 다룬 프롬프트와 템플릿을 복사해 내 사업, 내 상품, 내 고객에게 맞게 적용합니다.</p>
+        <div class="journey-example">
+          <strong>예시 자료</strong>
+          <ul><li>Claude Design 목업 제작 프롬프트</li><li>Codex 홈페이지 제작 프롬프트</li><li>30일 콘텐츠 스케줄표 템플릿</li></ul>
+        </div>
+      </article>
+      <article class="journey-step">
+        <div class="journey-number">3</div>
+        <h3>결과물을 만들고 과제로 제출</h3>
+        <p>카드뉴스, 콘텐츠 스케줄표, 홈페이지 목업, 실제 배포 링크처럼 눈에 보이는 결과물을 만들고 제출합니다.</p>
+        <div class="journey-example">
+          <strong>예시 결과물</strong>
+          <ul><li>콘텐츠 스케줄표</li><li>카드뉴스 이미지</li><li>홈페이지 목업</li><li>실제 배포 URL</li></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ═══ 7. 상담 유도 ═══ -->
-<section style="background:#fff; padding:88px 0;">
-  <div class="wrap" style="text-align:center;">
-    <div style="max-width:560px; margin:0 auto;">
-      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:16px; word-break:keep-all; text-wrap:pretty;">어떤 자료부터 보면 좋을지<br>모르겠다면</h2>
-      <p style="font-size:15px; color:#64748b; line-height:1.8; margin-bottom:40px; word-break:keep-all;">현재 관심 있는 주제와 목표를 알려주시면, AI마케팅스쿨, 단기 클래스, 학습자료 중 어떤 순서로 보면 좋을지 안내해 드립니다.</p>
-      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a href="/contact" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:#2563eb; color:#fff; font-size:15px; font-weight:700; border-radius:10px; white-space:nowrap; animation:pulseRing 2.8s ease infinite;">상담문의 하기 →</a>
-        <a href="/courses" style="display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border:2px solid #2563eb; color:#2563eb; font-size:14px; font-weight:600; border-radius:10px; white-space:nowrap; background:#fff;">전체 교육과정 보기</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 8. 하단 연결 ═══ -->
-<section style="background:#f0f4f8; padding:72px 0;">
+<!-- ═══ 8. 하단 CTA ═══ -->
+<section class="resources-final-cta" aria-labelledby="resources-final-title">
   <div class="wrap">
-    <h2 style="font-size:17px; font-weight:700; color:#64748b; text-align:center; margin-bottom:32px; letter-spacing:.02em;">다른 페이지로 이동하기</h2>
-    <div class="link-grid">
-      <a href="/courses/ai-marketing-school" class="card-h" style="display:block; background:#eff6ff; border:1px solid #bfdbfe; border-radius:16px; padding:26px 22px;">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:10px; margin-bottom:14px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff; text-align:center; line-height:1.2;">AI<br>3M</span></div>
-        <h3 style="font-size:14.5px; font-weight:700; color:#1d4ed8; margin-bottom:6px;">AI마케팅스쿨 상세 보기</h3>
-        <p style="font-size:12px; color:#3b82f6;">3개월 정규 과정</p>
-        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
-      </a>
-      <a href="/courses/short-courses" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:26px 22px;">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#0891b2,#06b6d4); border-radius:10px; margin-bottom:14px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:10px; color:#fff;">1D·4W</span></div>
-        <h3 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">단기 클래스 보기</h3>
-        <p style="font-size:12px; color:#64748b;">1day, 2주, 4주 과정</p>
-        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
-      </a>
-      <a href="/reviews" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:26px 22px;">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:10px; margin-bottom:14px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:14px; color:#fff;">★</span></div>
-        <h3 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">수강후기 보기</h3>
-        <p style="font-size:12px; color:#64748b;">수강생 결과물과 사례</p>
-        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
-      </a>
-      <a href="/contact" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:26px 22px;">
-        <div style="width:44px; height:44px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:10px; margin-bottom:14px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:13px; color:#fff;">?</span></div>
-        <h3 style="font-size:14.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">상담문의 하기</h3>
-        <p style="font-size:12px; color:#64748b;">나에게 맞는 과정 상담</p>
-        <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">신청하기 →</div>
-      </a>
+    <div class="resources-final-cta-inner">
+      <h2 id="resources-final-title">자료만 보는 것보다 중요한 건<br>직접 만들어보는 경험입니다</h2>
+      <p>거상스쿨은 AI 도구 사용법을 설명하는 데서 끝나지 않고, 실제 콘텐츠와 홈페이지, 마케팅 실행 결과물을 만들도록 돕습니다.</p>
+      <div class="resources-final-actions">
+        <a href="/courses">전체 교육과정 보기 →</a>
+        <a href="/contact">상담 문의하기 →</a>
+      </div>
+      <p class="resources-final-note">처음 시작하는 분도 수업 흐름에 맞춰 따라오면 결과물을 만들 수 있도록 안내합니다.</p>
     </div>
   </div>
 </section>
@@ -585,10 +825,10 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- FOOTER -->
 <footer style="background:#040c1a; padding:52px 0 32px;">
   <div class="wrap">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:24px; align-items:start;">
+    <div class="site-footer-grid">
       <div>
         <div style="margin-bottom:16px;">
-          <a href="/about" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+          <a href="/" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
             <img src="/logo.png" alt="거상스쿨 로고" style="width:50px; height:50px; object-fit:contain; display:block; flex-shrink:0;">
             <span style="display:flex; flex-direction:column; gap:2px;">
               <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
@@ -599,7 +839,7 @@ input,textarea,select,label{font-size:19px!important;}
         <p style="font-size:12.5px; color:rgba(255,255,255,.35); line-height:1.8; max-width:480px; word-break:keep-all;">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p>
       </div>
       <div>
-        <p style="font-size:11px; color:rgba(255,255,255,.28); line-height:1.9; padding-top:70px; text-align:right;">
+        <p class="site-footer-company">
           거상스쿨(주) | 대표자명: 임헌수 | 개인정보관리자: 권현임<br>
           이메일: geosangschool@naver.com | 전화: 010-5795-8075<br>
           주소: 서울 강남구 테헤란로 313, 915호<br>
@@ -622,7 +862,7 @@ input,textarea,select,label{font-size:19px!important;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { mobileMenuOpen: false };
+  state = { mobileMenuOpen: false, activeType: '전체' };
 
   componentDidMount() {
     const nav = document.getElementById('gs-nav');
@@ -637,10 +877,183 @@ class Component extends DCLogic {
   componentWillUnmount() { this._cleanup?.(); }
 
   renderVals() {
-    const { mobileMenuOpen } = this.state;
+    const { mobileMenuOpen, activeType } = this.state;
+    const resourceCategories = [
+      {
+        id: 'ai-marketing-basic',
+        title: 'AI 마케팅 기초',
+        description: 'ChatGPT, Gemini, Claude 등 주요 AI 도구를 마케팅에 활용하기 위한 기본 자료입니다.',
+        status: '업데이트 예정',
+        icon: 'AI ✦',
+        iconClass: 'category-icon ai',
+        statusClass: 'category-status',
+      },
+      {
+        id: 'website-building',
+        title: '홈페이지 제작',
+        description: '기획, 목업, Claude Design, Codex, GitHub, Vercel 배포까지 홈페이지 제작 실습 자료입니다.',
+        status: '수강생 전용 포함',
+        icon: '</>',
+        iconClass: 'category-icon web',
+        statusClass: 'category-status student',
+      },
+      {
+        id: 'content-planning',
+        title: '콘텐츠 기획',
+        description: '블로그, 인스타그램, 스레드, 카드뉴스, 숏폼 콘텐츠를 기획하는 자료입니다.',
+        status: '업데이트 예정',
+        icon: 'CAL',
+        iconClass: 'category-icon content',
+        statusClass: 'category-status',
+      },
+      {
+        id: 'prompt-library',
+        title: '프롬프트 모음',
+        description: '수업에서 바로 복사해 사용할 수 있는 실전 프롬프트 모음입니다.',
+        status: '수강생 전용 포함',
+        icon: '>_',
+        iconClass: 'category-icon prompt',
+        statusClass: 'category-status student',
+      },
+      {
+        id: 'work-automation',
+        title: '자동화·업무 효율',
+        description: '구글시트, 노션, Gmail, 캘린더, AI 업무 자동화 실습 자료입니다.',
+        status: '업데이트 예정',
+        icon: '↗↘',
+        iconClass: 'category-icon automation',
+        statusClass: 'category-status',
+      },
+      {
+        id: 'checklists-templates',
+        title: '체크리스트·템플릿',
+        description: '수업 전 준비, 과제 제출, 홈페이지 점검, 콘텐츠 점검용 체크리스트입니다.',
+        status: '업데이트 예정',
+        icon: '✓',
+        iconClass: 'category-icon template',
+        statusClass: 'category-status',
+      },
+    ];
+
+    const resources = [
+      {
+        id: 'website-preflight-checklist',
+        title: '홈페이지 제작 준비 체크리스트',
+        description: '제작을 시작하기 전 목적, 고객, 메뉴, 콘텐츠와 준비 자료를 점검하는 체크리스트입니다.',
+        category: '홈페이지 제작', course: 'AI홈페이지스쿨', type: '체크리스트', status: '준비 중',
+        tags: ['기획', '홈페이지', '준비', '체크리스트'], url: '', isPublished: true, isFeatured: true,
+      },
+      {
+        id: 'claude-design-mockup-prompts',
+        title: 'Claude Design 목업 프롬프트',
+        description: '홈페이지 화면 구성과 디자인 목업을 구체화할 때 사용하는 수업용 프롬프트 모음입니다.',
+        category: '프롬프트 모음', course: 'AI홈페이지스쿨', type: '프롬프트', status: '수강생 전용',
+        tags: ['Claude', 'Design', '목업', '프롬프트'], url: '', isPublished: true, isFeatured: true,
+      },
+      {
+        id: 'codex-website-prompts',
+        title: 'Codex 홈페이지 제작 프롬프트',
+        description: '기획 내용을 실제 홈페이지 코드와 페이지 구조로 연결하기 위한 단계별 제작 프롬프트입니다.',
+        category: '홈페이지 제작', course: 'AI홈페이지스쿨', type: '프롬프트', status: '수강생 전용',
+        tags: ['Codex', '코드', '홈페이지', '프롬프트'], url: '', isPublished: true, isFeatured: true,
+      },
+      {
+        id: 'content-calendar-30-days',
+        title: '30일 콘텐츠 스케줄표',
+        description: '블로그와 SNS 콘텐츠 주제를 한 달 단위로 배치하고 발행 흐름을 관리하는 템플릿입니다.',
+        category: '콘텐츠 기획', course: 'AI마케팅스쿨', type: '템플릿', status: '준비 중',
+        tags: ['콘텐츠', '캘린더', 'SNS', '블로그'], url: '', isPublished: true, isFeatured: true,
+      },
+      {
+        id: 'ai-assignment-checklist',
+        title: 'AI 수업 과제 제출 체크리스트',
+        description: '실습 결과물과 공유 설정, 제출 항목을 빠짐없이 확인하기 위한 수강생용 체크리스트입니다.',
+        category: '체크리스트·템플릿', course: '공통', type: '체크리스트', status: '수강생 전용',
+        tags: ['과제', '제출', '실습', '체크리스트'], url: '', isPublished: true, isFeatured: true,
+      },
+      {
+        id: 'ai-marketing-practice-guide',
+        title: 'AI 마케팅 실습 시작 가이드',
+        description: 'AI 도구를 업무와 콘텐츠 마케팅에 연결하는 기본 실습 순서를 정리한 안내 자료입니다.',
+        category: 'AI 마케팅 기초', course: 'AI마케팅스쿨', type: '실습가이드', status: '준비 중',
+        tags: ['AI마케팅', '실습', '입문', '도구'], url: '', isPublished: true, isFeatured: true,
+      },
+      {
+        id: 'github-vercel-deploy-checklist',
+        title: 'GitHub·Vercel 배포 체크리스트',
+        description: '완성한 홈페이지를 저장소에 연결하고 Vercel로 배포할 때 확인해야 할 항목입니다.',
+        category: '홈페이지 제작', course: 'AI홈페이지스쿨', type: '체크리스트', status: '준비 중',
+        tags: ['GitHub', 'Vercel', '배포', '도메인'], url: '', isPublished: true, isFeatured: false,
+      },
+      {
+        id: 'search-registration-guide',
+        title: '구글서치콘솔·네이버서치어드바이저 등록 가이드',
+        description: '배포한 홈페이지를 구글과 네이버 검색 서비스에 등록하는 순서를 정리한 실습 가이드입니다.',
+        category: '홈페이지 제작', course: 'AI홈페이지스쿨', type: '실습가이드', status: '준비 중',
+        tags: ['SEO', '검색등록', '구글', '네이버'], url: '', isPublished: true, isFeatured: false,
+      },
+      {
+        id: 'blog-writing-prompts',
+        title: '블로그 글쓰기 프롬프트 모음',
+        description: '검색 의도와 독자 흐름에 맞춰 블로그 초안을 만드는 수업용 프롬프트 모음입니다.',
+        category: '콘텐츠 기획', course: 'AI마케팅스쿨', type: '프롬프트', status: '수강생 전용',
+        tags: ['블로그', 'SEO', '콘텐츠', '프롬프트'], url: '', isPublished: true, isFeatured: false,
+      },
+      {
+        id: 'threads-idea-template',
+        title: '스레드 콘텐츠 아이디어 템플릿',
+        description: '짧은 글 주제를 발굴하고 후킹 문장과 연속 게시물 흐름을 정리하는 템플릿입니다.',
+        category: '콘텐츠 기획', course: 'AI마케팅스쿨', type: '템플릿', status: '준비 중',
+        tags: ['Threads', '콘텐츠', '아이디어', 'SNS'], url: '', isPublished: true, isFeatured: false,
+      },
+      {
+        id: 'notion-work-template',
+        title: '노션 업무정리 템플릿',
+        description: '업무, 일정, 콘텐츠와 참고 자료를 한 화면에서 관리하기 위한 기본 구조입니다.',
+        category: '자동화·업무 효율', course: '공통', type: '템플릿', status: '준비 중',
+        tags: ['Notion', '업무관리', '자동화', '템플릿'], url: '', isPublished: true, isFeatured: false,
+      },
+      {
+        id: 'ai-tools-comparison',
+        title: 'AI 도구별 활용 비교표',
+        description: '대표 AI 도구의 강점과 수업별 활용 장면을 한눈에 비교할 수 있도록 정리한 자료입니다.',
+        category: 'AI 마케팅 기초', course: '공통', type: '강의자료', status: '준비 중',
+        tags: ['ChatGPT', 'Claude', 'Gemini', 'Codex'], url: '', isPublished: true, isFeatured: false,
+      },
+    ];
+
+    const publishedResources = resources.filter(resource => resource.isPublished !== false);
+    const filteredResources = publishedResources
+      .filter(resource => activeType === '전체' || resource.type === activeType)
+      .map(resource => ({
+        ...resource,
+        tagItems: resource.tags,
+        statusClass: 'resource-status' + (resource.status === '수강생 전용' ? ' student' : resource.status === '공개' ? ' public' : ''),
+        isClickable: resource.status === '공개' && Boolean(resource.url),
+        isDisabled: !(resource.status === '공개' && Boolean(resource.url)),
+        buttonText: resource.status === '수강생 전용' ? '수강생 전용' : '준비 중',
+        target: resource.url && resource.url.startsWith('http') ? '_blank' : '',
+        rel: resource.url && resource.url.startsWith('http') ? 'noopener noreferrer' : '',
+      }));
+
+    const resourceTypes = ['전체', '체크리스트', '프롬프트', '템플릿', '강의자료', '실습가이드', '외부 링크'];
+    const resourceTypeFilters = resourceTypes.map(label => ({
+      label,
+      isActive: activeType === label,
+      className: 'resource-filter-button' + (activeType === label ? ' active' : ''),
+      select: () => this.setState({ activeType: label }),
+    }));
+
     return {
       mobileNavClass: 'mobile-nav' + (mobileMenuOpen ? ' open' : ''),
+      menuExpanded: mobileMenuOpen ? 'true' : 'false',
       toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      resourceCategories,
+      resourceTypeFilters,
+      filteredResources,
+      hasFilteredResources: filteredResources.length > 0,
+      showResourceEmpty: filteredResources.length === 0,
+      showAllResources: () => this.setState({ activeType: '전체' }),
     };
   }
 }

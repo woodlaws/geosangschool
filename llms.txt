@@ -14,6 +14,7 @@ AI마케팅스쿨은 거상스쿨의 대표 3개월 정규과정으로, 12주 �
 ## Programs
 
 - AI마케팅스쿨 3개월 과정: 정원 50명, 실시간 Zoom + 과제 + 피드백
+- AI홈페이지스쿨 4주과정: ChatGPT 기획, AI 제작, GitHub·Vercel 배포, 도메인 연결, 검색 등록, schemaWorks AIO 점검을 통해 공식 홈페이지를 직접 완성하는 실전과정
 - 1day 클래스: 특정 도구를 하루 만에 익히는 입문형 과정
 - 2주 완성 과정: 하나의 결과물을 완성하는 집중 과정
 - 4주 집중 과정: 한 주제를 깊게 익히는 실전 과정
@@ -32,6 +33,7 @@ Notion, Gemini, Google Drive, NotebookLM, ChatGPT, Claude, Claude Cowork, ChatGP
 - /about : 거상스쿨 소개 — 브랜드 철학 및 교육 방향
 - /courses : 전체 교육과정 — 모든 과정 한눈에 비교
 - /courses/ai-marketing-school : AI마케팅스쿨 — 3개월 과정 상세 안내
+- /courses/ai-homepage-school : AI홈페이지스쿨 — 공식 홈페이지 제작 4주 실전과정
 - /courses/short-courses : 단기 클래스 — 1day, 2주, 4주 과정 소개
 - /reviews : 수강후기 — 수강생 결과물 및 변화 사례
 - /resources : 학습자료 — AI 마케팅 인사이트 및 예습 자료

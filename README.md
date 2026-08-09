@@ -10,6 +10,7 @@
 | `/about` | 거상스쿨 소개.dc.html | 브랜드·신뢰 페이지 |
 | `/courses` | 전체 교육과정.dc.html | 과정 허브 |
 | `/courses/ai-marketing-school` | AI마케팅스쿨.dc.html | 대표 과정 상세 |
+| `/courses/ai-homepage-school` | AI홈페이지스쿨.dc.html | AI 홈페이지 제작 4주 실전과정 |
 | `/courses/short-courses` | 단기 클래스.dc.html | 단기 과정 |
 | `/resources` | 학습자료.dc.html | 콘텐츠 허브 |
 | `/reviews` | 수강후기.dc.html | 수강생 결과물 |

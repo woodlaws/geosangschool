@@ -173,11 +173,12 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
-    <a href="/about" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:42px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
       <a href="/about" class="nav-link">소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
       <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
@@ -195,6 +196,7 @@ input,textarea,select,label{font-size:19px!important;}
   </div>
 </nav>
 <div class="{{ mobileNavClass }}">
+  <a href="/" onClick="{{ toggleMenu }}">Home</a>
   <a href="/about" onClick="{{ toggleMenu }}">소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
   <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
@@ -717,7 +719,7 @@ input,textarea,select,label{font-size:19px!important;}
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:24px; align-items:start;">
       <div>
         <div style="margin-bottom:16px;">
-          <a href="/about" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+          <a href="/" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
             <img src="/logo.png" alt="거상스쿨 로고" style="width:50px; height:50px; object-fit:contain; display:block; flex-shrink:0;">
             <span style="display:flex; flex-direction:column; gap:2px;">
               <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>

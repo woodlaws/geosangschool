@@ -11,8 +11,9 @@
   <title>거상스쿨 소개 | 실전형 AI 마케팅 교육 플랫폼</title>
   <meta name="description" content="거상스쿨은 AI 도구 사용법만 알려주는 곳이 아닙니다. 콘텐츠, 마케팅, 자동화, 수익화까지 연결되는 실전형 AI 마케팅 교육 플랫폼입니다.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.geosangschool.co.kr/about">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://geosangschool.com/about">
+  <meta property="og:url" content="https://www.geosangschool.co.kr/about">
   <meta property="og:title" content="거상스쿨 소개 | 실전형 AI 마케팅 교육 플랫폼">
   <meta property="og:description" content="거상스쿨은 AI 도구 사용법을 넘어 콘텐츠, 마케팅, 자동화, 수익화 구조까지 연결하는 실전형 AI 교육 플랫폼입니다.">
   <meta property="og:image" content="https://geosangschool.vercel.app/og-image.png">
@@ -174,11 +175,12 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
-    <a href="/about" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:42px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
       <a href="/about" class="nav-link active">소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
       <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
@@ -199,6 +201,7 @@ input,textarea,select,label{font-size:19px!important;}
 </nav>
 
 <div class="{{ mobileNavClass }}">
+  <a href="/" onClick="{{ toggleMenu }}">Home</a>
   <a href="/about" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
   <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
@@ -737,6 +740,18 @@ input,textarea,select,label{font-size:19px!important;}
         <p style="font-size:12.5px; color:#3b82f6;">3개월 정규 과정 상세 보기</p>
         <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563eb;">보러가기 →</div>
       </a>
+      <article class="card-h" style="display:block; background:#f5f3ff; border:1px solid #c4b5fd; border-radius:16px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;">
+          <div style="width:44px; height:44px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:10px; display:flex; align-items:center; justify-content:center;"><span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff;">4W</span></div>
+          <span style="background:#7c3aed; color:#fff; font-size:10px; font-weight:700; padding:4px 9px; border-radius:20px;">4주 완성 실전과정</span>
+        </div>
+        <h3 style="font-size:15px; font-weight:700; color:#6d28d9; margin-bottom:8px;">AI홈페이지스쿨 4주과정</h3>
+        <p style="font-size:12.5px; color:#64748b; line-height:1.7; word-break:keep-all;">AI 시대, 홈페이지는 선택이 아니라 공식 신뢰 자산입니다. ChatGPT 기획부터 AI 제작, GitHub·Vercel 배포와 도메인 연결, schemaWorks 기반 AIO 점검까지 직접 완성합니다.</p>
+        <ul style="list-style:none; display:grid; gap:5px; margin-top:13px; font-size:11.5px; color:#475569; line-height:1.55;">
+          <li>✓ 4주 만에 내 사업의 공식 홈페이지 완성</li><li>✓ ChatGPT 기획·카피와 Claude/Codex 제작</li><li>✓ GitHub·Vercel 배포 및 도메인 연결</li><li>✓ 검색 등록과 AIO 운영 체크리스트</li>
+        </ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;"><a href="/courses/ai-homepage-school" style="font-size:12.5px; font-weight:700; color:#7c3aed;">자세히 보기 →</a><a href="https://aihomepage-school.vercel.app/" target="_blank" rel="noopener noreferrer" style="font-size:12px; font-weight:600; color:#64748b;">독립 랜딩페이지 ↗</a></div>
+      </article>
       <a href="/reviews" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
         <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;">
           <span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:12px; color:#fff;">★</span>
@@ -763,7 +778,7 @@ input,textarea,select,label{font-size:19px!important;}
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:24px; align-items:start;">
       <div>
         <div style="margin-bottom:16px;">
-          <a href="/about" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+          <a href="/" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
             <img src="/logo.png" alt="거상스쿨 로고" style="width:50px; height:50px; object-fit:contain; display:block; flex-shrink:0;">
             <span style="display:flex; flex-direction:column; gap:2px;">
               <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
@@ -789,6 +804,7 @@ input,textarea,select,label{font-size:19px!important;}
       <div style="display:flex; gap:16px; flex-wrap:wrap;">
         <a href="/" style="font-size:12px; color:rgba(255,255,255,.35);">홈</a>
         <a href="/courses" style="font-size:12px; color:rgba(255,255,255,.35);">교육과정</a>
+        <a href="/courses/ai-homepage-school" style="font-size:12px; color:rgba(255,255,255,.35);">AI홈페이지스쿨</a>
         <a href="/contact" style="font-size:12px; color:rgba(255,255,255,.35);">상담문의</a>
         <a href="/resources" style="font-size:12px; color:rgba(255,255,255,.35);">학습자료</a>
         <a href="/login" style="font-size:12px; color:rgba(255,255,255,.35);">수강생 로그인</a>

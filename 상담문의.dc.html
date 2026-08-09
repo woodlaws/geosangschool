@@ -110,6 +110,24 @@
     .channel-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
     @media (max-width:1023px) { .channel-grid{grid-template-columns:repeat(2,1fr);} }
     @media (max-width:499px) { .channel-grid{grid-template-columns:1fr;} }
+    .contact-method-card { min-height:355px; display:flex; flex-direction:column; padding:28px 22px; text-align:center; border:1px solid #e2e8f0; border-radius:18px; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,.04); }
+    .contact-method-card.support { background:#f8fafc; }
+    .contact-method-icon { width:52px; height:52px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; border-radius:13px; color:#fff; font-family:Montserrat,sans-serif; font-size:15px!important; line-height:1!important; font-weight:800; }
+    .contact-method-icon.email { background:linear-gradient(135deg,#7c3aed,#a855f7); }
+    .contact-method-icon.phone { background:linear-gradient(135deg,#1e40af,#3b82f6); }
+    .contact-method-icon.kakao { background:#fee500; color:#3c1e1e; }
+    .contact-method-icon.support { background:linear-gradient(135deg,#374151,#4b5563); }
+    .contact-method-badge { align-self:center; padding:4px 10px; margin-bottom:12px; border-radius:999px; background:#eff6ff; color:#2563eb; font-size:10px!important; line-height:1.25!important; font-weight:800; }
+    .contact-method-badge.kakao { background:#fffbeb; color:#b45309; }
+    .contact-method-card h3 { margin-bottom:8px; color:#0f172a; font-size:17px!important; line-height:1.45!important; font-weight:800; word-break:keep-all; }
+    .contact-method-value { display:block; margin-bottom:12px; color:#2563eb; font-size:13px!important; line-height:1.5!important; font-weight:800; word-break:break-all; }
+    .contact-method-card p { margin-bottom:18px!important; color:#64748b!important; font-size:13px!important; line-height:1.7!important; word-break:keep-all; }
+    .contact-method-button { min-height:48px; display:flex; align-items:center; justify-content:center; margin-top:auto; padding:12px 14px; border-radius:10px; color:#fff; font-size:14px!important; line-height:1.3!important; font-weight:800; }
+    .contact-method-button.email { background:#7c3aed; }
+    .contact-method-button.phone { background:#2563eb; }
+    .contact-method-button.kakao { background:#fee500; color:#3c1e1e; }
+    .contact-method-button.support { border:1.5px solid #cbd5e1; background:#fff; color:#64748b; }
+    @media (max-width:499px) { .contact-method-card{min-height:0;} .contact-method-button{min-height:54px;} }
 
     .step-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
     @media (max-width:1023px) { .step-grid{grid-template-columns:repeat(3,1fr);} }
@@ -185,11 +203,12 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
-    <a href="/about" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:42px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
       <a href="/about" class="nav-link">소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
       <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
@@ -207,6 +226,7 @@ input,textarea,select,label{font-size:19px!important;}
   </div>
 </nav>
 <div class="{{ mobileNavClass }}">
+  <a href="/" onClick="{{ toggleMenu }}">Home</a>
   <a href="/about" onClick="{{ toggleMenu }}">소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
   <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
@@ -376,7 +396,7 @@ input,textarea,select,label{font-size:19px!important;}
           <div style="width:20px; height:20px; background:#d97706; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:Montserrat,sans-serif; font-weight:800; font-size:11px; color:#fff; margin-top:1px;">!</div>
           <div>
             <p style="font-size:13px; font-weight:700; color:#92400e; margin-bottom:4px;">상담 신청 폼 연결 준비 중</p>
-            <p style="font-size:12.5px; color:#b45309; line-height:1.7; word-break:keep-all;">현재 상담 신청 폼이 연결 준비 중입니다. 카카오톡 또는 이메일로 먼저 문의해 주시거나, 아래 내용을 참고해 직접 연락해 주세요.</p>
+            <p style="font-size:12.5px; color:#b45309; line-height:1.7; word-break:keep-all;">현재 상담 신청 폼이 연결 준비 중입니다. <a href="http://pf.kakao.com/_xmBeVn/chat" target="_blank" rel="noopener noreferrer" style="font-weight:800; text-decoration:underline;">카카오톡</a> 또는 <a href="mailto:geosangschool@naver.com" style="font-weight:800; text-decoration:underline;">이메일</a>로 먼저 문의해 주세요.</p>
           </div>
         </div>
         <div style="display:flex; flex-direction:column; gap:18px;">
@@ -463,37 +483,41 @@ input,textarea,select,label{font-size:19px!important;}
   <div class="wrap">
     <div style="text-align:center; margin-bottom:48px;">
       <div style="display:inline-flex; background:#eff6ff; border:1px solid #bfdbfe; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#2563eb; margin-bottom:16px;">빠른 문의</div>
-      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; word-break:keep-all;">빠르게 문의하고 싶다면</h2>
+      <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:12px; word-break:keep-all;">원하는 방법으로 문의해 주세요</h2>
+      <p style="font-size:14px; color:#64748b; word-break:keep-all;">문의 내용을 확인한 뒤 순차적으로 답변드립니다.</p>
     </div>
     <div class="channel-grid">
-      <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:52px; height:52px; background:#fee500; border-radius:13px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;"><div style="width:28px; height:26px; background:#3c1e1e; border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;"></div></div>
-        <div style="display:inline-flex; background:#fffbeb; color:#d97706; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px;">연결 예정</div>
-        <h3 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:8px;">카카오톡 상담</h3>
-        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px; word-break:keep-all;">가장 빠르게 과정 상담과 수강 문의를 남길 수 있습니다.</p>
-        <div style="padding:11px; background:#f0f4f8; border-radius:9px; font-size:13px; color:#94a3b8; font-weight:600;">카카오톡 채널 연결 예정</div>
-      </div>
-      <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:52px; height:52px; background:linear-gradient(135deg,#1e40af,#3b82f6); border-radius:13px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;"><div style="width:22px; height:22px; border-radius:50%; border:2.5px solid rgba(255,255,255,.8);"></div></div>
-        <div style="display:inline-flex; background:#f1f5f9; color:#64748b; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px;">입력 예정</div>
-        <h3 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:8px;">전화 문의</h3>
-        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px; word-break:keep-all;">수강 과정, 강의실 이용, 상담 일정 관련 문의가 가능합니다.</p>
-        <div style="padding:11px; background:#f0f4f8; border-radius:9px; font-size:13px; color:#94a3b8; font-weight:600;">전화번호 입력 예정</div>
-      </div>
-      <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-        <div style="width:52px; height:52px; background:linear-gradient(135deg,#7c3aed,#a855f7); border-radius:13px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;"><div style="width:24px; height:18px; border:2.5px solid rgba(255,255,255,.8); border-radius:3px;"></div></div>
-        <div style="display:inline-flex; background:#f1f5f9; color:#64748b; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px;">입력 예정</div>
-        <h3 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:8px;">이메일 문의</h3>
-        <p style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px; word-break:keep-all;">자료 요청, 제휴, 교육 문의를 이메일로 남길 수 있습니다.</p>
-        <div style="padding:11px; background:#f0f4f8; border-radius:9px; font-size:13px; color:#94a3b8; font-weight:600;">이메일 입력 예정</div>
-      </div>
-      <div class="card-h" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:18px; padding:28px 22px; text-align:center;">
-        <div style="width:52px; height:52px; background:linear-gradient(135deg,#374151,#4b5563); border-radius:13px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;"><div style="width:22px; height:22px; border-radius:50%; border:2.5px solid rgba(255,255,255,.7);"></div></div>
-        <div style="display:inline-flex; background:#f1f5f9; color:#64748b; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:12px;">기존 수강생</div>
-        <h3 style="font-size:16px; font-weight:700; color:#64748b; margin-bottom:8px;">기존 수강생<br>학습지원</h3>
-        <p style="font-size:13px; color:#94a3b8; line-height:1.7; margin-bottom:16px; word-break:keep-all;">로그인, 강의실, 자료 다운로드 관련 문의는 학습지원 페이지를 먼저 확인해 주세요.</p>
-        <a href="/support" style="display:block; padding:11px; border:1.5px solid #cbd5e1; color:#64748b; font-size:13px; font-weight:700; border-radius:9px; background:#fff;">학습지원 보기 →</a>
-      </div>
+      <article class="contact-method-card card-h">
+        <div class="contact-method-icon email" aria-hidden="true">@</div>
+        <span class="contact-method-badge">이메일</span>
+        <h3>이메일 문의</h3>
+        <a class="contact-method-value" href="mailto:geosangschool@naver.com">geosangschool@naver.com</a>
+        <p>교육과정, 수강 신청, 협업 문의를 이메일로 보내주세요.</p>
+        <a class="contact-method-button email" href="mailto:geosangschool@naver.com">이메일 보내기</a>
+      </article>
+      <article class="contact-method-card card-h">
+        <div class="contact-method-icon phone" aria-hidden="true">TEL</div>
+        <span class="contact-method-badge">전화</span>
+        <h3>전화 문의</h3>
+        <a class="contact-method-value" href="tel:01057958075">010-5795-8075</a>
+        <p>교육과정 상담이 필요하시면 전화로 문의해 주세요.</p>
+        <a class="contact-method-button phone" href="tel:01057958075">전화 걸기</a>
+      </article>
+      <article class="contact-method-card card-h">
+        <div class="contact-method-icon kakao" aria-hidden="true">K</div>
+        <span class="contact-method-badge kakao">카카오톡</span>
+        <h3>카카오톡 상담</h3>
+        <a class="contact-method-value" href="http://pf.kakao.com/_xmBeVn/chat" target="_blank" rel="noopener noreferrer">카카오톡 채널 상담 바로가기</a>
+        <p>가장 빠른 상담은 카카오톡 채널을 이용해 주세요.</p>
+        <a class="contact-method-button kakao" href="http://pf.kakao.com/_xmBeVn/chat" target="_blank" rel="noopener noreferrer">카카오톡 상담하기</a>
+      </article>
+      <article class="contact-method-card support">
+        <div class="contact-method-icon support" aria-hidden="true">?</div>
+        <span class="contact-method-badge">기존 수강생</span>
+        <h3>기존 수강생 학습지원</h3>
+        <p>로그인, 강의실, 자료 확인 관련 문의는 학습지원 페이지를 먼저 확인해 주세요.</p>
+        <a class="contact-method-button support" href="/support">학습지원 보기 →</a>
+      </article>
     </div>
   </div>
 </section>
@@ -679,7 +703,7 @@ input,textarea,select,label{font-size:19px!important;}
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:24px; align-items:start;">
       <div>
         <div style="margin-bottom:16px;">
-          <a href="/about" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+          <a href="/" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
             <img src="/logo.png" alt="거상스쿨 로고" style="width:50px; height:50px; object-fit:contain; display:block; flex-shrink:0;">
             <span style="display:flex; flex-direction:column; gap:2px;">
               <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
@@ -692,7 +716,8 @@ input,textarea,select,label{font-size:19px!important;}
       <div>
         <p style="font-size:11px; color:rgba(255,255,255,.28); line-height:1.9; padding-top:70px; text-align:right;">
           거상스쿨(주) | 대표자명: 임헌수 | 개인정보관리자: 권현임<br>
-          이메일: geosangschool@naver.com | 전화: 010-5795-8075<br>
+          이메일: <a href="mailto:geosangschool@naver.com">geosangschool@naver.com</a> | 전화: <a href="tel:01057958075">010-5795-8075</a><br>
+          카카오톡: <a href="http://pf.kakao.com/_xmBeVn/chat" target="_blank" rel="noopener noreferrer">채널 상담 바로가기</a><br>
           주소: 서울 강남구 테헤란로 313, 915호<br>
           사업자등록번호: 711-86-01966
         </p>
