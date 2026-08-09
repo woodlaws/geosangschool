@@ -203,12 +203,11 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- NAV -->
 <nav id="gs-nav" class="nav-wrap">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" aria-label="거상스쿨 홈으로 이동">
       <img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" style="height:42px; width:auto; display:block;">
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
-      <a href="/" class="nav-link">Home</a>
       <a href="/about" class="nav-link">소개</a>
       <a href="/courses" class="nav-link">전체 교육과정</a>
       <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
@@ -226,7 +225,6 @@ input,textarea,select,label{font-size:19px!important;}
   </div>
 </nav>
 <div class="{{ mobileNavClass }}">
-  <a href="/" onClick="{{ toggleMenu }}">Home</a>
   <a href="/about" onClick="{{ toggleMenu }}">소개</a>
   <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
   <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
