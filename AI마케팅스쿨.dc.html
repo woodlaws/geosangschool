@@ -91,9 +91,9 @@
 
     .wrap { max-width:1340px; margin:0 auto; padding:0 24px; }
 
-    /* Curriculum grid - identical to home */
-    .curr-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-    @media (max-width:1023px) { .curr-grid{grid-template-columns:repeat(2,1fr);} }
+    /* 12주 커리큘럼 카드 */
+    .curr-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    @media (max-width:767px) { .curr-grid{grid-template-columns:1fr;} }
 
     .prob-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
     @media (max-width:1023px) { .prob-grid{grid-template-columns:repeat(2,1fr);} }
@@ -135,8 +135,46 @@
     .review-3col { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
     @media (max-width:767px) { .review-3col{grid-template-columns:1fr;} }
 
-    .thumb { width:100%; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; border-radius:10px 10px 0 0; overflow:hidden; background:#e2e8f0; }
-    .thumb img { width:100%; height:100%; display:block; object-fit:cover; }
+    .curriculum-card { background:#fff; border:1px solid #e2e8f0; border-radius:24px; padding:18px; box-shadow:0 3px 14px rgba(15,23,42,.06); }
+    .ai-thumb { width:100%; aspect-ratio:1/1; border-radius:24px; padding:26px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; isolation:isolate; }
+    .ai-thumb::before { content:""; position:absolute; width:70%; aspect-ratio:1; border-radius:50%; right:-22%; top:-18%; background:rgba(255,255,255,.14); filter:blur(1px); z-index:-1; }
+    .ai-thumb::after { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.11),transparent 45%,rgba(0,0,0,.12)); z-index:-2; }
+    .ai-week { align-self:flex-start; padding:5px 11px; border-radius:999px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); color:#fff; font-size:12px; font-weight:800; letter-spacing:.04em; }
+    .ai-tool { color:rgba(255,255,255,.78); font-family:Montserrat,'Noto Sans KR',sans-serif; font-size:clamp(15px,1.5vw,20px); font-weight:800; line-height:1.35; max-width:84%; word-break:keep-all; }
+    .ai-title { color:#fff; font-size:clamp(26px,3vw,40px); font-weight:900; line-height:1.16; letter-spacing:-.035em; word-break:keep-all; text-shadow:0 2px 14px rgba(0,0,0,.16); }
+    .thumb-pattern { position:absolute; right:22px; bottom:24px; width:34%; display:grid; grid-template-columns:repeat(2,1fr); gap:7px; opacity:.75; }
+    .thumb-pattern span { display:block; height:34px; border-radius:8px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.22); }
+    .thumb-pattern span:first-child { grid-column:1/-1; height:10px; }
+    .thumb-pattern span:last-child { transform:translateY(-8px); }
+    .curriculum-content { padding:22px 6px 6px; }
+    .curriculum-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+    .curriculum-week-label { color:#2563eb; background:#eff6ff; border:1px solid #bfdbfe; border-radius:999px; padding:4px 10px; font-size:12px; font-weight:800; }
+    .curriculum-tool-tag { color:#475569; background:#f8fafc; border:1px solid #e2e8f0; border-radius:999px; padding:4px 10px; font-size:12px; font-weight:700; }
+    .curriculum-title { color:#0f172a; font-size:20px; font-weight:900; line-height:1.45; margin-bottom:16px; word-break:keep-all; }
+    .lesson-heading { color:#64748b; font-size:12px; font-weight:800; letter-spacing:.06em; margin-bottom:10px; }
+    .lesson-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+    .wrap .lesson-list li { position:relative; padding-left:20px; color:#475569; font-size:14px!important; line-height:1.65!important; word-break:keep-all; }
+    .lesson-list li::before { content:"✓"; position:absolute; left:0; top:1px; color:#2563eb; font-size:12px; font-weight:900; }
+    .theme-notion { background:linear-gradient(145deg,#09090b,#27272a); }
+    .theme-gemini { background:linear-gradient(145deg,#2563eb,#7c3aed 55%,#14b8a6); }
+    .theme-chatgpt { background:linear-gradient(145deg,#052e2b,#047857 58%,#2dd4bf); }
+    .theme-claude { background:linear-gradient(145deg,#78350f,#b45309 55%,#fb923c); }
+    .theme-social { background:linear-gradient(145deg,#18181b,#6d28d9 58%,#ec4899); }
+    .theme-images { background:linear-gradient(145deg,#db2777,#f97316 58%,#facc15); }
+    .theme-flow { background:linear-gradient(145deg,#172554,#0369a1 58%,#06b6d4); }
+    .theme-shortform { background:linear-gradient(145deg,#0a0a0a,#991b1b 58%,#ef4444); }
+    .theme-codex { background:linear-gradient(145deg,#020617,#1e3a8a 58%,#2563eb); }
+    .theme-cowork { background:linear-gradient(145deg,#1e1b4b,#5b21b6 58%,#8b5cf6); }
+    .theme-automation { background:linear-gradient(145deg,#0f172a,#0f766e 58%,#2dd4bf); }
+    .theme-vibe { background:linear-gradient(145deg,#030712,#1e293b 58%,#2563eb); }
+    @media (max-width:767px) {
+      .curriculum-card{padding:14px;border-radius:20px;}
+      .ai-thumb{padding:22px;border-radius:20px;}
+      .ai-title{font-size:clamp(27px,9vw,38px);max-width:78%;}
+      .curriculum-content{padding:20px 4px 6px;}
+      .curriculum-title{font-size:19px;}
+      .wrap .lesson-list li{font-size:15px!important;}
+    }
     .card-h { transition:transform .22s,box-shadow .22s; }
     .card-h:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.11)!important; }
 
@@ -446,80 +484,80 @@ input,textarea,select,label{font-size:19px!important;}
     </div>
 
     <!-- 1개월차 -->
-    <div style="margin-bottom:36px;">
-      <div style="display:flex; align-items:center; gap:14px; background:linear-gradient(90deg,#1e40af,#2563eb); border-radius:12px; padding:15px 22px; margin-bottom:18px;">
+    <div style="margin-bottom:48px;">
+      <div style="display:flex; align-items:center; gap:14px; background:linear-gradient(90deg,#1e40af,#2563eb); border-radius:12px; padding:15px 22px; margin-bottom:22px;">
         <div style="background:rgba(255,255,255,.2); border-radius:7px; padding:5px 12px; font-size:12.5px; font-weight:700; color:#fff; white-space:nowrap;">1개월차</div>
         <div><div style="font-size:15px; font-weight:800; color:#fff;">AI 기반 업무 생산성 10배 늘리기</div><div style="font-size:11.5px; color:rgba(255,255,255,.7); margin-top:2px;">&lt;기본기와 응용과정&gt;</div></div>
       </div>
       <div class="curr-grid">
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/01_notion_thumbnail.png" alt="AI마케팅스쿨 1주차 노션 마스터 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">1주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">업무 생산성의 끝판왕<br>노션 마스터하기</h4><p style="font-size:11.5px; color:#94a3b8;">노션으로 내 업무 시스템 구축</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/02_gemini_thumbnail.png" alt="AI마케팅스쿨 2주차 Gemini 구글 AI 생태계 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">2주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">Gemini와 구글 생태계<br>마스터</h4><p style="font-size:11.5px; color:#94a3b8;">구글 드라이브·Gemini 실전 활용</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/03_chatgpt_thumbnail.png" alt="AI마케팅스쿨 3주차 ChatGPT 마스터 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">3주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">ChatGPT<br>마스터하기</h4><p style="font-size:11.5px; color:#94a3b8;">프롬프트 엔지니어링과 업무 적용</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/04_claude_thumbnail.png" alt="AI마케팅스쿨 4주차 Claude 마스터 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">4주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">Claude<br>마스터하기</h4><p style="font-size:11.5px; color:#94a3b8;">Claude로 문서·기획·분석 자동화</p></div>
-        </div>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-notion"><span class="ai-week">01주차</span><div class="ai-tool">Notion AI</div><div class="ai-title">노션 마스터</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">1주차</span><span class="curriculum-tool-tag">Notion AI</span></div><h3 class="curriculum-title">업무 생산성의 끝판왕 노션 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>핵심 구조 이해 : 페이지, 블록으로 모든 것을 만든다</li><li>데이터베이스 마스터 — CRM, 콘텐츠 스케줄표</li><li>커뮤니케이션, 문서, 파일 관리 시스템 구축</li><li>프로젝트·일정 관리 시스템 대시보드 만들기</li><li>회사 KPI 대시보드, 통합 마케팅 대시보드 구축</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-gemini"><span class="ai-week">02주차</span><div class="ai-tool">Gemini · Google AI · Google Drive</div><div class="ai-title">Gemini 마스터</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">2주차</span><span class="curriculum-tool-tag">Gemini · Google AI · Google Drive</span></div><h3 class="curriculum-title">Gemini와 구글 생태계 마스터</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Gemini 프롬프트 작성 공식과 구글 AI 생태계의 이해</li><li>Deep Research, Canvas, NotebookLM 실전 적용하기</li><li>Nano banana, Veo3.1, Lyria 3 멀티모달 콘텐츠 생성 실습</li><li>반복 업무 Gems 만들어서 자동화하기</li><li>구글 드라이브로 클라우드 업무시스템 실전 세팅</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-chatgpt"><span class="ai-week">03주차</span><div class="ai-tool">ChatGPT</div><div class="ai-title">ChatGPT 마스터</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">3주차</span><span class="curriculum-tool-tag">ChatGPT</span></div><h3 class="curriculum-title">ChatGPT 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>ChatGPT 전반 기능 습득 &amp; 프롬프트 엔지니어링 마스터</li><li>컨텍스트 엔지니어링의 이해와 지침 적용하기</li><li>반복 업무 프로젝트 만들어서 자동화하기</li><li>홈페이지·사업계획서·랜딩페이지 제작에 응용</li><li>Deep Research로 5대 SNS 최신 알고리즘 조사</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-claude"><span class="ai-week">04주차</span><div class="ai-tool">Claude</div><div class="ai-title">Claude 마스터</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">4주차</span><span class="curriculum-tool-tag">Claude</span></div><h3 class="curriculum-title">Claude 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Claude 기본 기능의 이해와 인라인 시각화 실습</li><li>프로젝트로 블로그 글쓰기 봇, 상세페이지 기획 봇 만들기</li><li>Claude 커넥터·플러그인 세팅하고 나만의 스킬 만들기</li><li>사업자들을 위한 각종 문서 스킬 만들기</li><li>노션·구글 드라이브 커넥터 연결로 자동 정리하기</li></ul></div>
+        </article>
       </div>
     </div>
 
     <!-- 2개월차 -->
-    <div style="margin-bottom:36px;">
-      <div style="display:flex; align-items:center; gap:14px; background:linear-gradient(90deg,#0e7490,#0891b2); border-radius:12px; padding:15px 22px; margin-bottom:18px;">
+    <div style="margin-bottom:48px;">
+      <div style="display:flex; align-items:center; gap:14px; background:linear-gradient(90deg,#0e7490,#0891b2); border-radius:12px; padding:15px 22px; margin-bottom:22px;">
         <div style="background:rgba(255,255,255,.2); border-radius:7px; padding:5px 12px; font-size:12.5px; font-weight:700; color:#fff; white-space:nowrap;">2개월차</div>
         <div><div style="font-size:15px; font-weight:800; color:#fff;">AI 기반 실전 SNS 마케팅으로 돈 벌기</div><div style="font-size:11.5px; color:rgba(255,255,255,.7); margin-top:2px;">&lt;실전 적용&gt;</div></div>
       </div>
       <div class="curr-grid">
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/05_blog_threads_thumbnail.png" alt="AI마케팅스쿨 5주차 블로그 스레드 마케팅 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">5주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">AI를 활용한 스레드 &amp;<br>블로그 마케팅</h4><p style="font-size:11.5px; color:#94a3b8;">콘텐츠 반복 생산 시스템</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/06_ai_image_thumbnail.png" alt="AI마케팅스쿨 6주차 AI 이미지 제작 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">6주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">AI로 이미지 만들기<br>마스터하기</h4><p style="font-size:11.5px; color:#94a3b8;">카드뉴스·썸네일 AI 제작</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/07_google_flow_thumbnail.png" alt="AI마케팅스쿨 7주차 Google Flow AI 영상 제작 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">7주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">AI 동영상<br>마스터하기</h4><p style="font-size:11.5px; color:#94a3b8;">AI 영상 제작·편집 실전</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/08_shortform_thumbnail.png" alt="AI마케팅스쿨 8주차 숏폼 유튜브 마케팅 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">8주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">AI를 활용한 숏폼 &amp;<br>유튜브 마케팅</h4><p style="font-size:11.5px; color:#94a3b8;">숏폼·유튜브 채널 시스템화</p></div>
-        </div>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-social"><span class="ai-week">05주차</span><div class="ai-tool">Claude · ChatGPT · Images</div><div class="ai-title">블로그·스레드</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">5주차</span><span class="curriculum-tool-tag">Claude · ChatGPT · Images</span></div><h3 class="curriculum-title">AI를 활용한 스레드 &amp; 블로그 마케팅</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>AI로 수익 나는 주제·키워드 조사하고 벤치마킹하기</li><li>네이버 블로그·티스토리·인블로그 기본기 마스터하기</li><li>AI 검색 시대 AEO·GEO의 이해와 글쓰기 패턴 다지기</li><li>30일 콘텐츠 스케줄표 만들고 글 발행하기</li><li>ChatGPT Images로 실사사진·인포그래픽 만들기</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-images"><span class="ai-week">06주차</span><div class="ai-tool">ChatGPT Images · Nano Banana</div><div class="ai-title">AI 이미지 제작</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">6주차</span><span class="curriculum-tool-tag">ChatGPT Images · Nano Banana</span></div><h3 class="curriculum-title">AI로 이미지 만들기 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>ChatGPT Images로 만들 수 있는 이미지 파악하기</li><li>인포그래픽 이미지 생성과 실전 카드뉴스 만들기</li><li>실사 사진 생성과 캐릭터 시트·무드보드 만들기</li><li>상세페이지 기획 15 요소에 맞춰 상세페이지 만들기</li><li>Image to Video를 위한 원하는 이미지 만들기</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-flow"><span class="ai-week">07주차</span><div class="ai-tool">Google Flow</div><div class="ai-title">AI 영상 제작</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">7주차</span><span class="curriculum-tool-tag">Google Flow</span></div><h3 class="curriculum-title">AI 동영상 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Flow 기본 워크플로우 &amp; 인터페이스 마스터하기</li><li>Veo 3.1 연동 텍스트·이미지 투 비디오 생성</li><li>씬 빌더로 일관된 캐릭터·스토리 연출</li><li>클립 확장·편집 실전 적용</li><li>Flow → 유튜브/릴스 발행 파이프라인 구축하기</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-shortform"><span class="ai-week">08주차</span><div class="ai-tool">ChatGPT · Claude · Flow</div><div class="ai-title">숏폼·유튜브</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">8주차</span><span class="curriculum-tool-tag">ChatGPT · Claude · Flow</span></div><h3 class="curriculum-title">AI를 활용한 숏폼 &amp; 유튜브 마케팅</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>채널별 숏폼 알고리즘 &amp; 3초 훅 설계</li><li>ChatGPT로 숏폼 대본·후킹 카피 대량 생성</li><li>Claude로 유튜브 롱폼 기획·스크립트 제작</li><li>Flow로 숏폼 영상 직접 생성·편집</li><li>1개 콘텐츠 → 10개 콘텐츠 확장 &amp; 채널별 재배포</li></ul></div>
+        </article>
       </div>
     </div>
 
     <!-- 3개월차 -->
-    <div style="margin-bottom:36px;">
-      <div style="display:flex; align-items:center; gap:14px; background:linear-gradient(90deg,#5b21b6,#7c3aed); border-radius:12px; padding:15px 22px; margin-bottom:18px;">
+    <div style="margin-bottom:40px;">
+      <div style="display:flex; align-items:center; gap:14px; background:linear-gradient(90deg,#5b21b6,#7c3aed); border-radius:12px; padding:15px 22px; margin-bottom:22px;">
         <div style="background:rgba(255,255,255,.2); border-radius:7px; padding:5px 12px; font-size:12.5px; font-weight:700; color:#fff; white-space:nowrap;">3개월차</div>
         <div><div style="font-size:15px; font-weight:800; color:#fff;">AI 기반 업무자동화 · 시스템화 실전</div><div style="font-size:11.5px; color:rgba(255,255,255,.7); margin-top:2px;">&lt;고급 응용&gt;</div></div>
       </div>
       <div class="curr-grid">
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/09_codex_thumbnail.png" alt="AI마케팅스쿨 9주차 Codex 마스터 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">9주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">ChatGPT Codex<br>마스터하기</h4><p style="font-size:11.5px; color:#94a3b8;">코드 없이 자동화 실전</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/10_claude_cowork_thumbnail.png" alt="AI마케팅스쿨 10주차 Claude Cowork AI 직원 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">10주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">Claude Cowork로<br>AI 직원과 함께 일하기</h4><p style="font-size:11.5px; color:#94a3b8;">AI 에이전트 협업 구축</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/11_cowork_advanced_thumbnail.png" alt="AI마케팅스쿨 11주차 마케팅 자동화 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">11주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">Claude Cowork로<br>마케팅 자동화 숙달하기</h4><p style="font-size:11.5px; color:#94a3b8;">마케팅 워크플로우 자동화</p></div>
-        </div>
-        <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb"><img src="/images/ai-marketing-school/thumbnails/12_vibe_coding_thumbnail.png" alt="AI마케팅스쿨 12주차 바이브코딩 랜딩페이지 제작 썸네일" width="1280" height="720" loading="lazy" decoding="async"></div>
-          <div style="padding:16px;"><span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">12주차</span><h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4; word-break:keep-all;">바이브코딩 실전 :<br>랜딩페이지 제작 &amp; 배포</h4><p style="font-size:11.5px; color:#94a3b8;">직접 만들고 Vercel로 배포</p></div>
-        </div>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-codex"><span class="ai-week">09주차</span><div class="ai-tool">Codex</div><div class="ai-title">Codex 마스터</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">9주차</span><span class="curriculum-tool-tag">Codex</span></div><h3 class="curriculum-title">ChatGPT Codex 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Codex = “말로 시키는 마케팅 자동화 비서” 개념 잡기</li><li>키워드 순위·블로그 노출 데이터 자동 수집·정리</li><li>경쟁사 블로그/플레이스 모니터링 자동화</li><li>광고비·전환율 데이터 자동 정리 &amp; 보고서 초안</li><li>랜딩페이지 실전 기획 — 퍼널 구조로 설계하기</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-cowork"><span class="ai-week">10주차</span><div class="ai-tool">Claude Cowork</div><div class="ai-title">AI 직원과 일하기</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">10주차</span><span class="curriculum-tool-tag">Claude Cowork</span></div><h3 class="curriculum-title">Claude Cowork로 AI 직원과 함께 일하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Cowork 기본 구조 &amp; 커넥터 연결하기</li><li>클라이언트 월간 리포트 자동 생성 시키기</li><li>견적서 + 제안서 + 후속 이메일 한 번에 연결 자동화</li><li>블로그 성과 데이터 → 분석 → 인사이트 보고서</li><li>ROI 기준으로 자동화할 것 vs 직접 할 것 구분하기</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-automation"><span class="ai-week">11주차</span><div class="ai-tool">Claude Cowork 심화</div><div class="ai-title">마케팅 자동화</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">11주차</span><span class="curriculum-tool-tag">Claude Cowork 심화</span></div><h3 class="curriculum-title">Claude Cowork로 마케팅 자동화 숙달하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Notion 연동 — 수강생/리드 명단 한 번에 정리·업데이트</li><li>블로그 1개 → 스레드·숏폼 소재까지 자동 확장</li><li>캘린더 연동 — 특강·런칭 일정 자동 알림 만들기</li><li>고객 문의·예약 응대 초안 자동으로 받기</li><li>AI가 만든 결과, 보내기 전에 꼭 확인할 것들</li></ul></div>
+        </article>
+        <article class="curriculum-card card-h">
+          <div class="ai-thumb theme-vibe"><span class="ai-week">12주차</span><div class="ai-tool">Codex · Claude Code · GitHub · Vercel</div><div class="ai-title">바이브코딩 실전</div><div class="thumb-pattern" aria-hidden="true"><span></span><span></span><span></span></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">12주차</span><span class="curriculum-tool-tag">Codex · Claude Code · GitHub · Vercel</span></div><h3 class="curriculum-title">바이브코딩 실전 : 랜딩페이지 제작 &amp; 배포</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>9주차 기획한 랜딩페이지, Codex에게 만들어줘 시키기</li><li>GitHub에 내 작업 저장하기</li><li>Vercel로 원클릭 배포 — 실제 URL로 띄워보기</li><li>신청 폼 제출 시 카카오톡/이메일 자동 알림 연결</li><li>내 랜딩페이지 발표하고 서로 피드백하기</li></ul></div>
+        </article>
       </div>
     </div>
 
