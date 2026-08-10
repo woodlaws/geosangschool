@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/footer.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
@@ -138,7 +139,7 @@
 
     .curr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     @media (max-width: 1023px) { .curr-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 499px) { .curr-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 499px) { .curr-grid { grid-template-columns: 1fr; } }
 
     .prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     @media (max-width: 1023px) { .prob-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -181,8 +182,18 @@
     @media (max-width: 900px) { .hero-split { flex-direction: column; } .hero-vis { display: none !important; } }
     @media (max-width: 599px) { .stats-bar-grid { grid-template-columns: repeat(2,1fr) !important; } .stats-bar-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.12); } .stats-bar-grid > div:last-child { border-bottom: none; } }
 
-    .inst-row { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
-    @media (max-width: 767px) { .inst-row { grid-template-columns: 1fr; } }
+    .inst-row { display:grid; grid-template-columns:minmax(280px,320px) minmax(0,1fr); gap:40px; align-items:start; }
+    .representative-card { background:#fff; border:1px solid #dbeafe; border-radius:22px; padding:28px 24px; text-align:center; box-shadow:0 8px 26px rgba(15,40,90,.09); }
+    .representative-photo { width:min(100%,250px); aspect-ratio:1/1; margin:0 auto 22px; border-radius:50%; overflow:hidden; display:flex; align-items:flex-end; justify-content:center; background:radial-gradient(circle at 50% 38%,#fff 0%,#eff6ff 54%,#dbeafe 100%); border:3px solid #bfdbfe; box-shadow:0 12px 26px rgba(37,99,235,.14); }
+    .representative-photo img { width:100%; height:100%; object-fit:contain; object-position:center bottom; display:block; }
+    .staff-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .staff-card { min-width:0; height:100%; display:flex; flex-direction:column; align-items:center; background:#fff; border:1px solid #dbeafe; border-radius:18px; padding:14px 14px 20px; text-align:center; box-shadow:0 6px 20px rgba(15,40,90,.08); }
+    .staff-card__visual { width:100%; max-width:220px; aspect-ratio:1/1; overflow:hidden; border-radius:15px; margin:0 auto 17px; background:#eff6ff; }
+    .staff-card__visual img { width:100%; height:100%; object-fit:cover; display:block; }
+    .staff-card h3 { color:#0f172a; font-size:17px; font-weight:800; line-height:1.35; margin-bottom:9px; word-break:keep-all; }
+    .staff-card p { color:#64748b; font-size:13px; line-height:1.65; word-break:keep-all; text-wrap:pretty; }
+    @media (max-width:900px) { .inst-row { grid-template-columns:1fr; } .representative-card{max-width:480px;margin:0 auto;width:100%;} }
+    @media (max-width:599px) { .staff-grid{grid-template-columns:1fr;} .staff-card{padding:16px 16px 22px;} .staff-card__visual{max-width:260px;} .representative-photo{width:min(100%,260px);} }
 
     .login-row { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
     @media (max-width: 767px) { .login-row { grid-template-columns: 1fr; } .login-vis { display: none !important; } }
@@ -199,6 +210,44 @@
 
     .thumb { width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 10px 10px 0 0; position: relative; overflow: hidden; }
     .thumb-letter { font-family: Montserrat, sans-serif; font-weight: 800; font-size: 36px; color: rgba(255,255,255,.92); }
+
+    /* AI마케팅스쿨 상세 페이지와 동일한 AI 솔루션 썸네일 시스템 */
+    .ai-thumb { width:100%; aspect-ratio:1/1; border-radius:14px 14px 0 0; padding:18px; position:relative; overflow:hidden; background:var(--thumb-bg); border:1px solid rgba(255,255,255,.75); box-shadow:0 14px 32px rgba(15,23,42,.14),inset 0 1px 0 rgba(255,255,255,.7); }
+    .ai-thumb::before { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(145deg,rgba(255,255,255,.26),transparent 48%); }
+    .ai-thumb__content { position:relative; z-index:1; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; }
+    .ai-thumb__top { display:contents; }
+    .ai-week { position:absolute; right:0; top:0; padding:5px 10px; border-radius:999px; background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9); color:#111827; font-size:11px; font-weight:900; letter-spacing:.02em; box-shadow:0 7px 18px rgba(15,23,42,.12); }
+    .logo-circle { flex:0 0 auto; width:50%; aspect-ratio:1; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(255,255,255,.95); box-shadow:0 10px 24px rgba(15,23,42,.16); }
+    .logo-circle img { width:72%; height:72%; object-fit:contain; display:block; }
+    .logo-stack { flex:0 0 auto; width:50%; aspect-ratio:1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-content:center; gap:5px; padding:4px; }
+    .logo-stack .logo-circle { width:100%; flex:none; margin:0; border:2px solid #fff; }
+    .logo-stack .logo-circle img { width:72%; height:72%; }
+    .ai-thumb__copy { width:100%; min-width:0; color:#050505; }
+    .ai-name { display:block; color:#050505; font-family:Montserrat,'Noto Sans KR',sans-serif; font-size:clamp(22px,2.4vw,32px); font-weight:900; line-height:1.05; letter-spacing:-.045em; word-break:keep-all; }
+    .short-comment { margin-top:7px; color:#111; font-size:clamp(12px,1.15vw,15px); font-weight:700; line-height:1.3; word-break:keep-all; text-wrap:balance; }
+    .theme-notion { --thumb-bg:linear-gradient(135deg,#f9fafb 0%,#e5e7eb 45%,#9ca3af 100%); }
+    .theme-gemini { --thumb-bg:linear-gradient(135deg,#a855f7 0%,#22d3ee 50%,#a3e635 100%); }
+    .theme-chatgpt { --thumb-bg:linear-gradient(135deg,#8b5cf6 0%,#22d3ee 100%); }
+    .theme-claude { --thumb-bg:linear-gradient(135deg,#ff3b30 0%,#fb923c 55%,#fed7aa 100%); }
+    .theme-social { --thumb-bg:linear-gradient(135deg,#f9a8d4 0%,#c4b5fd 56%,#64748b 100%); }
+    .theme-images { --thumb-bg:linear-gradient(135deg,#22d3ee 0%,#34d399 45%,#fde047 100%); }
+    .theme-flow { --thumb-bg:linear-gradient(135deg,#fb923c 0%,#facc15 50%,#84cc16 100%); }
+    .theme-shortform { --thumb-bg:linear-gradient(135deg,#fb7185 0%,#fca5a5 52%,#fb923c 100%); }
+    .theme-codex { --thumb-bg:linear-gradient(135deg,#67e8f9 0%,#4ade80 54%,#5eead4 100%); }
+    .theme-cowork { --thumb-bg:linear-gradient(135deg,#93c5fd 0%,#c084fc 60%,#f0abfc 100%); }
+    .theme-automation { --thumb-bg:linear-gradient(135deg,#0f766e 0%,#14b8a6 50%,#86efac 100%); }
+    .theme-vibe { --thumb-bg:linear-gradient(135deg,#cbd5e1 0%,#94a3b8 45%,#7dd3fc 100%); }
+    .theme-social .ai-name,.theme-images .ai-name,.theme-cowork .ai-name { font-size:clamp(18px,2vw,27px); }
+    @media (max-width:499px) {
+      .ai-thumb{padding:10px;}
+      .ai-thumb__content{gap:6px;}
+      .ai-week{padding:3px 7px;font-size:9px;}
+      .logo-circle,.logo-stack{width:50%;}
+      .logo-stack{gap:3px;padding:2px;}
+      .ai-name{font-size:clamp(18px,5.8vw,22px);}
+      .theme-social .ai-name,.theme-images .ai-name,.theme-cowork .ai-name{font-size:clamp(14px,4.6vw,18px);}
+      .short-comment{margin-top:4px;font-size:clamp(10px,3vw,12px);line-height:1.25;}
+    }
 
     .card-h { transition: transform .22s, box-shadow .22s; box-shadow: 0 3px 12px rgba(15,40,90,.09); border-color: #a8c4e0 !important; }
     .card-h:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(15,40,90,.16) !important; border-color: #7aaac8 !important; }
@@ -606,12 +655,7 @@ input,textarea,select,label{font-size:19px!important;}
       <div class="curr-grid">
         <!-- W1 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#0f172a,#1e293b);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:40px; color:#fff; line-height:1;">N</div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:4px; letter-spacing:.1em;">NOTION</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-notion"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">01주차</span><span class="logo-circle"><img src="/uploads/Notion-logo.svg.webp" alt="Notion 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Notion</strong><p class="short-comment">지식과 업무를 한곳에 관리</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">1주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">업무 생산성의 끝판왕<br>노션 마스터하기</h4>
@@ -620,12 +664,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W2 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#1a73e8,#34a853);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:40px; color:#fff; line-height:1;">G</div>
-              <div style="font-size:9px; color:rgba(255,255,255,.6); margin-top:4px; letter-spacing:.1em;">GEMINI</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-gemini"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">02주차</span><span class="logo-circle"><img src="/uploads/gemini-color.png" alt="Gemini 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Gemini</strong><p class="short-comment">검색·분석·구글 업무 활용</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">2주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">Gemini와 구글 생태계<br>마스터</h4>
@@ -634,12 +673,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W3 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#0d7f62,#10a37f);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:32px; color:#fff; line-height:1;">GPT</div>
-              <div style="font-size:9px; color:rgba(255,255,255,.6); margin-top:4px; letter-spacing:.1em;">CHATGPT</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-chatgpt"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">03주차</span><span class="logo-circle"><img src="/uploads/ChatGPT투명-6574f10c.png" alt="ChatGPT 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">ChatGPT</strong><p class="short-comment">기획·글쓰기·업무 자동화</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">3주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">ChatGPT<br>마스터하기</h4>
@@ -648,12 +682,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W4 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#a0522d,#cc785c);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:36px; color:#fff; line-height:1;">A</div>
-              <div style="font-size:9px; color:rgba(255,255,255,.6); margin-top:4px; letter-spacing:.1em;">CLAUDE</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-claude"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">04주차</span><span class="logo-circle"><img src="/uploads/클로드_배경제거.png" alt="Claude 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Claude</strong><p class="short-comment">긴 글·자료 분석·코딩</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#eff6ff; color:#2563eb; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">4주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">Claude<br>마스터하기</h4>
@@ -675,12 +704,7 @@ input,textarea,select,label{font-size:19px!important;}
       <div class="curr-grid">
         <!-- W5 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#111,#2d2d2d);">
-            <div style="text-align:center;">
-              <div style="width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.15); border:3px solid rgba(255,255,255,.5); margin:0 auto;"></div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:8px; letter-spacing:.1em;">THREADS</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-social"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">05주차</span><span class="logo-circle"><img src="/uploads/ChatGPT투명-6574f10c.png" alt="ChatGPT 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Blog &amp; Threads</strong><p class="short-comment">콘텐츠 기획과 채널 확산</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">5주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">AI를 활용한 스레드 &amp;<br>블로그 마케팅</h4>
@@ -689,14 +713,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W6 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#581c87,#9333ea);">
-            <div style="text-align:center;">
-              <div style="width:44px; height:44px; border:3px solid rgba(255,255,255,.6); border-radius:8px; margin:0 auto; display:flex; align-items:center; justify-content:center;">
-                <div style="width:20px; height:20px; background:rgba(255,255,255,.7); border-radius:3px;"></div>
-              </div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:8px; letter-spacing:.1em;">AI IMAGE</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-images"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">06주차</span><span class="logo-circle"><img src="/uploads/챗지피티로고2-removebg-preview.png" alt="ChatGPT Images 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">ChatGPT Images</strong><p class="short-comment">고품질 이미지 콘텐츠 제작</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">6주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">AI로 이미지 만들기<br>마스터하기</h4>
@@ -705,12 +722,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W7 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#b91c1c,#ef4444);">
-            <div style="text-align:center;">
-              <div style="width:0; height:0; border-top:20px solid transparent; border-bottom:20px solid transparent; border-left:36px solid rgba(255,255,255,.8); margin:0 auto;"></div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:12px; letter-spacing:.1em;">AI VIDEO</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-flow"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">07주차</span><span class="logo-circle"><img src="/uploads/플로우로고.png" alt="Google Flow 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Google Flow</strong><p class="short-comment">AI 영상 기획과 장면 제작</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">7주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">AI 동영상<br>마스터하기</h4>
@@ -719,14 +731,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W8 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#991b1b,#c2410c);">
-            <div style="text-align:center;">
-              <div style="width:32px; height:32px; background:rgba(255,255,255,.8); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center;">
-                <div style="width:0; height:0; border-top:10px solid transparent; border-bottom:10px solid transparent; border-left:18px solid #c2410c;"></div>
-              </div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:10px; letter-spacing:.1em;">SHORTS · YOUTUBE</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-shortform"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">08주차</span><span class="logo-circle"><img src="/uploads/유튜브로고-removebg-preview.png" alt="Shortform 영상 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Shortform</strong><p class="short-comment">숏폼 영상 기획과 채널 운영</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#ecfeff; color:#0891b2; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">8주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">AI를 활용한 숏폼 &amp;<br>유튜브 마케팅</h4>
@@ -748,12 +753,7 @@ input,textarea,select,label{font-size:19px!important;}
       <div class="curr-grid">
         <!-- W9 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#065f46,#0d9488);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:22px; color:rgba(255,255,255,.9); line-height:1; letter-spacing:-1px;">&lt;/&gt;</div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:8px; letter-spacing:.1em;">CODEX</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-codex"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">09주차</span><span class="logo-circle"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Codex</strong><p class="short-comment">홈페이지와 앱 제작</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">9주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">ChatGPT Codex<br>마스터하기</h4>
@@ -762,12 +762,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W10 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:36px; color:#fff; line-height:1;">A</div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:4px; letter-spacing:.07em;">COWORK</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-cowork"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">10주차</span><span class="logo-circle"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Claude Cowork 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Claude Cowork</strong><p class="short-comment">PC 업무를 직접 처리하는 AI</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">10주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">Claude Cowork로<br>AI 직원과 함께 일하기</h4>
@@ -776,16 +771,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W11 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#1e3a8a,#2563eb);">
-            <div style="text-align:center;">
-              <div style="width:44px; height:44px; border:3px solid rgba(255,255,255,.5); border-radius:50%; margin:0 auto; position:relative;">
-                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-                  <div style="width:20px; height:3px; background:rgba(255,255,255,.8); border-radius:2px; box-shadow:0 7px 0 rgba(255,255,255,.6), 0 -7px 0 rgba(255,255,255,.6);"></div>
-                </div>
-              </div>
-              <div style="font-size:9px; color:rgba(255,255,255,.5); margin-top:8px; letter-spacing:.07em;">AUTO</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-automation"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">11주차</span><span class="logo-circle"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Claude Cowork 로고" width="256" height="256" sizes="(max-width: 499px) 44vw, (max-width: 1023px) 44vw, 22vw" loading="lazy" decoding="async"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Automation</strong><p class="short-comment">반복 업무를 자동화 시스템으로</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">11주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">Claude Cowork로<br>마케팅 자동화 숙달하기</h4>
@@ -794,12 +780,7 @@ input,textarea,select,label{font-size:19px!important;}
         </div>
         <!-- W12 -->
         <div class="card-h" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-          <div class="thumb" style="background:linear-gradient(135deg,#0c0f1a,#1a2744);">
-            <div style="text-align:center;">
-              <div style="font-family:Montserrat,sans-serif; font-weight:800; font-size:14px; color:rgba(255,255,255,.85); line-height:1.3;">Vibe<br>Coding</div>
-              <div style="font-size:8px; color:rgba(255,255,255,.4); margin-top:6px; letter-spacing:.1em;">VERCEL · GITHUB</div>
-            </div>
-          </div>
+          <div class="ai-thumb theme-vibe"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">12주차</span><span class="logo-stack"><span class="logo-circle"><img src="/uploads/Vercel-removebg-preview.png" alt="Vercel 로고" width="192" height="192" sizes="(max-width: 499px) 20vw, (max-width: 1023px) 20vw, 10vw" loading="lazy" decoding="async"></span><span class="logo-circle"><img src="/uploads/github.png" alt="GitHub 로고" width="192" height="192" sizes="(max-width: 499px) 20vw, (max-width: 1023px) 20vw, 10vw" loading="lazy" decoding="async"></span><span class="logo-circle"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex 로고" width="192" height="192" sizes="(max-width: 499px) 20vw, (max-width: 1023px) 20vw, 10vw" loading="lazy" decoding="async"></span></span></div><div class="ai-thumb__copy"><strong class="ai-name">Vibe Coding</strong><p class="short-comment">홈페이지 제작과 배포 운영</p></div></div></div>
           <div style="padding:16px;">
             <span style="background:#f5f3ff; color:#7c3aed; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:20px;">12주차</span>
             <h4 style="font-size:13.5px; font-weight:700; color:#0f172a; margin:10px 0 6px; line-height:1.4;">바이브코딩 실전 :<br>랜딩페이지 제작 &amp; 배포</h4>
@@ -1150,8 +1131,8 @@ input,textarea,select,label{font-size:19px!important;}
     <h2 style="font-size:clamp(22px,3vw,36px); font-weight:900; color:#0f172a; margin-bottom:48px; text-wrap:pretty;">현장에서 직접 써본 사람이 가르칩니다</h2>
     <div class="inst-row">
       <!-- 강사 -->
-      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:32px 28px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-        <div style="width:120px; height:120px; background:linear-gradient(135deg,#dbeafe,#bfdbfe); border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-family:Montserrat,sans-serif; font-weight:800; font-size:36px; color:#2563eb; border:3px solid #93c5fd;">임</div>
+      <div class="representative-card">
+        <div class="representative-photo"><img src="/uploads/lim-heonsu-profile.png" alt="거상스쿨 임헌수 대표" width="408" height="408" sizes="(max-width: 599px) 260px, 250px" loading="lazy" decoding="async"></div>
         <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:6px;">임헌수 대표</h3>
         <div style="font-size:13px; color:#64748b; margin-bottom:18px; line-height:1.7;">
           거상스쿨(주) 대표<br>거상마케팅센터 대표<br>AI마케팅스쿨 운영
@@ -1163,27 +1144,26 @@ input,textarea,select,label{font-size:19px!important;}
       <!-- 운영진 -->
       <div>
         <div style="font-size:14px; font-weight:700; color:#64748b; margin-bottom:20px; letter-spacing:.04em; text-transform:uppercase;">운영진 소개</div>
-        <div class="ops-grid" style="grid-template-columns:repeat(4,1fr);">
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
-            <p style="font-size:12.5px; font-weight:700; color:#334155;">교육 운영팀</p>
-          </div>
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
-            <p style="font-size:12.5px; font-weight:700; color:#334155;">과제 관리</p>
-          </div>
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
-            <p style="font-size:12.5px; font-weight:700; color:#334155;">수강생 안내</p>
-          </div>
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px 16px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,.04);">
-            <div style="width:48px; height:48px; background:#dce8f7; border-radius:50%; margin:0 auto 12px; border:2px solid #bfdbfe;"></div>
-            <p style="font-size:12.5px; font-weight:700; color:#334155;">커뮤니티 운영</p>
-          </div>
+        <div class="staff-grid">
+          <article class="staff-card">
+            <div class="staff-card__visual"><img src="/uploads/staff-education-operations.png" alt="교육 운영팀 여성 치비 캐릭터" width="800" height="800" sizes="(max-width: 599px) 260px, (max-width: 900px) 30vw, 220px" loading="lazy" decoding="async"></div>
+            <h3>교육 운영팀</h3>
+            <p>수업 일정과 교육 과정을 체계적으로 지원합니다.</p>
+          </article>
+          <article class="staff-card">
+            <div class="staff-card__visual"><img src="/uploads/staff-student-support.png" alt="수강생 지원팀 여성 치비 캐릭터" width="800" height="800" sizes="(max-width: 599px) 260px, (max-width: 900px) 30vw, 220px" loading="lazy" decoding="async"></div>
+            <h3>수강생 지원팀</h3>
+            <p>처음부터 수료까지 필요한 안내를 도와드립니다.</p>
+          </article>
+          <article class="staff-card">
+            <div class="staff-card__visual"><img src="/uploads/staff-content-support.png" alt="콘텐츠 지원팀 여성 치비 캐릭터" width="800" height="800" sizes="(max-width: 599px) 260px, (max-width: 900px) 30vw, 220px" loading="lazy" decoding="async"></div>
+            <h3>콘텐츠 지원팀</h3>
+            <p>실습과 활용에 필요한 교육 콘텐츠를 지원합니다.</p>
+          </article>
         </div>
         <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:20px 24px; margin-top:20px;">
           <p style="font-size:13.5px; color:#1e40af; line-height:1.7;">
-            강사 및 운영진 사진은 실제 이미지로 순차적으로 업데이트됩니다. 거상스쿨은 교육·과제·커뮤니티 전반을 전담 팀이 운영합니다.
+            임헌수 대표와 교육 운영·수강생 지원·콘텐츠 지원팀이 교육 과정 전반을 체계적으로 지원합니다.
           </p>
         </div>
         <div style="display:flex; gap:12px; margin-top:24px;">
@@ -1340,62 +1320,43 @@ input,textarea,select,label{font-size:19px!important;}
 <!-- ══════════════════════════════════════════════════ -->
 <!-- FOOTER -->
 <!-- ══════════════════════════════════════════════════ -->
-<footer style="background:#06152e; padding:52px 0 32px;">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div style="margin-bottom:16px;">
-          <a href="/" style="display:flex; align-items:center; gap:12px; margin-bottom:4px; text-decoration:none;">
-            <img src="/logo.png" alt="거상스쿨 로고" style="width:50px; height:50px; object-fit:contain; display:block; flex-shrink:0;">
-            <span style="display:flex; flex-direction:column; gap:2px;">
-              <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:18px; color:#fff; letter-spacing:-.4px;">거상스쿨</span>
-              <span style="font-size:11px; color:rgba(255,255,255,.45);">AI로 돈 버는 실전 교육 플랫폼</span>
-            </span>
-          </a>
+<footer class="gs-footer">
+  <div class="gs-footer__inner">
+    <div class="gs-footer__top">
+      <section class="gs-footer__brand" aria-label="거상스쿨 소개">
+        <a class="gs-footer__brand-link" href="/" aria-label="거상스쿨 홈으로 이동">
+          <img src="/logo.png" alt="거상스쿨 로고" width="52" height="52">
+          <span>
+            <strong class="gs-footer__brand-name">거상스쿨</strong>
+            <span class="gs-footer__brand-tagline">AI로 돈 버는 실전 교육 플랫폼</span>
+          </span>
+        </a>
+        <p class="gs-footer__description">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p>
+      </section>
+      <section class="gs-footer__company" aria-labelledby="gs-footer-company-title">
+        <h2 class="gs-footer__title" id="gs-footer-company-title">회사 정보</h2>
+        <p class="gs-footer__company-name">거상스쿨(주)</p>
+        <dl class="gs-footer__company-list">
+          <dt>대표자명</dt><dd class="gs-footer__nowrap">임헌수</dd>
+          <dt>개인정보관리자</dt><dd class="gs-footer__nowrap">권현임</dd>
+          <dt>사업자등록번호</dt><dd class="gs-footer__nowrap">711-86-01966</dd>
+          <dt>이메일</dt><dd class="gs-footer__email"><a href="mailto:geosangschool@naver.com">geosangschool@naver.com</a></dd>
+          <dt>전화</dt><dd><a class="gs-footer__nowrap" href="tel:01057958075">010-5795-8075</a></dd>
+          <dt>주소</dt><dd>서울 강남구 테헤란로 313, 915호</dd>
+        </dl>
+      </section>
+      <nav class="gs-footer__student" aria-label="수강생 메뉴">
+        <h2 class="gs-footer__title">수강생</h2>
+        <div class="gs-footer__student-links">
+          <a href="/login">수강생 로그인</a>
+          <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실</a>
+          <a href="/resources">학습자료</a>
         </div>
-        <p style="font-size:13px; color:rgba(255,255,255,.45); line-height:1.8; margin-bottom:16px;">
-          AI 시대에 1인기업, 소상공인, 강사, 마케터가<br>AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을<br>직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼
-        </p>
-        <p style="font-size:11px; color:rgba(255,255,255,.28); line-height:1.9; text-align:right; padding-top:70px;">
-          거상스쿨(주) | 대표자명: 임헌수 | 개인정보관리자: 권현임<br>
-          이메일: geosangschool@naver.com | 전화: 010-5795-8075<br>
-          주소: 서울 강남구 테헤란로 313, 915호<br>
-          사업자등록번호: 711-86-01966
-        </p>
-      </div>
-      <div>
-        <div style="font-size:12px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px;">교육과정</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="/courses/ai-marketing-school" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">AI마케팅스쿨</a>
-          <a href="/courses/ai-homepage-school" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">AI홈페이지스쿨</a>
-          <a href="/courses/short-courses" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">단기 클래스</a>
-          <a href="/courses" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">전체 교육과정</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px;">안내</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="/about" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">소개</a>
-          <a href="/reviews" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">수강후기</a>
-          <a href="/contact" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">상담문의</a>
-          <a href="/support" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">학습지원</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12px; font-weight:700; color:rgba(255,255,255,.4); letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px;">수강생</div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="/login" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">수강생 로그인</a>
-          <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">기존 강의실</a>
-          <a href="/resources" style="font-size:13px; color:rgba(255,255,255,.6); transition:color .2s;">학습자료</a>
-        </div>
-      </div>
+      </nav>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,.07); padding-top:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-      <p style="font-size:12px; color:rgba(255,255,255,.25);">© 2026 거상스쿨(주). All rights reserved.</p>
-      <div style="display:flex; align-items:center; gap:6px;">
-        <div style="width:8px; height:8px; background:#22c55e; border-radius:50%;"></div>
-        <p style="font-size:12px; color:rgba(255,255,255,.3);">거상마케팅센터 패밀리 브랜드</p>
-      </div>
+    <div class="gs-footer__bottom">
+      <p class="gs-footer__copyright">© 2026 거상스쿨(주). All rights reserved.</p>
+      <div class="gs-footer__family"><span class="gs-footer__status" aria-hidden="true"></span><p class="gs-footer__family-text">거상마케팅센터 패밀리 브랜드</p></div>
     </div>
   </div>
 </footer>

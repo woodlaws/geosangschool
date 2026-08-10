@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/footer.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI홈페이지스쿨 4주과정 | 거상스쿨</title>
@@ -194,7 +195,46 @@
     </section>
   </main>
 
-  <footer class="footer"><div class="wrap"><div class="footer-top"><div><a class="footer-brand" href="/"><img src="/logo.png" alt="거상스쿨 로고"><span><strong>거상스쿨</strong><br><small style="color:rgba(255,255,255,.45)">AI로 돈 버는 실전 교육 플랫폼</small></span></a><p>AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p></div><div class="company"><p>거상스쿨(주) | 대표자명: 임헌수 | 개인정보관리자: 권현임<br>이메일: geosangschool@naver.com | 전화: 010-5795-8075<br>주소: 서울 강남구 테헤란로 313, 915호<br>사업자등록번호: 711-86-01966</p></div></div><div class="footer-bottom"><p style="margin:0">© 2026 거상스쿨(주). All rights reserved.</p><div class="footer-links"><a href="/">홈</a><a href="/courses">교육과정</a><a href="/courses/ai-homepage-school">AI홈페이지스쿨</a><a href="/contact">상담문의</a><a href="/resources">학습자료</a><a href="/login">수강생 로그인</a></div></div></div></footer>
+  <footer class="gs-footer">
+  <div class="gs-footer__inner">
+    <div class="gs-footer__top">
+      <section class="gs-footer__brand" aria-label="거상스쿨 소개">
+        <a class="gs-footer__brand-link" href="/" aria-label="거상스쿨 홈으로 이동">
+          <img src="/logo.png" alt="거상스쿨 로고" width="52" height="52">
+          <span>
+            <strong class="gs-footer__brand-name">거상스쿨</strong>
+            <span class="gs-footer__brand-tagline">AI로 돈 버는 실전 교육 플랫폼</span>
+          </span>
+        </a>
+        <p class="gs-footer__description">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p>
+      </section>
+      <section class="gs-footer__company" aria-labelledby="gs-footer-company-title">
+        <h2 class="gs-footer__title" id="gs-footer-company-title">회사 정보</h2>
+        <p class="gs-footer__company-name">거상스쿨(주)</p>
+        <dl class="gs-footer__company-list">
+          <dt>대표자명</dt><dd class="gs-footer__nowrap">임헌수</dd>
+          <dt>개인정보관리자</dt><dd class="gs-footer__nowrap">권현임</dd>
+          <dt>사업자등록번호</dt><dd class="gs-footer__nowrap">711-86-01966</dd>
+          <dt>이메일</dt><dd class="gs-footer__email"><a href="mailto:geosangschool@naver.com">geosangschool@naver.com</a></dd>
+          <dt>전화</dt><dd><a class="gs-footer__nowrap" href="tel:01057958075">010-5795-8075</a></dd>
+          <dt>주소</dt><dd>서울 강남구 테헤란로 313, 915호</dd>
+        </dl>
+      </section>
+      <nav class="gs-footer__student" aria-label="수강생 메뉴">
+        <h2 class="gs-footer__title">수강생</h2>
+        <div class="gs-footer__student-links">
+          <a href="/login">수강생 로그인</a>
+          <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실</a>
+          <a href="/resources">학습자료</a>
+        </div>
+      </nav>
+    </div>
+    <div class="gs-footer__bottom">
+      <p class="gs-footer__copyright">© 2026 거상스쿨(주). All rights reserved.</p>
+      <div class="gs-footer__family"><span class="gs-footer__status" aria-hidden="true"></span><p class="gs-footer__family-text">거상마케팅센터 패밀리 브랜드</p></div>
+    </div>
+  </div>
+</footer>
   <script>
     const toggle=document.querySelector('.nav-toggle');const mobile=document.getElementById('mobile-menu');toggle.addEventListener('click',()=>{const open=mobile.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'모바일 메뉴 닫기':'모바일 메뉴 열기')});mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));
   </script>
