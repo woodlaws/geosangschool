@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>거상스쿨 최신 교육과정과 학습자료</title>
+    <link>https://www.geosangschool.co.kr/</link>
+    <description>거상스쿨의 AI 마케팅, AI 홈페이지 제작 교육과정과 실전 학습자료 업데이트입니다.</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Mon, 10 Aug 2026 13:21:02 GMT</lastBuildDate>
+    <atom:link href="https://www.geosangschool.co.kr/rss.xml" rel="self" type="application/rss+xml" />
+    <ttl>1440</ttl>
+
+    <item>
+      <title>AI마케팅스쿨 3개월 과정</title>
+      <link>https://www.geosangschool.co.kr/courses/ai-marketing-school</link>
+      <guid isPermaLink="true">https://www.geosangschool.co.kr/courses/ai-marketing-school</guid>
+      <description>Notion, Gemini, ChatGPT, Claude, Codex, Cowork를 활용해 업무 생산성, SNS 마케팅, 콘텐츠 제작, 홈페이지 제작과 자동화 시스템을 직접 만드는 3개월 실전 과정입니다.</description>
+      <pubDate>Mon, 10 Aug 2026 13:21:02 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>AI홈페이지스쿨 4주과정</title>
+      <link>https://www.geosangschool.co.kr/courses/ai-homepage-school</link>
+      <guid isPermaLink="true">https://www.geosangschool.co.kr/courses/ai-homepage-school</guid>
+      <description>ChatGPT로 기획하고 AI 도구로 제작한 뒤 GitHub·Vercel 배포, 도메인 연결과 AIO 최적화까지 직접 완성하는 홈페이지 제작 실전과정입니다.</description>
+      <pubDate>Mon, 10 Aug 2026 13:21:02 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>거상스쿨 단기 클래스</title>
+      <link>https://www.geosangschool.co.kr/courses/short-courses</link>
+      <guid isPermaLink="true">https://www.geosangschool.co.kr/courses/short-courses</guid>
+      <description>노션, Gemini, ChatGPT, Claude와 콘텐츠 제작 등 필요한 주제를 1day, 2주, 4주 과정으로 배우는 실전형 AI 교육과정입니다.</description>
+      <pubDate>Mon, 10 Aug 2026 13:21:02 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>거상스쿨 학습자료</title>
+      <link>https://www.geosangschool.co.kr/resources</link>
+      <guid isPermaLink="true">https://www.geosangschool.co.kr/resources</guid>
+      <description>AI 마케팅과 홈페이지 제작 실습에 활용할 수 있는 프롬프트, 템플릿, 체크리스트와 실습 자료를 확인하세요.</description>
+      <pubDate>Mon, 10 Aug 2026 13:21:02 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
