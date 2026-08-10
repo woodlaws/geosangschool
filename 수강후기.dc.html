@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +8,53 @@
 <body>
 <x-dc>
 <helmet>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.geosangschool.co.kr/#organization",
+        "name": "거상스쿨",
+        "alternateName": "Geosang School",
+        "url": "https://www.geosangschool.co.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.geosangschool.co.kr/logo.png"
+        },
+        "description": "AI마케팅스쿨, 온라인 마케팅, AI 활용 교육을 제공하는 실전 교육 브랜드"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.geosangschool.co.kr/#website",
+        "name": "거상스쿨",
+        "url": "https://www.geosangschool.co.kr/",
+        "description": "AI마케팅스쿨과 실전 AI 마케팅 교육을 제공하는 거상스쿨 공식 홈페이지",
+        "publisher": {
+          "@id": "https://www.geosangschool.co.kr/#organization"
+        },
+        "inLanguage": "ko-KR"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://www.geosangschool.co.kr/reviews#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://www.geosangschool.co.kr/" },
+      { "@type": "ListItem", "position": 2, "name": "수강후기", "item": "https://www.geosangschool.co.kr/reviews" }
+    ]
+  }
+  </script>
   <title>수강후기 · 성공사례 | 거상스쿨</title>
   <meta name="description" content="거상스쿨 수강생 후기와 AI마케팅스쿨, 단기 클래스의 실습 결과물을 확인하세요. 노션 대시보드, AI 콘텐츠, 홈페이지 초안, 자동화 시스템 등 결과물 중심 교육 사례를 순차적으로 업데이트합니다.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.geosangschool.co.kr/reviews">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://geosangschool.com/reviews">
+  <meta property="og:url" content="https://www.geosangschool.co.kr/reviews">
   <meta property="og:title" content="수강후기 · 성공사례 | 거상스쿨">
   <meta property="og:description" content="거상스쿨 수강생 후기와 AI마케팅스쿨, 단기 클래스의 실습 결과물을 확인하세요. 결과물 중심 교육 사례를 순차적으로 업데이트합니다.">
   <meta property="og:image" content="https://geosangschool.vercel.app/og-image.png">

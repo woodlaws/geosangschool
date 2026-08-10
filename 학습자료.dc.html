@@ -8,6 +8,36 @@
 <body>
 <x-dc>
 <helmet>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.geosangschool.co.kr/#organization",
+        "name": "거상스쿨",
+        "alternateName": "Geosang School",
+        "url": "https://www.geosangschool.co.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.geosangschool.co.kr/logo.png"
+        },
+        "description": "AI마케팅스쿨, 온라인 마케팅, AI 활용 교육을 제공하는 실전 교육 브랜드"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.geosangschool.co.kr/#website",
+        "name": "거상스쿨",
+        "url": "https://www.geosangschool.co.kr/",
+        "description": "AI마케팅스쿨과 실전 AI 마케팅 교육을 제공하는 거상스쿨 공식 홈페이지",
+        "publisher": {
+          "@id": "https://www.geosangschool.co.kr/#organization"
+        },
+        "inLanguage": "ko-KR"
+      }
+    ]
+  }
+  </script>
   <title>학습자료 | 거상스쿨</title>
   <meta name="description" content="AI마케팅스쿨 수강생을 위한 프롬프트, 템플릿, 체크리스트, 실습 자료를 한곳에 모은 학습자료실입니다.">
   <link rel="canonical" href="https://www.geosangschool.co.kr/resources">

@@ -31,6 +31,36 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://www.geosangschool.co.kr/#organization",
+        "name": "거상스쿨",
+        "alternateName": "Geosang School",
+        "url": "https://www.geosangschool.co.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.geosangschool.co.kr/logo.png"
+        },
+        "description": "AI마케팅스쿨, 온라인 마케팅, AI 활용 교육을 제공하는 실전 교육 브랜드"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.geosangschool.co.kr/#website",
+        "name": "거상스쿨",
+        "url": "https://www.geosangschool.co.kr/",
+        "description": "AI마케팅스쿨과 실전 AI 마케팅 교육을 제공하는 거상스쿨 공식 홈페이지",
+        "publisher": {
+          "@id": "https://www.geosangschool.co.kr/#organization"
+        },
+        "inLanguage": "ko-KR"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Course",
         "@id": "https://www.geosangschool.co.kr/courses/ai-homepage-school#course",
         "name": "AI홈페이지스쿨 4주과정",

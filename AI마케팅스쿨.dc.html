@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +8,54 @@
 <body>
 <x-dc>
 <helmet>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.geosangschool.co.kr/#organization",
+        "name": "거상스쿨",
+        "alternateName": "Geosang School",
+        "url": "https://www.geosangschool.co.kr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.geosangschool.co.kr/logo.png"
+        },
+        "description": "AI마케팅스쿨, 온라인 마케팅, AI 활용 교육을 제공하는 실전 교육 브랜드"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.geosangschool.co.kr/#website",
+        "name": "거상스쿨",
+        "url": "https://www.geosangschool.co.kr/",
+        "description": "AI마케팅스쿨과 실전 AI 마케팅 교육을 제공하는 거상스쿨 공식 홈페이지",
+        "publisher": {
+          "@id": "https://www.geosangschool.co.kr/#organization"
+        },
+        "inLanguage": "ko-KR"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://www.geosangschool.co.kr/courses/ai-marketing-school#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://www.geosangschool.co.kr/" },
+      { "@type": "ListItem", "position": 2, "name": "교육과정", "item": "https://www.geosangschool.co.kr/courses" },
+      { "@type": "ListItem", "position": 3, "name": "AI마케팅스쿨", "item": "https://www.geosangschool.co.kr/courses/ai-marketing-school" }
+    ]
+  }
+  </script>
   <title>AI마케팅스쿨 3개월 과정 | 거상스쿨</title>
   <meta name="description" content="AI마케팅스쿨은 거상스쿨의 대표 3개월 실전 과정입니다. Notion, Gemini, ChatGPT, Claude, Codex, Cowork를 활용해 업무 생산성, SNS 마케팅, 콘텐츠 제작, 홈페이지 제작, 자동화 시스템까지 직접 만들고 적용합니다.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.geosangschool.co.kr/courses/ai-marketing-school">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://geosangschool.com/courses/ai-marketing-school">
+  <meta property="og:url" content="https://www.geosangschool.co.kr/courses/ai-marketing-school">
   <meta property="og:title" content="AI마케팅스쿨 3개월 과정 | 거상스쿨">
   <meta property="og:description" content="AI마케팅스쿨은 거상스쿨의 대표 3개월 실전 과정입니다. Notion, Gemini, ChatGPT, Claude, Codex, Cowork를 활용해 업무 생산성, SNS 마케팅, 콘텐츠 제작, 홈페이지 제작, 자동화 시스템까지 직접 만들고 적용합니다.">
   <meta property="og:image" content="https://geosangschool.vercel.app/og-image.png">
@@ -136,35 +179,20 @@
     @media (max-width:767px) { .review-3col{grid-template-columns:1fr;} }
 
     .curriculum-card { background:#fff; border:1px solid #e2e8f0; border-radius:24px; padding:18px; box-shadow:0 3px 14px rgba(15,23,42,.06); }
-    .ai-thumb { --thumb-accent:#60a5fa; --thumb-accent-2:#a78bfa; width:100%; aspect-ratio:1/1; border-radius:24px; padding:24px; position:relative; overflow:hidden; isolation:isolate; background:var(--thumb-bg); border:1px solid rgba(255,255,255,.18); box-shadow:inset 0 1px 0 rgba(255,255,255,.24),inset 0 -36px 70px rgba(0,0,0,.16),0 18px 42px rgba(15,23,42,.22); }
-    .ai-thumb::before { content:""; position:absolute; inset:0; z-index:-2; opacity:.22; background-image:radial-gradient(rgba(255,255,255,.65) .65px,transparent .65px); background-size:7px 7px; mask-image:linear-gradient(to bottom,black,transparent 72%); }
-    .ai-thumb::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(135deg,rgba(255,255,255,.18),transparent 35%,rgba(0,0,0,.18)); }
-    .ai-thumb__glow { position:absolute; width:72%; aspect-ratio:1; right:-18%; top:-24%; border-radius:50%; background:var(--thumb-accent); opacity:.42; filter:blur(44px); }
-    .ai-thumb__glow::after { content:""; position:absolute; width:70%; aspect-ratio:1; left:-125%; top:115%; border-radius:50%; background:var(--thumb-accent-2); opacity:.62; filter:blur(38px); }
-    .ai-thumb__content { position:relative; z-index:4; height:100%; display:flex; flex-direction:column; align-items:flex-start; }
-    .ai-week { padding:5px 11px; border-radius:999px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); color:#fff; font-size:12px; font-weight:800; letter-spacing:.04em; box-shadow:0 8px 24px rgba(0,0,0,.1); backdrop-filter:blur(12px); }
-    .ai-thumb__copy { margin-top:auto; max-width:92%; text-shadow:0 3px 16px rgba(0,0,0,.28); }
-    .ai-tool { color:rgba(255,255,255,.78); font-family:Montserrat,'Noto Sans KR',sans-serif; font-size:clamp(13px,1.25vw,17px); font-weight:800; line-height:1.35; margin-bottom:7px; word-break:keep-all; }
-    .ai-title { color:#fff; font-size:clamp(27px,3vw,42px); font-weight:900; line-height:1.12; letter-spacing:-.045em; word-break:keep-all; }
-    .ai-thumb__mockup { position:absolute; z-index:2; width:70%; height:49%; right:7%; top:19%; border-radius:16px; overflow:hidden; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); box-shadow:0 24px 44px rgba(0,0,0,.27),inset 0 1px 0 rgba(255,255,255,.3); backdrop-filter:blur(16px); transform:perspective(700px) rotateX(4deg) rotateY(-7deg) rotateZ(1deg); transform-origin:center; }
-    .mockup-bar { position:absolute; inset:0 0 auto; height:16%; display:flex; align-items:center; gap:4px; padding:0 9px; background:rgba(3,7,18,.26); border-bottom:1px solid rgba(255,255,255,.15); }
-    .mockup-bar i { width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.72); }
-    .mockup-sidebar { position:absolute; left:0; top:16%; bottom:0; width:21%; padding:10px 7px; background:rgba(3,7,18,.2); border-right:1px solid rgba(255,255,255,.13); display:flex; flex-direction:column; gap:7px; }
-    .mockup-sidebar i { height:4px; border-radius:8px; background:rgba(255,255,255,.28); }
-    .mockup-sidebar i:nth-child(2){width:72%}.mockup-sidebar i:nth-child(3){width:86%}.mockup-sidebar i:nth-child(4){width:58%}
-    .mockup-stage { position:absolute; left:21%; right:0; top:16%; bottom:0; overflow:hidden; }
-    .visual-symbol { position:absolute; display:grid; place-items:center; width:35px; height:35px; right:10px; top:9px; border-radius:11px; color:#fff; background:linear-gradient(145deg,var(--thumb-accent),var(--thumb-accent-2)); border:1px solid rgba(255,255,255,.35); box-shadow:0 9px 18px rgba(0,0,0,.2); font-family:Montserrat,'Noto Sans KR',sans-serif; font-size:16px; font-weight:900; }
-    .visual-card,.visual-line,.visual-node { position:absolute; display:block; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.2); box-shadow:0 7px 15px rgba(0,0,0,.12); }
-    .visual-card { border-radius:8px; }
-    .visual-card-a { left:9%; top:13%; width:43%; height:25%; }
-    .visual-card-b { left:9%; top:46%; width:76%; height:18%; }
-    .visual-card-c { left:9%; top:72%; width:58%; height:11%; }
-    .visual-line { height:3px; border:0; border-radius:8px; background:rgba(255,255,255,.48); }
-    .visual-line-a { left:14%; top:22%; width:22%; }
-    .visual-line-b { left:14%; top:52%; width:49%; }
-    .visual-line-c { left:14%; top:77%; width:34%; }
-    .visual-node { width:10px; height:10px; border-radius:50%; background:var(--thumb-accent); }
-    .visual-node-a { right:16%; bottom:20%; }.visual-node-b { right:29%; bottom:8%; background:var(--thumb-accent-2); }
+    .ai-thumb { width:100%; aspect-ratio:1/1; border-radius:24px; padding:24px; position:relative; overflow:hidden; background:var(--thumb-bg); border:1px solid rgba(255,255,255,.75); box-shadow:0 18px 40px rgba(15,23,42,.16),inset 0 1px 0 rgba(255,255,255,.7); }
+    .ai-thumb::before { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(145deg,rgba(255,255,255,.26),transparent 48%); }
+    .ai-thumb__content { position:relative; z-index:1; height:100%; display:flex; align-items:center; gap:20px; }
+    .ai-thumb__top { display:contents; }
+    .ai-week { position:absolute; right:0; top:0; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9); color:#111827; font-size:13px; font-weight:900; letter-spacing:.02em; box-shadow:0 7px 18px rgba(15,23,42,.12); }
+    .logo-circle { flex:0 0 46%; width:46%; aspect-ratio:1; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(255,255,255,.95); box-shadow:0 13px 28px rgba(15,23,42,.2); }
+    .logo-circle img { width:74%; height:74%; object-fit:contain; display:block; }
+    .logo-stack { flex:0 0 46%; width:46%; aspect-ratio:1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-content:center; gap:8px; padding:8px; }
+    .logo-stack .logo-circle { width:100%; flex:none; margin:0; border:3px solid #fff; }
+    .logo-stack .logo-circle img { width:72%; height:72%; }
+    .ai-thumb__copy { flex:1; min-width:0; color:#050505; }
+    .ai-name { display:block; color:#050505; font-family:Montserrat,'Noto Sans KR',sans-serif; font-size:clamp(30px,4vw,48px); font-weight:900; line-height:1; letter-spacing:-.045em; word-break:keep-all; }
+    .korean-name { display:block; margin-top:10px; color:#050505; font-size:clamp(20px,2.6vw,30px); font-weight:900; line-height:1.18; letter-spacing:-.035em; word-break:keep-all; }
+    .short-comment { margin-top:14px; color:#111; font-size:clamp(16px,2vw,24px); font-weight:700; line-height:1.35; word-break:keep-all; }
     .curriculum-content { padding:22px 6px 6px; }
     .curriculum-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
     .curriculum-week-label { color:#2563eb; background:#eff6ff; border:1px solid #bfdbfe; border-radius:999px; padding:4px 10px; font-size:12px; font-weight:800; }
@@ -174,54 +202,31 @@
     .lesson-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
     .wrap .lesson-list li { position:relative; padding-left:20px; color:#475569; font-size:14px!important; line-height:1.65!important; word-break:keep-all; }
     .lesson-list li::before { content:"✓"; position:absolute; left:0; top:1px; color:#2563eb; font-size:12px; font-weight:900; }
-    .theme-notion { --thumb-bg:linear-gradient(145deg,#050505,#18181b 58%,#3f3f46); --thumb-accent:#fafafa; --thumb-accent-2:#71717a; }
-    .theme-notion .ai-thumb__mockup { background:rgba(255,255,255,.88); }.theme-notion .mockup-bar,.theme-notion .mockup-sidebar{background:rgba(9,9,11,.9)}.theme-notion .mockup-stage{background:rgba(244,244,245,.82)}.theme-notion .visual-card{background:#fff;border-color:#d4d4d8}.theme-notion .visual-line{background:#71717a}.theme-notion .visual-symbol{color:#111827;background:#fff}
-    .theme-gemini { --thumb-bg:linear-gradient(145deg,#123b9f,#6d39ce 55%,#0f9f92); --thumb-accent:#67e8f9; --thumb-accent-2:#c084fc; }
-    .theme-gemini .visual-card-a{width:62%;height:17%;border-radius:999px}.theme-gemini .visual-card-b{top:41%;height:31%;background:linear-gradient(135deg,rgba(96,165,250,.45),rgba(192,132,252,.35))}.theme-gemini .visual-card-c{top:78%;width:75%;height:7%}
-    .theme-chatgpt { --thumb-bg:linear-gradient(145deg,#032e2a,#05735f 56%,#14b8a6); --thumb-accent:#5eead4; --thumb-accent-2:#10b981; }
-    .theme-chatgpt .visual-card-a,.theme-chatgpt .visual-card-b,.theme-chatgpt .visual-card-c{height:16%;border-radius:12px 12px 12px 3px}.theme-chatgpt .visual-card-a{width:55%}.theme-chatgpt .visual-card-b{left:30%;top:42%;width:58%;border-radius:12px 12px 3px 12px;background:rgba(45,212,191,.38)}.theme-chatgpt .visual-card-c{top:70%;width:66%}
-    .theme-claude { --thumb-bg:linear-gradient(145deg,#5d2d14,#a64f20 56%,#e78545); --thumb-accent:#fdba74; --thumb-accent-2:#f5d0a9; }
-    .theme-claude .visual-card-a{width:54%;height:64%;background:rgba(255,248,235,.24)}.theme-claude .visual-card-b{left:58%;top:35%;width:32%;height:20%}.theme-claude .visual-card-c{left:58%;top:62%;width:28%;height:13%}
-    .theme-social { --thumb-bg:linear-gradient(145deg,#121217,#5b21b6 56%,#db2777); --thumb-accent:#f472b6; --thumb-accent-2:#a78bfa; }
-    .theme-social .visual-card-a{width:25%;height:51%}.theme-social .visual-card-b{left:39%;top:18%;width:46%;height:16%}.theme-social .visual-card-c{left:39%;top:43%;width:38%;height:12%}.theme-social .visual-line-c{left:39%;top:68%;width:42%}
-    .theme-images { --thumb-bg:linear-gradient(145deg,#be185d,#f05a24 55%,#eab308); --thumb-accent:#fde047; --thumb-accent-2:#fb7185; }
-    .theme-images .visual-card-a{width:35%;height:30%;background:linear-gradient(145deg,rgba(253,224,71,.6),rgba(244,114,182,.5))}.theme-images .visual-card-b{left:49%;top:13%;width:35%;height:30%;background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(251,146,60,.42))}.theme-images .visual-card-c{top:51%;width:75%;height:29%;background:linear-gradient(135deg,rgba(244,114,182,.42),rgba(253,224,71,.36))}
-    .theme-flow { --thumb-bg:linear-gradient(145deg,#14245b,#075b9c 56%,#0891b2); --thumb-accent:#22d3ee; --thumb-accent-2:#60a5fa; }
-    .theme-flow .visual-card-a,.theme-flow .visual-card-b,.theme-flow .visual-card-c{top:18%;width:23%;height:46%}.theme-flow .visual-card-b{left:37%}.theme-flow .visual-card-c{left:66%}.theme-flow .visual-line-c{left:12%;top:74%;width:71%;height:5px}
-    .theme-shortform { --thumb-bg:linear-gradient(145deg,#050505,#741b24 56%,#dc2626); --thumb-accent:#fb7185; --thumb-accent-2:#f8fafc; }
-    .theme-shortform .visual-card-a{left:12%;top:10%;width:28%;height:70%;border-radius:9px}.theme-shortform .visual-card-b{left:49%;top:15%;width:34%;height:13%}.theme-shortform .visual-card-c{left:49%;top:38%;width:29%;height:11%}.theme-shortform .visual-symbol{border-radius:50%}
-    .theme-codex { --thumb-bg:linear-gradient(145deg,#020617,#172554 56%,#1d4ed8); --thumb-accent:#60a5fa; --thumb-accent-2:#e2e8f0; }
-    .theme-codex .ai-thumb__mockup{background:rgba(2,6,23,.72)}.theme-codex .mockup-stage{background:rgba(2,6,23,.35)}.theme-codex .visual-card-a{width:72%;height:8%;background:rgba(96,165,250,.32)}.theme-codex .visual-card-b{top:36%;width:58%;height:7%}.theme-codex .visual-card-c{top:57%;width:68%;height:7%}.theme-codex .visual-line-c{top:76%;width:50%;background:#60a5fa}
-    .theme-cowork { --thumb-bg:linear-gradient(145deg,#19133f,#4c1d95 56%,#7c3aed); --thumb-accent:#c4b5fd; --thumb-accent-2:#818cf8; }
-    .theme-cowork .visual-card-a{width:30%;height:24%}.theme-cowork .visual-card-b{left:53%;top:18%;width:31%;height:24%}.theme-cowork .visual-card-c{left:31%;top:58%;width:35%;height:21%}.theme-cowork .visual-node-a{right:43%;bottom:46%}.theme-cowork .visual-node-b{right:24%;bottom:19%}
-    .theme-automation { --thumb-bg:linear-gradient(145deg,#07182b,#0f6d69 56%,#14b8a6); --thumb-accent:#5eead4; --thumb-accent-2:#38bdf8; }
-    .theme-automation .visual-card-a{width:25%;height:22%;border-radius:50%}.theme-automation .visual-card-b{left:58%;top:16%;width:27%;height:23%;border-radius:50%}.theme-automation .visual-card-c{left:33%;top:61%;width:30%;height:21%;border-radius:50%}.theme-automation .visual-line-a{left:30%;top:29%;width:30%;transform:rotate(9deg)}.theme-automation .visual-line-b{left:48%;top:52%;width:27%;transform:rotate(-42deg)}
-    .theme-vibe { --thumb-bg:linear-gradient(145deg,#02040a,#172033 56%,#1d4ed8); --thumb-accent:#3b82f6; --thumb-accent-2:#f8fafc; }
-    .theme-vibe .ai-thumb__mockup{background:rgba(2,6,23,.8)}.theme-vibe .visual-card-a{left:8%;top:12%;width:76%;height:50%;background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(59,130,246,.2))}.theme-vibe .visual-card-b{top:71%;width:30%;height:9%;background:#22c55e}.theme-vibe .visual-card-c{left:47%;top:71%;width:37%;height:9%}
-    .ai-thumb__bg-ui { position:absolute; z-index:1; inset:16% -8% auto auto; width:68%; height:47%; border-radius:22px; border:1px solid rgba(255,255,255,.2); background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.04)); box-shadow:0 24px 50px rgba(0,0,0,.23),inset 0 1px rgba(255,255,255,.25); backdrop-filter:blur(14px); transform:perspective(700px) rotateY(-12deg) rotateZ(3deg); }
-    .ai-thumb__bg-ui::before { content:""; position:absolute; left:8%; top:14%; width:58%; height:11%; border-radius:999px; background:rgba(255,255,255,.24); box-shadow:0 28px 0 rgba(255,255,255,.13),0 56px 0 rgba(255,255,255,.18); }
-    .ai-thumb__bg-ui::after { content:""; position:absolute; right:10%; bottom:11%; width:31%; height:28%; border-radius:12px; border:1px solid rgba(255,255,255,.2); background:linear-gradient(145deg,var(--thumb-accent),var(--thumb-accent-2)); opacity:.62; }
-    .ai-thumb__top { width:100%; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
-    .logo-circle { width:92px; height:92px; flex:0 0 92px; border-radius:50%; display:flex; align-items:center; justify-content:center; padding:16px; background:#fff; border:1px solid rgba(255,255,255,.88); box-shadow:0 16px 34px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.9); }
-    .logo-circle img { width:100%; height:100%; object-fit:contain; display:block; }
-    .logo-stack { display:flex; flex-direction:row-reverse; padding-right:8px; }
-    .logo-stack .logo-circle { width:66px; height:66px; flex-basis:66px; padding:12px; margin-right:-14px; border:3px solid #fff; }
-    .ai-thumb .ai-thumb__copy { margin-top:auto; max-width:100%; padding:15px 17px 14px; border:1px solid rgba(255,255,255,.2); border-radius:17px; background:linear-gradient(145deg,rgba(3,7,18,.34),rgba(3,7,18,.13)); box-shadow:0 14px 30px rgba(0,0,0,.16); backdrop-filter:blur(13px); }
-    .ai-name { display:block; color:#fff; font-family:Montserrat,'Noto Sans KR',sans-serif; font-size:clamp(28px,3.2vw,42px); font-weight:900; line-height:1.04; letter-spacing:-.04em; word-break:keep-all; text-shadow:0 3px 18px rgba(0,0,0,.3); }
-    .korean-name { display:block; margin-top:7px; color:#fff; font-size:clamp(18px,2vw,24px); font-weight:850; line-height:1.22; letter-spacing:-.035em; word-break:keep-all; }
-    .short-comment { display:inline-flex; margin-top:10px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.88); font-size:clamp(12px,1.25vw,15px); font-weight:700; line-height:1.3; word-break:keep-all; }
-    .theme-notion .ai-thumb__bg-ui { background:rgba(255,255,255,.87); border-color:rgba(255,255,255,.7); }.theme-notion .ai-thumb__bg-ui::before{background:#71717a;box-shadow:0 28px 0 #d4d4d8,0 56px 0 #a1a1aa}.theme-notion .ai-thumb__bg-ui::after{background:#18181b}
-    .theme-images .ai-thumb__bg-ui::after { background:linear-gradient(145deg,#fde047,#fb7185 52%,#c084fc); }
-    .theme-flow .ai-thumb__bg-ui::after,.theme-shortform .ai-thumb__bg-ui::after { border-radius:50%; clip-path:polygon(32% 20%,32% 80%,82% 50%); }
-    .theme-codex .ai-thumb__bg-ui,.theme-vibe .ai-thumb__bg-ui { background:rgba(2,6,23,.7); }
-    .theme-automation .ai-thumb__bg-ui::after { border-radius:50%; box-shadow:-44px -22px 0 -4px rgba(94,234,212,.45),-72px 25px 0 -6px rgba(56,189,248,.5); }
+    .theme-notion { --thumb-bg:linear-gradient(135deg,#f9fafb 0%,#e5e7eb 45%,#9ca3af 100%); }
+    .theme-gemini { --thumb-bg:linear-gradient(135deg,#a855f7 0%,#22d3ee 50%,#a3e635 100%); }
+    .theme-chatgpt { --thumb-bg:linear-gradient(135deg,#8b5cf6 0%,#22d3ee 100%); }
+    .theme-claude { --thumb-bg:linear-gradient(135deg,#ff3b30 0%,#fb923c 55%,#fed7aa 100%); }
+    .theme-social { --thumb-bg:linear-gradient(135deg,#f472b6 0%,#a78bfa 50%,#111827 100%); }
+    .theme-images { --thumb-bg:linear-gradient(135deg,#22d3ee 0%,#34d399 45%,#fde047 100%); }
+    .theme-flow { --thumb-bg:linear-gradient(135deg,#fb923c 0%,#facc15 50%,#84cc16 100%); }
+    .theme-shortform { --thumb-bg:linear-gradient(135deg,#ef4444 0%,#111827 55%,#f97316 100%); }
+    .theme-codex { --thumb-bg:linear-gradient(135deg,#06b6d4 0%,#22c55e 50%,#0f172a 100%); }
+    .theme-cowork { --thumb-bg:linear-gradient(135deg,#93c5fd 0%,#c084fc 60%,#f0abfc 100%); }
+    .theme-automation { --thumb-bg:linear-gradient(135deg,#0f766e 0%,#14b8a6 50%,#86efac 100%); }
+    .theme-vibe { --thumb-bg:linear-gradient(135deg,#111827 0%,#64748b 45%,#38bdf8 100%); }
+    .theme-social::after,.theme-shortform::after,.theme-codex::after,.theme-vibe::after { content:""; position:absolute; inset:18% 2% 16% 43%; background:rgba(255,255,255,.62); border-radius:50%; filter:blur(28px); pointer-events:none; }
+    .theme-social .ai-name,.theme-images .ai-name,.theme-cowork .ai-name { font-size:clamp(27px,3.1vw,40px); }
     @media (max-width:767px) {
       .curriculum-card{padding:14px;border-radius:20px;}
-      .ai-thumb{padding:20px;border-radius:20px;}
-      .logo-circle{width:78px;height:78px;flex-basis:78px;padding:13px;}
-      .logo-stack .logo-circle{width:55px;height:55px;flex-basis:55px;padding:9px;}
-      .ai-name{font-size:clamp(29px,9vw,39px);}
-      .korean-name{font-size:clamp(19px,6vw,24px);}
+      .ai-thumb{padding:18px;border-radius:20px;}
+      .ai-thumb__content{gap:12px;}
+      .logo-circle{flex-basis:46%;width:46%;}
+      .logo-stack{flex-basis:46%;width:46%;gap:5px;padding:4px;}
+      .logo-stack .logo-circle{width:100%;}
+      .ai-name{font-size:clamp(30px,8.8vw,38px);}
+      .theme-social .ai-name,.theme-images .ai-name,.theme-cowork .ai-name{font-size:clamp(25px,7.4vw,32px);}
+      .korean-name{font-size:clamp(20px,6vw,25px);}
+      .short-comment{font-size:clamp(16px,4.8vw,19px);}
       .curriculum-content{padding:20px 4px 6px;}
       .curriculum-title{font-size:19px;}
       .wrap .lesson-list li{font-size:15px!important;}
@@ -540,19 +545,19 @@ input,textarea,select,label{font-size:19px!important;}
       </div>
       <div class="curr-grid">
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-notion"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">01주차</span><span class="logo-circle"><img src="/uploads/Notion-logo.svg.webp" alt="Notion 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Notion</strong><span class="korean-name">노션 마스터</span><p class="short-comment">올인원 업무 시스템</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">1주차</span><span class="curriculum-tool-tag">Notion AI</span></div><h3 class="curriculum-title">업무 생산성의 끝판왕 노션 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>핵심 구조 이해 : 페이지, 블록으로 모든 것을 만든다</li><li>데이터베이스 마스터 — CRM, 콘텐츠 스케줄표</li><li>커뮤니케이션, 문서, 파일 관리 시스템 구축</li><li>프로젝트·일정 관리 시스템 대시보드 만들기</li><li>회사 KPI 대시보드, 통합 마케팅 대시보드 구축</li></ul></div>
+          <div class="ai-thumb theme-notion"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">01주차</span><span class="logo-circle"><img src="/uploads/Notion-logo.svg.webp" alt="Notion 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Notion</strong><span class="korean-name">노션</span><p class="short-comment">올인원 업무 시스템</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">1주차</span><span class="curriculum-tool-tag">Notion AI</span></div><h3 class="curriculum-title">노션 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>핵심 구조 이해 : 페이지, 블록으로 모든 것을 만든다</li><li>데이터베이스 마스터 — CRM, 콘텐츠 스케줄표</li><li>커뮤니케이션, 문서, 파일 관리 시스템 구축</li><li>프로젝트·일정 관리 시스템 대시보드 만들기</li><li>회사 KPI 대시보드, 통합 마케팅 대시보드 구축</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-gemini"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">02주차</span><span class="logo-circle"><img src="/uploads/gemini-color.png" alt="Gemini 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Gemini</strong><span class="korean-name">제미나이 마스터</span><p class="short-comment">구글 생태계 통합 AI</p></div></div></div>
+          <div class="ai-thumb theme-gemini"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">02주차</span><span class="logo-circle"><img src="/uploads/gemini-color.png" alt="Gemini 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Gemini</strong><span class="korean-name">제미나이</span><p class="short-comment">구글 생태계를 품은 AI</p></div></div></div>
           <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">2주차</span><span class="curriculum-tool-tag">Gemini · Google AI · Google Drive</span></div><h3 class="curriculum-title">Gemini와 구글 생태계 마스터</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Gemini 프롬프트 작성 공식과 구글 AI 생태계의 이해</li><li>Deep Research, Canvas, NotebookLM 실전 적용하기</li><li>Nano banana, Veo3.1, Lyria 3 멀티모달 콘텐츠 생성 실습</li><li>반복 업무 Gems 만들어서 자동화하기</li><li>구글 드라이브로 클라우드 업무시스템 실전 세팅</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-chatgpt"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">03주차</span><span class="logo-circle"><img src="/uploads/ChatGPT투명-6574f10c.png" alt="ChatGPT 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">ChatGPT</strong><span class="korean-name">챗지피티 마스터</span><p class="short-comment">AI 업무비서의 기준</p></div></div></div>
+          <div class="ai-thumb theme-chatgpt"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">03주차</span><span class="logo-circle"><img src="/uploads/ChatGPT투명-6574f10c.png" alt="ChatGPT 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">ChatGPT</strong><span class="korean-name">챗지피티</span><p class="short-comment">AI 업무비서의 기준</p></div></div></div>
           <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">3주차</span><span class="curriculum-tool-tag">ChatGPT</span></div><h3 class="curriculum-title">ChatGPT 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>ChatGPT 전반 기능 습득 &amp; 프롬프트 엔지니어링 마스터</li><li>컨텍스트 엔지니어링의 이해와 지침 적용하기</li><li>반복 업무 프로젝트 만들어서 자동화하기</li><li>홈페이지·사업계획서·랜딩페이지 제작에 응용</li><li>Deep Research로 5대 SNS 최신 알고리즘 조사</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-claude"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">04주차</span><span class="logo-circle"><img src="/uploads/클로드_배경제거.png" alt="Claude 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Claude</strong><span class="korean-name">클로드 마스터</span><p class="short-comment">글쓰기와 기획의 강자</p></div></div></div>
+          <div class="ai-thumb theme-claude"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">04주차</span><span class="logo-circle"><img src="/uploads/클로드_배경제거.png" alt="Claude 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Claude</strong><span class="korean-name">클로드</span><p class="short-comment">글쓰기와 기획의 강자</p></div></div></div>
           <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">4주차</span><span class="curriculum-tool-tag">Claude</span></div><h3 class="curriculum-title">Claude 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Claude 기본 기능의 이해와 인라인 시각화 실습</li><li>프로젝트로 블로그 글쓰기 봇, 상세페이지 기획 봇 만들기</li><li>Claude 커넥터·플러그인 세팅하고 나만의 스킬 만들기</li><li>사업자들을 위한 각종 문서 스킬 만들기</li><li>노션·구글 드라이브 커넥터 연결로 자동 정리하기</li></ul></div>
         </article>
       </div>
@@ -566,20 +571,20 @@ input,textarea,select,label{font-size:19px!important;}
       </div>
       <div class="curr-grid">
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-social"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">05주차</span><span class="logo-circle"><img src="/uploads/ChatGPT투명-6574f10c.png" alt="ChatGPT 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Blog &amp; Threads</strong><span class="korean-name">블로그·스레드</span><p class="short-comment">콘텐츠 확산 시스템</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">5주차</span><span class="curriculum-tool-tag">Claude · ChatGPT · Images</span></div><h3 class="curriculum-title">AI를 활용한 스레드 &amp; 블로그 마케팅</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>AI로 수익 나는 주제·키워드 조사하고 벤치마킹하기</li><li>네이버 블로그·티스토리·인블로그 기본기 마스터하기</li><li>AI 검색 시대 AEO·GEO의 이해와 글쓰기 패턴 다지기</li><li>30일 콘텐츠 스케줄표 만들고 글 발행하기</li><li>ChatGPT Images로 실사사진·인포그래픽 만들기</li></ul></div>
+          <div class="ai-thumb theme-social"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">05주차</span><span class="logo-circle"><img src="/uploads/ChatGPT투명-6574f10c.png" alt="ChatGPT 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Blog &amp; Threads</strong><span class="korean-name">블로그·스레드</span><p class="short-comment">콘텐츠 확산 시스템</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">5주차</span><span class="curriculum-tool-tag">Claude · ChatGPT · Images</span></div><h3 class="curriculum-title">블로그·스레드 마케팅</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>AI로 수익 나는 주제·키워드 조사하고 벤치마킹하기</li><li>네이버 블로그·티스토리·인블로그 기본기 마스터하기</li><li>AI 검색 시대 AEO·GEO의 이해와 글쓰기 패턴 다지기</li><li>30일 콘텐츠 스케줄표 만들고 글 발행하기</li><li>ChatGPT Images로 실사사진·인포그래픽 만들기</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-images"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">06주차</span><span class="logo-circle"><img src="/uploads/챗지피티로고2-removebg-preview.png" alt="ChatGPT Images 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">ChatGPT Images</strong><span class="korean-name">AI 이미지 제작</span><p class="short-comment">이미지 생성 AI 끝판왕</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">6주차</span><span class="curriculum-tool-tag">ChatGPT Images · Nano Banana</span></div><h3 class="curriculum-title">AI로 이미지 만들기 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>ChatGPT Images로 만들 수 있는 이미지 파악하기</li><li>인포그래픽 이미지 생성과 실전 카드뉴스 만들기</li><li>실사 사진 생성과 캐릭터 시트·무드보드 만들기</li><li>상세페이지 기획 15 요소에 맞춰 상세페이지 만들기</li><li>Image to Video를 위한 원하는 이미지 만들기</li></ul></div>
+          <div class="ai-thumb theme-images"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">06주차</span><span class="logo-circle"><img src="/uploads/챗지피티로고2-removebg-preview.png" alt="ChatGPT Images 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">ChatGPT Images</strong><span class="korean-name">AI 이미지</span><p class="short-comment">이미지 생성 AI 끝판왕</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">6주차</span><span class="curriculum-tool-tag">ChatGPT Images · Nano Banana</span></div><h3 class="curriculum-title">AI 이미지 제작</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>ChatGPT Images로 만들 수 있는 이미지 파악하기</li><li>인포그래픽 이미지 생성과 실전 카드뉴스 만들기</li><li>실사 사진 생성과 캐릭터 시트·무드보드 만들기</li><li>상세페이지 기획 15 요소에 맞춰 상세페이지 만들기</li><li>Image to Video를 위한 원하는 이미지 만들기</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-flow"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">07주차</span><span class="logo-circle"><img src="/uploads/플로우로고.png" alt="Google Flow 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Google Flow</strong><span class="korean-name">AI 영상 제작</span><p class="short-comment">AI 영상 제작의 끝판왕</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">7주차</span><span class="curriculum-tool-tag">Google Flow</span></div><h3 class="curriculum-title">AI 동영상 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Flow 기본 워크플로우 &amp; 인터페이스 마스터하기</li><li>Veo 3.1 연동 텍스트·이미지 투 비디오 생성</li><li>씬 빌더로 일관된 캐릭터·스토리 연출</li><li>클립 확장·편집 실전 적용</li><li>Flow → 유튜브/릴스 발행 파이프라인 구축하기</li></ul></div>
+          <div class="ai-thumb theme-flow"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">07주차</span><span class="logo-circle"><img src="/uploads/플로우로고.png" alt="Google Flow 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Google Flow</strong><span class="korean-name">플로우</span><p class="short-comment">AI 영상 제작의 끝판왕</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">7주차</span><span class="curriculum-tool-tag">Google Flow</span></div><h3 class="curriculum-title">AI 영상 제작</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Flow 기본 워크플로우 &amp; 인터페이스 마스터하기</li><li>Veo 3.1 연동 텍스트·이미지 투 비디오 생성</li><li>씬 빌더로 일관된 캐릭터·스토리 연출</li><li>클립 확장·편집 실전 적용</li><li>Flow → 유튜브/릴스 발행 파이프라인 구축하기</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-shortform"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">08주차</span><span class="logo-circle"><img src="/uploads/유튜브로고-removebg-preview.png" alt="Shortform 영상 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Shortform</strong><span class="korean-name">숏폼·유튜브</span><p class="short-comment">1개 콘텐츠를 10개로</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">8주차</span><span class="curriculum-tool-tag">ChatGPT · Claude · Flow</span></div><h3 class="curriculum-title">AI를 활용한 숏폼 &amp; 유튜브 마케팅</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>채널별 숏폼 알고리즘 &amp; 3초 훅 설계</li><li>ChatGPT로 숏폼 대본·후킹 카피 대량 생성</li><li>Claude로 유튜브 롱폼 기획·스크립트 제작</li><li>Flow로 숏폼 영상 직접 생성·편집</li><li>1개 콘텐츠 → 10개 콘텐츠 확장 &amp; 채널별 재배포</li></ul></div>
+          <div class="ai-thumb theme-shortform"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">08주차</span><span class="logo-circle"><img src="/uploads/유튜브로고-removebg-preview.png" alt="Shortform 영상 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Shortform</strong><span class="korean-name">숏폼·유튜브</span><p class="short-comment">1개 콘텐츠를 10개로</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">8주차</span><span class="curriculum-tool-tag">ChatGPT · Claude · Flow</span></div><h3 class="curriculum-title">숏폼·유튜브 마케팅</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>채널별 숏폼 알고리즘 &amp; 3초 훅 설계</li><li>ChatGPT로 숏폼 대본·후킹 카피 대량 생성</li><li>Claude로 유튜브 롱폼 기획·스크립트 제작</li><li>Flow로 숏폼 영상 직접 생성·편집</li><li>1개 콘텐츠 → 10개 콘텐츠 확장 &amp; 채널별 재배포</li></ul></div>
         </article>
       </div>
     </div>
@@ -592,20 +597,20 @@ input,textarea,select,label{font-size:19px!important;}
       </div>
       <div class="curr-grid">
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-codex"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">09주차</span><span class="logo-circle"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Codex</strong><span class="korean-name">코덱스 마스터</span><p class="short-comment">웹사이트 제작 AI 끝판왕</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">9주차</span><span class="curriculum-tool-tag">Codex</span></div><h3 class="curriculum-title">ChatGPT Codex 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Codex = “말로 시키는 마케팅 자동화 비서” 개념 잡기</li><li>키워드 순위·블로그 노출 데이터 자동 수집·정리</li><li>경쟁사 블로그/플레이스 모니터링 자동화</li><li>광고비·전환율 데이터 자동 정리 &amp; 보고서 초안</li><li>랜딩페이지 실전 기획 — 퍼널 구조로 설계하기</li></ul></div>
+          <div class="ai-thumb theme-codex"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">09주차</span><span class="logo-circle"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Codex</strong><span class="korean-name">코덱스</span><p class="short-comment">웹사이트 제작 AI 끝판왕</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">9주차</span><span class="curriculum-tool-tag">Codex</span></div><h3 class="curriculum-title">Codex 마스터하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Codex = “말로 시키는 마케팅 자동화 비서” 개념 잡기</li><li>키워드 순위·블로그 노출 데이터 자동 수집·정리</li><li>경쟁사 블로그/플레이스 모니터링 자동화</li><li>광고비·전환율 데이터 자동 정리 &amp; 보고서 초안</li><li>랜딩페이지 실전 기획 — 퍼널 구조로 설계하기</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-cowork"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">10주차</span><span class="logo-circle"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Claude Cowork 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Claude Cowork</strong><span class="korean-name">AI 직원과 일하기</span><p class="short-comment">내 컴퓨터에 들어온 AI 직원</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">10주차</span><span class="curriculum-tool-tag">Claude Cowork</span></div><h3 class="curriculum-title">Claude Cowork로 AI 직원과 함께 일하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Cowork 기본 구조 &amp; 커넥터 연결하기</li><li>클라이언트 월간 리포트 자동 생성 시키기</li><li>견적서 + 제안서 + 후속 이메일 한 번에 연결 자동화</li><li>블로그 성과 데이터 → 분석 → 인사이트 보고서</li><li>ROI 기준으로 자동화할 것 vs 직접 할 것 구분하기</li></ul></div>
+          <div class="ai-thumb theme-cowork"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">10주차</span><span class="logo-circle"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Claude Cowork 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Claude Cowork</strong><span class="korean-name">클로드 코워크</span><p class="short-comment">내 컴퓨터에 들어온 AI 직원</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">10주차</span><span class="curriculum-tool-tag">Claude Cowork</span></div><h3 class="curriculum-title">AI 직원과 일하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Cowork 기본 구조 &amp; 커넥터 연결하기</li><li>클라이언트 월간 리포트 자동 생성 시키기</li><li>견적서 + 제안서 + 후속 이메일 한 번에 연결 자동화</li><li>블로그 성과 데이터 → 분석 → 인사이트 보고서</li><li>ROI 기준으로 자동화할 것 vs 직접 할 것 구분하기</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-automation"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">11주차</span><span class="logo-circle"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Automation 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Automation</strong><span class="korean-name">마케팅 자동화</span><p class="short-comment">반복 업무를 AI 시스템으로</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">11주차</span><span class="curriculum-tool-tag">Claude Cowork 심화</span></div><h3 class="curriculum-title">Claude Cowork로 마케팅 자동화 숙달하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Notion 연동 — 수강생/리드 명단 한 번에 정리·업데이트</li><li>블로그 1개 → 스레드·숏폼 소재까지 자동 확장</li><li>캘린더 연동 — 특강·런칭 일정 자동 알림 만들기</li><li>고객 문의·예약 응대 초안 자동으로 받기</li><li>AI가 만든 결과, 보내기 전에 꼭 확인할 것들</li></ul></div>
+          <div class="ai-thumb theme-automation"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">11주차</span><span class="logo-circle"><img src="/uploads/클로드코워크-removebg-preview.png" alt="Automation 로고"></span></div><div class="ai-thumb__copy"><strong class="ai-name">Automation</strong><span class="korean-name">마케팅 자동화</span><p class="short-comment">반복 업무를 AI 시스템으로</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">11주차</span><span class="curriculum-tool-tag">Claude Cowork 심화</span></div><h3 class="curriculum-title">마케팅 자동화 숙달하기</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>Notion 연동 — 수강생/리드 명단 한 번에 정리·업데이트</li><li>블로그 1개 → 스레드·숏폼 소재까지 자동 확장</li><li>캘린더 연동 — 특강·런칭 일정 자동 알림 만들기</li><li>고객 문의·예약 응대 초안 자동으로 받기</li><li>AI가 만든 결과, 보내기 전에 꼭 확인할 것들</li></ul></div>
         </article>
         <article class="curriculum-card card-h">
-          <div class="ai-thumb theme-vibe"><div class="ai-thumb__glow" aria-hidden="true"></div><div class="ai-thumb__bg-ui" aria-hidden="true"></div><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">12주차</span><span class="logo-stack"><span class="logo-circle"><img src="/uploads/Vercel-removebg-preview.png" alt="Vercel 로고"></span><span class="logo-circle"><img src="/uploads/github.png" alt="GitHub 로고"></span><span class="logo-circle"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex 로고"></span></span></div><div class="ai-thumb__copy"><strong class="ai-name">Vibe Coding</strong><span class="korean-name">바이브코딩 실전</span><p class="short-comment">홈페이지 배포의 끝판왕</p></div></div></div>
-          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">12주차</span><span class="curriculum-tool-tag">Codex · Claude Code · GitHub · Vercel</span></div><h3 class="curriculum-title">바이브코딩 실전 : 랜딩페이지 제작 &amp; 배포</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>9주차 기획한 랜딩페이지, Codex에게 만들어줘 시키기</li><li>GitHub에 내 작업 저장하기</li><li>Vercel로 원클릭 배포 — 실제 URL로 띄워보기</li><li>신청 폼 제출 시 카카오톡/이메일 자동 알림 연결</li><li>내 랜딩페이지 발표하고 서로 피드백하기</li></ul></div>
+          <div class="ai-thumb theme-vibe"><div class="ai-thumb__content"><div class="ai-thumb__top"><span class="ai-week">12주차</span><span class="logo-stack"><span class="logo-circle"><img src="/uploads/Vercel-removebg-preview.png" alt="Vercel 로고"></span><span class="logo-circle"><img src="/uploads/github.png" alt="GitHub 로고"></span><span class="logo-circle"><img src="/uploads/codex-color-removebg-preview.png" alt="Codex 로고"></span></span></div><div class="ai-thumb__copy"><strong class="ai-name">Vibe Coding</strong><span class="korean-name">바이브코딩</span><p class="short-comment">홈페이지 배포의 끝판왕</p></div></div></div>
+          <div class="curriculum-content"><div class="curriculum-meta"><span class="curriculum-week-label">12주차</span><span class="curriculum-tool-tag">Codex · Claude Code · GitHub · Vercel</span></div><h3 class="curriculum-title">바이브코딩 실전</h3><div class="lesson-heading">무엇을 배우나요?</div><ul class="lesson-list"><li>9주차 기획한 랜딩페이지, Codex에게 만들어줘 시키기</li><li>GitHub에 내 작업 저장하기</li><li>Vercel로 원클릭 배포 — 실제 URL로 띄워보기</li><li>신청 폼 제출 시 카카오톡/이메일 자동 알림 연결</li><li>내 랜딩페이지 발표하고 서로 피드백하기</li></ul></div>
         </article>
       </div>
     </div>
