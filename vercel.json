@@ -22,6 +22,13 @@
     { "source": "/resources", "destination": "/학습자료.dc.html" },
     { "source": "/support", "destination": "/학습지원.dc.html" },
     { "source": "/contact", "destination": "/상담문의.dc.html" },
-    { "source": "/login", "destination": "/수강생 로그인.dc.html" }
+    { "source": "/login", "destination": "/수강생 로그인.dc.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/blog/reels-start-checklist", "destination": "/blog-reels-start-checklist.html" },
+    { "source": "/blog/reels-first-three-seconds", "destination": "/blog-reels-first-three-seconds.html" },
+    { "source": "/blog/reels-30-second-script", "destination": "/blog-reels-30-second-script.html" },
+    { "source": "/blog/threads-profile-guide", "destination": "/blog-threads-profile-guide.html" },
+    { "source": "/blog/threads-opening-lines", "destination": "/blog-threads-opening-lines.html" },
+    { "source": "/blog/threads-post-structure", "destination": "/blog-threads-post-structure.html" }
   ]
 }

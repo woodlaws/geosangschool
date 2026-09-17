@@ -1,0 +1,11 @@
+/* The extra Blog item needs a little more room than the legacy navigation. */
+@media (min-width: 1301px) and (max-width: 1500px) {
+  .nav-links .nav-link { font-size: 16px !important; padding: 6px 6px !important; }
+  .nav-cta-group .btn-nav-main { font-size: 15px !important; padding: 9px 12px !important; }
+  .nav-cta-group .btn-nav-sub { font-size: 15px !important; padding: 8px 10px !important; }
+}
+@media (min-width: 881px) and (max-width: 1300px) {
+  .nav-links, .nav-cta-group { display: none !important; }
+  .hamburger { display: flex !important; }
+  .nav-toggle { display: block !important; }
+}
