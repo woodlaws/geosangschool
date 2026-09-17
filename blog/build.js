@@ -125,8 +125,11 @@ for (const name of htmlFiles) {
       html = html.replace(/(<a href="\/resources" onClick="{{ toggleMenu }}"[^>]*>학습자료<\/a>)(\r?\n)/, (_, anchor, newline) => `${anchor}${newline}  <a href="/blog" onClick="{{ toggleMenu }}">블로그</a>\n`);
     }
   }
-  if (!html.includes('<link rel="stylesheet" href="/blog-nav.css">')) {
-    html = html.replace(/(<link rel="stylesheet" href="\/footer\.css">)(\r?\n)/, (_, link, newline) => `${link}${newline}<link rel="stylesheet" href="/blog-nav.css">\n`);
+  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260917-2">';
+  if (/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/.test(html)) {
+    html = html.replace(/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/, navStyle);
+  } else {
+    html = html.replace(/(<link rel="stylesheet" href="\/footer\.css">)(\r?\n)/, (_, link, newline) => `${link}${newline}${navStyle}\n`);
   }
   const navigationReady = name === "AI홈페이지스쿨.dc.html"
     ? (html.match(/<a href="\/blog">블로그<\/a>/g) || []).length === 2
