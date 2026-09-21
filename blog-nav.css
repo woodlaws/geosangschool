@@ -1,4 +1,12 @@
-/* Shared desktop and mobile header sizing for the site and generated blog. */
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/pretendard-semibold.woff2") format("woff2");
+}
+
+/* Shared header metrics matched to the Geosang Marketing Center. */
 .nav-wrap {
   position: fixed;
   inset: 0 0 auto;
@@ -11,13 +19,13 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 1340px;
-  height: 78px;
+  height: 88px;
   margin-inline: auto;
   padding-inline: 24px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  column-gap: 24px;
+  column-gap: 16px;
 }
 .nav-wrap .nav-logo {
   display: inline-flex;
@@ -41,7 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 24px;
   min-width: 0;
   justify-self: center;
 }
@@ -49,9 +57,11 @@
   padding: 7px 6px !important;
   border-radius: 7px;
   color: #334155;
-  font-size: 20px !important;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 25.2px !important;
   font-weight: 600 !important;
-  line-height: 1.35;
+  line-height: normal !important;
+  letter-spacing: normal !important;
   white-space: nowrap;
 }
 .nav-wrap .nav-link:hover,
@@ -134,7 +144,7 @@
 .nav-wrap .mobile-nav {
   flex-direction: column;
   position: fixed;
-  inset: 78px 0 0;
+  inset: 88px 0 0;
   background: #fff;
   border-top: 1px solid #e8edf4;
   padding: 16px 20px 32px;
@@ -147,8 +157,11 @@
   padding: 14px 16px;
   border-bottom: 1px solid #f1f5f9;
   color: #374151;
-  font-size: 19px !important;
-  font-weight: 600;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 21.6px !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
 }
 .nav-wrap .mobile-nav .mob-cta {
   margin-top: 16px;
@@ -178,15 +191,29 @@
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   column-gap: 24px;
+  height: 88px !important;
 }
 .nav:not(.nav-wrap) .brand { justify-self: start; }
-.nav:not(.nav-wrap) .nav-links { margin-left: 0 !important; justify-self: center; gap: 18px !important; }
+.nav:not(.nav-wrap) .nav-links { margin-left: 0 !important; justify-self: center; gap: 24px !important; }
 .nav:not(.nav-wrap) .nav-actions { display: flex; align-items: center; justify-self: end; }
 .nav:not(.nav-wrap) .brand strong { font-size: 26px !important; font-weight: 800 !important; }
-.nav:not(.nav-wrap) .nav-links a { font-size: 20px !important; font-weight: 600 !important; }
+.nav:not(.nav-wrap) .nav-links a {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 25.2px !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+}
 .nav:not(.nav-wrap) .nav-links a.btn { font-size: 18px !important; font-weight: 700 !important; }
 .nav:not(.nav-wrap) .nav-links a.btn-login { font-size: 17px !important; }
-.nav:not(.nav-wrap) .mobile-nav a { font-size: 19px !important; }
+.nav:not(.nav-wrap) .mobile-nav { top: 88px !important; }
+.nav:not(.nav-wrap) .mobile-nav a {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 21.6px !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+}
 .nav:not(.nav-wrap) a,
 .nav:not(.nav-wrap) a:link,
 .nav:not(.nav-wrap) a:visited,
@@ -195,8 +222,21 @@
 .nav:not(.nav-wrap) a:focus-visible,
 .nav:not(.nav-wrap) button:focus-visible { outline: 3px solid rgba(37, 99, 235, .45); outline-offset: 3px; }
 
-/* Use one mobile breakpoint instead of shrinking desktop typography. */
-@media (max-width: 1279px) {
+/* Match the reference site's compact desktop range without changing page typography. */
+@media (min-width: 921px) and (max-width: 1500px) {
+  .nav-wrap .nav-inner,
+  .nav:not(.nav-wrap) .nav-inner { column-gap: 12px; }
+  .nav-wrap .nav-links,
+  .nav:not(.nav-wrap) .nav-links { gap: 13px !important; }
+  .nav-wrap .nav-link,
+  .nav:not(.nav-wrap) .nav-links a { font-size: 14.4px !important; }
+  .nav:not(.nav-wrap) .nav-links,
+  .nav:not(.nav-wrap) .nav-actions { display: flex !important; }
+  .nav:not(.nav-wrap) .nav-toggle { display: none !important; }
+}
+
+/* The reference site switches to its mobile header at 920px. */
+@media (max-width: 920px) {
   .nav-wrap .nav-inner { display: flex; }
   .nav-wrap .nav-links,
   .nav-wrap .nav-cta-group { display: none !important; }
@@ -209,12 +249,15 @@
 }
 
 @media (max-width: 600px) {
-  .nav-wrap .nav-inner { width: 100%; max-width: 1340px; height: 64px; padding-inline: 24px; display: flex; }
+  .nav-wrap .nav-inner { width: 100%; max-width: 1340px; height: 88px; padding-inline: 16px; display: flex; }
   .nav-wrap .nav-logo { margin-right: 0 !important; }
   .nav-wrap .nav-logo > img { width: 38px; height: 38px; }
   .nav-wrap .nav-logo > span { font-size: 20px !important; }
-  .nav-wrap .mobile-nav { top: 64px; }
-  #gs-nav + .mobile-nav + div { height: 64px !important; }
-  .nav:not(.nav-wrap) .nav-inner { width: 100%; max-width: 1340px; height: 64px; padding-inline: 24px; }
+  .nav-wrap .mobile-nav { top: 88px; }
+  #gs-nav + .mobile-nav + div { height: 88px !important; }
+  .nav:not(.nav-wrap) .nav-inner { width: 100%; max-width: 1340px; height: 88px !important; padding-inline: 16px; }
   .nav:not(.nav-wrap) .brand strong { font-size: 20px !important; }
 }
+
+/* DC pages use a dedicated spacer immediately after the fixed navigation. */
+#gs-nav + .mobile-nav + div { height: 88px !important; }
