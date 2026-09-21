@@ -22,6 +22,45 @@ function jsonScript(value) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
+function headingText(value) {
+  return value
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function headingSlug(value) {
+  return value
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
+    .replace(/^-+|-+$/g, "") || "section";
+}
+
+function buildOutline(value) {
+  const used = new Map();
+  const headings = [];
+  const html = value.replace(/<h([23])([^>]*)>([\s\S]*?)<\/h\1>/g, (match, level, attributes, contents) => {
+    const label = headingText(contents);
+    const existing = attributes.match(/\sid=(?:"([^"]+)"|'([^']+)')/);
+    let id = existing?.[1] || existing?.[2] || headingSlug(label);
+    const count = (used.get(id) || 0) + 1;
+    used.set(id, count);
+    if (count > 1) id = `${id}-${count}`;
+    headings.push({ level: Number(level), id, label });
+    const nextAttributes = existing
+      ? attributes.replace(/\sid=(?:"[^"]+"|'[^']+')/, ` id="${escapeHtml(id)}"`)
+      : `${attributes} id="${escapeHtml(id)}"`;
+    return `<h${level}${nextAttributes}>${contents}</h${level}>`;
+  });
+  return { html, headings };
+}
+
 function imagePath(post, name) {
   return `/images/blog/${post.slug}/${name}.png`;
 }
@@ -57,7 +96,7 @@ function page({ title, description, canonical, body, image, schema }) {
     <meta name="google-site-verification" content="gdmg6fOLuu69ukM7o4I7kx-XXNC_OndwfW8P2d_B5tE"><meta name="naver-site-verification" content="f8a19268d108db6ff5481faf074b5ac3b5ee2850">
     <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><link rel="canonical" href="${canonical}">
     <meta property="og:type" content="${Array.isArray(schema) ? "article" : "website"}"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="거상스쿨"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}${image}">
-    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css"><link rel="stylesheet" href="/footer.css"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script>
+    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css"><link rel="stylesheet" href="/footer.css"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
     ${schema ? `<script type="application/ld+json">${jsonScript(schema)}</script>` : ""}
   </head><body>${header()}${body}${footer()}</body></html>\n`;
 }
@@ -86,7 +125,10 @@ function detail(post) {
   const content = post.sections.map((section, index) => `<section class="blog-article__section"><h2>${escapeHtml(section.title)}</h2>${section.html}<figure><img src="${imagePath(post, `body-${index + 1}`)}" alt="${escapeHtml(post.imageAlts[index])}" width="1672" height="941" loading="lazy"><figcaption>AI로 제작한 설명용 이미지</figcaption></figure></section>`).join("");
   const faqs = post.faq.map(([question, answer]) => `<div class="blog-faq__item"><h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p></div>`).join("");
   const sources = post.sources.map(([title, href]) => `<li><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a></li>`).join("");
-  const body = `<main><div class="blog-container"><nav class="blog-breadcrumb" aria-label="현재 위치"><a href="/">홈</a><span aria-hidden="true">/</span><a href="/blog">블로그</a><span aria-hidden="true">/</span><span>${escapeHtml(post.category)}</span></nav><article class="blog-article"><header class="blog-article__header"><span class="blog-article__category">${escapeHtml(post.category)}</span><h1>${escapeHtml(post.title)}</h1><p class="blog-article__summary">${escapeHtml(post.summary)}</p><div class="blog-article__meta"><span>${escapeHtml(post.author)}</span><span aria-hidden="true">·</span><time datetime="${post.published}">${post.published}</time></div></header><figure class="blog-article__cover"><img src="${imagePath(post, "cover")}" alt="${escapeHtml(post.coverAlt)}" width="1672" height="941" fetchpriority="high"><figcaption>AI로 제작한 설명용 이미지</figcaption></figure><div class="blog-article__body"><aside class="blog-answer"><strong>핵심 답변</strong><p>${escapeHtml(post.answer)}</p></aside><p class="blog-article__intro">${escapeHtml(post.intro)}</p>${content}<section class="blog-takeaway"><h2>핵심 정리</h2><p>${escapeHtml(post.takeaway)}</p></section><section class="blog-faq" aria-labelledby="blog-faq-heading"><h2 id="blog-faq-heading">자주 묻는 질문</h2>${faqs}</section><section class="blog-sources"><h2>참고 자료</h2><ul>${sources}</ul></section><div class="blog-article__cta"><p>배운 내용을 직접 적용해 보고 싶다면</p><a href="${escapeHtml(post.cta.href)}">${escapeHtml(post.cta.label)}</a></div></div></article><section class="blog-related" aria-labelledby="blog-related-heading"><div class="blog-related__top"><h2 id="blog-related-heading">같은 주제의 글</h2><a href="/blog">전체 글 보기 →</a></div><div class="blog-grid">${related.map(card).join("")}</div></section></div></main>`;
+  const rawArticleBody = `<aside class="blog-answer"><strong>핵심 답변</strong><p>${escapeHtml(post.answer)}</p></aside><p class="blog-article__intro">${escapeHtml(post.intro)}</p>${content}<section class="blog-takeaway"><h2>핵심 정리</h2><p>${escapeHtml(post.takeaway)}</p></section><section class="blog-faq" aria-labelledby="blog-faq-heading"><h2 id="blog-faq-heading">자주 묻는 질문</h2>${faqs}</section><section class="blog-sources"><h2>참고 자료</h2><ul>${sources}</ul></section><div class="blog-article__cta"><p>배운 내용을 직접 적용해 보고 싶다면</p><a href="${escapeHtml(post.cta.href)}">${escapeHtml(post.cta.label)}</a></div>`;
+  const outlined = buildOutline(rawArticleBody);
+  const toc = outlined.headings.length ? `<aside class="blog-toc" aria-label="이 글의 목차"><div class="blog-toc__panel"><button class="blog-toc__toggle" type="button" aria-expanded="false" aria-controls="blog-toc-list"><span>이 글의 목차</span><span class="blog-toc__toggle-icon" aria-hidden="true">⌄</span></button><p class="blog-toc__title">이 글의 목차</p><nav class="blog-toc__nav" id="blog-toc-list">${outlined.headings.map((heading) => `<a class="blog-toc__link blog-toc__link--h${heading.level}" href="#${escapeHtml(heading.id)}">${escapeHtml(heading.label)}</a>`).join("")}</nav></div></aside>` : "";
+  const body = `<main><div class="blog-container blog-detail-container"><nav class="blog-breadcrumb" aria-label="현재 위치"><a href="/">홈</a><span aria-hidden="true">/</span><a href="/blog">블로그</a><span aria-hidden="true">/</span><span>${escapeHtml(post.category)}</span></nav><div class="blog-detail-layout${toc ? "" : " blog-detail-layout--without-toc"}">${toc}<article class="blog-article"><header class="blog-article__header"><span class="blog-article__category">${escapeHtml(post.category)}</span><h1>${escapeHtml(post.title)}</h1><p class="blog-article__summary">${escapeHtml(post.summary)}</p><div class="blog-article__meta"><span>${escapeHtml(post.author)}</span><span aria-hidden="true">·</span><time datetime="${post.published}">${post.published}</time></div></header><figure class="blog-article__cover"><img src="${imagePath(post, "cover")}" alt="${escapeHtml(post.coverAlt)}" width="1672" height="941" fetchpriority="high"><figcaption>AI로 제작한 설명용 이미지</figcaption></figure><div class="blog-article__body" data-blog-content>${outlined.html}</div></article></div><section class="blog-related" aria-labelledby="blog-related-heading"><div class="blog-related__top"><h2 id="blog-related-heading">같은 주제의 글</h2><a href="/blog">전체 글 보기 →</a></div><div class="blog-grid">${related.map(card).join("")}</div></section></div></main>`;
   const schema = [
     { "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.summary, datePublished: post.published, dateModified: post.modified, author: { "@type": "Organization", name: "거상스쿨" }, publisher: { "@type": "Organization", name: "거상스쿨", url: origin }, image: `${origin}${imagePath(post, "cover")}`, mainEntityOfPage: url, inLanguage: "ko-KR" },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "홈", item: `${origin}/` }, { "@type": "ListItem", position: 2, name: "블로그", item: `${origin}/blog` }, { "@type": "ListItem", position: 3, name: post.title, item: url }] },
@@ -159,3 +201,4 @@ sitemap = sitemap.replace(/\s*<\/urlset>/, `\n${additions}\n</urlset>`);
 writeIfChanged(sitemapFile, sitemap);
 
 console.log(`Built blog index, ${posts.length} posts, navigation, routes and sitemap.`);
+module.exports = { buildOutline };
