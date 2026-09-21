@@ -67,11 +67,8 @@ function imagePath(post, name) {
 
 function header() {
   const links = [
-    ["/about", "소개"], ["/courses", "전체 교육과정"],
-    ["/courses/ai-marketing-school", "AI마케팅스쿨"],
-    ["/courses/short-courses", "단기 클래스"], ["/resources", "학습자료"],
-    ["/blog", "블로그"], ["/reviews", "수강후기"],
-    ["/contact", "상담문의"], ["/support", "학습지원"],
+    ["/about", "거상스쿨 소개"], ["/courses", "교육과정"],
+    ["/blog", "블로그"], ["/board", "게시판"], ["/contact", "상담문의"],
   ];
   const desktop = links.map(([href, label]) => `<a class="nav-link" href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
   const mobile = links.map(([href, label]) => `<a href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
@@ -87,7 +84,7 @@ function footer() {
   return `<footer class="gs-footer"><div class="gs-footer__inner"><div class="gs-footer__top">
     <section class="gs-footer__brand" aria-label="거상스쿨 소개"><a class="gs-footer__brand-link" href="/" aria-label="거상스쿨 홈으로 이동"><img src="/logo.png" alt="거상스쿨 로고" width="52" height="52"><span><strong class="gs-footer__brand-name">거상스쿨</strong><span class="gs-footer__brand-tagline">AI로 돈 버는 실전 교육 플랫폼</span></span></a><p class="gs-footer__description">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p></section>
     <section class="gs-footer__company" aria-labelledby="blog-footer-company"><h2 class="gs-footer__title" id="blog-footer-company">회사 정보</h2><p class="gs-footer__company-name">거상스쿨(주)</p><dl class="gs-footer__company-list"><dt>대표자명</dt><dd class="gs-footer__nowrap">임헌수</dd><dt>개인정보관리자</dt><dd class="gs-footer__nowrap">권현임</dd><dt>사업자등록번호</dt><dd class="gs-footer__nowrap">711-86-01966</dd><dt>이메일</dt><dd class="gs-footer__email"><a href="mailto:geosangschool@naver.com">geosangschool@naver.com</a></dd><dt>전화</dt><dd><a class="gs-footer__nowrap" href="tel:01057958075">010-5795-8075</a></dd><dt>주소</dt><dd>서울 강남구 테헤란로 313, 915호</dd></dl></section>
-    <nav class="gs-footer__student" aria-label="수강생 메뉴"><h2 class="gs-footer__title">수강생</h2><div class="gs-footer__student-links"><a href="/login">수강생 로그인</a><a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실</a><a href="/resources">학습자료</a></div></nav>
+    <nav class="gs-footer__student" aria-label="수강생 메뉴"><h2 class="gs-footer__title">수강생</h2><div class="gs-footer__student-links"><a href="/login">수강생 로그인</a><a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실</a><a href="/board">게시판</a></div></nav>
   </div><div class="gs-footer__bottom"><p class="gs-footer__copyright">© 2026 거상스쿨(주). All rights reserved.</p><div class="gs-footer__family"><span class="gs-footer__status" aria-hidden="true"></span><p class="gs-footer__family-text">거상마케팅센터 패밀리 브랜드</p></div></div></div></footer>`;
 }
 
@@ -155,19 +152,18 @@ for (const name of htmlFiles) {
   const file = path.join(root, name);
   let html = fs.readFileSync(file, "utf8");
   if (name === "AI홈페이지스쿨.dc.html") {
-    if (!html.includes('<a href="/blog">블로그</a>')) {
-      html = html.replace('<a href="/courses/ai-homepage-school" aria-current="page">AI홈페이지스쿨</a>', '<a href="/courses/ai-homepage-school" aria-current="page">AI홈페이지스쿨</a><a href="/blog">블로그</a>');
-      html = html.replace('<a href="/courses/ai-homepage-school">AI홈페이지스쿨</a>', '<a href="/courses/ai-homepage-school">AI홈페이지스쿨</a><a href="/blog">블로그</a>');
-    }
+    const legacyLinks = '<a href="/about">거상스쿨 소개</a><a href="/courses" aria-current="page">교육과정</a><a href="/blog">블로그</a><a href="/board">게시판</a><a href="/contact">상담문의</a>';
+    html = html.replace(/<div class="nav-links">[\s\S]*?<\/div>\s*<div class="nav-actions">/, `<div class="nav-links">${legacyLinks}</div><div class="nav-actions">`);
+    html = html.replace(/<div class="mobile-menu"[^>]*>[\s\S]*?<\/div>\s*<\/header>/, `<div class="mobile-menu" id="mobile-menu">${legacyLinks}<a class="mobile-login" href="/login">수강생 로그인</a></div></header>`);
     html = html.replace('<a class="btn btn-primary" href="/contact">수강 신청</a>', '<a class="btn btn-login" href="/login">수강생 로그인</a>');
     html = html.replace('<a class="mobile-cta" href="/contact">수강 신청</a>', '<a class="mobile-login" href="/login">수강생 로그인</a>');
   } else {
-    if (!html.includes('<a href="/blog" class="nav-link">블로그</a>')) {
-      html = html.replace(/(<a href="\/resources" class="nav-link[^"]*"[^>]*>학습자료<\/a>)(\r?\n)/, (_, anchor, newline) => `${anchor}${newline}      <a href="/blog" class="nav-link">블로그</a>\n`);
-    }
-    if (!html.includes('<a href="/blog" onClick="{{ toggleMenu }}">블로그</a>')) {
-      html = html.replace(/(<a href="\/resources" onClick="{{ toggleMenu }}"[^>]*>학습자료<\/a>)(\r?\n)/, (_, anchor, newline) => `${anchor}${newline}  <a href="/blog" onClick="{{ toggleMenu }}">블로그</a>\n`);
-    }
+    const active = name === "거상스쿨 소개.dc.html" ? "/about" : name === "전체 교육과정.dc.html" || name.includes("스쿨.dc.html") || name === "단기 클래스.dc.html" ? "/courses" : name === "상담문의.dc.html" ? "/contact" : "";
+    const links = [["/about","거상스쿨 소개"],["/courses","교육과정"],["/blog","블로그"],["/board","게시판"],["/contact","상담문의"]];
+    const desktop = links.map(([href,label]) => `      <a href="${href}" class="nav-link${active === href ? " active" : ""}">${label}</a>`).join("\n");
+    const mobile = links.map(([href,label]) => `  <a href="${href}" onClick="{{ toggleMenu }}"${active === href ? ' style="color:#60a5fa;font-weight:600;"' : ""}>${label}</a>`).join("\n");
+    html = html.replace(/<div class="nav-links">[\s\S]*?<\/div>\s*<div class="nav-cta-group">/, `<div class="nav-links">\n${desktop}\n    </div>\n    <div class="nav-cta-group">`);
+    html = html.replace(/<div class="{{ mobileNavClass }}">[\s\S]*?<\/div>\s*<div style="height:78px;">/, `<div class="{{ mobileNavClass }}">\n${mobile}\n  <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>\n</div>\n<div style="height:78px;">`);
   }
   const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260922-2">';
   if (/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/.test(html)) {
@@ -177,9 +173,11 @@ for (const name of htmlFiles) {
   }
   html = html.replace(/\s*<a[^>]*class="btn-nav-main"[^>]*>[^<]*<\/a>/g, "");
   html = html.replace(/\s*<a[^>]*class="mob-cta"[^>]*>[^<]*<\/a>/g, "");
-  const navigationReady = name === "AI홈페이지스쿨.dc.html"
-    ? (html.match(/<a href="\/blog">블로그<\/a>/g) || []).length === 2
-    : html.includes('<a href="/blog" class="nav-link">블로그</a>') && html.includes('<a href="/blog" onClick="{{ toggleMenu }}">블로그</a>');
+  html = html.replace(/href="\/resources"/g, 'href="/board?category=무료자료"');
+  html = html.replace(/href="\/reviews"/g, 'href="/board?category=수강후기"');
+  html = html.replace(/href="\/support"/g, 'href="/login#help"');
+  html = html.replace(/<a href="\/board\?category=무료자료">학습자료<\/a>/g, '<a href="/board">게시판</a>');
+  const navigationReady = html.includes('href="/board"') && html.includes('href="/blog"');
   if (!navigationReady) throw new Error(`Navigation not updated: ${name}`);
   writeIfChanged(file, html);
 }
@@ -187,21 +185,33 @@ for (const name of htmlFiles) {
 const configFile = path.join(root, "vercel.json");
 const configText = fs.readFileSync(configFile, "utf8");
 const config = JSON.parse(configText);
-config.rewrites = config.rewrites.filter((rule) => rule.source !== "/blog" && !rule.source.startsWith("/blog/"));
+config.redirects = config.redirects.filter((rule) => !["/resources", "/reviews", "/support"].includes(rule.source));
+config.redirects.push(
+  { source: "/resources", destination: "/board?category=무료자료", permanent: true },
+  { source: "/reviews", destination: "/board?category=수강후기", permanent: true },
+  { source: "/support", destination: "/login#help", permanent: true },
+);
+config.rewrites = config.rewrites.filter((rule) => !["/resources", "/reviews", "/support", "/blog", "/board", "/board/ai-marketing-school", "/board/student-classroom-guide"].includes(rule.source) && !rule.source.startsWith("/blog/"));
 config.rewrites.push({ source: "/blog", destination: "/blog.html" });
 for (const post of posts) config.rewrites.push({ source: `/blog/${post.slug}`, destination: `/blog-${post.slug}.html` });
+config.rewrites.push({ source: "/board", destination: "/board.html" });
+config.rewrites.push({ source: "/board/ai-marketing-school", destination: "/board-ai-marketing-school.html" });
+config.rewrites.push({ source: "/board/student-classroom-guide", destination: "/board-student-classroom-guide.html" });
+const redirectsStart = configText.indexOf('  "redirects": [');
 const rewriteStart = configText.indexOf('  "rewrites": [');
 if (rewriteStart < 0) throw new Error("Missing Vercel rewrites");
+const compactRedirects = config.redirects.map(({ source, destination, permanent }) => `    { "source": "${source}", "destination": "${destination}", "permanent": ${permanent} }`).join(",\n");
 const compactRewrites = config.rewrites.map(({ source, destination }) => `    { "source": "${source}", "destination": "${destination}" }`).join(",\n");
-writeIfChanged(configFile, `${configText.slice(0, rewriteStart)}  "rewrites": [\n${compactRewrites}\n  ]\n}\n`);
+writeIfChanged(configFile, `${configText.slice(0, redirectsStart)}  "redirects": [\n${compactRedirects}\n  ],\n  "rewrites": [\n${compactRewrites}\n  ]\n}\n`);
 
 const sitemapFile = path.join(root, "sitemap.xml");
 let sitemap = fs.readFileSync(sitemapFile, "utf8");
-sitemap = sitemap.replace(/\s*<url>\s*<loc>https:\/\/www\.geosangschool\.co\.kr\/blog(?:\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g, "");
+sitemap = sitemap.replace(/\s*<url>\s*<loc>https:\/\/www\.geosangschool\.co\.kr\/(?:blog|board|resources|reviews|support)(?:\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g, "");
 const latest = posts.map((post) => post.modified).sort().at(-1);
 const blogUrls = [{ slug: "", modified: latest }, ...posts.map((post) => ({ slug: `/${post.slug}`, modified: post.modified }))];
 const additions = blogUrls.map((entry) => `  <url>\n    <loc>${origin}/blog${entry.slug}</loc>\n    <lastmod>${entry.modified}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${entry.slug ? "0.7" : "0.8"}</priority>\n  </url>`).join("\n");
-sitemap = sitemap.replace(/\s*<\/urlset>/, `\n${additions}\n</urlset>`);
+const boardUrls = ["", "/ai-marketing-school", "/student-classroom-guide"].map((slug) => `  <url>\n    <loc>${origin}/board${slug}</loc>\n    <lastmod>2026-09-22</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${slug ? "0.6" : "0.8"}</priority>\n  </url>`).join("\n");
+sitemap = sitemap.replace(/\s*<\/urlset>/, `\n${additions}\n${boardUrls}\n</urlset>`);
 writeIfChanged(sitemapFile, sitemap);
 
 console.log(`Built blog index, ${posts.length} posts, navigation, routes and sitemap.`);

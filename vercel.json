@@ -9,7 +9,10 @@
     }
   ],
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true }
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/resources", "destination": "/board?category=무료자료", "permanent": true },
+    { "source": "/reviews", "destination": "/board?category=수강후기", "permanent": true },
+    { "source": "/support", "destination": "/login#help", "permanent": true }
   ],
   "rewrites": [
     { "source": "/", "destination": "/거상스쿨 홈.dc.html" },
@@ -18,9 +21,6 @@
     { "source": "/courses/ai-marketing-school", "destination": "/AI마케팅스쿨.dc.html" },
     { "source": "/courses/ai-homepage-school", "destination": "/AI홈페이지스쿨.dc.html" },
     { "source": "/courses/short-courses", "destination": "/단기 클래스.dc.html" },
-    { "source": "/reviews", "destination": "/수강후기.dc.html" },
-    { "source": "/resources", "destination": "/학습자료.dc.html" },
-    { "source": "/support", "destination": "/학습지원.dc.html" },
     { "source": "/contact", "destination": "/상담문의.dc.html" },
     { "source": "/login", "destination": "/수강생 로그인.dc.html" },
     { "source": "/blog", "destination": "/blog.html" },
@@ -29,6 +29,9 @@
     { "source": "/blog/reels-30-second-script", "destination": "/blog-reels-30-second-script.html" },
     { "source": "/blog/threads-profile-guide", "destination": "/blog-threads-profile-guide.html" },
     { "source": "/blog/threads-opening-lines", "destination": "/blog-threads-opening-lines.html" },
-    { "source": "/blog/threads-post-structure", "destination": "/blog-threads-post-structure.html" }
+    { "source": "/blog/threads-post-structure", "destination": "/blog-threads-post-structure.html" },
+    { "source": "/board", "destination": "/board.html" },
+    { "source": "/board/ai-marketing-school", "destination": "/board-ai-marketing-school.html" },
+    { "source": "/board/student-classroom-guide", "destination": "/board-student-classroom-guide.html" }
   ]
 }

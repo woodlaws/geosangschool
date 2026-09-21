@@ -226,15 +226,11 @@ input,textarea,select,label{font-size:19px!important;}
       <span style="font-family:'Noto Sans KR',sans-serif; font-weight:800; font-size:17px; color:#0b1b3f; letter-spacing:-.4px; white-space:nowrap;">거상스쿨</span>
     </a>
     <div class="nav-links">
-      <a href="/about" class="nav-link active">소개</a>
-      <a href="/courses" class="nav-link">전체 교육과정</a>
-      <a href="/courses/ai-marketing-school" class="nav-link">AI마케팅스쿨</a>
-      <a href="/courses/short-courses" class="nav-link">단기 클래스</a>
-      <a href="/resources" class="nav-link">학습자료</a>
+      <a href="/about" class="nav-link active">거상스쿨 소개</a>
+      <a href="/courses" class="nav-link">교육과정</a>
       <a href="/blog" class="nav-link">블로그</a>
-      <a href="/reviews" class="nav-link">수강후기</a>
+      <a href="/board" class="nav-link">게시판</a>
       <a href="/contact" class="nav-link">상담문의</a>
-      <a href="/support" class="nav-link">학습지원</a>
     </div>
     <div class="nav-cta-group">
       <a href="/login" class="btn-nav-sub">수강생 로그인</a>
@@ -246,18 +242,13 @@ input,textarea,select,label{font-size:19px!important;}
 </nav>
 
 <div class="{{ mobileNavClass }}">
-  <a href="/about" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">소개</a>
-  <a href="/courses" onClick="{{ toggleMenu }}">전체 교육과정</a>
-  <a href="/courses/ai-marketing-school" onClick="{{ toggleMenu }}">AI마케팅스쿨</a>
-  <a href="/courses/short-courses" onClick="{{ toggleMenu }}">단기 클래스</a>
-  <a href="/resources" onClick="{{ toggleMenu }}">학습자료</a>
+  <a href="/about" onClick="{{ toggleMenu }}" style="color:#60a5fa;font-weight:600;">거상스쿨 소개</a>
+  <a href="/courses" onClick="{{ toggleMenu }}">교육과정</a>
   <a href="/blog" onClick="{{ toggleMenu }}">블로그</a>
-  <a href="/reviews" onClick="{{ toggleMenu }}">수강후기</a>
+  <a href="/board" onClick="{{ toggleMenu }}">게시판</a>
   <a href="/contact" onClick="{{ toggleMenu }}">상담문의</a>
-  <a href="/support" onClick="{{ toggleMenu }}">학습지원</a>
   <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>
 </div>
-
 <div style="height:78px;"></div>
 
 <!-- ══════════════════════════════════ -->
@@ -796,7 +787,7 @@ input,textarea,select,label{font-size:19px!important;}
         </ul>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;"><a href="/courses/ai-homepage-school" style="font-size:12.5px; font-weight:700; color:#7c3aed;">자세히 보기 →</a><a href="https://aihomepage-school.vercel.app/" target="_blank" rel="noopener noreferrer" style="font-size:12px; font-weight:600; color:#64748b;">독립 랜딩페이지 ↗</a></div>
       </article>
-      <a href="/reviews" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
+      <a href="/board?category=수강후기" class="card-h" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:28px 24px; box-shadow:0 1px 4px rgba(0,0,0,.04);">
         <div style="width:44px; height:44px; background:linear-gradient(135deg,#059669,#10b981); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;">
           <span style="font-family:Montserrat,sans-serif; font-weight:800; font-size:12px; color:#fff;">★</span>
         </div>
@@ -847,7 +838,7 @@ input,textarea,select,label{font-size:19px!important;}
         <div class="gs-footer__student-links">
           <a href="/login">수강생 로그인</a>
           <a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실</a>
-          <a href="/resources">학습자료</a>
+          <a href="/board">게시판</a>
         </div>
       </nav>
     </div>
