@@ -65,12 +65,12 @@
 .blog-page .blog-toc__link{font-size:15px}
 .blog-page .blog-toc__link--h3{font-size:14px}
 
-@media(min-width:1251px) and (max-width:1599px){.blog-page{padding-top:126px}.blog-toc{top:150px;max-height:calc(100vh - 174px)}.blog-article__body :is(h2,h3)[id]{scroll-margin-top:152px}}
 
 @media(max-width:768px){.blog-page{font-size:18px}}
 @media(max-width:600px){.blog-page{padding-top:64px}.blog-page .blog-card__body p{font-size:17px}.blog-page .blog-card__meta{font-size:14px}.blog-page .blog-breadcrumb{font-size:14px}.blog-page .blog-article__body{font-size:16.5px}.blog-page .blog-toc__link{font-size:15px}.blog-page .blog-toc__link--h3{font-size:14px}}
 
 /* Share the site's 1340px / 24px content alignment with the fixed header. */
 .blog-container{box-sizing:border-box;width:100%;max-width:1340px;margin-inline:auto;padding-inline:24px}
-@media(min-width:1251px){.blog-page{padding-top:126px}.blog-toc{top:150px;max-height:calc(100vh - 174px)}.blog-article__body :is(h2,h3)[id]{scroll-margin-top:152px}}
+@media(min-width:601px){.blog-page{padding-top:78px}}
+@media(min-width:1021px){.blog-toc{top:102px;max-height:calc(100vh - 126px)}.blog-article__body :is(h2,h3)[id]{scroll-margin-top:104px}}
 @media(max-width:600px){.blog-container,.blog-detail-container{width:100%;max-width:1340px;padding-inline:24px}}

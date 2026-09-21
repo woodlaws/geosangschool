@@ -11,12 +11,10 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 1340px;
-  height: 126px;
+  height: 78px;
   margin-inline: auto;
   padding-inline: 24px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 64px 62px;
+  display: flex;
   align-items: center;
   gap: 0;
 }
@@ -137,36 +135,11 @@
 .nav:not(.nav-wrap) .brand strong { font-size: 26px !important; font-weight: 800 !important; }
 .nav:not(.nav-wrap) .nav-links a { font-size: 20px !important; font-weight: 600 !important; }
 .nav:not(.nav-wrap) .nav-links a.btn { font-size: 18px !important; font-weight: 700 !important; }
+.nav:not(.nav-wrap) .nav-links a.btn-login { font-size: 17px !important; }
 .nav:not(.nav-wrap) .mobile-nav a { font-size: 19px !important; }
 
-/* A 1340px content grid needs two rows to preserve the 20px desktop navigation. */
-@media (min-width: 1251px) {
-  .nav-wrap .nav-logo { grid-column: 1; grid-row: 1; margin-right: 0 !important; }
-  .nav-wrap .nav-cta-group { grid-column: 3; grid-row: 1; margin-left: 0 !important; }
-  .nav-wrap .nav-links {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    width: 100%;
-    justify-content: center;
-    gap: clamp(4px, 1.2vw, 16px);
-  }
-  .nav-wrap .nav-link { padding-inline: 7px !important; }
-  #gs-nav + .mobile-nav + div { height: 126px !important; }
-
-  .nav:not(.nav-wrap) .nav-inner {
-    height: 126px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 64px 62px;
-    gap: 0;
-  }
-  .nav:not(.nav-wrap) .brand { grid-column: 1; grid-row: 1; }
-  .nav:not(.nav-wrap) .nav-links { grid-column: 1 / -1; grid-row: 2; width: 100%; justify-content: center; gap: clamp(4px, 1vw, 14px); margin-left: 0; }
-  .nav:not(.nav-wrap) + main .hero { padding-top: 202px; }
-}
-
 /* Use one mobile breakpoint instead of shrinking desktop typography. */
-@media (max-width: 1250px) {
+@media (max-width: 1279px) {
   .nav-wrap .nav-links,
   .nav-wrap .nav-cta-group { display: none !important; }
   .nav-wrap .hamburger { display: flex !important; }

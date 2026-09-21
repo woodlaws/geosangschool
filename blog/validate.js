@@ -19,7 +19,7 @@ assert.equal((listing.match(/class="blog-card" data-category="릴스"/g) || []).
 assert.equal((listing.match(/class="blog-card" data-category="스레드"/g) || []).length, 3);
 assert.match(listing, /<link rel="canonical" href="https:\/\/www\.geosangschool\.co\.kr\/blog">/);
 assert.match(listing, /class="nav-wrap"/);
-assert.match(listing, /class="btn-nav-main"[^>]*>AI마케팅스쿨 신청하기/);
+assert.doesNotMatch(listing, /<a[^>]+class="(?:btn-nav-main|mob-cta)"/);
 assert.match(listing, /class="btn-nav-sub"[^>]*>수강생 로그인/);
 assert.doesNotMatch(listing, /class="blog-header"|class="blog-nav"/);
 
@@ -65,6 +65,7 @@ assert.equal(imageHashes.size, 30);
 for (const file of fs.readdirSync(root).filter((name) => name.endsWith(".dc.html"))) {
   const html = read(file);
   assert.equal((html.match(/href="\/blog"/g) || []).length, 2, file);
+  assert.doesNotMatch(html, /<a[^>]+class="(?:btn-nav-main|mob-cta)"/, file);
 }
 const sitemap = read("sitemap.xml");
 for (const slug of ["", ...slugs.map((value) => `/${value}`)]) assert.ok(sitemap.includes(`<loc>https://www.geosangschool.co.kr/blog${slug}</loc>`));
