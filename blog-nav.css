@@ -8,12 +8,15 @@
   box-shadow: 0 2px 16px rgba(15, 23, 42, .04);
 }
 .nav-wrap .nav-inner {
-  width: min(100% - 48px, 1760px);
-  max-width: 1760px;
-  height: 78px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1340px;
+  height: 126px;
   margin-inline: auto;
-  padding-inline: 0;
-  display: flex;
+  padding-inline: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 64px 62px;
   align-items: center;
   gap: 0;
 }
@@ -129,28 +132,15 @@
 }
 .nav-wrap .mobile-nav a[aria-current="page"] { color: #2563eb; background: #eff6ff; border-radius: 8px; }
 
-/* The standalone AI Homepage course uses legacy class names; keep its header typography aligned. */
-.nav:not(.nav-wrap) .nav-inner { width: min(100% - 48px, 1760px); max-width: 1760px; }
+/* The standalone AI Homepage course uses legacy class names; keep its header aligned too. */
+.nav:not(.nav-wrap) .nav-inner { box-sizing: border-box; width: 100%; max-width: 1340px; margin-inline: auto; padding-inline: 24px; }
 .nav:not(.nav-wrap) .brand strong { font-size: 26px !important; font-weight: 800 !important; }
 .nav:not(.nav-wrap) .nav-links a { font-size: 20px !important; font-weight: 600 !important; }
 .nav:not(.nav-wrap) .nav-links a.btn { font-size: 18px !important; font-weight: 700 !important; }
 .nav:not(.nav-wrap) .mobile-nav a { font-size: 19px !important; }
 
-/* Keep large desktop headers on one line. */
-@media (min-width: 1600px) {
-  .nav-wrap .nav-logo { margin-right: 24px !important; }
-  .nav-wrap .nav-links { gap: 2px; }
-  .nav-wrap .nav-cta-group { margin-left: 14px !important; }
-}
-
-/* Preserve 20px navigation at narrower PC widths by using a two-row header. */
-@media (min-width: 1251px) and (max-width: 1599px) {
-  .nav-wrap .nav-inner {
-    height: 126px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 64px 62px;
-  }
+/* A 1340px content grid needs two rows to preserve the 20px desktop navigation. */
+@media (min-width: 1251px) {
   .nav-wrap .nav-logo { grid-column: 1; grid-row: 1; margin-right: 0 !important; }
   .nav-wrap .nav-cta-group { grid-column: 3; grid-row: 1; margin-left: 0 !important; }
   .nav-wrap .nav-links {
@@ -186,12 +176,12 @@
 }
 
 @media (max-width: 600px) {
-  .nav-wrap .nav-inner { width: min(100% - 32px, 1400px); height: 64px; }
+  .nav-wrap .nav-inner { width: 100%; max-width: 1340px; height: 64px; padding-inline: 24px; display: flex; }
   .nav-wrap .nav-logo { margin-right: 0 !important; }
   .nav-wrap .nav-logo > img { width: 38px; height: 38px; }
   .nav-wrap .nav-logo > span { font-size: 20px !important; }
   .nav-wrap .mobile-nav { top: 64px; }
   #gs-nav + .mobile-nav + div { height: 64px !important; }
-  .nav:not(.nav-wrap) .nav-inner { width: min(100% - 32px, 1760px); height: 64px; }
+  .nav:not(.nav-wrap) .nav-inner { width: 100%; max-width: 1340px; height: 64px; padding-inline: 24px; }
   .nav:not(.nav-wrap) .brand strong { font-size: 20px !important; }
 }

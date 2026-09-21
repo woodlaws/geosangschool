@@ -96,7 +96,7 @@ function page({ title, description, canonical, body, image, schema }) {
     <meta name="google-site-verification" content="gdmg6fOLuu69ukM7o4I7kx-XXNC_OndwfW8P2d_B5tE"><meta name="naver-site-verification" content="f8a19268d108db6ff5481faf074b5ac3b5ee2850">
     <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><link rel="canonical" href="${canonical}">
     <meta property="og:type" content="${Array.isArray(schema) ? "article" : "website"}"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="거상스쿨"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}${image}">
-    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css?v=20260921-2"><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="/blog-nav.css?v=20260921-2"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
+    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css?v=20260922-1"><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="/blog-nav.css?v=20260922-1"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
     ${schema ? `<script type="application/ld+json">${jsonScript(schema)}</script>` : ""}
   </head><body class="blog-page">${header()}${body}${footer()}</body></html>\n`;
 }
@@ -167,7 +167,7 @@ for (const name of htmlFiles) {
       html = html.replace(/(<a href="\/resources" onClick="{{ toggleMenu }}"[^>]*>학습자료<\/a>)(\r?\n)/, (_, anchor, newline) => `${anchor}${newline}  <a href="/blog" onClick="{{ toggleMenu }}">블로그</a>\n`);
     }
   }
-  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260921-2">';
+  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260922-1">';
   if (/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/.test(html)) {
     html = html.replace(/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/, navStyle);
   } else {
