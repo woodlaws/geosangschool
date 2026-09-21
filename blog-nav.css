@@ -1,13 +1,146 @@
-/* The extra Blog item needs a little more room than the legacy navigation. */
-@media (min-width: 1151px) and (max-width: 1500px) {
-  .nav-links .nav-link { font-size: 14px !important; padding: 6px 5px !important; }
-  .nav-cta-group .btn-nav-main { font-size: 13px !important; padding: 8px 10px !important; }
-  .nav-cta-group .btn-nav-sub { font-size: 13px !important; padding: 7px 8px !important; }
-  .nav-logo { margin-right: 18px !important; }
-  .nav-cta-group { margin-left: 8px !important; }
+/* Shared desktop and mobile header sizing for the site and generated blog. */
+.nav-wrap {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #e8edf4;
+  box-shadow: 0 2px 16px rgba(15, 23, 42, .04);
 }
-@media (min-width: 881px) and (max-width: 1150px) {
-  .nav-links, .nav-cta-group { display: none !important; }
-  .hamburger { display: flex !important; }
+.nav-wrap .nav-inner {
+  width: min(100% - 40px, 1400px);
+  max-width: 1400px;
+  height: 78px;
+  margin-inline: auto;
+  padding-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.nav-wrap .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
+  margin-right: 18px !important;
+  color: #0b1b3f;
+  white-space: nowrap;
+}
+.nav-wrap .nav-logo > img { width: 42px; height: 42px; object-fit: contain; }
+.nav-wrap .nav-logo > span {
+  color: #0b1b3f !important;
+  font-family: "Noto Sans KR", Arial, sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  white-space: nowrap;
+}
+.nav-wrap .nav-links { display: flex; align-items: center; gap: 0; flex: 1 1 auto; min-width: 0; }
+.nav-wrap .nav-link {
+  padding: 7px 5px !important;
+  border-radius: 7px;
+  color: #334155;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.nav-wrap .nav-link:hover,
+.nav-wrap .nav-link[aria-current="page"] { color: #2563eb; background: #eff6ff; }
+.nav-wrap .nav-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  margin-left: 8px !important;
+}
+.nav-wrap .btn-nav-main,
+.nav-wrap .btn-nav-sub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nav-wrap .btn-nav-main {
+  padding: 9px 12px !important;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px !important;
+  font-weight: 700;
+}
+.nav-wrap .btn-nav-main:hover { background: #1d4ed8; }
+.nav-wrap .btn-nav-sub {
+  padding: 8px 11px !important;
+  border: 1.5px solid #d1d5db;
+  border-radius: 7px;
+  color: #374151;
+  font-size: 15px !important;
+}
+.nav-wrap .btn-nav-sub:hover { border-color: #2563eb; color: #2563eb; }
+.nav-wrap .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: auto;
+}
+.nav-wrap .hamburger span { display: block; width: 23px; height: 2px; margin: 0; background: #1e293b; border-radius: 2px; }
+.nav-wrap .mobile-nav[hidden] { display: none !important; }
+.blog-page .mobile-nav:not([hidden]) { display: flex; }
+.nav-wrap .mobile-nav {
+  flex-direction: column;
+  position: fixed;
+  inset: 78px 0 0;
+  background: #fff;
+  border-top: 1px solid #e8edf4;
+  padding: 16px 20px 32px;
+  gap: 2px;
+  z-index: 999;
+  overflow-y: auto;
+}
+.nav-wrap .mobile-nav a {
+  display: block;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+  font-size: 19px !important;
+  font-weight: 600;
+}
+.nav-wrap .mobile-nav .mob-cta {
+  margin-top: 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+.nav-wrap .mobile-nav .mob-login {
+  margin-top: 8px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  text-align: center;
+}
+.nav-wrap .mobile-nav a[aria-current="page"] { color: #2563eb; background: #eff6ff; border-radius: 8px; }
+
+/* Use one mobile breakpoint instead of shrinking desktop typography. */
+@media (max-width: 1250px) {
+  .nav-wrap .nav-links,
+  .nav-wrap .nav-cta-group { display: none !important; }
+  .nav-wrap .hamburger { display: flex !important; }
   .nav-toggle { display: block !important; }
+}
+
+@media (max-width: 600px) {
+  .nav-wrap .nav-inner { width: min(100% - 32px, 1400px); height: 64px; }
+  .nav-wrap .nav-logo { margin-right: 0 !important; }
+  .nav-wrap .nav-logo > img { width: 38px; height: 38px; }
+  .nav-wrap .nav-logo > span { font-size: 20px !important; }
+  .nav-wrap .mobile-nav { top: 64px; }
 }

@@ -18,6 +18,10 @@ const listing = read("blog.html");
 assert.equal((listing.match(/class="blog-card" data-category="릴스"/g) || []).length, 3);
 assert.equal((listing.match(/class="blog-card" data-category="스레드"/g) || []).length, 3);
 assert.match(listing, /<link rel="canonical" href="https:\/\/www\.geosangschool\.co\.kr\/blog">/);
+assert.match(listing, /class="nav-wrap"/);
+assert.match(listing, /class="btn-nav-main"[^>]*>AI마케팅스쿨 신청하기/);
+assert.match(listing, /class="btn-nav-sub"[^>]*>수강생 로그인/);
+assert.doesNotMatch(listing, /class="blog-header"|class="blog-nav"/);
 
 for (const post of posts) {
   assert.equal(post.slug, slugs.find((slug) => slug === post.slug));
@@ -34,6 +38,8 @@ for (const post of posts) {
   assert.match(html, /\/analytics\.js/);
   assert.match(html, /\/blog-toc\.js/);
   assert.match(html, /class="blog-detail-layout"/);
+  assert.match(html, /class="nav-wrap"/);
+  assert.doesNotMatch(html, /class="blog-header"|class="blog-nav"/);
   assert.match(html, /class="blog-toc" aria-label="이 글의 목차"/);
   const content = html.match(/<div class="blog-article__body" data-blog-content>([\s\S]*?)<\/div><\/article>/)?.[1];
   assert.ok(content, `Missing scoped article body: ${post.slug}`);

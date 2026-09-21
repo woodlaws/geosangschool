@@ -73,14 +73,14 @@ function header() {
     ["/blog", "블로그"], ["/reviews", "수강후기"],
     ["/contact", "상담문의"], ["/support", "학습지원"],
   ];
-  const desktop = links.map(([href, label]) => `<a href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
-  const mobile = links.map(([href, label]) => `<a href="${href}">${label}</a>`).join("");
-  return `<header class="blog-header"><div class="blog-header__inner">
-    <a class="blog-brand" href="/" aria-label="거상스쿨 홈으로 이동"><img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" width="42" height="42"><span>거상스쿨</span></a>
-    <nav class="blog-nav" aria-label="주 메뉴">${desktop}</nav>
-    <a class="blog-header__cta" href="/contact">상담문의</a>
-    <button class="blog-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="blog-mobile-nav"><span></span><span></span><span></span></button>
-  </div><nav id="blog-mobile-nav" class="blog-mobile-nav" aria-label="모바일 메뉴" hidden>${mobile}<a href="/contact" class="blog-mobile-nav__cta">상담문의</a></nav></header>`;
+  const desktop = links.map(([href, label]) => `<a class="nav-link" href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
+  const mobile = links.map(([href, label]) => `<a href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
+  return `<nav id="gs-nav" class="nav-wrap" aria-label="주 메뉴"><div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="거상스쿨 홈으로 이동"><img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" width="42" height="42"><span>거상스쿨</span></a>
+    <div class="nav-links">${desktop}</div>
+    <div class="nav-cta-group"><a class="btn-nav-main" href="https://www.aimarketing.school/" target="_blank" rel="noopener noreferrer">AI마케팅스쿨 신청하기</a><a class="btn-nav-sub" href="/login">수강생 로그인</a></div>
+    <button class="hamburger blog-menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="blog-mobile-nav"><span></span><span></span><span></span></button>
+  </div><div id="blog-mobile-nav" class="mobile-nav" aria-label="모바일 메뉴" hidden>${mobile}<a href="https://www.aimarketing.school/" target="_blank" rel="noopener noreferrer" class="mob-cta">AI마케팅스쿨 신청하기</a><a href="/login" class="mob-login">수강생 로그인</a></div></nav>`;
 }
 
 function footer() {
@@ -96,9 +96,9 @@ function page({ title, description, canonical, body, image, schema }) {
     <meta name="google-site-verification" content="gdmg6fOLuu69ukM7o4I7kx-XXNC_OndwfW8P2d_B5tE"><meta name="naver-site-verification" content="f8a19268d108db6ff5481faf074b5ac3b5ee2850">
     <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><link rel="canonical" href="${canonical}">
     <meta property="og:type" content="${Array.isArray(schema) ? "article" : "website"}"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="거상스쿨"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}${image}">
-    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css"><link rel="stylesheet" href="/footer.css"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
+    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css?v=20260921-1"><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="/blog-nav.css?v=20260921-1"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
     ${schema ? `<script type="application/ld+json">${jsonScript(schema)}</script>` : ""}
-  </head><body>${header()}${body}${footer()}</body></html>\n`;
+  </head><body class="blog-page">${header()}${body}${footer()}</body></html>\n`;
 }
 
 function card(post) {
@@ -167,7 +167,7 @@ for (const name of htmlFiles) {
       html = html.replace(/(<a href="\/resources" onClick="{{ toggleMenu }}"[^>]*>학습자료<\/a>)(\r?\n)/, (_, anchor, newline) => `${anchor}${newline}  <a href="/blog" onClick="{{ toggleMenu }}">블로그</a>\n`);
     }
   }
-  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260917-2">';
+  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260921-1">';
   if (/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/.test(html)) {
     html = html.replace(/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/, navStyle);
   } else {
