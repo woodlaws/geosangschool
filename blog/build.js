@@ -65,13 +65,13 @@ function imagePath(post, name) {
   return `/images/blog/${post.slug}/${name}.png`;
 }
 
-function header() {
+function header(active = "/blog") {
   const links = [
     ["/about", "거상스쿨 소개"], ["/courses", "교육과정"],
     ["/blog", "블로그"], ["/board", "게시판"], ["/contact", "상담문의"],
   ];
-  const desktop = links.map(([href, label]) => `<a class="nav-link" href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
-  const mobile = links.map(([href, label]) => `<a href="${href}"${href === "/blog" ? ' aria-current="page"' : ""}>${label}</a>`).join("");
+  const desktop = links.map(([href, label]) => `<a class="nav-link" href="${href}"${href === active ? ' aria-current="page"' : ""}>${label}</a>`).join("");
+  const mobile = links.map(([href, label]) => `<a href="${href}"${href === active ? ' aria-current="page"' : ""}>${label}</a>`).join("");
   return `<nav id="gs-nav" class="nav-wrap" aria-label="주 메뉴"><div class="nav-inner">
     <a class="nav-logo" href="/" aria-label="거상스쿨 홈으로 이동"><img src="/uploads/logo-symbol.png" alt="거상스쿨 로고" width="42" height="42"><span>거상스쿨</span></a>
     <div class="nav-links">${desktop}</div>
@@ -133,6 +133,13 @@ function detail(post) {
   return page({ title: `${post.title} | 거상스쿨 블로그`, description: post.summary, canonical: url, image: imagePath(post, "cover"), body, schema });
 }
 
+function boardDetail({ slug, title, description, content, actions }) {
+  const canonical = `${origin}/board/${slug}`;
+  const body = `<main><div class="board-container board-detail"><nav class="board-breadcrumb" aria-label="현재 위치"><a href="/">홈</a><span aria-hidden="true">/</span><a href="/board">게시판</a><span aria-hidden="true">/</span><span>공지·모집</span></nav><article class="board-article"><header><span class="board-article__category">공지·모집</span><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p><time datetime="2026-09-22">2026.09.22</time></header><div class="board-article__body">${content}<div class="board-actions">${actions}</div></div></article><a class="board-back" href="/board">← 게시판 목록</a></div></main>`;
+  const schema = { "@context": "https://schema.org", "@type": "Article", headline: title, description, datePublished: "2026-09-22", dateModified: "2026-09-22", mainEntityOfPage: canonical, author: { "@type": "Organization", name: "거상스쿨" }, publisher: { "@type": "Organization", name: "거상스쿨", url: origin }, inLanguage: "ko-KR" };
+  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="google-site-verification" content="gdmg6fOLuu69ukM7o4I7kx-XXNC_OndwfW8P2d_B5tE"><meta name="naver-site-verification" content="f8a19268d108db6ff5481faf074b5ac3b5ee2850"><title>${escapeHtml(title)} | 거상스쿨 게시판</title><meta name="description" content="${escapeHtml(description)}"><link rel="canonical" href="${canonical}"><meta property="og:type" content="article"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="거상스쿨"><meta property="og:title" content="${escapeHtml(title)} | 거상스쿨 게시판"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}/og-image.png"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog-nav.css?v=20260922-3"><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="/board.css?v=20260922-1"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script type="application/ld+json">${jsonScript(schema)}</script></head><body class="board-page blog-page">${header("/board")}${body}${footer()}</body></html>\n`;
+}
+
 function writeIfChanged(file, content) {
   const current = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : null;
   if (current !== content) fs.writeFileSync(file, content, "utf8");
@@ -146,6 +153,20 @@ for (const post of posts) {
   writeIfChanged(path.join(root, `blog-${post.slug}.html`), detail(post));
 }
 writeIfChanged(path.join(root, "blog.html"), listing());
+writeIfChanged(path.join(root, "board-ai-marketing-school.html"), boardDetail({
+  slug: "ai-marketing-school",
+  title: "AI마케팅스쿨 3개월 과정 안내",
+  description: "AI 도구를 마케팅과 콘텐츠 제작에 연결하는 거상스쿨의 대표 교육과정입니다.",
+  content: `<h2>대표 교육과정</h2><p>AI마케팅스쿨은 ChatGPT, Gemini, Claude 등 주요 AI 도구를 실제 업무와 사업에 활용하는 3개월 실전 과정입니다. 자세한 커리큘럼과 현재 모집 안내는 교육과정 상세 페이지에서 확인할 수 있습니다.</p><div class="board-callout"><strong>확인 안내</strong><p>모집 일정과 신청 가능 여부는 상세 페이지와 상담을 통해 최신 정보를 확인해 주세요.</p></div>`,
+  actions: `<a href="/courses/ai-marketing-school">과정 상세 보기</a><a class="secondary" href="/contact">상담문의</a>`,
+}));
+writeIfChanged(path.join(root, "board-student-classroom-guide.html"), boardDetail({
+  slug: "student-classroom-guide",
+  title: "기존 수강생 강의실 이용 안내",
+  description: "로그인, 강의 시청과 수강생 전용 자료 확인은 기존 강의실에서 진행됩니다.",
+  content: `<h2>강의 시청과 자료 확인</h2><p>기존 수강생은 기존 강의실 로그인 페이지로 이동한 뒤 아이디와 비밀번호로 로그인해 수강 중인 강좌를 확인해 주세요. 과정별 강의자료는 강의실, 공지, Google Drive 또는 네이버 카페 등 각 과정에서 안내된 위치에서 확인합니다.</p><div class="board-callout"><strong>수강생 전용 자료 안내</strong><p>수강생 전용 자료는 게시판의 무료자료로 공개하지 않으며, 기존 접근 권한을 그대로 유지합니다.</p></div>`,
+  actions: `<a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실 열기 ↗</a><a class="secondary" href="/login#help">로그인 도움말</a>`,
+}));
 
 const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".dc.html"));
 for (const name of htmlFiles) {
