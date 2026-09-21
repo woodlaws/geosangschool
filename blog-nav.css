@@ -180,6 +180,26 @@
 }
 .nav-wrap .mobile-nav a[aria-current="page"] { color: #2563eb; background: #eff6ff; border-radius: 8px; }
 
+/* DC runtime renders its mobile menu immediately after the fixed nav. */
+.nav-wrap + .mobile-nav,
+.nav:not(.nav-wrap) + .mobile-nav {
+  top: 88px !important;
+}
+.nav-wrap + .mobile-nav a,
+.nav:not(.nav-wrap) + .mobile-nav a {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 21.6px !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+  text-decoration: none !important;
+}
+.nav-wrap + .mobile-nav a:focus-visible,
+.nav:not(.nav-wrap) + .mobile-nav a:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .45);
+  outline-offset: 3px;
+}
+
 /* The standalone AI Homepage course uses legacy class names; keep its header aligned too. */
 .nav:not(.nav-wrap) .nav-inner {
   box-sizing: border-box;
