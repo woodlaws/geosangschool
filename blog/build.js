@@ -93,7 +93,7 @@ function page({ title, description, canonical, body, image, schema }) {
     <meta name="google-site-verification" content="gdmg6fOLuu69ukM7o4I7kx-XXNC_OndwfW8P2d_B5tE"><meta name="naver-site-verification" content="f8a19268d108db6ff5481faf074b5ac3b5ee2850">
     <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><link rel="canonical" href="${canonical}">
     <meta property="og:type" content="${Array.isArray(schema) ? "article" : "website"}"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="거상스쿨"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}${image}">
-    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css?v=20260922-2"><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="/blog-nav.css?v=20260922-2"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
+    <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/blog.css?v=20260922-2"><link rel="stylesheet" href="/footer.css"><link rel="stylesheet" href="/blog-nav.css?v=20260922-3"><script src="/analytics.js" defer></script><script src="/blog-filter.js" defer></script><script src="/blog-toc.js" defer></script>
     ${schema ? `<script type="application/ld+json">${jsonScript(schema)}</script>` : ""}
   </head><body class="blog-page">${header()}${body}${footer()}</body></html>\n`;
 }
@@ -153,10 +153,8 @@ for (const name of htmlFiles) {
   let html = fs.readFileSync(file, "utf8");
   if (name === "AI홈페이지스쿨.dc.html") {
     const legacyLinks = '<a href="/about">거상스쿨 소개</a><a href="/courses" aria-current="page">교육과정</a><a href="/blog">블로그</a><a href="/board">게시판</a><a href="/contact">상담문의</a>';
-    html = html.replace(/<div class="nav-links">[\s\S]*?<\/div>\s*<div class="nav-actions">/, `<div class="nav-links">${legacyLinks}</div><div class="nav-actions">`);
-    html = html.replace(/<div class="mobile-menu"[^>]*>[\s\S]*?<\/div>\s*<\/header>/, `<div class="mobile-menu" id="mobile-menu">${legacyLinks}<a class="mobile-login" href="/login">수강생 로그인</a></div></header>`);
-    html = html.replace('<a class="btn btn-primary" href="/contact">수강 신청</a>', '<a class="btn btn-login" href="/login">수강생 로그인</a>');
-    html = html.replace('<a class="mobile-cta" href="/contact">수강 신청</a>', '<a class="mobile-login" href="/login">수강생 로그인</a>');
+    html = html.replace(/<nav class="nav-links" aria-label="주요 메뉴">[\s\S]*?<\/nav>\s*<button class="nav-toggle"/, `<nav class="nav-links" aria-label="주요 메뉴">${legacyLinks}</nav><div class="nav-actions"><a class="btn btn-login" href="/login">수강생 로그인</a></div><button class="nav-toggle"`);
+    html = html.replace(/<nav id="mobile-menu" class="mobile-nav" aria-label="모바일 메뉴">[\s\S]*?<\/nav>/, `<nav id="mobile-menu" class="mobile-nav" aria-label="모바일 메뉴">${legacyLinks}<a class="mobile-login" href="/login">수강생 로그인</a></nav>`);
   } else {
     const active = name === "거상스쿨 소개.dc.html" ? "/about" : name === "전체 교육과정.dc.html" || name.includes("스쿨.dc.html") || name === "단기 클래스.dc.html" ? "/courses" : name === "상담문의.dc.html" ? "/contact" : "";
     const links = [["/about","거상스쿨 소개"],["/courses","교육과정"],["/blog","블로그"],["/board","게시판"],["/contact","상담문의"]];
@@ -165,7 +163,7 @@ for (const name of htmlFiles) {
     html = html.replace(/<div class="nav-links">[\s\S]*?<\/div>\s*<div class="nav-cta-group">/, `<div class="nav-links">\n${desktop}\n    </div>\n    <div class="nav-cta-group">`);
     html = html.replace(/<div class="{{ mobileNavClass }}">[\s\S]*?<\/div>\s*<div style="height:78px;">/, `<div class="{{ mobileNavClass }}">\n${mobile}\n  <a href="/login" class="mob-login" onClick="{{ toggleMenu }}">수강생 로그인</a>\n</div>\n<div style="height:78px;">`);
   }
-  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260922-2">';
+  const navStyle = '<link rel="stylesheet" href="/blog-nav.css?v=20260922-3">';
   if (/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/.test(html)) {
     html = html.replace(/<link rel="stylesheet" href="\/blog-nav\.css(?:\?[^\"]*)?">/, navStyle);
   } else {

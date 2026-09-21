@@ -14,16 +14,17 @@
   height: 78px;
   margin-inline: auto;
   padding-inline: 24px;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: 0;
+  column-gap: 24px;
 }
 .nav-wrap .nav-logo {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  flex: none;
-  margin-right: 18px !important;
+  justify-self: start;
+  margin-right: 0 !important;
   color: #0b1b3f;
   white-space: nowrap;
 }
@@ -36,7 +37,14 @@
   line-height: 1 !important;
   white-space: nowrap;
 }
-.nav-wrap .nav-links { display: flex; align-items: center; gap: 0; flex: 1 1 auto; min-width: 0; }
+.nav-wrap .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
+  justify-self: center;
+}
 .nav-wrap .nav-link {
   padding: 7px 6px !important;
   border-radius: 7px;
@@ -52,8 +60,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: none;
-  margin-left: 8px !important;
+  justify-self: end;
+  margin-left: 0 !important;
 }
 .nav-wrap .btn-nav-main,
 .nav-wrap .btn-nav-sub {
@@ -81,6 +89,35 @@
   font-size: 17px !important;
 }
 .nav-wrap .btn-nav-sub:hover { border-color: #2563eb; color: #2563eb; }
+
+/* Header links must not inherit document-level underline styles. */
+.nav-wrap .nav-logo,
+.nav-wrap .nav-logo:link,
+.nav-wrap .nav-logo:visited,
+.nav-wrap .nav-logo:hover,
+.nav-wrap .nav-logo:active,
+.nav-wrap .nav-link,
+.nav-wrap .nav-link:link,
+.nav-wrap .nav-link:visited,
+.nav-wrap .nav-link:hover,
+.nav-wrap .nav-link:active,
+.nav-wrap .btn-nav-sub,
+.nav-wrap .btn-nav-sub:link,
+.nav-wrap .btn-nav-sub:visited,
+.nav-wrap .btn-nav-sub:hover,
+.nav-wrap .btn-nav-sub:active,
+.nav-wrap .mobile-nav a,
+.nav-wrap .mobile-nav a:link,
+.nav-wrap .mobile-nav a:visited,
+.nav-wrap .mobile-nav a:hover,
+.nav-wrap .mobile-nav a:active {
+  text-decoration: none !important;
+}
+.nav-wrap a:focus-visible,
+.nav-wrap button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .45);
+  outline-offset: 3px;
+}
 .nav-wrap .hamburger {
   display: none;
   flex-direction: column;
@@ -131,20 +168,43 @@
 .nav-wrap .mobile-nav a[aria-current="page"] { color: #2563eb; background: #eff6ff; border-radius: 8px; }
 
 /* The standalone AI Homepage course uses legacy class names; keep its header aligned too. */
-.nav:not(.nav-wrap) .nav-inner { box-sizing: border-box; width: 100%; max-width: 1340px; margin-inline: auto; padding-inline: 24px; }
+.nav:not(.nav-wrap) .nav-inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1340px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 24px;
+}
+.nav:not(.nav-wrap) .brand { justify-self: start; }
+.nav:not(.nav-wrap) .nav-links { margin-left: 0 !important; justify-self: center; gap: 18px !important; }
+.nav:not(.nav-wrap) .nav-actions { display: flex; align-items: center; justify-self: end; }
 .nav:not(.nav-wrap) .brand strong { font-size: 26px !important; font-weight: 800 !important; }
 .nav:not(.nav-wrap) .nav-links a { font-size: 20px !important; font-weight: 600 !important; }
 .nav:not(.nav-wrap) .nav-links a.btn { font-size: 18px !important; font-weight: 700 !important; }
 .nav:not(.nav-wrap) .nav-links a.btn-login { font-size: 17px !important; }
 .nav:not(.nav-wrap) .mobile-nav a { font-size: 19px !important; }
+.nav:not(.nav-wrap) a,
+.nav:not(.nav-wrap) a:link,
+.nav:not(.nav-wrap) a:visited,
+.nav:not(.nav-wrap) a:hover,
+.nav:not(.nav-wrap) a:active { text-decoration: none !important; }
+.nav:not(.nav-wrap) a:focus-visible,
+.nav:not(.nav-wrap) button:focus-visible { outline: 3px solid rgba(37, 99, 235, .45); outline-offset: 3px; }
 
 /* Use one mobile breakpoint instead of shrinking desktop typography. */
 @media (max-width: 1279px) {
+  .nav-wrap .nav-inner { display: flex; }
   .nav-wrap .nav-links,
   .nav-wrap .nav-cta-group { display: none !important; }
   .nav-wrap .hamburger { display: flex !important; }
   .nav-toggle { display: block !important; }
-  .nav:not(.nav-wrap) .nav-links { display: none !important; }
+  .nav:not(.nav-wrap) .nav-inner { display: flex !important; }
+  .nav:not(.nav-wrap) .nav-links,
+  .nav:not(.nav-wrap) .nav-actions { display: none !important; }
   .nav:not(.nav-wrap) .nav-toggle { display: block !important; }
 }
 
