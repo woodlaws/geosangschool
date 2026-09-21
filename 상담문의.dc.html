@@ -439,25 +439,25 @@ input,textarea,select,label{font-size:19px!important;}
         <div style="display:flex; flex-direction:column; gap:18px;">
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label">이름 <span>*</span></label>
-              <input type="text" class="form-input" placeholder="홍길동" disabled style="cursor:not-allowed; background:#f1f5f9;">
+              <label class="form-label" for="contact-name">이름 <span>*</span></label>
+              <input id="contact-name" type="text" class="form-input" placeholder="홍길동" disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9;">
             </div>
             <div class="form-field">
-              <label class="form-label">연락처 <span>*</span></label>
-              <input type="tel" class="form-input" placeholder="010-0000-0000" disabled style="cursor:not-allowed; background:#f1f5f9;">
+              <label class="form-label" for="contact-phone">연락처 <span>*</span></label>
+              <input id="contact-phone" type="tel" class="form-input" placeholder="010-0000-0000" disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9;">
             </div>
           </div>
           <div class="form-field">
-            <label class="form-label">이메일 <span>*</span></label>
-            <input type="email" class="form-input" placeholder="example@email.com" disabled style="cursor:not-allowed; background:#f1f5f9;">
+            <label class="form-label" for="contact-email">이메일 <span>*</span></label>
+            <input id="contact-email" type="email" class="form-input" placeholder="example@email.com" disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9;">
           </div>
           <div class="form-field">
-            <label class="form-label">현재 하는 일 또는 업종 <span>*</span></label>
-            <input type="text" class="form-input" placeholder="예: 1인기업 대표, 강사, 마케터, 소상공인" disabled style="cursor:not-allowed; background:#f1f5f9;">
+            <label class="form-label" for="contact-job">현재 하는 일 또는 업종 <span>*</span></label>
+            <input id="contact-job" type="text" class="form-input" placeholder="예: 1인기업 대표, 강사, 마케터, 소상공인" disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9;">
           </div>
           <div class="form-field">
-            <label class="form-label">관심 과정 <span>*</span></label>
-            <select class="form-select" disabled style="cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
+            <label class="form-label" for="contact-course">관심 과정 <span>*</span></label>
+            <select id="contact-course" class="form-select" disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
               <option>관심 과정을 선택해 주세요</option>
               <option>AI마케팅스쿨 3개월 과정</option>
               <option>1day 클래스</option>
@@ -472,8 +472,8 @@ input,textarea,select,label{font-size:19px!important;}
             </select>
           </div>
           <div class="form-field">
-            <label class="form-label">AI 활용 수준 <span style="font-weight:400; color:#94a3b8; font-size:12px;">(선택)</span></label>
-            <select class="form-select" disabled style="cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
+            <label class="form-label" for="contact-level">AI 활용 수준 <span style="font-weight:400; color:#94a3b8; font-size:12px;">(선택)</span></label>
+            <select id="contact-level" class="form-select" disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
               <option>현재 AI 활용 수준을 선택해 주세요</option>
               <option>거의 처음</option>
               <option>ChatGPT 정도는 써봄</option>
@@ -483,13 +483,13 @@ input,textarea,select,label{font-size:19px!important;}
             </select>
           </div>
           <div class="form-field">
-            <label class="form-label">가장 큰 고민 <span style="font-weight:400; color:#94a3b8; font-size:12px;">(선택)</span></label>
-            <textarea class="form-textarea" placeholder="예: AI를 어디서부터 시작해야 할지 모르겠어요. / 콘텐츠를 꾸준히 만들고 싶어요. / 홈페이지를 직접 만들고 싶어요." disabled style="cursor:not-allowed; background:#f1f5f9;"></textarea>
+            <label class="form-label" for="contact-message">가장 큰 고민 <span style="font-weight:400; color:#94a3b8; font-size:12px;">(선택)</span></label>
+            <textarea id="contact-message" class="form-textarea" placeholder="예: AI를 어디서부터 시작해야 할지 모르겠어요. / 콘텐츠를 꾸준히 만들고 싶어요. / 홈페이지를 직접 만들고 싶어요." disabled aria-disabled="true" style="cursor:not-allowed; background:#f1f5f9;"></textarea>
           </div>
           <div style="background:#f0f4f8; border-radius:10px; padding:12px 16px;">
             <p style="font-size:12px; color:#64748b;">입력하신 정보는 상담 안내와 과정 안내 목적으로만 사용됩니다.</p>
           </div>
-          <button disabled style="padding:16px; background:#94a3b8; color:#fff; font-size:15px; font-weight:700; border-radius:10px; border:none; cursor:not-allowed; font-family:'Noto Sans KR',sans-serif;">상담 신청하기 (연결 준비 중)</button>
+          <button type="button" disabled aria-disabled="true" style="padding:16px; background:#94a3b8; color:#fff; font-size:15px; font-weight:700; border-radius:10px; border:none; cursor:not-allowed; font-family:'Noto Sans KR',sans-serif;">상담 신청하기 (연결 준비 중)</button>
         </div>
       </div>
       <!-- 사이드 안내 -->
@@ -782,6 +782,11 @@ class Component extends DCLogic {
 
   componentDidMount() {
     const nav = document.getElementById('gs-nav');
+    const unavailableControls = document.querySelectorAll('#contact-form input, #contact-form select, #contact-form textarea, #contact-form button');
+    unavailableControls.forEach(control => {
+      control.disabled = true;
+      control.setAttribute('aria-disabled', 'true');
+    });
     const onScroll = () => {
       if (window.scrollY > 20) nav?.classList.add('scrolled');
       else nav?.classList.remove('scrolled');
