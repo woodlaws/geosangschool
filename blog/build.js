@@ -12,6 +12,18 @@ const posts = [
   require("./posts/threads-post-structure"),
 ];
 
+const business = Object.freeze({
+  name: "거상스쿨 주식회사",
+  representative: "임헌수",
+  privacyManager: "권현임",
+  registrationNumber: "711-86-01966",
+  mailOrderRegistrationNumber: "제2026-서울강남-04873호",
+  email: "geosangschool@naver.com",
+  phoneDisplay: "010-5795-8075",
+  phoneHref: "01057958075",
+  address: "서울특별시 강남구 테헤란로 313, 915호 성지하이츠1(역삼동)",
+});
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -80,10 +92,18 @@ function header(active = "/blog") {
   </div><div id="blog-mobile-nav" class="mobile-nav" aria-label="모바일 메뉴" hidden>${mobile}<a href="/login" class="mob-login">수강생 로그인</a></div></nav>`;
 }
 
+function companyInfo(titleId) {
+  return `<section class="gs-footer__company" aria-labelledby="${escapeHtml(titleId)}"><h2 class="gs-footer__title" id="${escapeHtml(titleId)}">회사 정보</h2><p class="gs-footer__company-name">${escapeHtml(business.name)}</p><dl class="gs-footer__company-list"><dt>대표자명</dt><dd class="gs-footer__nowrap">${escapeHtml(business.representative)}</dd><dt>개인정보관리자</dt><dd class="gs-footer__nowrap">${escapeHtml(business.privacyManager)}</dd><dt>사업자등록번호</dt><dd class="gs-footer__nowrap">${escapeHtml(business.registrationNumber)}</dd><dt>통신판매업신고번호</dt><dd class="gs-footer__registration">${escapeHtml(business.mailOrderRegistrationNumber)}</dd><dt>이메일</dt><dd class="gs-footer__email"><a href="mailto:${escapeHtml(business.email)}">${escapeHtml(business.email)}</a></dd><dt>전화</dt><dd><a class="gs-footer__nowrap" href="tel:${escapeHtml(business.phoneHref)}">${escapeHtml(business.phoneDisplay)}</a></dd><dt>주소</dt><dd class="gs-footer__address">${escapeHtml(business.address)}</dd></dl></section>`;
+}
+
+function syncCompanyInfo(html) {
+  return html.replace(/<section class="gs-footer__company" aria-labelledby="([^"]+)">[\s\S]*?<\/section>/, (_, titleId) => companyInfo(titleId));
+}
+
 function footer() {
   return `<footer class="gs-footer"><div class="gs-footer__inner"><div class="gs-footer__top">
     <section class="gs-footer__brand" aria-label="거상스쿨 소개"><a class="gs-footer__brand-link" href="/" aria-label="거상스쿨 홈으로 이동"><img src="/logo.png" alt="거상스쿨 로고" width="52" height="52"><span><strong class="gs-footer__brand-name">거상스쿨</strong><span class="gs-footer__brand-tagline">AI로 돈 버는 실전 교육 플랫폼</span></span></a><p class="gs-footer__description">AI 시대에 1인기업, 소상공인, 강사, 마케터가 AI로 콘텐츠, 마케팅, 홈페이지, 자동화 시스템을 직접 만들 수 있도록 돕는 실전형 AI 마케팅 교육 플랫폼</p></section>
-    <section class="gs-footer__company" aria-labelledby="blog-footer-company"><h2 class="gs-footer__title" id="blog-footer-company">회사 정보</h2><p class="gs-footer__company-name">거상스쿨(주)</p><dl class="gs-footer__company-list"><dt>대표자명</dt><dd class="gs-footer__nowrap">임헌수</dd><dt>개인정보관리자</dt><dd class="gs-footer__nowrap">권현임</dd><dt>사업자등록번호</dt><dd class="gs-footer__nowrap">711-86-01966</dd><dt>이메일</dt><dd class="gs-footer__email"><a href="mailto:geosangschool@naver.com">geosangschool@naver.com</a></dd><dt>전화</dt><dd><a class="gs-footer__nowrap" href="tel:01057958075">010-5795-8075</a></dd><dt>주소</dt><dd>서울 강남구 테헤란로 313, 915호</dd></dl></section>
+    ${companyInfo("blog-footer-company")}
     <nav class="gs-footer__student" aria-label="수강생 메뉴"><h2 class="gs-footer__title">수강생</h2><div class="gs-footer__student-links"><a href="/login">수강생 로그인</a><a href="https://geosangschool.com/member_login.php" target="_blank" rel="noopener noreferrer">기존 강의실</a><a href="/board">게시판</a></div></nav>
   </div><div class="gs-footer__bottom"><p class="gs-footer__copyright">© 2026 거상스쿨(주). All rights reserved.</p><div class="gs-footer__family"><span class="gs-footer__status" aria-hidden="true"></span><p class="gs-footer__family-text">거상마케팅센터 패밀리 브랜드</p></div></div></div></footer>`;
 }
@@ -172,6 +192,7 @@ const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".dc.html"
 for (const name of htmlFiles) {
   const file = path.join(root, name);
   let html = fs.readFileSync(file, "utf8");
+  html = syncCompanyInfo(html);
   if (name === "AI홈페이지스쿨.dc.html") {
     const legacyLinks = '<a href="/about">거상스쿨 소개</a><a href="/courses" aria-current="page">교육과정</a><a href="/blog">블로그</a><a href="/board">게시판</a><a href="/contact">상담문의</a>';
     html = html.replace(/<nav class="nav-links" aria-label="주요 메뉴">[\s\S]*?<\/nav>\s*<button class="nav-toggle"/, `<nav class="nav-links" aria-label="주요 메뉴">${legacyLinks}</nav><div class="nav-actions"><a class="btn btn-login" href="/login">수강생 로그인</a></div><button class="nav-toggle"`);
@@ -200,6 +221,9 @@ for (const name of htmlFiles) {
   if (!navigationReady) throw new Error(`Navigation not updated: ${name}`);
   writeIfChanged(file, html);
 }
+
+const boardFile = path.join(root, "board.html");
+writeIfChanged(boardFile, syncCompanyInfo(fs.readFileSync(boardFile, "utf8")));
 
 const configFile = path.join(root, "vercel.json");
 const configText = fs.readFileSync(configFile, "utf8");
